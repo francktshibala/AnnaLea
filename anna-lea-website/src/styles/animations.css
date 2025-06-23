@@ -1,0 +1,442 @@
+/* Anna Lea Design System - Animation Styles */
+
+/* === FLOATING PARTICLES === */
+
+.floating-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Particle Types */
+.particle-circle {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.particle-star {
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+.particle-cross {
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6em;
+  line-height: 1;
+}
+
+.particle-dot {
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+/* Color Variants */
+.floating-particles-white .particle-circle {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.floating-particles-golden .particle-circle {
+  background: rgba(251, 191, 36, 0.6);
+}
+
+.floating-particles-golden .particle-star,
+.floating-particles-golden .particle-cross,
+.floating-particles-golden .particle-dot {
+  color: rgba(251, 191, 36, 0.8);
+}
+
+.floating-particles-blue .particle-circle {
+  background: rgba(56, 189, 248, 0.6);
+}
+
+.floating-particles-blue .particle-star,
+.floating-particles-blue .particle-cross,
+.floating-particles-blue .particle-dot {
+  color: rgba(56, 189, 248, 0.8);
+}
+
+.floating-particles-rainbow .particle-circle {
+  background: linear-gradient(45deg, 
+    rgba(255, 0, 150, 0.6), 
+    rgba(0, 204, 255, 0.6), 
+    rgba(238, 130, 238, 0.6)
+  );
+}
+
+/* Size Variants */
+.floating-particles-small .particle {
+  filter: scale(0.7);
+}
+
+.floating-particles-large .particle {
+  filter: scale(1.3);
+}
+
+/* Opacity Variants */
+.floating-particles-subtle .particle {
+  opacity: 0.3;
+}
+
+.floating-particles-bright .particle {
+  opacity: 0.9;
+}
+
+/* Direction Animations */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes particleFloatDown {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-20px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes particleFloatRandom {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(75vh) translateX(30px) rotate(90deg) scale(1);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-20px) rotate(180deg) scale(0.8);
+  }
+  75% {
+    transform: translateY(25vh) translateX(40px) rotate(270deg) scale(1.2);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(10px) rotate(360deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Direction Classes */
+.floating-particles-up .particle {
+  animation-name: particleFloat;
+}
+
+.floating-particles-down .particle {
+  animation-name: particleFloatDown;
+}
+
+.floating-particles-random .particle {
+  animation-name: particleFloatRandom;
+}
+
+/* Speed Variants */
+.floating-particles-slow .particle {
+  animation-duration: 15s;
+}
+
+.floating-particles-fast .particle {
+  animation-duration: 5s;
+}
+
+/* Reduced Motion */
+.floating-particles-reduced-motion .particle {
+  animation: none;
+  opacity: 0.1;
+}
+
+/* === MORPHING GRADIENTS === */
+
+.morphing-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradientMorph 15s ease infinite;
+}
+
+@keyframes gradientMorph {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Christian-themed gradients */
+.morphing-gradient-divine {
+  background: linear-gradient(-45deg, 
+    var(--color-primary-400), 
+    var(--color-primary-600), 
+    var(--color-secondary-400), 
+    var(--color-primary-500)
+  );
+  background-size: 400% 400%;
+  animation: gradientMorph 12s ease infinite;
+}
+
+.morphing-gradient-heavenly {
+  background: linear-gradient(-45deg, 
+    var(--color-primary-200), 
+    var(--color-primary-300), 
+    var(--color-secondary-200), 
+    var(--color-primary-100)
+  );
+  background-size: 400% 400%;
+  animation: gradientMorph 18s ease infinite;
+}
+
+.morphing-gradient-blessed {
+  background: linear-gradient(-45deg, 
+    #e0f2fe, 
+    #bae6fd, 
+    #fef3c7, 
+    #f0f9ff
+  );
+  background-size: 400% 400%;
+  animation: gradientMorph 20s ease infinite;
+}
+
+/* === 3D TRANSFORMS === */
+
+.floating-3d {
+  transform-style: preserve-3d;
+  animation: float3D 6s ease-in-out infinite;
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+  }
+  66% {
+    transform: translateY(-10px) rotateX(-3deg) rotateY(-3deg);
+  }
+}
+
+.book-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.book-3d:hover {
+  transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+}
+
+/* === STAGGERED ANIMATIONS === */
+
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+
+.stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: staggerFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === PULSE ANIMATIONS === */
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(14, 165, 233, 0.8);
+  }
+}
+
+.pulse-scale {
+  animation: pulseScale 3s ease-in-out infinite;
+}
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* === TEXT ANIMATIONS === */
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-500) 25%,
+    var(--color-primary-500) 50%,
+    var(--color-neutral-500) 75%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 3s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+.text-typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--color-primary-500);
+  white-space: nowrap;
+  animation: typewriter 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-primary-500);
+  }
+}
+
+/* === RESPONSIVE ANIMATIONS === */
+
+@media (max-width: 768px) {
+  .floating-particles-responsive {
+    opacity: 0.7;
+  }
+  
+  .floating-particles-responsive .particle {
+    animation-duration: 8s; /* Faster on mobile for performance */
+  }
+  
+  .morphing-gradient {
+    animation-duration: 10s; /* Faster morphing on mobile */
+  }
+  
+  .floating-3d {
+    animation-duration: 4s; /* Simpler animations on mobile */
+  }
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-particles,
+  .morphing-gradient,
+  .floating-3d,
+  .pulse-glow,
+  .pulse-scale,
+  .text-shimmer,
+  .text-typewriter {
+    animation: none;
+  }
+  
+  .book-3d:hover {
+    transform: none;
+  }
+  
+  .stagger-fade-in > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* GPU acceleration for smooth animations */
+.floating-particles,
+.morphing-gradient,
+.floating-3d,
+.book-3d {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
