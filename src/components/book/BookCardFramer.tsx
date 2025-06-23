@@ -1,7 +1,6 @@
 'use client';
 
-import React, { forwardRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { forwardRef, useState, useRef, useEffect } from 'react';
 import { cn } from '@/utils';
 
 // TypeScript interfaces for BookCard props
@@ -21,7 +20,7 @@ export interface BookCardProps extends React.HTMLAttributes<HTMLDivElement> {
   onAddToCart?: (book: Book) => void;
 }
 
-// 3D BookCard component using Framer Motion (bypasses CSS build issues)
+// 3D BookCard component using JavaScript animations (bypasses CSS build issues)
 export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
   (
     {
@@ -35,6 +34,8 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
     ref
   ) => {
     const [hoverCount, setHoverCount] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
 
     const handleAddToCart = () => {
       if (onAddToCart && !loading) {
@@ -48,6 +49,24 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       large: 'max-w-[320px]',
     };
 
+    // Apply 3D transforms using JavaScript animation
+    useEffect(() => {
+      const card = cardRef.current;
+      if (!card) return;
+
+      if (isHovered) {
+        card.style.transform = 'perspective(1000px) rotateX(15deg) rotateY(-15deg) translateZ(30px) translateY(-10px)';
+        card.style.boxShadow = '0 40px 80px rgba(0, 0, 0, 0.25)';
+        card.style.background = '#ffffff';
+        card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      } else {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px)';
+        card.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
+        card.style.background = '#f8fafc';
+        card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      }
+    }, [isHovered]);
+
     return (
       <div
         ref={ref}
@@ -59,7 +78,8 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         }}
         {...props}
       >
-        <motion.div
+        <div
+          ref={cardRef}
           className="relative h-full flex flex-col rounded-xl overflow-hidden cursor-pointer"
           style={{
             width: '100%',
@@ -73,26 +93,14 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
             display: 'flex',
             flexDirection: 'column',
           }}
-          whileHover={{
-            rotateX: 15,
-            rotateY: -15,
-            z: 30,
-            y: -10,
-            boxShadow: '0 40px 80px rgba(0, 0, 0, 0.25)',
-            background: '#ffffff',
-            transition: {
-              duration: 0.4,
-              ease: [0.175, 0.885, 0.32, 1.275],
-            },
+          onMouseEnter={() => {
+            setIsHovered(true);
+            setHoverCount(prev => prev + 1);
           }}
-          onMouseEnter={() => setHoverCount(prev => prev + 1)}
-          transition={{
-            duration: 0.4,
-            ease: [0.175, 0.885, 0.32, 1.275],
-          }}
+          onMouseLeave={() => setIsHovered(false)}
         >
           {/* Book Image */}
-          <motion.div
+          <div
             className="book-image"
             style={{
               width: '100%',
@@ -101,11 +109,6 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               borderRadius: '12px 12px 0 0',
-            }}
-            whileHover={{
-              z: 15,
-              scale: 1.03,
-              transition: { duration: 0.3 },
             }}
           />
 
@@ -155,7 +158,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 ${book.price.toFixed(2)}
               </div>
               
-              {/* Debug Info - Shows Framer Motion is working */}
+              {/* Debug Info - Shows JavaScript animations working */}
               <div style={{
                 fontSize: '12px',
                 color: '#16a34a',
@@ -166,12 +169,12 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 borderRadius: '4px',
                 textAlign: 'center',
               }}>
-                🚀 Framer Motion • Hover Count: {hoverCount}
+                🎯 JS Animations • Hover Count: {hoverCount}
               </div>
             </div>
 
             {/* Add to Cart Button */}
-            <motion.button
+            <button
               onClick={handleAddToCart}
               disabled={loading}
               style={{
@@ -185,26 +188,26 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 fontWeight: '600',
                 cursor: loading ? 'not-allowed' : 'pointer',
                 opacity: loading ? 0.7 : 1,
+                transition: 'all 0.2s ease',
               }}
-              whileHover={{
-                z: 10,
-                background: 'linear-gradient(135deg, #1d4ed8, #1e40af)',
-                transition: { duration: 0.2 },
+              onMouseEnter={(e) => {
+                if (!loading) {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #1d4ed8, #1e40af)';
+                }
               }}
-              whileTap={{
-                scale: 0.98,
-                transition: { duration: 0.1 },
+              onMouseLeave={(e) => {
+                if (!loading) {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #3b82f6, #2563eb)';
+                }
               }}
             >
               {loading ? 'Adding to Cart...' : 'Add to Cart'}
-            </motion.button>
+            </button>
           </div>
 
           {/* Loading Overlay */}
           {loading && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+            <div 
               style={{
                 position: 'absolute',
                 top: 0,
@@ -216,22 +219,23 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: '12px',
+                opacity: 1,
+                transition: 'opacity 0.3s ease',
               }}
             >
-              <motion.div 
+              <div 
                 style={{
                   width: '32px',
                   height: '32px',
                   border: '3px solid #e5e7eb',
                   borderTop: '3px solid #3b82f6',
                   borderRadius: '50%',
+                  animation: 'spin 1s linear infinite',
                 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
               />
-            </motion.div>
+            </div>
           )}
-        </motion.div>
+        </div>
       </div>
     );
   }
