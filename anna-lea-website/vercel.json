@@ -1,5 +1,6 @@
 {
-  "version": 2,
-  "name": "anna-lea-website",
-  "framework": "nextjs"
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "installCommand": "npm install"
 }
