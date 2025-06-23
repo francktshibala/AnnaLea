@@ -1,4 +1,6 @@
-import React, { forwardRef, useState } from 'react';
+'use client';
+
+import React, { forwardRef, useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { cn } from '@/utils';
 
@@ -34,6 +36,13 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
   ) => {
     const [isHovered, setIsHovered] = useState(false);
     const [hoverCount, setHoverCount] = useState(0);
+    const [isMounted, setIsMounted] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    // Ensure component is mounted before applying transforms (fixes SSR)
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
 
     const handleAddToCart = () => {
       if (onAddToCart && !loading) {
@@ -41,15 +50,74 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       }
     };
 
+    // Apply transforms using DOM manipulation for better Next.js compatibility
+    useEffect(() => {
+      if (!isMounted || !cardRef.current) return;
+
+      const cardElement = cardRef.current.querySelector('.book-card-inner') as HTMLElement;
+      const imageElement = cardRef.current.querySelector('.book-image') as HTMLElement;
+      const buttonElement = cardRef.current.querySelector('.add-to-cart-btn') as HTMLElement;
+
+      if (!cardElement) return;
+
+      if (isHovered) {
+        // Apply hover transforms
+        cardElement.style.transform = 'rotateX(25deg) rotateY(-25deg) translateZ(50px) translateY(-20px) scale(1.1)';
+        cardElement.style.boxShadow = '0 40px 80px rgba(0, 0, 0, 0.25)';
+        cardElement.style.background = '#ffffff';
+        
+        if (imageElement) {
+          imageElement.style.transform = 'translateZ(15px) scale(1.03)';
+        }
+        
+        if (buttonElement) {
+          buttonElement.style.transform = 'translateZ(10px)';
+          buttonElement.style.background = 'linear-gradient(135deg, #1d4ed8, #1e40af)';
+        }
+      } else {
+        // Reset transforms
+        cardElement.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        cardElement.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.1)';
+        cardElement.style.background = '#f8fafc';
+        
+        if (imageElement) {
+          imageElement.style.transform = 'translateZ(0)';
+        }
+        
+        if (buttonElement) {
+          buttonElement.style.transform = 'translateZ(0)';
+          buttonElement.style.background = 'linear-gradient(135deg, #3b82f6, #2563eb)';
+        }
+      }
+    }, [isHovered, isMounted]);
+
     const sizeClasses = {
       small: 'max-w-[200px]',
       medium: 'max-w-[280px]',
       large: 'max-w-[320px]',
     };
 
+    // Don't render with transforms until mounted (prevents SSR mismatch)
+    if (!isMounted) {
+      return (
+        <div
+          ref={ref}
+          data-testid="book-card"
+          className={cn('book-card w-full', sizeClasses[size], className)}
+          style={{
+            maxWidth: '280px',
+            width: '100%',
+          }}
+          {...props}
+        >
+          <div className="w-full h-[420px] bg-gray-100 rounded-xl animate-pulse" />
+        </div>
+      );
+    }
+
     return (
       <div
-        ref={ref}
+        ref={cardRef}
         data-testid="book-card"
         className={cn('book-card w-full', sizeClasses[size], className)}
         onMouseEnter={() => {
@@ -68,19 +136,15 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
           style={{
             width: '100%',
             height: '420px',
-            background: isHovered ? '#ffffff' : '#f8fafc',
+            background: '#f8fafc',
             borderRadius: '12px',
             overflow: 'hidden',
             border: '1px solid rgba(255, 255, 255, 0.2)',
             cursor: 'pointer',
             transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             transformStyle: 'preserve-3d',
-            boxShadow: isHovered 
-              ? '0 40px 80px rgba(0, 0, 0, 0.25)'
-              : '0 8px 25px rgba(0, 0, 0, 0.1)',
-            transform: isHovered 
-              ? 'rotateX(25deg) rotateY(-25deg) translateZ(50px) translateY(-20px) scale(1.1)' 
-              : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)',
+            transform: 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
             display: 'flex',
             flexDirection: 'column' as const,
           }}
@@ -96,7 +160,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               backgroundPosition: 'center',
               transition: 'transform 0.5s ease-out',
               borderRadius: '12px 12px 0 0',
-              transform: isHovered ? 'translateZ(15px) scale(1.03)' : 'translateZ(0)',
+              transform: 'translateZ(0)',
             }}
           />
 
@@ -181,9 +245,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               style={{
                 width: '100%',
                 padding: '12px',
-                background: isHovered 
-                  ? 'linear-gradient(135deg, #1d4ed8, #1e40af)'
-                  : 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                background: 'linear-gradient(135deg, #3b82f6, #2563eb)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
@@ -191,7 +253,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 fontWeight: '600',
                 cursor: 'pointer',
                 transition: 'all 0.4s ease-out',
-                transform: isHovered ? 'translateZ(10px)' : 'translateZ(0)',
+                transform: 'translateZ(0)',
               }}
             >
               {loading ? 'Loading...' : 'Add to Cart'}

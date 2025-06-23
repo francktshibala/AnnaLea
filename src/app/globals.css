@@ -218,26 +218,7 @@ a:hover {
   h3 { font-size: var(--text-2xl); }
 }
 
-/* Force 3D transforms globally */
-* {
-  transform-style: preserve-3d !important;
-}
-
-/* Ensure 3D context is preserved */
-html, body {
-  transform-style: preserve-3d !important;
-  perspective: 1000px !important;
-}
-
-/* Debug 3D transforms */
-.debug-3d {
-  perspective: 1000px !important;
-  transform-style: preserve-3d !important;
-}
-
-.debug-3d * {
-  transform-style: preserve-3d !important;
-}
+/* Remove global 3D CSS that might conflict with component-level transforms */
 
 /* Print styles */
 @media print {

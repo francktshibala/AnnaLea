@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
-import { BookCard } from '@/components/book';
+import { BookCard } from '@/components/book/BookCardClient';
 
 export default function Home() {
   // Navigation handler functions
