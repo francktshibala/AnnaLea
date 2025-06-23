@@ -3,6 +3,7 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections';
 import { Button, Card, CardHeader, CardBody } from '@/components/ui';
+import { BookCard } from '@/components/book';
 
 export default function Home() {
   // Navigation handler functions
@@ -21,6 +22,39 @@ export default function Home() {
     console.log('Newsletter signup:', email);
     // TODO: Integrate with email service
   };
+
+  const handleAddToCart = (book: any) => {
+    console.log('Added to cart:', book);
+    // TODO: Integrate with cart system
+  };
+
+  // Sample book data
+  const featuredBooks = [
+    {
+      id: '1',
+      title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
+      author: 'Anna Lea Cannon',
+      price: 12.99,
+      image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&auto=format',
+      description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
+    },
+    {
+      id: '2', 
+      title: 'Sweet Fruit: The Palm Tree That Was Touched by Jesus',
+      author: 'Anna Lea Cannon',
+      price: 11.99,
+      image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop&auto=format',
+      description: 'Journey with Sweet Fruit through loss and renewal, experiencing Christ\'s triumphal entry and the power of community.',
+    },
+    {
+      id: '3',
+      title: 'A Missionary Widow: The Enduring Power of Faith and Love',
+      author: 'Anna Lea Cannon', 
+      price: 14.99,
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format',
+      description: 'The inspiring true story of Pete and Suzanne Black\'s love story through missionary service and faith commitment.',
+    },
+  ];
 
   return (
     <main className="min-h-screen">
@@ -46,75 +80,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {/* Isaiah Tree */}
-            <Card variant="medium" interactive className="h-full">
-              <CardHeader>
-                <div className="aspect-[3/4] bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg mb-4">
-                  <div className="w-full h-full flex items-center justify-center text-blue-600">
-                    📖 Book Cover
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Isaiah Tree</h3>
-                <p className="text-gray-600">The Olive Tree That Jesus Touched</p>
-              </CardHeader>
-              <CardBody>
-                <p className="text-gray-700 mb-4">
-                  A heartwarming tale of hope and faith centered around an ancient olive tree 
-                  that witnessed Christ&apos;s presence.
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>500+ copies distributed</span>
-                  <span className="font-semibold text-blue-600">$12.99</span>
-                </div>
-              </CardBody>
-            </Card>
-
-            {/* Sweet Fruit */}
-            <Card variant="medium" interactive className="h-full">
-              <CardHeader>
-                <div className="aspect-[3/4] bg-gradient-to-br from-green-100 to-green-200 rounded-lg mb-4">
-                  <div className="w-full h-full flex items-center justify-center text-green-600">
-                    🌴 Book Cover
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Sweet Fruit</h3>
-                <p className="text-gray-600">The Palm Tree That Was Touched by Jesus</p>
-              </CardHeader>
-              <CardBody>
-                <p className="text-gray-700 mb-4">
-                  Journey with Sweet Fruit through loss and renewal, experiencing Christ&apos;s 
-                  triumphal entry and the power of community.
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>New Release</span>
-                  <span className="font-semibold text-blue-600">$11.99</span>
-                </div>
-              </CardBody>
-            </Card>
-
-            {/* Missionary Widow */}
-            <Card variant="medium" interactive className="h-full">
-              <CardHeader>
-                <div className="aspect-[3/4] bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg mb-4">
-                  <div className="w-full h-full flex items-center justify-center text-purple-600">
-                    💝 Book Cover
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">A Missionary Widow</h3>
-                <p className="text-gray-600">The Enduring Power of Faith and Love</p>
-              </CardHeader>
-              <CardBody>
-                <p className="text-gray-700 mb-4">
-                  The inspiring true story of Pete and Suzanne Black&apos;s love story through 
-                  missionary service and faith commitment.
-                </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>Historical Biography</span>
-                  <span className="font-semibold text-blue-600">$14.99</span>
-                </div>
-              </CardBody>
-            </Card>
+          {/* 3D BookCard Gallery */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-items-center">
+            {featuredBooks.map((book) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                size="medium"
+                onAddToCart={handleAddToCart}
+                className="w-full max-w-sm"
+              />
+            ))}
           </div>
 
           <div className="text-center">
