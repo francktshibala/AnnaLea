@@ -6,6 +6,7 @@ import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
 import { Simple3DTest } from '@/components/test/Simple3DTest';
 import { CSSOnly3DTest } from '@/components/test/CSSOnly3DTest';
+import { WebComponentTest } from '@/components/test/WebComponentTest';
 
 export default function Home() {
   // Navigation handler functions
@@ -73,6 +74,7 @@ export default function Home() {
       {/* 3D Transform Test Section */}
       <Simple3DTest />
       <CSSOnly3DTest />
+      <WebComponentTest />
 
       {/* Books Preview Section */}
       <section id="books" className="py-20 bg-gradient-to-b from-blue-50 to-white">
