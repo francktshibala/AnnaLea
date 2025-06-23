@@ -56,10 +56,10 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          // Smooth transitions for all effects
-          transition: 'all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1)',
-          // Lift effect using only supported transforms
-          transform: isHovered ? 'translateY(-8px) scale(1.02)' : 'translateY(0px) scale(1)',
+          // Smooth transitions for all effects - more dramatic timing
+          transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+          // More dramatic lift effect like HTML test
+          transform: isHovered ? 'translateY(-15px) scale(1.08)' : 'translateY(0px) scale(1)',
         }}
       >
         <div
@@ -73,12 +73,12 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               ? 'linear-gradient(145deg, #ffffff, #f8fafc)' 
               : 'linear-gradient(145deg, #f8fafc, #e2e8f0)',
             boxShadow: isHovered
-              ? '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8)'
+              ? '0 40px 80px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.9)'
               : '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
             border: isHovered ? '2px solid #3b82f6' : '2px solid transparent',
             display: 'flex',
             flexDirection: 'column',
-            transition: 'all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1)',
+            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             cursor: 'pointer',
           }}
         >
@@ -91,11 +91,11 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               borderRadius: '14px 14px 0 0',
-              transition: 'all 0.3s ease',
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
               filter: isHovered 
-                ? 'brightness(1.1) contrast(1.1) saturate(1.2)' 
+                ? 'brightness(1.2) contrast(1.2) saturate(1.3)' 
                 : 'brightness(1) contrast(1) saturate(1)',
-              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+              transform: isHovered ? 'scale(1.08)' : 'scale(1)',
             }}
           />
 
@@ -178,23 +178,23 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 cursor: loading ? 'not-allowed' : 'pointer',
                 opacity: loading ? 0.7 : 1,
                 fontFamily: 'system-ui, -apple-system, sans-serif',
-                transition: 'all 0.2s ease',
-                transform: isHovered ? 'translateY(-2px)' : 'translateY(0px)',
+                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                transform: isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)',
                 boxShadow: isHovered 
-                  ? '0 8px 25px rgba(59, 130, 246, 0.4)' 
+                  ? '0 12px 35px rgba(59, 130, 246, 0.5)' 
                   : '0 4px 15px rgba(59, 130, 246, 0.2)',
               }}
               onMouseEnter={(e) => {
                 if (!loading) {
-                  e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(59, 130, 246, 0.5)';
+                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(59, 130, 246, 0.6)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!loading) {
-                  e.currentTarget.style.transform = isHovered ? 'translateY(-2px)' : 'translateY(0px)';
+                  e.currentTarget.style.transform = isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)';
                   e.currentTarget.style.boxShadow = isHovered 
-                    ? '0 8px 25px rgba(59, 130, 246, 0.4)' 
+                    ? '0 12px 35px rgba(59, 130, 246, 0.5)' 
                     : '0 4px 15px rgba(59, 130, 246, 0.2)';
                 }
               }}
