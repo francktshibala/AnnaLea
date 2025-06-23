@@ -76,6 +76,9 @@ export default function Home() {
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Featured Books
             </h2>
+            <div style={{ fontSize: '12px', color: 'red', margin: '10px 0' }}>
+              🔄 FRESH DEPLOY: BookCardFresh implementation active
+            </div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover inspiring Christian stories that touch the heart and strengthen faith
             </p>
