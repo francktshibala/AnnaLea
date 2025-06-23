@@ -6,12 +6,13 @@ export default function BookTestPage() {
     title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
     author: 'Anna Lea Cannon',
     price: 12.99,
-    image: '/images/isaiah-tree.jpg',
+    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&auto=format',
     description: 'A story of hope, faith, and divine connection with an ancient olive tree that witnessed Christ\'s presence.',
   };
 
   const handleAddToCart = (book: any) => {
     console.log('Added to cart:', book);
+    alert(`Added "${book.title}" to cart!`);
   };
 
   return (
