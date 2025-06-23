@@ -94,8 +94,23 @@ Walking among the people was a man unlike any other she had ever seen. His prese
       title: 'A Missionary Widow: The Enduring Power of Faith and Love',
       author: 'Anna Lea Cannon', 
       price: 14.99,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format',
+      image: '/images/books/missionary-widow-cover.jpg', // Real book cover (placeholder path)
       description: 'The inspiring true story of Pete and Suzanne Black\'s love story through missionary service and faith commitment.',
+      sample: `Chapter 1: Two Hearts, One Mission
+
+Suzanne first met Pete Black on a humid Tuesday morning in July 1987, though she had no idea that this chance encounter would change the course of her entire life. She was twenty-four, fresh out of nursing school, and had just committed to a two-year mission assignment in Guatemala. He was twenty-eight, a seasoned missionary doctor who had already spent three years serving the rural communities in the mountains outside Antigua.
+
+Their eyes met across the dusty courtyard of the mission compound, and Suzanne felt something she had never experienced before—not just attraction, but recognition. It was as if her heart suddenly understood something her mind couldn't yet grasp: that God had been preparing them both for this moment, for each other, for a love that would be tested by circumstances most people couldn't imagine.
+
+"You must be the new nurse," Pete said, approaching with a gentle smile that made his tired eyes light up. His shirt was stained with dirt and medical supplies, and there was something in his manner that spoke of both deep compassion and quiet strength.
+
+"Suzanne," she replied, extending her hand. When their hands touched, she felt a warmth that had nothing to do with the tropical heat. "And you're the doctor everyone's been telling me about."
+
+"All good things, I hope," he laughed, and in that moment, Suzanne knew with absolute certainty that her life was about to become far more complicated—and far more beautiful—than she had ever planned.
+
+What neither of them could foresee was how their love would be tested by tragedy, shaped by faith, and ultimately transformed into something that would inspire countless others to believe in the enduring power of God's love.
+
+[Continue reading to discover how their extraordinary love story unfolded against the backdrop of missionary service, and how Suzanne's faith sustained her through unimaginable loss...]`,
     },
   ];
 
@@ -120,7 +135,7 @@ Walking among the people was a man unlike any other she had ever seen. His prese
               Featured Books
             </h2>
             <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
-              📖 PREVIEW READY: Click Isaiah Tree or Sweet Fruit for book samples
+              📖 PREVIEW READY: Click any book card to read sample chapters
             </div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover inspiring Christian stories that touch the heart and strengthen faith
@@ -137,7 +152,7 @@ Walking among the people was a man unlike any other she had ever seen. His prese
                 book={book}
                 size="medium"
                 onAddToCart={handleAddToCart}
-                onBookClick={book.id === '1' || book.id === '2' ? handleBookClick : undefined} // First two books have preview
+                onBookClick={handleBookClick} // All three books now have preview functionality
                 className="w-full max-w-sm"
               />
             ))}
