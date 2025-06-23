@@ -18,6 +18,7 @@ export interface BookCardProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   onAddToCart?: (book: Book) => void;
+  onBookClick?: (book: Book) => void;
 }
 
 // Fresh BookCard - Built from scratch using only verified working effects
@@ -28,6 +29,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       size = 'medium',
       loading = false,
       onAddToCart,
+      onBookClick,
       className,
       ...props
     },
@@ -63,6 +65,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         }}
       >
         <div
+          onClick={() => onBookClick?.(book)}
           style={{
             position: 'relative',
             height: '420px',
@@ -162,7 +165,10 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
 
             {/* Add to Cart Button */}
             <button
-              onClick={handleAddToCart}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent card click when button is clicked
+                handleAddToCart();
+              }}
               disabled={loading}
               style={{
                 width: '100%',

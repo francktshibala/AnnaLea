@@ -4,8 +4,13 @@ import React, { useState } from 'react';
 import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
+import { BookPreviewModal } from '@/components/book/BookPreviewModal';
 
 export default function Home() {
+  // Modal state for book preview
+  const [selectedBook, setSelectedBook] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Navigation handler functions
   const handleExploreBooks = () => {
     // Scroll to books section or navigate to books page
@@ -28,6 +33,16 @@ export default function Home() {
     // TODO: Integrate with cart system
   };
 
+  const handleBookClick = (book: any) => {
+    setSelectedBook(book);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedBook(null);
+  };
+
   // Sample book data
   const featuredBooks = [
     {
@@ -35,8 +50,21 @@ export default function Home() {
       title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
       author: 'Anna Lea Cannon',
       price: 12.99,
-      image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&auto=format',
+      image: '/images/books/isaiah-tree-cover.jpg', // Real book cover - will fallback to placeholder if needed
       description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
+      sample: `Chapter 1: The Ancient Witness
+
+The ancient olive tree stood silent in the garden, its gnarled branches reaching toward heaven like weathered hands in prayer. For over two thousand years, it had witnessed the passage of time, the changing of seasons, and the footsteps of countless pilgrims who came seeking peace in this sacred place.
+
+Isaiah had called this tree home for as long as anyone could remember. The local villagers spoke of him in hushed, reverent tones—not because he was human, but because he was the spirit that dwelt within the ancient olive's twisted trunk. Some said he had been there since the time of Christ himself, a silent guardian of the most precious memories this holy land had ever known.
+
+On this particular morning, as golden sunlight filtered through the olive branches, casting dancing shadows on the weathered stone below, Isaiah felt a stirring deep within his wooden heart. Something was different. After centuries of quiet observation, he sensed that his story was finally ready to be told.
+
+The tree's roots ran deep, deeper than the foundations of the ancient city, deeper than the memories of those who had walked these paths before. And in those depths, Isaiah held secrets that could change the way people understood faith, hope, and the enduring power of God's love.
+
+As a gentle breeze rustled through his silver-green leaves, Isaiah began to remember...
+
+[Continue reading to discover the miraculous events that Isaiah witnessed and how they can transform your own faith journey...]`,
     },
     {
       id: '2', 
@@ -94,6 +122,7 @@ export default function Home() {
                 book={book}
                 size="medium"
                 onAddToCart={handleAddToCart}
+                onBookClick={book.id === '1' ? handleBookClick : undefined} // Only first book has preview for testing
                 className="w-full max-w-sm"
               />
             ))}
@@ -159,6 +188,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Book Preview Modal */}
+      {selectedBook && (
+        <BookPreviewModal
+          book={selectedBook}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          onAddToCart={handleAddToCart}
+        />
+      )}
     </main>
   );
 }
