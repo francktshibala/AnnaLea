@@ -61,7 +61,7 @@ export default function Home() {
               <CardBody>
                 <p className="text-gray-700 mb-4">
                   A heartwarming tale of hope and faith centered around an ancient olive tree 
-                  that witnessed Christ's presence.
+                  that witnessed Christ&apos;s presence.
                 </p>
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <span>500+ copies distributed</span>
@@ -83,7 +83,7 @@ export default function Home() {
               </CardHeader>
               <CardBody>
                 <p className="text-gray-700 mb-4">
-                  Journey with Sweet Fruit through loss and renewal, experiencing Christ's 
+                  Journey with Sweet Fruit through loss and renewal, experiencing Christ&apos;s 
                   triumphal entry and the power of community.
                 </p>
                 <div className="flex items-center justify-between text-sm text-gray-500">
@@ -106,7 +106,7 @@ export default function Home() {
               </CardHeader>
               <CardBody>
                 <p className="text-gray-700 mb-4">
-                  The inspiring true story of Pete and Suzanne Black's love story through 
+                  The inspiring true story of Pete and Suzanne Black&apos;s love story through 
                   missionary service and faith commitment.
                 </p>
                 <div className="flex items-center justify-between text-sm text-gray-500">

@@ -53,7 +53,7 @@ export const createMockBooks = (count: number = 3): Book[] => {
 };
 
 // Mock API responses
-export const mockApiResponse = <T>(data: T, error?: string) => ({
+export const mockApiResponse = <T,>(data: T, error?: string) => ({
   data,
   error,
   success: !error,

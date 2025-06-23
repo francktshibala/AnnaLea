@@ -267,7 +267,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   key={index}
                   className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
                 >
-                  <p className="text-white/90 mb-4 italic">"{testimonial.text}"</p>
+                  <p className="text-white/90 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
                   <cite className="text-white/70 text-sm">
                     — {testimonial.author}, {testimonial.location}
                   </cite>
