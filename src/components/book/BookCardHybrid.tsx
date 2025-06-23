@@ -81,6 +81,18 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         className={cn('w-full', sizeClasses[size], className)}
         {...props}
       >
+        {/* Debug info to see what's happening */}
+        <div style={{ 
+          fontSize: '12px', 
+          color: 'red', 
+          marginBottom: '8px',
+          padding: '4px',
+          background: '#ffe6e6',
+          borderRadius: '4px'
+        }}>
+          🔍 HYBRID DEBUG: Loading iframe from {bookCardUrl}
+        </div>
+        
         {loading ? (
           // Loading state
           <div className="w-full h-[420px] bg-gray-100 rounded-xl animate-pulse flex items-center justify-center">
@@ -94,13 +106,15 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
             style={{
               width: '100%',
               height: '420px',
-              border: 'none',
+              border: '2px solid red', // Make it visible for debugging
               borderRadius: '12px',
               overflow: 'hidden',
             }}
             title={`Book card for ${book.title}`}
-            loading="lazy"
+            loading="eager"
             sandbox="allow-scripts allow-same-origin"
+            onLoad={() => console.log('Iframe loaded:', bookCardUrl)}
+            onError={() => console.log('Iframe error:', bookCardUrl)}
           />
         )}
       </div>
