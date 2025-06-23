@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { HeroSection } from '@/components/sections';
-import { Button, Card, CardHeader, CardBody } from '@/components/ui';
+import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book';
 
 export default function Home() {
