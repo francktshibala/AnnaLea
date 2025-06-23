@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book';
@@ -80,8 +80,17 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Debug: Simple 3D Test */}
+          <div className="mb-8 text-center">
+            <h3 className="text-xl font-semibold mb-4">Debug: Simple 3D Transform Test</h3>
+            <div style={{ perspective: '1000px', display: 'inline-block' }}>
+              <SimpleDebugCard />
+            </div>
+          </div>
+
           {/* 3D BookCard Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-items-center" 
+               style={{ perspective: '1000px' }}>
             {featuredBooks.map((book) => (
               <BookCard
                 key={book.id}
@@ -154,5 +163,45 @@ export default function Home() {
         </div>
       </section>
     </main>
+  );
+}
+
+// Simple debug component to test 3D transforms
+function SimpleDebugCard() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        width: '200px',
+        height: '120px',
+        backgroundColor: isHovered ? '#3b82f6' : '#ef4444',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        cursor: 'pointer',
+        transition: 'all 0.5s ease',
+        transformStyle: 'preserve-3d',
+        transform: isHovered 
+          ? 'rotateX(20deg) rotateY(20deg) translateZ(30px)' 
+          : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
+        boxShadow: isHovered 
+          ? '0 20px 40px rgba(0,0,0,0.3)' 
+          : '0 5px 15px rgba(0,0,0,0.1)',
+      }}
+    >
+      <div className="text-center">
+        <div className="font-bold">
+          {isHovered ? 'HOVERED!' : 'Hover Me'}
+        </div>
+        <div className="text-sm mt-1">
+          3D Test Card
+        </div>
+      </div>
+    </div>
   );
 }
