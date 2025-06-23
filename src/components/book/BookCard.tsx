@@ -33,6 +33,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
     ref
   ) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [hoverCount, setHoverCount] = useState(0);
 
     const handleAddToCart = () => {
       if (onAddToCart && !loading) {
@@ -51,7 +52,10 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         ref={ref}
         data-testid="book-card"
         className={cn('book-card w-full', sizeClasses[size], className)}
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          setHoverCount(prev => prev + 1);
+        }}
         onMouseLeave={() => setIsHovered(false)}
         style={{
           perspective: '800px',
@@ -75,7 +79,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               ? '0 40px 80px rgba(0, 0, 0, 0.25)'
               : '0 8px 25px rgba(0, 0, 0, 0.1)',
             transform: isHovered 
-              ? 'rotateX(15deg) rotateY(-15deg) translateZ(30px) translateY(-10px)' 
+              ? 'rotateX(25deg) rotateY(-25deg) translateZ(50px) translateY(-20px) scale(1.1)' 
               : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
             display: 'flex',
             flexDirection: 'column' as const,
@@ -152,6 +156,16 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 }}
               >
                 ${book.price.toFixed(2)}
+              </div>
+              
+              {/* Debug Info */}
+              <div style={{
+                fontSize: '10px',
+                color: isHovered ? '#dc2626' : '#16a34a',
+                marginTop: '4px',
+                fontWeight: 'bold',
+              }}>
+                {isHovered ? `HOVERING! (${hoverCount})` : `Ready to hover (${hoverCount})`}
               </div>
             </div>
 
