@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+  
+[[redirects]]
+  from = "/*"
+  to = "/anna-lea-website.html"
+  status = 200

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookCard 3D Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #334155;
+            margin-bottom: 40px;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            perspective: 1000px;
+        }
+        
+        .book-card {
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+        
+        .book-card-inner {
+            width: 100%;
+            height: 420px;
+            background: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover .book-card-inner {
+            transform: rotateX(15deg) rotateY(-15deg) translateZ(30px) translateY(-10px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+            background: #ffffff;
+        }
+        
+        .book-image {
+            width: 100%;
+            height: 60%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease-out;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .book-card:hover .book-image {
+            transform: translateZ(15px) scale(1.03);
+        }
+        
+        .book-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .book-author {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .book-description {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        
+        .book-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 16px;
+        }
+        
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease-out;
+            transform: translateZ(0);
+        }
+        
+        .book-card:hover .add-to-cart-btn {
+            transform: translateZ(10px);
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+        
+        .add-to-cart-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+        
+        /* Debug info */
+        .debug-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        
+        .status {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+        }
+        
+        .test-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-btn {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .test-btn:hover {
+            background: #3730a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BookCard 3D Transform Test</h1>
+        
+        <div class="test-buttons">
+            <button class="test-btn" onclick="testAllCards()">Test All Cards</button>
+            <button class="test-btn" onclick="resetAllCards()">Reset All Cards</button>
+            <button class="test-btn" onclick="toggleDebug()">Toggle Debug</button>
+        </div>
+        
+        <div class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card" id="card1">
+                <div class="book-card-inner">
+                    <div class="book-image" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&auto=format');"></div>
+                    <div class="book-info">
+                        <div class="book-title">Isaiah Tree: The Olive Tree That Jesus Touched</div>
+                        <div class="book-author">by Anna Lea Cannon</div>
+                        <div class="book-description">A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ's presence.</div>
+                        <div class="book-price">$12.99</div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Isaiah Tree')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book 2 -->
+            <div class="book-card" id="card2">
+                <div class="book-card-inner">
+                    <div class="book-image" style="background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop&auto=format');"></div>
+                    <div class="book-info">
+                        <div class="book-title">Sweet Fruit: The Palm Tree That Was Touched by Jesus</div>
+                        <div class="book-author">by Anna Lea Cannon</div>
+                        <div class="book-description">Journey with Sweet Fruit through loss and renewal, experiencing Christ's triumphal entry and the power of community.</div>
+                        <div class="book-price">$11.99</div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Sweet Fruit')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book 3 -->
+            <div class="book-card" id="card3">
+                <div class="book-card-inner">
+                    <div class="book-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format');"></div>
+                    <div class="book-info">
+                        <div class="book-title">A Missionary Widow: The Enduring Power of Faith and Love</div>
+                        <div class="book-author">by Anna Lea Cannon</div>
+                        <div class="book-description">The inspiring true story of Pete and Suzanne Black's love story through missionary service and faith commitment.</div>
+                        <div class="book-price">$14.99</div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Missionary Widow')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status" id="status">
+            <h3>Test Status</h3>
+            <p>Hover over the book cards above to test 3D transforms.</p>
+            <p>Click buttons to manually test or view debug info.</p>
+            <div id="interactions"></div>
+        </div>
+    </div>
+    
+    <div class="debug-info" id="debugInfo" style="display: none;">
+        <div><strong>Browser Info:</strong></div>
+        <div id="browserInfo"></div>
+        <div><strong>3D Support:</strong> <span id="transformSupport"></span></div>
+        <div><strong>CSS.supports:</strong> <span id="cssSupports"></span></div>
+        <div><strong>Hover Events:</strong> <span id="hoverEvents">0</span></div>
+    </div>
+    
+    <script>
+        let hoverCount = 0;
+        
+        // Debug info
+        document.getElementById('browserInfo').textContent = navigator.userAgent.split(' ')[0];
+        document.getElementById('transformSupport').textContent = 
+            'transform' in document.body.style ? 'YES' : 'NO';
+        document.getElementById('cssSupports').textContent = 
+            CSS.supports('transform-style', 'preserve-3d') ? 'YES' : 'NO';
+        
+        // Add hover event listeners to all cards
+        document.querySelectorAll('.book-card').forEach((card, index) => {
+            card.addEventListener('mouseenter', () => {
+                hoverCount++;
+                document.getElementById('hoverEvents').textContent = hoverCount;
+                logInteraction(`Card ${index + 1} hovered`);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                logInteraction(`Card ${index + 1} left`);
+            });
+        });
+        
+        function addToCart(bookName) {
+            alert(`Added "${bookName}" to cart!`);
+            logInteraction(`Added ${bookName} to cart`);
+        }
+        
+        function testAllCards() {
+            document.querySelectorAll('.book-card-inner').forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.transform = 'rotateX(25deg) rotateY(-25deg) translateZ(40px) translateY(-15px)';
+                    card.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.3)';
+                    card.style.background = '#ffffff';
+                }, index * 200);
+            });
+            logInteraction('Manual test applied to all cards');
+        }
+        
+        function resetAllCards() {
+            document.querySelectorAll('.book-card-inner').forEach(card => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+                card.style.background = '';
+            });
+            logInteraction('All cards reset');
+        }
+        
+        function toggleDebug() {
+            const debug = document.getElementById('debugInfo');
+            debug.style.display = debug.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        function logInteraction(message) {
+            const interactions = document.getElementById('interactions');
+            const time = new Date().toLocaleTimeString();
+            interactions.innerHTML = `<div>${time}: ${message}</div>` + interactions.innerHTML;
+            // Keep only last 5 interactions
+            const divs = interactions.querySelectorAll('div');
+            if (divs.length > 5) {
+                divs[divs.length - 1].remove();
+            }
+        }
+        
+        // Initial log
+        logInteraction('Page loaded - test 3D transforms by hovering over cards');
+    </script>
+</body>
+</html>

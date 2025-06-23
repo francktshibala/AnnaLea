@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React BookCard Test</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #334155;
+            margin-bottom: 40px;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            perspective: 1000px;
+        }
+        
+        .status {
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useRef } = React;
+
+        // Book data
+        const books = [
+            {
+                id: '1',
+                title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
+                author: 'Anna Lea Cannon',
+                price: 12.99,
+                image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&auto=format',
+                description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
+            },
+            {
+                id: '2',
+                title: 'Sweet Fruit: The Palm Tree That Was Touched by Jesus',
+                author: 'Anna Lea Cannon',
+                price: 11.99,
+                image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop&auto=format',
+                description: 'Journey with Sweet Fruit through loss and renewal, experiencing Christ\'s triumphal entry and the power of community.',
+            },
+            {
+                id: '3',
+                title: 'A Missionary Widow: The Enduring Power of Faith and Love',
+                author: 'Anna Lea Cannon',
+                price: 14.99,
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format',
+                description: 'The inspiring true story of Pete and Suzanne Black\'s love story through missionary service and faith commitment.',
+            },
+        ];
+
+        // BookCard Component
+        function BookCard({ book, onAddToCart }) {
+            const [isHovered, setIsHovered] = useState(false);
+            const [hoverCount, setHoverCount] = useState(0);
+            const [loading, setLoading] = useState(false);
+
+            const handleAddToCart = () => {
+                if (onAddToCart && !loading) {
+                    setLoading(true);
+                    setTimeout(() => {
+                        onAddToCart(book);
+                        setLoading(false);
+                    }, 1000);
+                }
+            };
+
+            return (
+                <div
+                    className="book-card"
+                    onMouseEnter={() => {
+                        setIsHovered(true);
+                        setHoverCount(prev => prev + 1);
+                    }}
+                    onMouseLeave={() => setIsHovered(false)}
+                    style={{
+                        perspective: '800px',
+                        transformStyle: 'preserve-3d',
+                        maxWidth: '280px',
+                        width: '100%',
+                    }}
+                >
+                    <div
+                        className="book-card-inner"
+                        style={{
+                            width: '100%',
+                            height: '420px',
+                            background: isHovered ? '#ffffff' : '#f8fafc',
+                            borderRadius: '12px',
+                            overflow: 'hidden',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            cursor: 'pointer',
+                            transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                            transformStyle: 'preserve-3d',
+                            boxShadow: isHovered 
+                                ? '0 40px 80px rgba(0, 0, 0, 0.25)'
+                                : '0 8px 25px rgba(0, 0, 0, 0.1)',
+                            transform: isHovered 
+                                ? 'rotateX(25deg) rotateY(-25deg) translateZ(50px) translateY(-20px) scale(1.1)' 
+                                : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        {/* Book Image */}
+                        <div 
+                            className="book-image"
+                            style={{
+                                width: '100%',
+                                height: '60%',
+                                backgroundImage: `url(${book.image})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                transition: 'transform 0.5s ease-out',
+                                borderRadius: '12px 12px 0 0',
+                                transform: isHovered ? 'translateZ(15px) scale(1.03)' : 'translateZ(0)',
+                            }}
+                        />
+
+                        {/* Book Info */}
+                        <div 
+                            className="book-info"
+                            style={{
+                                padding: '20px',
+                                flex: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                            }}
+                        >
+                            <div>
+                                <div 
+                                    style={{
+                                        fontSize: '16px',
+                                        fontWeight: 'bold',
+                                        color: '#1f2937',
+                                        marginBottom: '6px',
+                                        lineHeight: '1.4',
+                                    }}
+                                >
+                                    {book.title}
+                                </div>
+                                <div 
+                                    style={{
+                                        fontSize: '13px',
+                                        color: '#6b7280',
+                                        marginBottom: '6px',
+                                    }}
+                                >
+                                    by {book.author}
+                                </div>
+                                <div 
+                                    style={{
+                                        fontSize: '12px',
+                                        color: '#4b5563',
+                                        lineHeight: '1.4',
+                                        marginBottom: '12px',
+                                        height: '40px',
+                                        overflow: 'hidden',
+                                    }}
+                                >
+                                    {book.description.substring(0, 80)}...
+                                </div>
+                                <div 
+                                    style={{
+                                        fontSize: '18px',
+                                        fontWeight: 'bold',
+                                        color: '#2563eb',
+                                        marginBottom: '8px',
+                                    }}
+                                >
+                                    ${book.price.toFixed(2)}
+                                </div>
+                                
+                                {/* Debug Info */}
+                                <div style={{
+                                    fontSize: '10px',
+                                    color: isHovered ? '#dc2626' : '#16a34a',
+                                    marginBottom: '8px',
+                                    fontWeight: 'bold',
+                                }}>
+                                    {isHovered ? `HOVERING! (${hoverCount})` : `Ready (${hoverCount})`}
+                                </div>
+                            </div>
+
+                            {/* Add to Cart Button */}
+                            <button
+                                onClick={handleAddToCart}
+                                disabled={loading}
+                                style={{
+                                    width: '100%',
+                                    padding: '10px',
+                                    background: isHovered 
+                                        ? 'linear-gradient(135deg, #1d4ed8, #1e40af)'
+                                        : 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '6px',
+                                    fontSize: '14px',
+                                    fontWeight: '600',
+                                    cursor: loading ? 'not-allowed' : 'pointer',
+                                    transition: 'all 0.4s ease-out',
+                                    transform: isHovered ? 'translateZ(10px)' : 'translateZ(0)',
+                                    opacity: loading ? 0.7 : 1,
+                                }}
+                            >
+                                {loading ? 'Adding...' : 'Add to Cart'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Main App
+        function App() {
+            const [interactions, setInteractions] = useState([]);
+
+            const handleAddToCart = (book) => {
+                const message = `Added "${book.title}" to cart!`;
+                alert(message);
+                setInteractions(prev => [
+                    `${new Date().toLocaleTimeString()}: ${message}`,
+                    ...prev.slice(0, 4)
+                ]);
+            };
+
+            return (
+                <div className="container">
+                    <h1>React BookCard 3D Test</h1>
+                    
+                    <div className="status">
+                        <h3>Interactive Test Status</h3>
+                        <p>Hover over the book cards to test 3D transforms in React</p>
+                        <p><strong>Browser:</strong> {navigator.userAgent.split(' ')[0]}</p>
+                        <p><strong>3D Support:</strong> {CSS.supports('transform-style', 'preserve-3d') ? 'YES' : 'NO'}</p>
+                        {interactions.length > 0 && (
+                            <div style={{ marginTop: '10px', fontSize: '12px' }}>
+                                <strong>Recent Interactions:</strong>
+                                {interactions.map((interaction, index) => (
+                                    <div key={index}>{interaction}</div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="books-grid">
+                        {books.map((book) => (
+                            <BookCard
+                                key={book.id}
+                                book={book}
+                                onAddToCart={handleAddToCart}
+                            />
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        // Render the app
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

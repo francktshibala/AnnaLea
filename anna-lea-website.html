@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Lea - Inspirational Christian Books</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Floating particles animation */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(100px); opacity: 0; }
+        }
+        
+        /* Main layout */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(238,90,36,0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(238,90,36,0.4);
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Books section */
+        .books-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #f0f9ff, #ffffff);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            perspective: 1000px;
+            margin-bottom: 60px;
+        }
+        
+        .view-all-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .view-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* About section */
+        .about-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 30px;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .author-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #9ca3af;
+            margin: 0 auto;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .section-title { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .books-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Book data
+        const books = [
+            {
+                id: '1',
+                title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
+                author: 'Anna Lea Cannon',
+                price: 12.99,
+                image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&auto=format',
+                description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
+                copies: '500+ copies distributed'
+            },
+            {
+                id: '2',
+                title: 'Sweet Fruit: The Palm Tree That Was Touched by Jesus',
+                author: 'Anna Lea Cannon',
+                price: 11.99,
+                image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop&auto=format',
+                description: 'Journey with Sweet Fruit through loss and renewal, experiencing Christ\'s triumphal entry and the power of community.',
+                copies: 'New Release'
+            },
+            {
+                id: '3',
+                title: 'A Missionary Widow: The Enduring Power of Faith and Love',
+                author: 'Anna Lea Cannon',
+                price: 14.99,
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&auto=format',
+                description: 'The inspiring true story of Pete and Suzanne Black\'s love story through missionary service and faith commitment.',
+                copies: 'Historical Biography'
+            },
+        ];
+
+        // Floating Particles Component
+        function FloatingParticles() {
+            return (
+                <div className="particles">
+                    {Array.from({ length: 20 }).map((_, i) => (
+                        <div
+                            key={i}
+                            className="particle"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                animationDelay: `${Math.random() * 15}s`,
+                                animationDuration: `${15 + Math.random() * 10}s`
+                            }}
+                        />
+                    ))}
+                </div>
+            );
+        }
+
+        // BookCard Component (exact working version)
+        function BookCard({ book, onAddToCart }) {
+            const [isHovered, setIsHovered] = useState(false);
+            const [loading, setLoading] = useState(false);
+
+            const handleAddToCart = () => {
+                if (onAddToCart && !loading) {
+                    setLoading(true);
+                    setTimeout(() => {
+                        onAddToCart(book);
+                        setLoading(false);
+                    }, 1000);
+                }
+            };
+
+            return (
+                <div
+                    className="book-card"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    style={{
+                        perspective: '800px',
+                        transformStyle: 'preserve-3d',
+                        maxWidth: '320px',
+                        width: '100%',
+                        margin: '0 auto',
+                    }}
+                >
+                    <div
+                        className="book-card-inner"
+                        style={{
+                            width: '100%',
+                            height: '500px',
+                            background: isHovered ? '#ffffff' : '#f8fafc',
+                            borderRadius: '16px',
+                            overflow: 'hidden',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            cursor: 'pointer',
+                            transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                            transformStyle: 'preserve-3d',
+                            boxShadow: isHovered 
+                                ? '0 50px 100px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+                                : '0 8px 25px rgba(0, 0, 0, 0.1)',
+                            transform: isHovered 
+                                ? 'rotateX(15deg) rotateY(-15deg) translateZ(30px) translateY(-10px)' 
+                                : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        {/* Book Image */}
+                        <div 
+                            className="book-image"
+                            style={{
+                                width: '100%',
+                                height: '65%',
+                                backgroundImage: `url(${book.image})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                transition: 'transform 0.5s ease-out',
+                                borderRadius: '16px 16px 0 0',
+                                transform: isHovered ? 'translateZ(15px) scale(1.03)' : 'translateZ(0)',
+                            }}
+                        />
+
+                        {/* Book Info */}
+                        <div 
+                            style={{
+                                padding: '24px',
+                                flex: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                            }}
+                        >
+                            <div>
+                                <h3 style={{
+                                    fontSize: '18px',
+                                    fontWeight: 'bold',
+                                    color: '#1f2937',
+                                    marginBottom: '8px',
+                                    lineHeight: '1.4',
+                                }}>
+                                    {book.title}
+                                </h3>
+                                <p style={{
+                                    fontSize: '14px',
+                                    color: '#6b7280',
+                                    marginBottom: '12px',
+                                }}>
+                                    by {book.author}
+                                </p>
+                                <p style={{
+                                    fontSize: '14px',
+                                    color: '#4b5563',
+                                    lineHeight: '1.5',
+                                    marginBottom: '16px',
+                                    height: '60px',
+                                    overflow: 'hidden',
+                                }}>
+                                    {book.description}
+                                </p>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    marginBottom: '16px',
+                                }}>
+                                    <span style={{
+                                        fontSize: '20px',
+                                        fontWeight: 'bold',
+                                        color: '#2563eb',
+                                    }}>
+                                        ${book.price.toFixed(2)}
+                                    </span>
+                                    <span style={{
+                                        fontSize: '12px',
+                                        color: '#6b7280',
+                                    }}>
+                                        {book.copies}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Add to Cart Button */}
+                            <button
+                                onClick={handleAddToCart}
+                                disabled={loading}
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    background: isHovered 
+                                        ? 'linear-gradient(135deg, #1d4ed8, #1e40af)'
+                                        : 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '8px',
+                                    fontSize: '16px',
+                                    fontWeight: '600',
+                                    cursor: loading ? 'not-allowed' : 'pointer',
+                                    transition: 'all 0.4s ease-out',
+                                    transform: isHovered ? 'translateZ(10px)' : 'translateZ(0)',
+                                    opacity: loading ? 0.7 : 1,
+                                }}
+                            >
+                                {loading ? 'Adding to Cart...' : 'Add to Cart'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            const [cartItems, setCartItems] = useState([]);
+
+            const handleAddToCart = (book) => {
+                setCartItems(prev => [...prev, book]);
+                alert(`Added "${book.title}" to cart!\n\nCart now has ${cartItems.length + 1} items.`);
+            };
+
+            const scrollToBooks = () => {
+                document.getElementById('books-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            };
+
+            return (
+                <>
+                    {/* Hero Section */}
+                    <section className="hero-section">
+                        <FloatingParticles />
+                        <div className="hero-content">
+                            <h1 className="hero-title">Anna Lea</h1>
+                            <p className="hero-subtitle">
+                                Bestselling Author of Christian Inspirational Stories
+                            </p>
+                            <button className="hero-btn" onClick={scrollToBooks}>
+                                Explore My Books
+                            </button>
+                        </div>
+                    </section>
+
+                    {/* Books Section */}
+                    <section id="books-section" className="books-section">
+                        <div className="container">
+                            <h2 className="section-title">Featured Books</h2>
+                            <p className="section-subtitle">
+                                Discover inspiring Christian stories that touch the heart and strengthen faith
+                            </p>
+                            
+                            <div className="books-grid">
+                                {books.map((book) => (
+                                    <BookCard
+                                        key={book.id}
+                                        book={book}
+                                        onAddToCart={handleAddToCart}
+                                    />
+                                ))}
+                            </div>
+
+                            <button className="view-all-btn">
+                                View All Books
+                            </button>
+                        </div>
+                    </section>
+
+                    {/* About Section */}
+                    <section className="about-section">
+                        <div className="container">
+                            <div className="about-grid">
+                                <div className="about-content">
+                                    <h2>About Anna Lea</h2>
+                                    <p>
+                                        Anna Lea Cannon is a Christian inspirational storyteller who weaves together 
+                                        faith, family, and history in her captivating books. Her stories touch hearts 
+                                        and strengthen faith communities worldwide.
+                                    </p>
+                                    <p>
+                                        With over 500 books distributed and a growing community of readers, Anna Lea 
+                                        continues to inspire through her unique blend of historical context and 
+                                        spiritual insight.
+                                    </p>
+                                    <button className="view-all-btn" style={{ marginTop: '20px', display: 'inline-block' }}>
+                                        Learn More About Anna Lea
+                                    </button>
+                                </div>
+                                <div className="about-image">
+                                    <div className="author-placeholder">
+                                        👩‍💼
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </>
+            );
+        }
+
+        // Render the app
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
