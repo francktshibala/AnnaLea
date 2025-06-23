@@ -495,15 +495,107 @@
   }
 }
 
+/* === BOOK CARD 3D EFFECTS === */
+
+.book-card-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+/* Book Card Sizes */
+.book-card-small {
+  max-width: 200px;
+}
+
+.book-card-medium {
+  max-width: 280px;
+}
+
+.book-card-large {
+  max-width: 320px;
+}
+
+/* 3D Transform Effects */
+.book-card-3d .glass-card {
+  transform: translateZ(0) rotateX(0) rotateY(0);
+  transition: all var(--duration-400) var(--ease-out);
+  will-change: transform;
+}
+
+.book-card-3d:hover .glass-card {
+  transform: translateZ(20px) rotateX(5deg) rotateY(-5deg) translateY(-10px);
+  box-shadow: 
+    var(--glass-shadow-xl),
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Book Image 3D Effects */
+.book-card-3d .book-image {
+  transform: translateZ(10px);
+  transition: all var(--duration-400) var(--ease-out);
+}
+
+.book-card-3d:hover .book-image {
+  transform: translateZ(30px) scale(1.02);
+}
+
+/* Glassmorphism Hover States */
+.book-card-hover .glass-card {
+  background: var(--glass-white-20);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  border: var(--glass-border-medium);
+}
+
+/* Loading State */
+.book-card-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.book-card-loading .glass-card {
+  background: var(--glass-white-10);
+  animation: shimmer 2s infinite;
+}
+
+/* Responsive 3D Effects */
+@media (max-width: 768px) {
+  .book-card-3d:hover .glass-card {
+    transform: translateZ(10px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
+  }
+  
+  .book-card-3d:hover .book-image {
+    transform: translateZ(15px) scale(1.01);
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .book-card-3d:hover .glass-card {
+    transform: translateZ(0) rotateX(0) rotateY(0) translateY(-5px);
+  }
+  
+  .book-card-3d:active .glass-card {
+    transform: translateZ(5px) rotateX(1deg) rotateY(-1deg) translateY(-3px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .glass-card,
   .glass-input,
   .glass-modal,
-  .glass-nav {
+  .glass-nav,
+  .book-card-3d,
+  .book-card-3d .glass-card,
+  .book-card-3d .book-image {
     transition: none;
+    transform: none !important;
   }
   
-  .glass-shimmer {
+  .glass-shimmer,
+  .book-card-loading .glass-card {
     animation: none;
   }
 }
