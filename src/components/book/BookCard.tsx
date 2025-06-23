@@ -51,39 +51,36 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       <div
         ref={ref}
         data-testid="book-card"
-        className={cn('book-card-3d w-full', sizeClasses[size], className)}
+        className={cn('w-full', sizeClasses[size], className)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          perspective: '1000px',
+          perspective: '800px',
           transformStyle: 'preserve-3d',
         }}
         {...props}
       >
         <div
-          className="relative h-full flex flex-col rounded-xl overflow-hidden shadow-lg"
+          className="relative h-full flex flex-col rounded-xl overflow-hidden"
           style={{
             transformStyle: 'preserve-3d',
-            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             transform: isHovered 
-              ? 'translateZ(20px) rotateX(8deg) rotateY(-8deg) translateY(-10px)' 
-              : 'translateZ(0) rotateX(0) rotateY(0)',
+              ? 'rotateX(15deg) rotateY(-15deg) translateZ(30px) translateY(-10px)' 
+              : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
             boxShadow: isHovered 
-              ? '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)'
-              : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            background: isHovered
-              ? 'rgba(255, 255, 255, 0.95)'
-              : 'rgba(255, 255, 255, 0.9)',
-            backdropFilter: 'blur(10px)',
+              ? '0 40px 80px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+              : '0 8px 25px rgba(0, 0, 0, 0.1)',
+            backgroundColor: isHovered ? '#ffffff' : '#f8fafc',
             border: '1px solid rgba(255, 255, 255, 0.2)',
           }}
         >
           {/* Book Image */}
           <div 
-            className="relative w-full aspect-[3/4] overflow-hidden"
+            className="relative w-full aspect-[3/4] overflow-hidden rounded-t-xl"
             style={{
-              transform: isHovered ? 'translateZ(10px) scale(1.02)' : 'translateZ(0)',
-              transition: 'transform 0.4s ease-out',
+              transform: isHovered ? 'translateZ(15px) scale(1.03)' : 'translateZ(0)',
+              transition: 'transform 0.5s ease-out',
             }}
           >
             <Image
@@ -123,8 +120,9 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               className="w-full"
               variant="primary"
               style={{
-                transform: isHovered ? 'translateZ(5px)' : 'translateZ(0)',
-                transition: 'transform 0.3s ease-out',
+                transform: isHovered ? 'translateZ(10px)' : 'translateZ(0)',
+                transition: 'transform 0.4s ease-out',
+                backgroundColor: isHovered ? '#1d4ed8' : undefined,
               }}
             >
               Add to Cart
