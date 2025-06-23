@@ -2,8 +2,8 @@
 
 import dynamic from 'next/dynamic';
 
-// Import Web Component BookCard that bypasses Next.js build system entirely
-const BookCard = dynamic(() => import('./BookCardWebComponent').then(mod => ({ default: mod.BookCard })), {
+// Import Hybrid BookCard that embeds 3D service from external domain
+const BookCard = dynamic(() => import('./BookCardHybrid').then(mod => ({ default: mod.BookCard })), {
   ssr: false,
   loading: () => (
     <div className="w-full max-w-[280px] mx-auto">
@@ -13,4 +13,4 @@ const BookCard = dynamic(() => import('./BookCardWebComponent').then(mod => ({ d
 });
 
 export { BookCard };
-export type { Book, BookCardProps } from './BookCardWebComponent';
+export type { Book, BookCardProps } from './BookCardHybrid';
