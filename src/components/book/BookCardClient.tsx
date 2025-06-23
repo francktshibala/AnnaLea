@@ -2,8 +2,8 @@
 
 import dynamic from 'next/dynamic';
 
-// Import Hybrid BookCard that embeds 3D service from external domain
-const BookCard = dynamic(() => import('./BookCardHybrid').then(mod => ({ default: mod.BookCard })), {
+// Import Fresh BookCard built from scratch with working effects only
+const BookCard = dynamic(() => import('./BookCardFresh').then(mod => ({ default: mod.BookCard })), {
   ssr: false,
   loading: () => (
     <div className="w-full max-w-[280px] mx-auto">
@@ -13,4 +13,4 @@ const BookCard = dynamic(() => import('./BookCardHybrid').then(mod => ({ default
 });
 
 export { BookCard };
-export type { Book, BookCardProps } from './BookCardHybrid';
+export type { Book, BookCardProps } from './BookCardFresh';
