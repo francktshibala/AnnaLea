@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "anna-lea-website",
+  "builds": [
+    {
+      "src": "anna-lea-website/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/anna-lea-website/$1"
+    }
+  ],
+  "buildCommand": "cd anna-lea-website && npm run build",
+  "devCommand": "cd anna-lea-website && npm run dev",
+  "installCommand": "cd anna-lea-website && npm install",
+  "framework": "nextjs",
+  "outputDirectory": "anna-lea-website/.next",
+  "functions": {
+    "anna-lea-website/src/app/**": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
