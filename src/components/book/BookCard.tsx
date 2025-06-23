@@ -1,6 +1,5 @@
 import React, { forwardRef, useState } from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
 import { cn } from '@/utils';
 
 // TypeScript interfaces for BookCard props
@@ -51,7 +50,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       <div
         ref={ref}
         data-testid="book-card"
-        className={cn('w-full', sizeClasses[size], className)}
+        className={cn('book-card w-full', sizeClasses[size], className)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
@@ -61,78 +60,152 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         {...props}
       >
         <div
-          className="relative h-full flex flex-col rounded-xl overflow-hidden"
+          className="book-card-inner relative h-full flex flex-col rounded-xl overflow-hidden"
           style={{
-            transformStyle: 'preserve-3d',
+            width: '100%',
+            height: '420px',
+            background: isHovered ? '#ffffff' : '#f8fafc',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            cursor: 'pointer',
             transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            transformStyle: 'preserve-3d',
+            boxShadow: isHovered 
+              ? '0 40px 80px rgba(0, 0, 0, 0.25)'
+              : '0 8px 25px rgba(0, 0, 0, 0.1)',
             transform: isHovered 
               ? 'rotateX(15deg) rotateY(-15deg) translateZ(30px) translateY(-10px)' 
               : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
-            boxShadow: isHovered 
-              ? '0 40px 80px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
-              : '0 8px 25px rgba(0, 0, 0, 0.1)',
-            backgroundColor: isHovered ? '#ffffff' : '#f8fafc',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            display: 'flex',
+            flexDirection: 'column' as const,
           }}
         >
           {/* Book Image */}
           <div 
-            className="relative w-full aspect-[3/4] overflow-hidden rounded-t-xl"
+            className="book-image"
             style={{
-              transform: isHovered ? 'translateZ(15px) scale(1.03)' : 'translateZ(0)',
+              width: '100%',
+              height: '60%',
+              backgroundImage: `url(${book.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
               transition: 'transform 0.5s ease-out',
+              borderRadius: '12px 12px 0 0',
+              transform: isHovered ? 'translateZ(15px) scale(1.03)' : 'translateZ(0)',
             }}
-          >
-            <Image
-              src={book.image}
-              alt={book.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+          />
 
           {/* Book Info */}
-          <div className="flex-1 flex flex-col justify-between p-4">
+          <div 
+            className="book-info"
+            style={{
+              padding: '20px',
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}
+          >
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-2">
+              <div 
+                className="book-title"
+                style={{
+                  fontSize: '18px',
+                  fontWeight: 'bold',
+                  color: '#1f2937',
+                  marginBottom: '8px',
+                  lineHeight: '1.4',
+                }}
+              >
                 {book.title}
-              </h3>
-              <p className="text-sm text-gray-600 mb-2">
+              </div>
+              <div 
+                className="book-author"
+                style={{
+                  fontSize: '14px',
+                  color: '#6b7280',
+                  marginBottom: '8px',
+                }}
+              >
                 by {book.author}
-              </p>
-              <p className="text-sm text-gray-700 line-clamp-3 mb-3">
+              </div>
+              <div 
+                className="book-description"
+                style={{
+                  fontSize: '14px',
+                  color: '#4b5563',
+                  lineHeight: '1.5',
+                  marginBottom: '16px',
+                  flex: 1,
+                }}
+              >
                 {book.description}
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-xl font-bold text-blue-600">
+              </div>
+              <div 
+                className="book-price"
+                style={{
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: '#2563eb',
+                  marginBottom: '16px',
+                }}
+              >
                 ${book.price.toFixed(2)}
-              </span>
+              </div>
             </div>
 
             {/* Add to Cart Button */}
-            <Button
+            <button
               onClick={handleAddToCart}
               disabled={loading}
-              loading={loading}
-              className="w-full"
-              variant="primary"
+              className="add-to-cart-btn"
               style={{
+                width: '100%',
+                padding: '12px',
+                background: isHovered 
+                  ? 'linear-gradient(135deg, #1d4ed8, #1e40af)'
+                  : 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '16px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.4s ease-out',
                 transform: isHovered ? 'translateZ(10px)' : 'translateZ(0)',
-                transition: 'transform 0.4s ease-out',
-                backgroundColor: isHovered ? '#1d4ed8' : undefined,
               }}
             >
-              Add to Cart
-            </Button>
+              {loading ? 'Loading...' : 'Add to Cart'}
+            </button>
           </div>
 
           {/* Loading Overlay */}
           {loading && (
-            <div className="absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <div 
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'rgba(255, 255, 255, 0.8)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '12px',
+              }}
+            >
+              <div 
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  border: '3px solid #e5e7eb',
+                  borderTop: '3px solid #3b82f6',
+                  borderRadius: '50%',
+                  animation: 'spin 1s linear infinite',
+                }}
+              />
             </div>
           )}
         </div>
