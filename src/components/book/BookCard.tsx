@@ -158,14 +158,18 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 ${book.price.toFixed(2)}
               </div>
               
-              {/* Debug Info */}
+              {/* Debug Info - REACT TEST WORKS! */}
               <div style={{
-                fontSize: '10px',
+                fontSize: '12px',
                 color: isHovered ? '#dc2626' : '#16a34a',
                 marginTop: '4px',
                 fontWeight: 'bold',
+                backgroundColor: isHovered ? '#fef2f2' : '#f0fdf4',
+                padding: '4px',
+                borderRadius: '4px',
+                textAlign: 'center',
               }}>
-                {isHovered ? `HOVERING! (${hoverCount})` : `Ready to hover (${hoverCount})`}
+                {isHovered ? `🔥 HOVERING! (${hoverCount})` : `✅ Ready (${hoverCount})`}
               </div>
             </div>
 
