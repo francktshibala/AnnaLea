@@ -71,8 +71,23 @@ As a gentle breeze rustled through his silver-green leaves, Isaiah began to reme
       title: 'Sweet Fruit: The Palm Tree That Was Touched by Jesus',
       author: 'Anna Lea Cannon',
       price: 11.99,
-      image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop&auto=format',
+      image: '/images/books/sweet-fruit-cover.jpg', // Real book cover
       description: 'Journey with Sweet Fruit through loss and renewal, experiencing Christ\'s triumphal entry and the power of community.',
+      sample: `Prologue: The Day Everything Changed
+
+Sweet Fruit had always been the most beautiful palm tree in the village. Her fronds swayed gracefully in the gentle breeze, and her dates were the sweetest anyone had ever tasted. Children would gather beneath her shade, families would rest in her cool shadow, and travelers from far and wide would seek refuge under her protective canopy.
+
+But on this particular day, as the morning sun cast long shadows across the dusty road, Sweet Fruit sensed something extraordinary was about to happen. There was an energy in the air, a anticipation that made her leaves rustle with excitement even when there was no wind.
+
+From her position at the edge of the village, she could see a crowd gathering in the distance. People were laying down their cloaks on the road, and there was singing—beautiful, joyful singing that seemed to make her very roots vibrate with happiness.
+
+Then she saw Him.
+
+Walking among the people was a man unlike any other she had ever seen. His presence was both gentle and powerful, and when He looked up at her with those compassionate eyes, Sweet Fruit felt something she had never experienced before—a touch so profound it reached into the very core of her being.
+
+"Blessed are you, sweet fruit of the earth," His voice carried on the wind, and though the words were soft, they penetrated every fiber of her being. "Your shade has comforted the weary, your fruit has nourished the hungry, and your beauty has reminded all who see you of the goodness of creation."
+
+[Continue reading to discover how this divine encounter transformed Sweet Fruit forever and what it means for all who seek to bear good fruit in their own lives...]`,
     },
     {
       id: '3',
@@ -104,8 +119,8 @@ As a gentle breeze rustled through his silver-green leaves, Isaiah began to reme
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Featured Books
             </h2>
-            <div style={{ fontSize: '12px', color: 'red', margin: '10px 0' }}>
-              🔄 FRESH DEPLOY: BookCardFresh implementation active
+            <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
+              📖 PREVIEW READY: Click Isaiah Tree or Sweet Fruit for book samples
             </div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover inspiring Christian stories that touch the heart and strengthen faith
@@ -122,7 +137,7 @@ As a gentle breeze rustled through his silver-green leaves, Isaiah began to reme
                 book={book}
                 size="medium"
                 onAddToCart={handleAddToCart}
-                onBookClick={book.id === '1' ? handleBookClick : undefined} // Only first book has preview for testing
+                onBookClick={book.id === '1' || book.id === '2' ? handleBookClick : undefined} // First two books have preview
                 className="w-full max-w-sm"
               />
             ))}
