@@ -517,13 +517,15 @@
 }
 
 /* 3D Transform Effects */
-.book-card-3d .glass-card {
+.book-card-3d .glass-card,
+.book-card-3d > div > .glass-card {
   transform: translateZ(0) rotateX(0) rotateY(0);
   transition: all var(--duration-400) var(--ease-out);
   will-change: transform;
 }
 
-.book-card-3d:hover .glass-card {
+.book-card-3d:hover .glass-card,
+.book-card-3d:hover > div > .glass-card {
   transform: translateZ(20px) rotateX(5deg) rotateY(-5deg) translateY(-10px);
   box-shadow: 
     var(--glass-shadow-xl),
@@ -532,12 +534,14 @@
 }
 
 /* Book Image 3D Effects */
-.book-card-3d .book-image {
+.book-card-3d .book-image,
+.book-card-3d .glass-card .book-image {
   transform: translateZ(10px);
   transition: all var(--duration-400) var(--ease-out);
 }
 
-.book-card-3d:hover .book-image {
+.book-card-3d:hover .book-image,
+.book-card-3d:hover .glass-card .book-image {
   transform: translateZ(30px) scale(1.02);
 }
 
@@ -560,13 +564,25 @@
   animation: shimmer 2s infinite;
 }
 
+/* Force 3D effects for BookCard specifically */
+.book-card-3d {
+  transform-style: preserve-3d !important;
+  perspective: 1000px !important;
+}
+
+.book-card-3d * {
+  transform-style: preserve-3d;
+}
+
 /* Responsive 3D Effects */
 @media (max-width: 768px) {
-  .book-card-3d:hover .glass-card {
+  .book-card-3d:hover .glass-card,
+  .book-card-3d:hover > div > .glass-card {
     transform: translateZ(10px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
   }
   
-  .book-card-3d:hover .book-image {
+  .book-card-3d:hover .book-image,
+  .book-card-3d:hover .glass-card .book-image {
     transform: translateZ(15px) scale(1.01);
   }
 }

@@ -69,13 +69,28 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         className={cardClasses}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        style={{
+          perspective: '1000px',
+          transformStyle: 'preserve-3d'
+        }}
         {...props}
       >
         <Card 
           variant="medium" 
           interactive 
           elevation="medium"
-          className="h-full flex flex-col"
+          className="h-full flex flex-col book-card-inner"
+          style={{
+            transformStyle: 'preserve-3d',
+            transition: 'transform 0.4s ease-out',
+            willChange: 'transform',
+            transform: isHovered 
+              ? 'translateZ(20px) rotateX(5deg) rotateY(-5deg) translateY(-10px)' 
+              : 'translateZ(0) rotateX(0) rotateY(0)',
+            boxShadow: isHovered 
+              ? '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+              : undefined
+          }}
         >
           {/* Book Image */}
           <div className="relative w-full aspect-[3/4] overflow-hidden rounded-t-lg book-image">
