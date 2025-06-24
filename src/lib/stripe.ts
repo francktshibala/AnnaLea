@@ -1,31 +1,35 @@
 import Stripe from 'stripe';
 import { loadStripe } from '@stripe/stripe-js';
 
-// Server-side Stripe instance
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY is not defined in environment variables');
-}
-
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2024-12-18.acacia',
-  typescript: true,
-});
+// Server-side Stripe instance - Only initialize if environment variables are available
+export const stripe = process.env.STRIPE_SECRET_KEY 
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2024-12-18.acacia',
+      typescript: true,
+    })
+  : null;
 
 // Client-side Stripe instance
-let stripePromise: Promise<Stripe | null>;
+let stripePromise: Promise<Stripe | null> | null = null;
 
 export const getStripe = () => {
   if (!stripePromise) {
     const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
     
     if (!publishableKey) {
-      throw new Error('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined in environment variables');
+      console.warn('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined. Stripe functionality will be disabled.');
+      return Promise.resolve(null);
     }
     
     stripePromise = loadStripe(publishableKey);
   }
   
   return stripePromise;
+};
+
+// Helper function to check if Stripe is properly configured
+export const isStripeConfigured = () => {
+  return !!(process.env.STRIPE_SECRET_KEY && process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 };
 
 // Helper function to format currency amounts for Stripe

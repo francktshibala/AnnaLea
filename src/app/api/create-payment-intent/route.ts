@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe, formatAmountForStripe, STRIPE_CONFIG } from '@/lib/stripe';
+import { stripe, formatAmountForStripe, STRIPE_CONFIG, isStripeConfigured } from '@/lib/stripe';
 import { CartItem } from '@/contexts/CartContext';
 
 interface CreatePaymentIntentRequest {
@@ -12,6 +12,17 @@ interface CreatePaymentIntentRequest {
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if Stripe is properly configured
+    if (!isStripeConfigured() || !stripe) {
+      return NextResponse.json(
+        { 
+          error: 'Payment processing is not configured. Please contact support.',
+          code: 'STRIPE_NOT_CONFIGURED'
+        },
+        { status: 503 }
+      );
+    }
+
     const body: CreatePaymentIntentRequest = await request.json();
     const { cartItems, customerInfo } = body;
 
