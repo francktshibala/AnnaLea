@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { Book } from './BookCardFresh';
 import { NewsletterSignup } from '@/components/ui';
 
@@ -257,15 +258,23 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
               style={{
                 width: '200px',
                 height: '300px',
-                backgroundImage: `url(${book.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                position: 'relative',
                 borderRadius: '12px',
                 boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
                 flexShrink: 0,
                 margin: window.innerWidth < 768 ? '0 auto' : '0',
+                overflow: 'hidden',
               }}
-            />
+            >
+              <Image
+                src={book.image}
+                alt={`${book.title} book cover`}
+                fill
+                className="object-cover"
+                sizes="200px"
+                priority
+              />
+            </div>
 
             {/* Book Details */}
             <div style={{ flex: 1 }}>

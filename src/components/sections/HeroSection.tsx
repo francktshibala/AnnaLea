@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Button, Input } from '@/components/ui';
 import { FloatingParticles } from '@/components/animations/FloatingParticles';
 import { MorphingGradient } from '@/components/animations/MorphingGradient';
@@ -214,11 +215,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 {/* Book Cover */}
                 <div className="absolute inset-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src="/images/books/isaiah-tree-cover.jpg"
                     alt="Isaiah Tree book cover featuring an ancient olive tree"
-                    className="w-full h-full object-cover"
-                    loading={lazyLoad ? "lazy" : "eager"}
+                    fill
+                    className="object-cover"
+                    priority={!lazyLoad}
+                    sizes="(max-width: 768px) 256px, 320px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   
