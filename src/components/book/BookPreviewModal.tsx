@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Book } from './BookCardFresh';
 import { NewsletterSignup } from '@/components/ui';
 
@@ -18,6 +18,8 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
   onAddToCart,
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [readingProgress, setReadingProgress] = useState(0);
+  const sampleContentRef = useRef<HTMLDivElement>(null);
 
   if (!isOpen) return null;
 
@@ -34,6 +36,25 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
 
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
+  };
+
+  // Reset reading progress when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setReadingProgress(0);
+    }
+  }, [isOpen]);
+
+  // Track reading progress on scroll
+  const handleSampleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const element = e.currentTarget;
+    const scrollTop = element.scrollTop;
+    const scrollHeight = element.scrollHeight - element.clientHeight;
+    
+    if (scrollHeight > 0) {
+      const progress = (scrollTop / scrollHeight) * 100;
+      setReadingProgress(Math.min(progress, 100));
+    }
   };
 
   return (
@@ -70,6 +91,28 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
         }}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Reading Progress Bar */}
+        {book.sample && (
+          <div style={{
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            right: '0',
+            height: '4px',
+            backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            borderRadius: isFullscreen ? '0' : '16px 16px 0 0',
+            overflow: 'hidden',
+            zIndex: 10,
+          }}>
+            <div style={{
+              height: '100%',
+              width: `${readingProgress}%`,
+              backgroundColor: '#3b82f6',
+              transition: 'width 0.2s ease',
+            }} />
+          </div>
+        )}
+
         {/* Header Buttons */}
         <div style={{
           position: 'absolute',
@@ -284,6 +327,8 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
               </h3>
               
               <div
+                ref={sampleContentRef}
+                onScroll={handleSampleScroll}
                 style={{
                   fontSize: '16px',
                   lineHeight: '1.8',
@@ -294,6 +339,9 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
                   padding: '24px',
                   borderRadius: '12px',
                   border: '1px solid #e5e7eb',
+                  maxHeight: '400px',
+                  overflowY: 'auto',
+                  scrollBehavior: 'smooth',
                 }}
               >
                 {book.sample}
