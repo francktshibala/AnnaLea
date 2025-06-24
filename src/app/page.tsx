@@ -1,12 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
-import { BookPreviewModal } from '@/components/book/BookPreviewModal';
 import { useCart } from '@/contexts/CartContext';
 import { featuredBooks } from '@/data/books';
+
+// Dynamic import for BookPreviewModal - loads only when needed
+const BookPreviewModal = lazy(() => 
+  import('@/components/book/BookPreviewModal').then(module => ({
+    default: module.BookPreviewModal
+  }))
+);
 
 export default function Home() {
   // Cart functionality
@@ -208,14 +214,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Book Preview Modal */}
+      {/* Book Preview Modal - Dynamically Loaded */}
       {selectedBook && (
-        <BookPreviewModal
-          book={selectedBook}
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          onAddToCart={handleAddToCart}
-        />
+        <Suspense 
+          fallback={
+            <div
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                backdropFilter: 'blur(4px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 1000,
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: 'white',
+                  borderRadius: '16px',
+                  padding: '40px',
+                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
+                  textAlign: 'center',
+                  maxWidth: '300px',
+                }}
+              >
+                <div style={{ marginBottom: '16px', fontSize: '24px' }}>📚</div>
+                <div style={{ color: '#374151', fontSize: '16px' }}>Loading book preview...</div>
+              </div>
+            </div>
+          }
+        >
+          <BookPreviewModal
+            book={selectedBook}
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            onAddToCart={handleAddToCart}
+          />
+        </Suspense>
       )}
     </main>
   );
