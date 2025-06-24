@@ -197,4 +197,53 @@ npm run build
 git checkout HEAD~1 src/components/book/BookCardFresh.tsx
 ```
 
+## 🚨 Debugging Deployment Failures - Lessons Learned
+
+### **ALWAYS Check Build Logs First**
+When deployments fail, follow this exact order:
+
+1. **Check Vercel Dashboard Build Logs** - Go to vercel.com → your project → failed deployment → "View Function Logs"
+2. **Look for the actual error message** - Don't assume what's wrong
+3. **Fix the root cause** - Often unrelated to what you're trying to deploy
+
+### **Common Deployment Failure Patterns**
+```markdown
+❌ WRONG APPROACH: "Images aren't deploying, must be image issue"
+✅ RIGHT APPROACH: "Build failed, check logs for compilation errors"
+
+❌ WRONG: Spend hours debugging image formats, Git LFS, etc.
+✅ RIGHT: Read the error message that says "JSX syntax error in cart/page.tsx"
+```
+
+### **Prevention Strategy**
+```bash
+# ALWAYS run these before committing:
+npm run build        # Test build locally
+npm run type-check   # Catch TypeScript errors
+npm run lint         # Catch syntax/style issues
+
+# Only commit if all pass without errors
+git add .
+git commit -m "Feature: description"
+git push
+```
+
+### **Root Cause vs Symptoms**
+- **One syntax error anywhere blocks ALL deployments**
+- **Missing closing tags, incorrect JSX, TypeScript errors prevent entire builds**
+- **The error location might be completely unrelated to what you're deploying**
+
+### **Time-Saving Debug Process**
+1. **5 minutes**: Read actual error logs
+2. **Don't guess**: Fix the exact error shown
+3. **Don't assume**: The problem might be in a different file entirely
+
+### **Real Example That Took Hours to Solve**
+```
+Problem: "Book images not deploying"
+Hours spent: Checking image formats, Git tracking, file sizes
+Actual cause: Missing </div> tag in cart/page.tsx
+Time to fix: 30 seconds once we read the logs
+```
+
 This document serves as the single source of truth for development practices and project guidelines for Anna Lea's book website.
