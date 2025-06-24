@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Book } from './BookCardFresh';
 import { NewsletterSignup } from '@/components/ui';
 
@@ -17,6 +17,8 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
   onClose,
   onAddToCart,
 }) => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   if (!isOpen) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -28,6 +30,10 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
   const handleAddToCart = () => {
     onAddToCart(book);
     onClose(); // Close modal after adding to cart
+  };
+
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
   };
 
   return (
@@ -51,46 +57,82 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
       <div
         style={{
           backgroundColor: 'white',
-          borderRadius: '16px',
-          maxWidth: '800px',
-          width: '100%',
-          maxHeight: '90vh',
+          borderRadius: isFullscreen ? '0px' : '16px',
+          maxWidth: isFullscreen ? '100vw' : '800px',
+          width: isFullscreen ? '100vw' : '100%',
+          maxHeight: isFullscreen ? '100vh' : '90vh',
+          height: isFullscreen ? '100vh' : 'auto',
           overflow: 'auto',
           position: 'relative',
-          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
+          boxShadow: isFullscreen ? 'none' : '0 25px 50px rgba(0, 0, 0, 0.3)',
           animation: 'modalSlideIn 0.3s ease-out',
+          transition: 'all 0.3s ease-in-out',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            width: '40px',
-            height: '40px',
-            borderRadius: '50%',
-            border: 'none',
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
-            fontSize: '20px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transition: 'all 0.2s ease',
-            zIndex: 10,
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-          }}
-        >
-          ✕
-        </button>
+        {/* Header Buttons */}
+        <div style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          display: 'flex',
+          gap: '8px',
+          zIndex: 10,
+        }}>
+          {/* Fullscreen Toggle Button */}
+          <button
+            onClick={toggleFullscreen}
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              fontSize: '18px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+            }}
+            title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+          >
+            {isFullscreen ? '⤓' : '⤢'}
+          </button>
+
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              fontSize: '20px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+            }}
+            title="Close"
+          >
+            ✕
+          </button>
+        </div>
 
         <div style={{ padding: '40px' }}>
           {/* Book Info Header */}
