@@ -21,6 +21,7 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
   const [readingProgress, setReadingProgress] = useState(0);
   const [textSize, setTextSize] = useState(16); // Default 16px
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
   const sampleContentRef = useRef<HTMLDivElement>(null);
 
   if (!isOpen) return null;
@@ -40,12 +41,29 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
     setIsFullscreen(!isFullscreen);
   };
 
-  // Reset reading progress when modal opens
+  // Load bookmark and reset when modal opens
   useEffect(() => {
     if (isOpen) {
-      setReadingProgress(0);
+      // Load bookmark if exists
+      const bookmarkKey = `anna-lea-bookmark-${book.id}`;
+      const savedBookmark = localStorage.getItem(bookmarkKey);
+      
+      if (savedBookmark) {
+        const bookmark = JSON.parse(savedBookmark);
+        setIsBookmarked(true);
+        
+        // Restore scroll position after content loads
+        setTimeout(() => {
+          if (sampleContentRef.current) {
+            sampleContentRef.current.scrollTop = bookmark.scrollPosition || 0;
+          }
+        }, 100);
+      } else {
+        setIsBookmarked(false);
+        setReadingProgress(0);
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, book.id]);
 
   // Track reading progress on scroll
   const handleSampleScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -71,6 +89,37 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
   // Theme toggle
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
+  };
+
+  // Bookmark functions
+  const saveBookmark = () => {
+    const bookmarkKey = `anna-lea-bookmark-${book.id}`;
+    const scrollPosition = sampleContentRef.current?.scrollTop || 0;
+    
+    const bookmark = {
+      bookId: book.id,
+      bookTitle: book.title,
+      scrollPosition,
+      readingProgress,
+      timestamp: new Date().toISOString(),
+    };
+    
+    localStorage.setItem(bookmarkKey, JSON.stringify(bookmark));
+    setIsBookmarked(true);
+  };
+
+  const removeBookmark = () => {
+    const bookmarkKey = `anna-lea-bookmark-${book.id}`;
+    localStorage.removeItem(bookmarkKey);
+    setIsBookmarked(false);
+  };
+
+  const toggleBookmark = () => {
+    if (isBookmarked) {
+      removeBookmark();
+    } else {
+      saveBookmark();
+    }
   };
 
   return (
@@ -421,6 +470,29 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
                     title={isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'}
                   >
                     {isDarkTheme ? '☀️' : '🌙'}
+                  </button>
+
+                  {/* Bookmark Toggle */}
+                  <button
+                    onClick={toggleBookmark}
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '6px',
+                      border: '1px solid #d1d5db',
+                      backgroundColor: isBookmarked ? '#3b82f6' : 'white',
+                      color: isBookmarked ? 'white' : '#374151',
+                      fontSize: '16px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.2s ease',
+                      marginLeft: '4px',
+                    }}
+                    title={isBookmarked ? 'Remove bookmark' : 'Bookmark current position'}
+                  >
+                    {isBookmarked ? '🔖' : '📖'}
                   </button>
                 </div>
               </div>
