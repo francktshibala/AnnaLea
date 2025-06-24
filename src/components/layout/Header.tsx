@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             <button
               onClick={() => scrollToSection('books')}
               className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
