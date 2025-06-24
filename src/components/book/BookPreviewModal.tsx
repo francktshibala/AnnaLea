@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Book } from './BookCardFresh';
+import { NewsletterSignup } from '@/components/ui';
 
 interface BookPreviewModalProps {
   book: Book & { sample?: string };
@@ -270,6 +271,18 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
               </p>
             </div>
           )}
+
+          {/* Newsletter Signup Section */}
+          <div style={{ marginTop: '40px', borderTop: '1px solid #e5e7eb', paddingTop: '32px' }}>
+            <NewsletterSignup
+              variant="modal"
+              title="Stay Updated on New Releases"
+              description="Be the first to know when Anna Lea publishes new inspiring stories and get exclusive content."
+              buttonText="Subscribe"
+              placeholder="Your email address"
+              source="book-preview-modal"
+            />
+          </div>
         </div>
 
         {/* Inline styles for animations */}
