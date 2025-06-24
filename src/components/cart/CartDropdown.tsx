@@ -157,7 +157,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
               <div className="flex gap-2">
                 <button
                   onClick={() => {
-                    console.log('Navigate to cart page');
+                    window.location.href = '/cart';
                     onClose();
                   }}
                   className="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg font-medium transition-colors"
@@ -166,7 +166,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
                 </button>
                 <button
                   onClick={() => {
-                    console.log('Proceed to checkout');
+                    window.location.href = '/cart';
                     onClose();
                   }}
                   className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
