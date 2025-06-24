@@ -189,7 +189,7 @@ What neither of them could foresee was how their love would be tested by tragedy
                 continues to inspire through her unique blend of historical context and 
                 spiritual insight.
               </p>
-              <Button variant="outline" size="large">
+              <Button variant="outline" size="large" as="a" href="/about">
                 Learn More About Anna Lea
               </Button>
             </div>
