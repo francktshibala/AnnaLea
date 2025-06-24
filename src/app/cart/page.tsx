@@ -66,14 +66,14 @@ export default function CartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+              <div className="bg-white border border-gray-200 rounded-lg">
                 {/* Cart Header */}
-                <div className="p-6 border-b border-gray-200">
+                <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold text-gray-900">Cart Items</h2>
+                    <h2 className="text-lg font-medium text-gray-900">Shopping Cart</h2>
                     <button
                       onClick={clearCart}
-                      className="text-red-600 hover:text-red-700 text-sm font-medium transition-colors"
+                      className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
                     >
                       Clear Cart
                     </button>
@@ -81,13 +81,11 @@ export default function CartPage() {
                 </div>
 
                 {/* Items List */}
-                <div className="p-6">
+                <div className="divide-y divide-gray-200">
                   {cartItems.map((item, index) => (
                     <div
                       key={item.id}
-                      className={`flex items-center gap-4 py-6 ${
-                        index !== cartItems.length - 1 ? 'border-b border-gray-100' : ''
-                      }`}
+                      className="p-6 flex items-start gap-4"
                     >
                       {/* Book Image */}
                       <div
