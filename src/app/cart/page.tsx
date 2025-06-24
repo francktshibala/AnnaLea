@@ -171,73 +171,60 @@ export default function CartPage() {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 sticky top-8">
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-6">Order Summary</h3>
+              <div className="bg-white border border-gray-200 rounded-lg p-6 sticky top-24">
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Order Summary</h3>
+                
+                {/* Price Breakdown */}
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-700">Subtotal ({totalItems} items):</span>
+                    <span className="font-medium">${totalPrice.toFixed(2)}</span>
+                  </div>
                   
-                  {/* Price Breakdown */}
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between text-gray-600">
-                      <span>Subtotal ({totalItems} items)</span>
-                      <span>${totalPrice.toFixed(2)}</span>
-                    </div>
-                    
-                    <div className="flex justify-between text-gray-600">
-                      <span>Shipping</span>
-                      <span>{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
-                    </div>
-                    
-                    {shipping === 0 && (
-                      <p className="text-sm text-green-600">🎉 Free shipping on orders over $50!</p>
-                    )}
-                    
-                    <div className="flex justify-between text-gray-600">
-                      <span>Tax</span>
-                      <span>${tax.toFixed(2)}</span>
-                    </div>
-                    
-                    <div className="border-t border-gray-200 pt-4">
-                      <div className="flex justify-between text-xl font-bold text-gray-900">
-                        <span>Total</span>
-                        <span>${finalTotal.toFixed(2)}</span>
-                      </div>
-                    </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-700">Shipping & handling:</span>
+                    <span className="font-medium">{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
                   </div>
-
-                  {/* Checkout Button */}
-                  <Button
-                    onClick={handleProceedToCheckout}
-                    variant="primary"
-                    size="large"
-                    className="w-full"
-                    disabled={isProcessing}
-                  >
-                    {isProcessing ? 'Processing...' : 'Proceed to Checkout'}
-                  </Button>
-
-                  {/* Security Notice */}
-                  <div className="mt-4 text-center">
-                    <p className="text-sm text-gray-500">
-                      🔒 Secure checkout with SSL encryption
-                    </p>
+                  
+                  {shipping === 0 && (
+                    <p className="text-xs text-green-600">Your order qualifies for FREE Shipping</p>
+                  )}
+                  
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-700">Estimated tax:</span>
+                    <span className="font-medium">${tax.toFixed(2)}</span>
                   </div>
-
-                  {/* Payment Methods */}
-                  <div className="mt-6 pt-6 border-t border-gray-200">
-                    <p className="text-sm text-gray-600 mb-3">We accept:</p>
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="bg-gray-100 px-3 py-2 rounded text-xs font-medium text-gray-600">
-                        VISA
-                      </div>
-                      <div className="bg-gray-100 px-3 py-2 rounded text-xs font-medium text-gray-600">
-                        MASTERCARD
-                      </div>
-                      <div className="bg-gray-100 px-3 py-2 rounded text-xs font-medium text-gray-600">
-                        PAYPAL
-                      </div>
-                    </div>
+                  
+                  <hr className="my-3" />
+                  
+                  <div className="flex justify-between text-lg font-bold text-red-700">
+                    <span>Order total:</span>
+                    <span>${finalTotal.toFixed(2)}</span>
                   </div>
                 </div>
+
+                {/* Checkout Button */}
+                <button
+                  onClick={handleProceedToCheckout}
+                  disabled={isProcessing}
+                  className="w-full py-3 px-4 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+                >
+                  {isProcessing ? 'Processing...' : 'Proceed to checkout'}
+                </button>
+
+                {/* Security Notice */}
+                <p className="text-xs text-gray-600 text-center mb-4">
+                  🔒 Secure transaction
+                </p>
+
+                {/* Payment Methods */}
+                <div className="text-center">
+                  <p className="text-xs text-gray-600 mb-2">We accept:</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-xs bg-gray-100 px-2 py-1 rounded">VISA</span>
+                    <span className="text-xs bg-gray-100 px-2 py-1 rounded">MASTERCARD</span>
+                    <span className="text-xs bg-gray-100 px-2 py-1 rounded">PAYPAL</span>
+                  </div>
               </div>
             </div>
           </div>
