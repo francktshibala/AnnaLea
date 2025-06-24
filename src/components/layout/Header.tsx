@@ -33,21 +33,24 @@ export const Header: React.FC = () => {
           <nav className="hidden md:flex items-center space-x-12">
             <button
               onClick={() => scrollToSection('books')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium group"
             >
               Books
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </button>
             <a
               href="/about"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium group"
             >
               About
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
               href="/contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium group"
             >
               Contact
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
 
