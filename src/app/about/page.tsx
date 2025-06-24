@@ -1,9 +1,37 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui';
 
 export default function AboutPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      alert('Thank you for your message! Anna Lea will get back to you soon.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -109,6 +137,140 @@ export default function AboutPage() {
                 between hearts, connecting readers to their faith, their community, 
                 and their purpose.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                Connect with Anna Lea
+              </h2>
+              <p className="text-xl text-gray-600">
+                Have a question about her books or want to share your story? Send a message below.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Contact Info */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Get in Touch
+                </h3>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start gap-3">
+                    <span className="text-blue-600 text-xl">📧</span>
+                    <div>
+                      <p className="font-medium text-gray-900">Email</p>
+                      <p className="text-gray-600">hello@annaleacannon.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-blue-600 text-xl">📱</span>
+                    <div>
+                      <p className="font-medium text-gray-900">Speaking Engagements</p>
+                      <p className="text-gray-600">Available for church events and book clubs</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-blue-600 text-xl">📖</span>
+                    <div>
+                      <p className="font-medium text-gray-900">Book Discussions</p>
+                      <p className="text-gray-600">Join our monthly reader's circle</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h4 className="font-bold text-gray-900 mb-2">📬 Newsletter</h4>
+                  <p className="text-sm text-gray-700">
+                    Subscribe to receive updates about new books, upcoming events, 
+                    and inspirational stories directly from Anna Lea.
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="What's this about?"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                      placeholder="Share your thoughts, questions, or feedback..."
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    variant="primary" 
+                    size="large"
+                    disabled={isSubmitting}
+                    className="w-full"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
