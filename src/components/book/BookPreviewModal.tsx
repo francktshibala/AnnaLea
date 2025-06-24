@@ -19,6 +19,8 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
+  const [textSize, setTextSize] = useState(16); // Default 16px
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const sampleContentRef = useRef<HTMLDivElement>(null);
 
   if (!isOpen) return null;
@@ -55,6 +57,20 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
       const progress = (scrollTop / scrollHeight) * 100;
       setReadingProgress(Math.min(progress, 100));
     }
+  };
+
+  // Text size controls
+  const increaseTextSize = () => {
+    setTextSize(prev => Math.min(prev + 2, 24)); // Max 24px
+  };
+
+  const decreaseTextSize = () => {
+    setTextSize(prev => Math.max(prev - 2, 12)); // Min 12px
+  };
+
+  // Theme toggle
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
   };
 
   return (
@@ -312,36 +328,122 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
           {/* Sample Content */}
           {book.sample && (
             <div>
-              <h3
-                style={{
-                  fontSize: '24px',
-                  fontWeight: 'bold',
-                  color: '#1f2937',
-                  marginBottom: '20px',
-                  borderBottom: '2px solid #e5e7eb',
-                  paddingBottom: '12px',
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
-                }}
-              >
-                📖 Book Sample
-              </h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h3
+                  style={{
+                    fontSize: '24px',
+                    fontWeight: 'bold',
+                    color: '#1f2937',
+                    margin: '0',
+                    fontFamily: 'system-ui, -apple-system, sans-serif',
+                  }}
+                >
+                  📖 Book Sample
+                </h3>
+
+                {/* Reading Controls */}
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  {/* Text Size Controls */}
+                  <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                    <button
+                      onClick={decreaseTextSize}
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '6px',
+                        border: '1px solid #d1d5db',
+                        backgroundColor: 'white',
+                        fontSize: '16px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#f3f4f6';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'white';
+                      }}
+                      title="Decrease text size"
+                    >
+                      A⁻
+                    </button>
+                    <span style={{ fontSize: '12px', color: '#6b7280', minWidth: '24px', textAlign: 'center' }}>
+                      {textSize}px
+                    </span>
+                    <button
+                      onClick={increaseTextSize}
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '6px',
+                        border: '1px solid #d1d5db',
+                        backgroundColor: 'white',
+                        fontSize: '16px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#f3f4f6';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'white';
+                      }}
+                      title="Increase text size"
+                    >
+                      A⁺
+                    </button>
+                  </div>
+
+                  {/* Theme Toggle */}
+                  <button
+                    onClick={toggleTheme}
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '6px',
+                      border: '1px solid #d1d5db',
+                      backgroundColor: isDarkTheme ? '#374151' : 'white',
+                      color: isDarkTheme ? 'white' : '#374151',
+                      fontSize: '16px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.2s ease',
+                      marginLeft: '8px',
+                    }}
+                    title={isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'}
+                  >
+                    {isDarkTheme ? '☀️' : '🌙'}
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ borderBottom: '2px solid #e5e7eb', paddingBottom: '12px', marginBottom: '20px' }} />
               
               <div
                 ref={sampleContentRef}
                 onScroll={handleSampleScroll}
                 style={{
-                  fontSize: '16px',
+                  fontSize: `${textSize}px`,
                   lineHeight: '1.8',
-                  color: '#374151',
+                  color: isDarkTheme ? '#e5e7eb' : '#374151',
                   fontFamily: 'Georgia, serif',
                   whiteSpace: 'pre-line',
-                  backgroundColor: '#f9fafb',
+                  backgroundColor: isDarkTheme ? '#1f2937' : '#f9fafb',
                   padding: '24px',
                   borderRadius: '12px',
-                  border: '1px solid #e5e7eb',
+                  border: `1px solid ${isDarkTheme ? '#374151' : '#e5e7eb'}`,
                   maxHeight: '400px',
                   overflowY: 'auto',
                   scrollBehavior: 'smooth',
+                  transition: 'all 0.3s ease',
                 }}
               >
                 {book.sample}
