@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useCart } from '@/contexts/CartContext';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart, getTotalPrice, getTotalItems } = useCart();
-  const [isProcessing, setIsProcessing] = useState(false);
 
   const totalItems = getTotalItems();
   const totalPrice = getTotalPrice();
@@ -14,12 +13,11 @@ export default function CartPage() {
   const finalTotal = totalPrice + shipping + tax;
 
   const handleProceedToCheckout = () => {
-    setIsProcessing(true);
-    // TODO: Integrate with payment system
-    setTimeout(() => {
-      alert('Checkout integration coming soon! This will connect to Stripe or similar payment processor.');
-      setIsProcessing(false);
-    }, 1000);
+    if (cartItems.length === 0) {
+      alert('Your cart is empty. Please add items before checkout.');
+      return;
+    }
+    window.location.href = '/checkout';
   };
 
   const handleContinueShopping = () => {
@@ -83,7 +81,7 @@ export default function CartPage() {
 
                 {/* Items List */}
                 <div className="divide-y divide-gray-200">
-                  {cartItems.map((item, index) => (
+                  {cartItems.map((item) => (
                     <div
                       key={item.id}
                       className="p-6 flex items-start gap-4"
@@ -213,10 +211,10 @@ export default function CartPage() {
                 {/* Checkout Button */}
                 <button
                   onClick={handleProceedToCheckout}
-                  disabled={isProcessing}
+                  disabled={false}
                   className="w-full py-3 px-4 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
                 >
-                  {isProcessing ? 'Processing...' : 'Proceed to checkout'}
+                  Proceed to checkout
                 </button>
 
                 {/* Security Notice */}

@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: stripeAmount,
       currency: STRIPE_CONFIG.currency,
-      payment_method_types: STRIPE_CONFIG.paymentMethodTypes,
+      payment_method_types: ['card'],
       metadata: {
         // Store cart information in metadata
         itemCount: cartItems.length.toString(),
