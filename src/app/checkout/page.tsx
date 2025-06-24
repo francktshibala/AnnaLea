@@ -53,6 +53,9 @@ export default function CheckoutPage() {
         const data = await response.json();
 
         if (!response.ok) {
+          if (data.code === 'STRIPE_NOT_CONFIGURED') {
+            throw new Error('Payment processing is temporarily unavailable. Please try again later or contact support.');
+          }
           throw new Error(data.error || 'Failed to create payment intent');
         }
 

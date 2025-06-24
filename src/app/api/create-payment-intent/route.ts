@@ -14,10 +14,17 @@ export async function POST(request: NextRequest) {
   try {
     // Check if Stripe is properly configured
     if (!isStripeConfigured() || !stripe) {
+      console.error('Stripe not configured:', {
+        hasStripeSecretKey: !!process.env.STRIPE_SECRET_KEY,
+        hasPublishableKey: !!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+        stripeInstance: !!stripe
+      });
+      
       return NextResponse.json(
         { 
-          error: 'Payment processing is not configured. Please contact support.',
-          code: 'STRIPE_NOT_CONFIGURED'
+          error: 'Payment processing is temporarily unavailable. Please try again later or contact support if the issue persists.',
+          code: 'STRIPE_NOT_CONFIGURED',
+          details: 'Service configuration missing'
         },
         { status: 503 }
       );
