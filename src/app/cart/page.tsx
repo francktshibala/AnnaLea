@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
-import { Button } from '@/components/ui';
-import Link from 'next/link';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart, getTotalPrice, getTotalItems } = useCart();
@@ -57,9 +55,12 @@ export default function CartPage() {
             </svg>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Your cart is empty</h2>
             <p className="text-gray-600 mb-8">Discover Anna Lea's inspiring Christian books</p>
-            <Button onClick={handleContinueShopping} variant="primary" size="large">
+            <button 
+              onClick={handleContinueShopping}
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+            >
               Browse Books
-            </Button>
+            </button>
           </div>
         ) : (
           /* Cart with Items */
@@ -163,9 +164,15 @@ export default function CartPage() {
 
               {/* Continue Shopping */}
               <div className="mt-6">
-                <Button onClick={handleContinueShopping} variant="outline" size="large">
-                  ← Continue Shopping
-                </Button>
+                <button
+                  onClick={handleContinueShopping}
+                  className="text-blue-600 hover:text-blue-800 hover:underline text-sm flex items-center gap-1"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Continue shopping
+                </button>
               </div>
             </div>
 
