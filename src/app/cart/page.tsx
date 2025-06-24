@@ -119,50 +119,43 @@ export default function CartPage() {
                         </div>
                       </div>
 
-                      {/* Quantity Controls */}
-                      <div className="flex items-center gap-3">
-                        <button
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
-                          aria-label="Decrease quantity"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                          </svg>
-                        </button>
-                        
-                        <span className="w-12 text-center text-lg font-medium text-gray-900">
-                          {item.quantity}
-                        </span>
-                        
-                        <button
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
-                          aria-label="Increase quantity"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                          </svg>
-                        </button>
-                      </div>
-
-                      {/* Item Total */}
-                      <div className="text-right min-w-[80px]">
+                      {/* Price and Quantity */}
+                      <div className="text-right flex flex-col items-end gap-3">
+                        {/* Price */}
                         <p className="text-lg font-bold text-gray-900">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ${item.price.toFixed(2)}
                         </p>
+                        
+                        {/* Quantity Controls */}
+                        <div className="flex items-center border border-gray-300 rounded">
+                          <button
+                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            className="px-3 py-1 hover:bg-gray-100 text-gray-600"
+                            aria-label="Decrease quantity"
+                          >
+                            −
+                          </button>
+                          
+                          <span className="px-3 py-1 border-x border-gray-300 text-center min-w-[50px] text-sm">
+                            {item.quantity}
+                          </span>
+                          
+                          <button
+                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            className="px-3 py-1 hover:bg-gray-100 text-gray-600"
+                            aria-label="Increase quantity"
+                          >
+                            +
+                          </button>
+                        </div>
+                        
+                        {/* Item Total */}
+                        {item.quantity > 1 && (
+                          <p className="text-sm text-gray-600">
+                            Total: ${(item.price * item.quantity).toFixed(2)}
+                          </p>
+                        )}
                       </div>
-
-                      {/* Remove Button */}
-                      <button
-                        onClick={() => removeFromCart(item.id)}
-                        className="p-2 text-red-400 hover:text-red-600 transition-colors"
-                        aria-label="Remove item"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
                     </div>
                   ))}
                 </div>
