@@ -8,7 +8,7 @@ describe('BookCard Component', () => {
     title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
     author: 'Anna Lea Cannon',
     price: 12.99,
-    image: '/images/books/isaiah-tree-cover.jpg',
+    image: '/images/books/isaiah-tree-cover.png',
     description: 'A story of hope, faith, and divine connection with an ancient olive tree',
   };
 
@@ -24,7 +24,7 @@ describe('BookCard Component', () => {
     render(<BookCard book={mockBook} />);
     
     const image = screen.getByRole('img');
-    expect(image).toHaveAttribute('src', '/images/books/isaiah-tree-cover.jpg');
+    expect(image).toHaveAttribute('src', '/images/books/isaiah-tree-cover.png');
     expect(image).toHaveAttribute('alt', 'Isaiah Tree: The Olive Tree That Jesus Touched');
   });
 

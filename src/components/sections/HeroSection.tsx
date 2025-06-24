@@ -215,7 +215,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {/* Book Cover */}
                 <div className="absolute inset-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl overflow-hidden">
                   <img
-                    src="/images/books/isaiah-tree-cover.jpg"
+                    src="/images/books/isaiah-tree-cover.png"
                     alt="Isaiah Tree book cover featuring an ancient olive tree"
                     className="w-full h-full object-cover"
                     loading={lazyLoad ? "lazy" : "eager"}

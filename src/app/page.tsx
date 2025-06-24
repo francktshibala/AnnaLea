@@ -54,7 +54,7 @@ export default function Home() {
       title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
       author: 'Anna Lea Cannon',
       price: 12.99,
-      image: '/images/books/isaiah-tree-cover.jpg', // Real book cover - will fallback to placeholder if needed
+      image: '/images/books/isaiah-tree-cover.png', // Real book cover - corrected PNG extension
       description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
       sample: `Chapter 1: The Ancient Witness
 
@@ -98,7 +98,7 @@ Walking among the people was a man unlike any other she had ever seen. His prese
       title: 'A Missionary Widow: The Enduring Power of Faith and Love',
       author: 'Anna Lea Cannon', 
       price: 14.99,
-      image: '/images/books/missionary-widow-cover.jpg', // Real book cover (placeholder path)
+      image: '/images/books/missionary-widow-cover.png', // Real book cover - corrected PNG extension
       description: 'The inspiring true story of Pete and Suzanne Black\'s love story through missionary service and faith commitment.',
       sample: `Chapter 1: Two Hearts, One Mission
 
