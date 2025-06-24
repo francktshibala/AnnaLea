@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <CartProvider>
           <Header />
-          <div style={{ paddingTop: '64px' }}> {/* Account for fixed header */}
+          <div style={{ paddingTop: '80px' }}> {/* Account for fixed header */}
             {children}
           </div>
         </CartProvider>
