@@ -232,6 +232,7 @@ export default function CartPage() {
                     <span className="text-xs bg-gray-100 px-2 py-1 rounded">MASTERCARD</span>
                     <span className="text-xs bg-gray-100 px-2 py-1 rounded">PAYPAL</span>
                   </div>
+                </div>
               </div>
             </div>
           </div>
