@@ -89,7 +89,7 @@ export default function CartPage() {
                     >
                       {/* Book Image */}
                       <div
-                        className="w-20 h-28 bg-gray-200 rounded-lg flex-shrink-0"
+                        className="w-20 h-28 bg-gray-200 rounded flex-shrink-0"
                         style={{
                           backgroundImage: `url(${item.image})`,
                           backgroundSize: 'cover',
@@ -99,13 +99,24 @@ export default function CartPage() {
 
                       {/* Book Details */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                        <h3 className="text-base font-medium text-blue-600 hover:text-blue-800 cursor-pointer mb-1">
                           {item.title}
                         </h3>
-                        <p className="text-gray-600 mb-2">by {item.author}</p>
-                        <p className="text-lg font-bold text-blue-600">
-                          ${item.price.toFixed(2)}
-                        </p>
+                        <p className="text-sm text-gray-600 mb-2">by {item.author}</p>
+                        <p className="text-sm text-green-600 mb-2">In Stock</p>
+                        
+                        <div className="flex items-center gap-4 text-sm">
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="text-blue-600 hover:text-blue-800 hover:underline"
+                          >
+                            Delete
+                          </button>
+                          <span className="text-gray-300">|</span>
+                          <button className="text-blue-600 hover:text-blue-800 hover:underline">
+                            Save for later
+                          </button>
+                        </div>
                       </div>
 
                       {/* Quantity Controls */}
