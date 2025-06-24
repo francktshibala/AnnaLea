@@ -29,12 +29,12 @@ export default function CartPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="container mx-auto px-6">
+    <div className="min-h-screen bg-white py-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-normal text-gray-900 mb-2">Shopping Cart</h1>
+          <p className="text-sm text-gray-600">
             {totalItems === 0 ? 'Your cart is empty' : `${totalItems} item${totalItems !== 1 ? 's' : ''} in your cart`}
           </p>
         </div>
