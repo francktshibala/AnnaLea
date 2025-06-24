@@ -140,6 +140,7 @@ What neither of them could foresee was how their love would be tested by tragedy
             </h2>
             <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
               📖 PREVIEW READY: Click any book card to read sample chapters
+              <br />🔍 DEBUG: Testing image deployment - 2025-06-24 02:20
             </div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover inspiring Christian stories that touch the heart and strengthen faith
