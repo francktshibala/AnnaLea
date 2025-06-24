@@ -63,7 +63,7 @@ export default function CheckoutPage() {
     };
 
     createPaymentIntent();
-  }, [cartItems]);
+  }, [cartItems, customerEmail]);
 
   const appearance = {
     theme: 'stripe' as const,

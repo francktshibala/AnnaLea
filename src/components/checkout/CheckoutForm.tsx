@@ -16,7 +16,6 @@ interface CheckoutFormProps {
 }
 
 export default function CheckoutForm({ 
-  clientSecret, 
   customerEmail, 
   totalAmount 
 }: CheckoutFormProps) {
