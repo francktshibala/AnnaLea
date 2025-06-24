@@ -12,7 +12,50 @@ interface CreatePaymentIntentRequest {
 
 export async function POST(request: NextRequest) {
   try {
-    // Check if Stripe is properly configured
+    // Temporary demo mode for immediate testing
+    const DEMO_MODE = true;
+
+    if (DEMO_MODE) {
+      const body: CreatePaymentIntentRequest = await request.json();
+      const { cartItems } = body;
+
+      // Validate cart items even in demo mode
+      if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0) {
+        return NextResponse.json(
+          { error: 'Cart is empty or invalid' },
+          { status: 400 }
+        );
+      }
+
+      // Calculate total amount for demo
+      const totalAmount = cartItems.reduce((total, item) => {
+        return total + (item.price * item.quantity);
+      }, 0);
+
+      return NextResponse.json({
+        success: true,
+        clientSecret: 'demo_client_secret_for_testing_' + Date.now(),
+        paymentIntentId: 'demo_pi_' + Date.now(),
+        amount: totalAmount,
+        currency: 'usd',
+        demoMode: true,
+        message: 'Demo mode - payment processing simulation',
+        orderSummary: {
+          items: cartItems.map(item => ({
+            id: item.id,
+            title: item.title,
+            author: item.author,
+            quantity: item.quantity,
+            price: item.price,
+            subtotal: item.price * item.quantity,
+          })),
+          totalItems: cartItems.reduce((sum, item) => sum + item.quantity, 0),
+          totalAmount: totalAmount,
+        },
+      });
+    }
+
+    // Check if Stripe is properly configured (when not in demo mode)
     if (!isStripeConfigured() || !stripe) {
       console.error('Stripe not configured:', {
         hasStripeSecretKey: !!process.env.STRIPE_SECRET_KEY,

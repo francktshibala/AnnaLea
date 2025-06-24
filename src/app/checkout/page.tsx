@@ -60,6 +60,11 @@ export default function CheckoutPage() {
         }
 
         setClientSecret(data.clientSecret);
+        
+        // Log demo mode status for development
+        if (data.demoMode) {
+          console.log('🎭 Demo Mode Active:', data.message);
+        }
       } catch (err) {
         console.error('Payment intent error:', err);
         setError(err instanceof Error ? err.message : 'Failed to initialize payment');
