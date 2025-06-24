@@ -157,7 +157,7 @@ INSERT INTO books (title, author, price, description, image_url, category, stock
     'Anna Lea Cannon',
     12.99,
     'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ''s presence. Follow Isaiah Tree''s journey as it experiences divine connection and learns about the endurance of hope, miracles in everyday life, and love''s divine power.',
-    '/images/books/isaiah-tree-cover.png',
+    '/images/books/isaiah-tree-cover.jpg',
     'christian',
     500,
     true,

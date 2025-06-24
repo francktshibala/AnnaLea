@@ -54,7 +54,7 @@ export default function Home() {
       title: 'Isaiah Tree: The Olive Tree That Jesus Touched',
       author: 'Anna Lea Cannon',
       price: 12.99,
-      image: '/images/books/isaiah-tree-cover.png', // Real book cover - corrected PNG extension
+      image: '/images/books/isaiah-tree-cover.jpg', // Real book cover - optimized JPEG (41KB)
       description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
       sample: `Chapter 1: The Ancient Witness
 
