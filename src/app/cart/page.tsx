@@ -1,9 +1,11 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
 
 export default function CartPage() {
+  const router = useRouter();
   const { cartItems, updateQuantity, removeFromCart, clearCart, getTotalPrice, getTotalItems } = useCart();
 
   const totalItems = getTotalItems();
@@ -17,11 +19,11 @@ export default function CartPage() {
       alert('Your cart is empty. Please add items before checkout.');
       return;
     }
-    window.location.href = '/checkout';
+    router.push('/checkout');
   };
 
   const handleContinueShopping = () => {
-    window.location.href = '/#books';
+    router.push('/#books');
   };
 
   return (
