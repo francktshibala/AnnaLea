@@ -26,10 +26,63 @@ export default function Home() {
     console.log('Opening book trailer...');
   };
 
-  const handleNewsletterSignup = (email: string) => {
-    // Handle newsletter signup
-    console.log('Newsletter signup:', email);
-    // TODO: Integrate with email service
+  const handleNewsletterSignup = async (email: string) => {
+    try {
+      // Call the API endpoint
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source: 'hero-section',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Newsletter signup successful:', data);
+        
+        // Also store in localStorage as backup/mock
+        const existingSignups = JSON.parse(localStorage.getItem('anna-lea-newsletter') || '[]');
+        const emailExists = existingSignups.some((signup: any) => signup.email === email);
+        
+        if (!emailExists) {
+          const newSignup = {
+            email,
+            timestamp: new Date().toISOString(),
+            source: 'hero-section',
+          };
+          existingSignups.push(newSignup);
+          localStorage.setItem('anna-lea-newsletter', JSON.stringify(existingSignups));
+        }
+      } else {
+        console.error('Newsletter signup failed:', data.error);
+      }
+    } catch (error) {
+      console.error('Newsletter signup error:', error);
+      
+      // Fallback to localStorage only
+      try {
+        const existingSignups = JSON.parse(localStorage.getItem('anna-lea-newsletter') || '[]');
+        const emailExists = existingSignups.some((signup: any) => signup.email === email);
+        
+        if (!emailExists) {
+          const newSignup = {
+            email,
+            timestamp: new Date().toISOString(),
+            source: 'hero-section-fallback',
+          };
+          existingSignups.push(newSignup);
+          localStorage.setItem('anna-lea-newsletter', JSON.stringify(existingSignups));
+          console.log('Newsletter signup saved to localStorage as fallback');
+        }
+      } catch (localError) {
+        console.error('Failed to save to localStorage:', localError);
+      }
+    }
   };
 
   const handleAddToCart = (book: any) => {
