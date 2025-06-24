@@ -5,8 +5,12 @@ import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
 import { BookPreviewModal } from '@/components/book/BookPreviewModal';
+import { useCart } from '@/contexts/CartContext';
 
 export default function Home() {
+  // Cart functionality
+  const { addToCart } = useCart();
+  
   // Modal state for book preview
   const [selectedBook, setSelectedBook] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,8 +33,8 @@ export default function Home() {
   };
 
   const handleAddToCart = (book: any) => {
+    addToCart(book);
     console.log('Added to cart:', book);
-    // TODO: Integrate with cart system
   };
 
   const handleBookClick = (book: any) => {
