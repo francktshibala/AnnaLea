@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
 
@@ -82,82 +82,14 @@ export default function CartPage() {
                 </div>
 
                 {/* Items List */}
-                <div className="divide-y divide-gray-200">
+                <div className="space-y-4 p-4">
                   {cartItems.map((item) => (
-                    <div
+                    <CartItemCard
                       key={item.id}
-                      className="p-6 flex items-start gap-4"
-                    >
-                      {/* Book Image */}
-                      <div
-                        className="w-20 h-28 bg-gray-200 rounded flex-shrink-0"
-                        style={{
-                          backgroundImage: `url(${item.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }}
-                      />
-
-                      {/* Book Details */}
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-base font-medium text-blue-600 hover:text-blue-800 cursor-pointer mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 mb-2">by {item.author}</p>
-                        <p className="text-sm text-green-600 mb-2">In Stock</p>
-                        
-                        <div className="flex items-center gap-4 text-sm">
-                          <button
-                            onClick={() => removeFromCart(item.id)}
-                            className="text-blue-600 hover:text-blue-800 hover:underline"
-                          >
-                            Delete
-                          </button>
-                          <span className="text-gray-300">|</span>
-                          <button className="text-blue-600 hover:text-blue-800 hover:underline">
-                            Save for later
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* Price and Quantity */}
-                      <div className="text-right flex flex-col items-end gap-3">
-                        {/* Price */}
-                        <p className="text-lg font-bold text-gray-900">
-                          ${item.price.toFixed(2)}
-                        </p>
-                        
-                        {/* Quantity Controls */}
-                        <div className="flex items-center border border-gray-300 rounded">
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="px-3 py-1 hover:bg-gray-100 text-gray-600"
-                            aria-label="Decrease quantity"
-                          >
-                            −
-                          </button>
-                          
-                          <span className="px-3 py-1 border-x border-gray-300 text-center min-w-[50px] text-sm">
-                            {item.quantity}
-                          </span>
-                          
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="px-3 py-1 hover:bg-gray-100 text-gray-600"
-                            aria-label="Increase quantity"
-                          >
-                            +
-                          </button>
-                        </div>
-                        
-                        {/* Item Total */}
-                        {item.quantity > 1 && (
-                          <p className="text-sm text-gray-600">
-                            Total: ${(item.price * item.quantity).toFixed(2)}
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                      item={item}
+                      onUpdateQuantity={updateQuantity}
+                      onRemove={removeFromCart}
+                    />
                   ))}
                 </div>
               </div>
@@ -241,3 +173,115 @@ export default function CartPage() {
     </div>
   );
 }
+
+// Enhanced Cart Item Card Component
+interface CartItemCardProps {
+  item: {
+    id: string;
+    title: string;
+    author: string;
+    price: number;
+    quantity: number;
+    image: string;
+  };
+  onUpdateQuantity: (id: string, quantity: number) => void;
+  onRemove: (id: string) => void;
+}
+
+const CartItemCard: React.FC<CartItemCardProps> = ({ item, onUpdateQuantity, onRemove }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [imageHovered, setImageHovered] = useState(false);
+
+  return (
+    <div
+      className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 ease-out"
+      style={{
+        transform: isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)',
+        boxShadow: isHovered 
+          ? '0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08)' 
+          : '0 2px 8px rgba(0, 0, 0, 0.06)',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="p-6 flex items-start gap-4">
+        {/* Enhanced Book Image */}
+        <div
+          className="w-20 h-28 bg-gray-200 rounded flex-shrink-0 overflow-hidden"
+          onMouseEnter={() => setImageHovered(true)}
+          onMouseLeave={() => setImageHovered(false)}
+        >
+          <div
+            className="w-full h-full bg-gray-200 transition-transform duration-300 ease-out"
+            style={{
+              backgroundImage: `url(${item.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              transform: imageHovered ? 'scale(1.05)' : 'scale(1)',
+            }}
+          />
+        </div>
+
+        {/* Book Details */}
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base font-medium text-blue-600 hover:text-blue-800 cursor-pointer mb-1 transition-colors duration-200">
+            {item.title}
+          </h3>
+          <p className="text-sm text-gray-600 mb-2">by {item.author}</p>
+          <p className="text-sm text-green-600 mb-2">In Stock</p>
+          
+          <div className="flex items-center gap-4 text-sm">
+            <button
+              onClick={() => onRemove(item.id)}
+              className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+            >
+              Delete
+            </button>
+            <span className="text-gray-300">|</span>
+            <button className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">
+              Save for later
+            </button>
+          </div>
+        </div>
+
+        {/* Price and Quantity */}
+        <div className="text-right flex flex-col items-end gap-3">
+          {/* Price */}
+          <p className="text-lg font-bold text-gray-900">
+            ${item.price.toFixed(2)}
+          </p>
+          
+          {/* Enhanced Quantity Controls */}
+          <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white shadow-sm">
+            <button
+              onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+              className="px-3 py-2 hover:bg-gray-50 text-gray-600 transition-colors duration-200 border-r border-gray-200"
+              aria-label="Decrease quantity"
+            >
+              −
+            </button>
+            
+            <span className="px-4 py-2 text-center min-w-[50px] text-sm font-medium bg-gray-50">
+              {item.quantity}
+            </span>
+            
+            <button
+              onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+              className="px-3 py-2 hover:bg-gray-50 text-gray-600 transition-colors duration-200 border-l border-gray-200"
+              aria-label="Increase quantity"
+            >
+              +
+            </button>
+          </div>
+          
+          {/* Item Total */}
+          {item.quantity > 1 && (
+            <p className="text-sm text-gray-600">
+              Total: ${(item.price * item.quantity).toFixed(2)}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

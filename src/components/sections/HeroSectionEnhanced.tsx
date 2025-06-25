@@ -35,12 +35,12 @@ export const HeroSectionEnhanced: React.FC<HeroSectionEnhancedProps> = ({
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-white relative overflow-hidden">
+    <section className="py-32 lg:py-48 bg-gradient-to-br from-purple-50 via-blue-50 to-white relative overflow-hidden">
       {/* Background texture overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-100/20 via-transparent to-blue-100/20" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-8 lg:px-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Author Content */}
           <div
             className={`transition-all duration-1000 ease-out ${
@@ -49,13 +49,13 @@ export const HeroSectionEnhanced: React.FC<HeroSectionEnhancedProps> = ({
                 : 'opacity-0 translate-y-8'
             }`}
           >
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8 lg:mb-10 leading-tight">
               {title}
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-6 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 mb-8 lg:mb-10 leading-relaxed">
               {subtitle}
             </p>
-            <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+            <p className="text-lg lg:text-xl text-gray-700 mb-12 lg:mb-16 leading-relaxed">
               {description}
             </p>
             

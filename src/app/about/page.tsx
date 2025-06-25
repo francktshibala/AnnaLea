@@ -36,19 +36,19 @@ export default function AboutPage() {
       />
 
       {/* Biography Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-8 lg:px-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-20 lg:mb-24">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8">
                 Anna Lea's Journey
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
                 From faith to storytelling - a life dedicated to inspiring others
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 mb-20 lg:mb-24">
               {/* Enhanced Writing Journey Card */}
               <JourneyCardExpandable
                 icon="📚"
@@ -85,14 +85,14 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact-section" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+      <section id="contact-section" className="py-24 lg:py-40 bg-gray-50">
+        <div className="container mx-auto px-8 lg:px-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-20 lg:mb-24">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8">
                 Connect with Anna Lea
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
                 Have a question about her books or want to share your story? Send a message below.
               </p>
             </div>

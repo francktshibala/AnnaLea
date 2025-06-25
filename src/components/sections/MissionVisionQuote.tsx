@@ -63,13 +63,13 @@ export const MissionVisionQuote: React.FC<MissionVisionQuoteProps> = ({
       
       {/* Content container */}
       <div className={`
-        relative z-10 p-12 text-center
+        relative z-10 p-16 lg:p-20 text-center
         transition-all duration-800 ease-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
       `}>
         {/* Title */}
         <h3 className={`
-          text-3xl lg:text-4xl font-bold text-gray-900 mb-8
+          text-3xl lg:text-4xl font-bold text-gray-900 mb-10 lg:mb-12
           transition-all duration-300 ease-out
           ${isHovered ? 'transform scale-105' : 'transform scale-100'}
         `}>
@@ -78,7 +78,7 @@ export const MissionVisionQuote: React.FC<MissionVisionQuoteProps> = ({
 
         {/* Decorative opening quote */}
         <div className={`
-          text-6xl lg:text-7xl text-blue-300 leading-none mb-6
+          text-6xl lg:text-7xl text-blue-300 leading-none mb-8 lg:mb-10
           transition-all duration-500 ease-out
           ${isVisible ? 'opacity-100 transform rotate-0' : 'opacity-0 transform rotate-12'}
         `}>
@@ -87,7 +87,7 @@ export const MissionVisionQuote: React.FC<MissionVisionQuoteProps> = ({
 
         {/* Main quote */}
         <blockquote className={`
-          text-xl lg:text-2xl text-gray-800 italic font-medium leading-relaxed mb-8
+          text-xl lg:text-2xl text-gray-800 italic font-medium leading-relaxed mb-10 lg:mb-12
           transition-all duration-700 ease-out delay-200
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
         `}>
@@ -96,7 +96,7 @@ export const MissionVisionQuote: React.FC<MissionVisionQuoteProps> = ({
 
         {/* Decorative closing quote */}
         <div className={`
-          text-6xl lg:text-7xl text-purple-300 leading-none mb-8 flex justify-end
+          text-6xl lg:text-7xl text-purple-300 leading-none mb-10 lg:mb-12 flex justify-end
           transition-all duration-500 ease-out delay-300
           ${isVisible ? 'opacity-100 transform rotate-0' : 'opacity-0 transform -rotate-12'}
         `}>

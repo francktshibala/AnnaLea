@@ -29,7 +29,7 @@ export const JourneyCardExpandable: React.FC<JourneyCardExpandableProps> = ({
   return (
     <div
       className={`
-        relative bg-white rounded-2xl border border-gray-200 p-8
+        relative bg-white rounded-2xl border border-gray-200 p-10 lg:p-12
         transition-all duration-300 ease-out cursor-pointer
         ${isHovered 
           ? 'transform -translate-y-2 shadow-xl shadow-blue-500/10' 
@@ -43,20 +43,20 @@ export const JourneyCardExpandable: React.FC<JourneyCardExpandableProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Card Header */}
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex items-center gap-4">
+      <div className="flex items-start justify-between mb-6 lg:mb-8">
+        <div className="flex items-center gap-6">
           <div className={`
-            text-3xl transition-transform duration-300 ease-out
+            text-4xl lg:text-5xl transition-transform duration-300 ease-out
             ${isExpanded ? 'transform scale-110' : 'transform scale-100'}
           `}>
             {icon}
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
               {title}
             </h3>
             {subtitle && (
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-base">
                 {subtitle}
               </p>
             )}
@@ -73,7 +73,7 @@ export const JourneyCardExpandable: React.FC<JourneyCardExpandableProps> = ({
       </div>
 
       {/* Preview Content (Always Visible) */}
-      <div className="text-lg text-gray-700 leading-relaxed mb-4">
+      <div className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 lg:mb-8">
         {content[0]}
       </div>
 
@@ -87,9 +87,9 @@ export const JourneyCardExpandable: React.FC<JourneyCardExpandableProps> = ({
           }
         `}
       >
-        <div className="pt-4 border-t border-gray-200">
+        <div className="pt-6 lg:pt-8 border-t border-gray-200">
           {content.slice(1).map((paragraph, index) => (
-            <p key={index} className="text-lg text-gray-700 leading-relaxed mb-4">
+            <p key={index} className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
               {paragraph}
             </p>
           ))}
