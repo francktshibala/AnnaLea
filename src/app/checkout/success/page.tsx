@@ -122,7 +122,7 @@ export default function CheckoutSuccessPage() {
           <div className="bg-gray-50 rounded-lg p-4 inline-block">
             <p className="text-sm text-gray-600">Order Number</p>
             <p className="text-lg font-mono font-semibold text-gray-900">
-              {orderData.paymentIntentId?.substring(0, 8).toUpperCase() || orderData.orderId || 'N/A'}
+              {orderData.orderId || orderData.paymentIntentId?.substring(0, 16).toUpperCase() || 'N/A'}
             </p>
           </div>
           

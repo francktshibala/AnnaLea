@@ -19,7 +19,7 @@ export default function CheckoutForm({
 }: CheckoutFormProps) {
   const stripe = useStripe();
   const elements = useElements();
-  const { clearCart } = useCart();
+  const { clearCart, cartItems, getTotalPrice } = useCart();
   
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentError, setPaymentError] = useState<string | null>(null);
@@ -46,14 +46,47 @@ export default function CheckoutForm({
       // Simulate successful payment
       setPaymentSuccess(true);
       
-      // Store demo order information for success page
+      // Generate demo order ID
+      const orderNumber = `ORDER-${new Date().getFullYear()}-${String(Date.now()).slice(-6)}`;
+      
+      // Calculate totals
+      const subtotal = getTotalPrice();
+      const shipping = subtotal > 50 ? 0 : 4.99;
+      const tax = subtotal * 0.08;
+      const total = subtotal + shipping + tax;
+      
+      // Store complete demo order information for success page
       const orderData = {
         paymentIntentId: 'demo_pi_' + Date.now(),
+        orderId: orderNumber,
         amount: totalAmount,
         email: customerEmail,
         status: 'completed',
         timestamp: new Date().toISOString(),
         demoMode: true,
+        items: cartItems.map(item => ({
+          id: item.id,
+          title: item.title,
+          author: item.author,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image,
+        })),
+        customer: {
+          email: customerEmail,
+          firstName: 'Demo',
+          lastName: 'Customer',
+          address: '123 Demo Street',
+          city: 'Demo City',
+          state: 'CA',
+          zipCode: '90210',
+        },
+        totals: {
+          subtotal: subtotal,
+          shipping: shipping,
+          tax: tax,
+          total: total,
+        },
       };
       
       localStorage.setItem('lastOrder', JSON.stringify(orderData));
