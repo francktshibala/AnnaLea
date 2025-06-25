@@ -35,6 +35,8 @@ export default function CartPage() {
           <p className="text-sm text-gray-600">
             {totalItems === 0 ? 'Your cart is empty' : `${totalItems} item${totalItems !== 1 ? 's' : ''} in your cart`}
           </p>
+          {/* Debug: Enhanced Cart Cards v1 */}
+          <div className="text-xs text-gray-400 mt-1">🔍 Enhanced Cards Active</div>
         </div>
 
         {cartItems.length === 0 ? (
