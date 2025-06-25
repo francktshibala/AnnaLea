@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui';
 import { HeroSectionEnhanced } from '@/components/sections/HeroSectionEnhanced';
 import { JourneyCardExpandable } from '@/components/sections/JourneyCardExpandable';
+import { MissionVisionQuote } from '@/components/sections/MissionVisionQuote';
 
 export default function AboutPage() {
   const [formData, setFormData] = useState({
@@ -94,21 +95,12 @@ export default function AboutPage() {
               />
             </div>
 
-            {/* Mission Statement */}
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Mission & Vision
-              </h3>
-              <p className="text-xl text-gray-700 italic mb-4">
-                "To weave together faith, history, and hope in stories that inspire 
-                readers to discover God's presence in their own lives."
-              </p>
-              <p className="text-lg text-gray-600">
-                Anna Lea believes that every story has the potential to be a bridge 
-                between hearts, connecting readers to their faith, their community, 
-                and their purpose.
-              </p>
-            </div>
+            {/* Enhanced Mission Statement */}
+            <MissionVisionQuote
+              title="Mission & Vision"
+              quote="To weave together faith, history, and hope in stories that inspire readers to discover God's presence in their own lives."
+              description="Anna Lea believes that every story has the potential to be a bridge between hearts, connecting readers to their faith, their community, and their purpose."
+            />
           </div>
         </div>
       </section>
