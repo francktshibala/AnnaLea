@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui';
 import { HeroSectionEnhanced } from '@/components/sections/HeroSectionEnhanced';
+import { JourneyCardExpandable } from '@/components/sections/JourneyCardExpandable';
 
 export default function AboutPage() {
   const [formData, setFormData] = useState({
@@ -68,40 +69,29 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-              {/* Writing Journey */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  📚 Writing Journey
-                </h3>
-                <p className="text-lg text-gray-700 mb-4">
-                  Anna Lea's writing journey began with a simple desire to share stories 
-                  that strengthen faith and bring hope to families. Drawing inspiration 
-                  from biblical narratives and historical events, she crafts tales that 
-                  resonate with readers across generations.
-                </p>
-                <p className="text-lg text-gray-700">
-                  Her unique approach combines meticulous historical research with 
-                  heartfelt storytelling, creating books that are both educational 
-                  and deeply moving.
-                </p>
-              </div>
+              {/* Enhanced Writing Journey Card */}
+              <JourneyCardExpandable
+                icon="📚"
+                title="Writing Journey"
+                content={[
+                  "Anna Lea's writing journey began with a simple desire to share stories that strengthen faith and bring hope to families. Drawing inspiration from biblical narratives and historical events, she crafts tales that resonate with readers across generations.",
+                  "Her unique approach combines meticulous historical research with heartfelt storytelling, creating books that are both educational and deeply moving.",
+                  "Each story is carefully crafted to not only entertain but to provide spiritual insight and historical context that enriches the reader's understanding of faith and community."
+                ]}
+                initiallyExpanded={false}
+              />
 
-              {/* Faith & Ministry */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  ✨ Faith & Ministry
-                </h3>
-                <p className="text-lg text-gray-700 mb-4">
-                  Rooted in deep Christian faith, Anna Lea's work extends beyond writing. 
-                  She actively participates in church ministry and community outreach, 
-                  believing that stories have the power to transform lives and 
-                  strengthen communities.
-                </p>
-                <p className="text-lg text-gray-700">
-                  Her books have been embraced by churches, schools, and families 
-                  worldwide, serving as tools for faith education and inspiration.
-                </p>
-              </div>
+              {/* Enhanced Faith & Ministry Card */}
+              <JourneyCardExpandable
+                icon="✨"
+                title="Faith & Ministry"
+                content={[
+                  "Rooted in deep Christian faith, Anna Lea's work extends beyond writing. She actively participates in church ministry and community outreach, believing that stories have the power to transform lives and strengthen communities.",
+                  "Her books have been embraced by churches, schools, and families worldwide, serving as tools for faith education and inspiration.",
+                  "Through speaking engagements and book discussions, Anna Lea continues to build bridges between hearts, connecting readers to their faith, their community, and their purpose."
+                ]}
+                initiallyExpanded={false}
+              />
             </div>
 
             {/* Mission Statement */}
