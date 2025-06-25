@@ -277,8 +277,8 @@ export default function CheckoutForm({
       {/* Submit Button */}
       <button
         type="submit"
-        disabled={!stripe || isProcessing}
-        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        disabled={isProcessing}
+        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
       >
         {isProcessing ? (
           <>
