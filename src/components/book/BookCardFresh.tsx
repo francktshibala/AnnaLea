@@ -44,9 +44,9 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
     };
 
     const sizeClasses = {
-      small: 'max-w-[200px]',
-      medium: 'max-w-[280px]',
-      large: 'max-w-[320px]',
+      small: 'max-w-[250px]',
+      medium: 'max-w-[350px]',
+      large: 'max-w-[400px]',
     };
 
     return (
@@ -68,7 +68,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
           onClick={() => onBookClick?.(book)}
           style={{
             position: 'relative',
-            height: '420px',
+            height: '525px',
             width: '100%',
             borderRadius: '16px',
             overflow: 'hidden',
