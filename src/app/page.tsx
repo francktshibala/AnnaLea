@@ -162,33 +162,36 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: 'var(--color-warm-cream)' }}>
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-bold text-gray-900 mb-6" 
+              <h2 className="font-bold mb-6" 
                   style={{ 
                     fontFamily: 'var(--font-display)', 
                     fontSize: 'var(--text-author-section)',
-                    lineHeight: 'var(--leading-tight)' 
+                    lineHeight: 'var(--leading-tight)',
+                    color: 'var(--color-warm-navy)' 
                   }}>
                 About Anna Lea
               </h2>
-              <p className="text-gray-700 mb-6" 
+              <p className="mb-6" 
                  style={{ 
                    fontFamily: 'var(--font-body-refined)', 
                    fontSize: 'var(--text-author-body)',
-                   lineHeight: 'var(--leading-relaxed)' 
+                   lineHeight: 'var(--leading-relaxed)',
+                   color: 'var(--color-neutral-700)' 
                  }}>
                 Anna Lea Cannon is a Christian inspirational storyteller who weaves together 
                 faith, family, and history in her captivating books. Her stories touch hearts 
                 and strengthen faith communities worldwide.
               </p>
-              <p className="text-gray-700 mb-8" 
+              <p className="mb-8" 
                  style={{ 
                    fontFamily: 'var(--font-body-refined)', 
                    fontSize: 'var(--text-author-body)',
-                   lineHeight: 'var(--leading-relaxed)' 
+                   lineHeight: 'var(--leading-relaxed)',
+                   color: 'var(--color-neutral-700)' 
                  }}>
                 With over 500 books distributed and a growing community of readers, Anna Lea 
                 continues to inspire through her unique blend of historical context and 
@@ -199,9 +202,23 @@ export default function Home() {
               </Button>
             </div>
             <div className="lg:text-right">
-              <div className="inline-block p-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl">
-                <div className="w-64 h-64 bg-gradient-to-br from-blue-200 to-purple-200 rounded-xl flex items-center justify-center text-blue-600 text-6xl">
-                  👩‍💼
+              <div className="inline-block p-8 rounded-2xl" 
+                   style={{ backgroundColor: 'var(--color-warm-beige)' }}>
+                <div className="w-64 h-64 rounded-xl flex items-center justify-center relative overflow-hidden"
+                     style={{ backgroundColor: 'var(--color-warm-sage)' }}>
+                  {/* Professional author placeholder */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center" style={{ color: 'var(--color-warm-cream)' }}>
+                      <div className="text-4xl mb-2">✍️</div>
+                      <div className="text-sm font-medium">Author Photo</div>
+                      <div className="text-xs opacity-75">Coming Soon</div>
+                    </div>
+                  </div>
+                  {/* Subtle geometric pattern */}
+                  <div className="absolute top-4 right-4 w-8 h-8 border-2 rounded-full opacity-20"
+                       style={{ borderColor: 'var(--color-warm-cream)' }}></div>
+                  <div className="absolute bottom-4 left-4 w-6 h-6 border-2 opacity-20"
+                       style={{ borderColor: 'var(--color-warm-cream)' }}></div>
                 </div>
               </div>
             </div>

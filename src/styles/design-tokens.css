@@ -46,6 +46,13 @@
   --color-warning-500: #f59e0b;
   --color-info-500: #3b82f6;
 
+  /* Professional Warmth Palette */
+  --color-warm-cream: #fdfcf8;
+  --color-warm-beige: #f7f3ed;
+  --color-warm-sage: #9ca986;
+  --color-warm-navy: #2c3e50;
+  --color-warm-gold: #d4af37;
+
   /* === GLASSMORPHISM === */
   
   /* Glass Background Colors */
