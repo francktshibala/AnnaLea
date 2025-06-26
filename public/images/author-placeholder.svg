@@ -1,0 +1,53 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Professional author headshot placeholder -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ca986;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="faceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdfcf8;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#f7f3ed;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="150" cy="150" r="150" fill="url(#backgroundGradient)" />
+  
+  <!-- Professional author silhouette -->
+  <!-- Head shape -->
+  <ellipse cx="150" cy="120" rx="45" ry="55" fill="url(#faceGradient)" opacity="0.8" />
+  
+  <!-- Body/shoulders -->
+  <path d="M 80 220 Q 80 180 110 170 Q 130 165 150 165 Q 170 165 190 170 Q 220 180 220 220 L 220 300 L 80 300 Z" 
+        fill="url(#faceGradient)" opacity="0.8" />
+  
+  <!-- Elegant frame elements -->
+  <circle cx="150" cy="150" r="140" fill="none" stroke="#fdfcf8" stroke-width="2" opacity="0.3" />
+  <circle cx="150" cy="150" r="130" fill="none" stroke="#fdfcf8" stroke-width="1" opacity="0.2" />
+  
+  <!-- Decorative corner elements -->
+  <g opacity="0.4">
+    <!-- Top corners -->
+    <path d="M 30 30 L 50 30 L 50 35 L 35 35 L 35 50 L 30 50 Z" fill="#fdfcf8" />
+    <path d="M 270 30 L 270 50 L 265 50 L 265 35 L 250 35 L 250 30 Z" fill="#fdfcf8" />
+    
+    <!-- Bottom corners -->
+    <path d="M 30 270 L 30 250 L 35 250 L 35 265 L 50 265 L 50 270 Z" fill="#fdfcf8" />
+    <path d="M 270 270 L 250 270 L 250 265 L 265 265 L 265 250 L 270 250 Z" fill="#fdfcf8" />
+  </g>
+  
+  <!-- Subtle author badge -->
+  <g transform="translate(150, 250)">
+    <rect x="-35" y="-12" width="70" height="24" rx="12" fill="#fdfcf8" opacity="0.9" />
+    <text x="0" y="4" text-anchor="middle" font-family="serif" font-size="11" font-weight="500" fill="#2c3e50">
+      Author Photo
+    </text>
+  </g>
+  
+  <!-- Elegant writing quill icon -->
+  <g transform="translate(200, 100)" opacity="0.3">
+    <path d="M 0 0 Q 5 -10 15 -8 Q 20 -6 18 0 L 5 20 Q 3 22 0 20 Z" fill="#fdfcf8" />
+    <line x1="5" y1="20" x2="8" y2="25" stroke="#fdfcf8" stroke-width="1" />
+  </g>
+</svg>

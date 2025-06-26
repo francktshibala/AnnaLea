@@ -239,21 +239,25 @@ export default function Home() {
             <div className="lg:text-right">
               <div className="inline-block p-8 rounded-2xl" 
                    style={{ backgroundColor: 'var(--color-warm-beige)' }}>
-                <div className="w-64 h-64 rounded-xl flex items-center justify-center relative overflow-hidden"
-                     style={{ backgroundColor: 'var(--color-warm-sage)' }}>
-                  {/* Professional author placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center" style={{ color: 'var(--color-warm-cream)' }}>
-                      <div className="text-4xl mb-2">✍️</div>
-                      <div className="text-sm font-medium">Author Photo</div>
-                      <div className="text-xs opacity-75">Coming Soon</div>
-                    </div>
+                <div className="w-64 h-64 rounded-xl overflow-hidden relative"
+                     style={{ 
+                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)', 
+                       border: '3px solid var(--color-warm-cream)' 
+                     }}>
+                  {/* Professional author photo placeholder */}
+                  <img 
+                    src="/images/author-placeholder.svg" 
+                    alt="Anna Lea Cannon - Professional Author Photo Placeholder"
+                    className="w-full h-full object-cover"
+                    style={{ 
+                      transition: 'transform 0.3s ease',
+                      filter: 'brightness(1.05) contrast(1.1)' 
+                    }}
+                  />
+                  {/* Elegant overlay for future replacement hint */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-20 text-white text-center py-2">
+                    <div className="text-xs font-medium opacity-90">Professional Photo</div>
                   </div>
-                  {/* Subtle geometric pattern */}
-                  <div className="absolute top-4 right-4 w-8 h-8 border-2 rounded-full opacity-20"
-                       style={{ borderColor: 'var(--color-warm-cream)' }}></div>
-                  <div className="absolute bottom-4 left-4 w-6 h-6 border-2 opacity-20"
-                       style={{ borderColor: 'var(--color-warm-cream)' }}></div>
                 </div>
               </div>
             </div>
