@@ -145,7 +145,7 @@ export default function Home() {
             </h2>
             <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
               📖 PREVIEW READY: Click any book card to read sample chapters
-              <br />🔍 DEBUG: Testing image deployment - 2025-06-24 02:20
+              <br />🔍 DEBUG: Wider cards (450px) + improved layout deployed
             </div>
             <p className="max-w-2xl mx-auto"
                style={{ 
@@ -159,11 +159,11 @@ export default function Home() {
           </div>
 
 
-          {/* 3D BookCard Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center" 
+          {/* 3D BookCard Gallery - Optimized for wider cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center" 
                style={{ 
                  perspective: '1000px',
-                 gap: 'clamp(32px, 5vw, 48px)',
+                 gap: 'clamp(40px, 6vw, 60px)', // Increased gap for wider cards
                  marginBottom: 'var(--space-16)' 
                }}>
             {featuredBooks.map((book) => (
@@ -173,7 +173,7 @@ export default function Home() {
                 size="medium"
                 onAddToCart={handleAddToCart}
                 onBookClick={handleBookClick} // All three books now have preview functionality
-                className="w-full max-w-sm"
+                className="w-full max-w-md" // Increased from max-w-sm to max-w-md for better centering
               />
             ))}
           </div>
