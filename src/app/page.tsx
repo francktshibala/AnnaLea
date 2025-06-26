@@ -163,7 +163,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center" 
                style={{ 
                  perspective: '1000px',
-                 gap: 'var(--space-12)',
+                 gap: 'clamp(32px, 5vw, 48px)',
                  marginBottom: 'var(--space-16)' 
                }}>
             {featuredBooks.map((book) => (
@@ -239,7 +239,7 @@ export default function Home() {
             <div className="lg:text-right">
               <div className="inline-block p-8 rounded-2xl" 
                    style={{ backgroundColor: 'var(--color-warm-beige)' }}>
-                <div className="w-64 h-64 rounded-xl overflow-hidden relative"
+                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-xl overflow-hidden relative"
                      style={{ 
                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)', 
                        border: '3px solid var(--color-warm-cream)' 
