@@ -90,17 +90,31 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
             style={{
               width: '100%',
               height: '60%',
-              backgroundImage: `url(${book.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
               borderRadius: '14px 14px 0 0',
-              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-              filter: isHovered 
-                ? 'brightness(1.2) contrast(1.2) saturate(1.3)' 
-                : 'brightness(1) contrast(1) saturate(1)',
-              transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+              position: 'relative',
+              overflow: 'hidden',
             }}
-          />
+          >
+            {/* Image wrapper with margins */}
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                backgroundImage: `url(${book.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                filter: isHovered 
+                  ? 'brightness(1.2) contrast(1.2) saturate(1.3)' 
+                  : 'brightness(1) contrast(1) saturate(1)',
+                transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+              }}
+            />
+            {/* DEBUG: Component 2 deployed */}
+            <div style={{ position: 'absolute', top: '4px', right: '4px', background: 'red', color: 'white', fontSize: '10px', padding: '2px' }}>
+              C2
+            </div>
+          </div>
 
           {/* Book Info Section */}
           <div 
