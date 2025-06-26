@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 const BookCard = dynamic(() => import('./BookCardFresh').then(mod => ({ default: mod.BookCard })), {
   ssr: false,
   loading: () => (
-    <div className="w-full max-w-[350px] mx-auto">
+    <div className="w-full max-w-[380px] mx-auto">
       <div className="w-full h-[525px] bg-gray-100 rounded-xl animate-pulse" />
     </div>
   ),
