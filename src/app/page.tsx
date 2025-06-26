@@ -127,7 +127,11 @@ export default function Home() {
         paddingTop: 'var(--space-25)',
         paddingBottom: 'var(--space-25)'
       }}>
-        <div className="container mx-auto px-6">
+        <div className="mx-auto" style={{ 
+          maxWidth: '1200px',
+          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
+          paddingRight: 'clamp(24px, 7.5vw, 120px)'
+        }}>
           <div className="text-center mb-20">
             <h2 className="font-bold mb-6"
                 style={{ 
@@ -183,7 +187,11 @@ export default function Home() {
         paddingTop: 'var(--space-25)',
         paddingBottom: 'var(--space-25)'
       }}>
-        <div className="container mx-auto px-6">
+        <div className="mx-auto" style={{ 
+          maxWidth: '1200px',
+          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
+          paddingRight: 'clamp(24px, 7.5vw, 120px)'
+        }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-bold mb-6" 
@@ -252,7 +260,11 @@ export default function Home() {
         paddingTop: 'var(--space-12)',
         paddingBottom: 'var(--space-12)'
       }}>
-        <div className="container mx-auto px-6">
+        <div className="mx-auto" style={{ 
+          maxWidth: '1200px',
+          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
+          paddingRight: 'clamp(24px, 7.5vw, 120px)'
+        }}>
           <div className="flex flex-wrap justify-center gap-6">
             <Button variant="ghost" as="a" href="/design-system">
               View Design System
