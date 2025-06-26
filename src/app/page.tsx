@@ -133,12 +133,13 @@ export default function Home() {
           paddingRight: 'clamp(24px, 7.5vw, 120px)'
         }}>
           <div className="text-center mb-20">
-            <h2 className="font-bold mb-6"
+            <h2 className="font-bold"
                 style={{ 
                   fontFamily: 'var(--font-display)', 
                   fontSize: 'var(--text-author-section)',
                   lineHeight: 'var(--leading-tight)',
-                  color: 'var(--color-warm-navy)' 
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-8)' 
                 }}>
               Featured Books
             </h2>
@@ -194,32 +195,33 @@ export default function Home() {
         }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-bold mb-6" 
+              <h2 className="font-bold" 
                   style={{ 
                     fontFamily: 'var(--font-display)', 
                     fontSize: 'var(--text-author-section)',
                     lineHeight: 'var(--leading-tight)',
-                    color: 'var(--color-warm-navy)' 
+                    color: 'var(--color-warm-navy)',
+                    marginBottom: 'var(--space-8)' 
                   }}>
                 About Anna Lea
               </h2>
-              <p className="mb-6" 
-                 style={{ 
+              <p style={{ 
                    fontFamily: 'var(--font-body-refined)', 
                    fontSize: 'var(--text-author-body)',
                    lineHeight: 'var(--leading-relaxed)',
-                   color: 'var(--color-neutral-700)' 
+                   color: 'var(--color-neutral-700)',
+                   marginBottom: 'var(--space-6)' 
                  }}>
                 Anna Lea Cannon is a Christian inspirational storyteller who weaves together 
                 faith, family, and history in her captivating books. Her stories touch hearts 
                 and strengthen faith communities worldwide.
               </p>
-              <p className="mb-8" 
-                 style={{ 
+              <p style={{ 
                    fontFamily: 'var(--font-body-refined)', 
                    fontSize: 'var(--text-author-body)',
                    lineHeight: 'var(--leading-relaxed)',
-                   color: 'var(--color-neutral-700)' 
+                   color: 'var(--color-neutral-700)',
+                   marginBottom: 'var(--space-8)' 
                  }}>
                 With over 500 books distributed and a growing community of readers, Anna Lea 
                 continues to inspire through her unique blend of historical context and 
