@@ -160,8 +160,12 @@ export default function Home() {
 
 
           {/* 3D BookCard Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16 justify-items-center" 
-               style={{ perspective: '1000px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center" 
+               style={{ 
+                 perspective: '1000px',
+                 gap: 'var(--space-12)',
+                 marginBottom: 'var(--space-16)' 
+               }}>
             {featuredBooks.map((book) => (
               <BookCard
                 key={book.id}
@@ -186,7 +190,8 @@ export default function Home() {
       <section style={{ 
         backgroundColor: 'var(--color-warm-cream)',
         paddingTop: 'var(--space-25)',
-        paddingBottom: 'var(--space-25)'
+        paddingBottom: 'var(--space-25)',
+        marginTop: 'var(--space-30)'
       }}>
         <div className="mx-auto" style={{ 
           maxWidth: '1200px',

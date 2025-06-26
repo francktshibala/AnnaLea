@@ -141,6 +141,7 @@
   --space-20: 5rem;        /* 80px */
   --space-24: 6rem;        /* 96px */
   --space-25: 6.25rem;     /* 100px - Premium section spacing */
+  --space-30: 7.5rem;      /* 120px - Section breaks */
   --space-32: 8rem;        /* 128px */
 
   /* === BORDER RADIUS === */
