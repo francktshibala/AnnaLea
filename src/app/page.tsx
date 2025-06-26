@@ -122,8 +122,11 @@ export default function Home() {
 
 
       {/* Books Preview Section */}
-      <section id="books" className="py-24" 
-               style={{ backgroundColor: 'var(--color-warm-beige)' }}>
+      <section id="books" style={{ 
+        backgroundColor: 'var(--color-warm-beige)',
+        paddingTop: 'var(--space-25)',
+        paddingBottom: 'var(--space-25)'
+      }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="font-bold mb-6"
@@ -175,7 +178,11 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20" style={{ backgroundColor: 'var(--color-warm-cream)' }}>
+      <section style={{ 
+        backgroundColor: 'var(--color-warm-cream)',
+        paddingTop: 'var(--space-25)',
+        paddingBottom: 'var(--space-25)'
+      }}>
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -240,7 +247,11 @@ export default function Home() {
       </section>
 
       {/* Navigation Links */}
-      <section className="py-12 bg-gray-50">
+      <section style={{ 
+        backgroundColor: 'var(--color-neutral-50)',
+        paddingTop: 'var(--space-12)',
+        paddingBottom: 'var(--space-12)'
+      }}>
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-6">
             <Button variant="ghost" as="a" href="/design-system">
