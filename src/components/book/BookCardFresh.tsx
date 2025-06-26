@@ -68,7 +68,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
           onClick={() => onBookClick?.(book)}
           style={{
             position: 'relative',
-            height: '525px',
+            height: '545px', // Increased by 20px to accommodate image margins
             width: '100%',
             borderRadius: '16px',
             overflow: 'hidden',
@@ -95,11 +95,14 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               overflow: 'hidden',
             }}
           >
-            {/* Image wrapper with margins */}
+            {/* Image wrapper with margins - mt-4 ml-4 mr-4 */}
             <div
               style={{
-                width: '100%',
-                height: '100%',
+                width: 'calc(100% - 32px)', // Subtract left + right margins (16px each)
+                height: 'calc(100% - 16px)', // Subtract top margin (16px)
+                marginTop: '16px',
+                marginLeft: '16px', 
+                marginRight: '16px',
                 backgroundImage: `url(${book.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -110,9 +113,9 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 transform: isHovered ? 'scale(1.08)' : 'scale(1)',
               }}
             />
-            {/* DEBUG: Component 2 deployed */}
-            <div style={{ position: 'absolute', top: '4px', right: '4px', background: 'red', color: 'white', fontSize: '10px', padding: '2px' }}>
-              C2
+            {/* DEBUG: Components 3-4 deployed - margins + height */}
+            <div style={{ position: 'absolute', top: '4px', right: '4px', background: 'blue', color: 'white', fontSize: '10px', padding: '2px' }}>
+              C3-4
             </div>
           </div>
 
