@@ -166,15 +166,30 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="font-bold text-gray-900 mb-6" 
+                  style={{ 
+                    fontFamily: 'var(--font-display)', 
+                    fontSize: 'var(--text-author-section)',
+                    lineHeight: 'var(--leading-tight)' 
+                  }}>
                 About Anna Lea
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-gray-700 mb-6" 
+                 style={{ 
+                   fontFamily: 'var(--font-body-refined)', 
+                   fontSize: 'var(--text-author-body)',
+                   lineHeight: 'var(--leading-relaxed)' 
+                 }}>
                 Anna Lea Cannon is a Christian inspirational storyteller who weaves together 
                 faith, family, and history in her captivating books. Her stories touch hearts 
                 and strengthen faith communities worldwide.
               </p>
-              <p className="text-lg text-gray-700 mb-8">
+              <p className="text-gray-700 mb-8" 
+                 style={{ 
+                   fontFamily: 'var(--font-body-refined)', 
+                   fontSize: 'var(--text-author-body)',
+                   lineHeight: 'var(--leading-relaxed)' 
+                 }}>
                 With over 500 books distributed and a growing community of readers, Anna Lea 
                 continues to inspire through her unique blend of historical context and 
                 spiritual insight.

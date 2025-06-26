@@ -79,6 +79,10 @@
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-secondary: 'Playfair Display', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Professional Author Typography Scale */
+  --font-display: 'Playfair Display', Georgia, serif; /* For main headings */
+  --font-body-refined: 'Inter', system-ui, sans-serif; /* Clean body text */
 
   /* Font Sizes */
   --text-xs: 0.75rem;      /* 12px */
@@ -92,6 +96,12 @@
   --text-5xl: 3rem;        /* 48px */
   --text-6xl: 3.75rem;     /* 60px */
   --text-7xl: 4.5rem;      /* 72px */
+  
+  /* Professional Author Scale */
+  --text-author-hero: 3.5rem;      /* 56px - Main hero title */
+  --text-author-section: 2.5rem;   /* 40px - Section headings */
+  --text-author-subtitle: 1.375rem; /* 22px - Refined subtitles */
+  --text-author-body: 1.125rem;    /* 18px - Comfortable reading */
 
   /* Font Weights */
   --font-light: 300;
