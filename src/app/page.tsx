@@ -122,24 +122,37 @@ export default function Home() {
 
 
       {/* Books Preview Section */}
-      <section id="books" className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section id="books" className="py-24" 
+               style={{ backgroundColor: 'var(--color-warm-beige)' }}>
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-20">
+            <h2 className="font-bold mb-6"
+                style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontSize: 'var(--text-author-section)',
+                  lineHeight: 'var(--leading-tight)',
+                  color: 'var(--color-warm-navy)' 
+                }}>
               Featured Books
             </h2>
             <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
               📖 PREVIEW READY: Click any book card to read sample chapters
               <br />🔍 DEBUG: Testing image deployment - 2025-06-24 02:20
             </div>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto"
+               style={{ 
+                 fontFamily: 'var(--font-body-refined)', 
+                 fontSize: 'var(--text-author-body)',
+                 lineHeight: 'var(--leading-relaxed)',
+                 color: 'var(--color-neutral-600)' 
+               }}>
               Discover inspiring Christian stories that touch the heart and strengthen faith
             </p>
           </div>
 
 
           {/* 3D BookCard Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 justify-items-center" 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16 justify-items-center" 
                style={{ perspective: '1000px' }}>
             {featuredBooks.map((book) => (
               <BookCard

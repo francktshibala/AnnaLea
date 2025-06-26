@@ -139,19 +139,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Left Column - Main Content */}
           <div className="text-center lg:text-left">
             {/* Main Heading */}
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 stagger-fade-in">
+            <h1 className="font-bold text-white mb-6 stagger-fade-in"
+                style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontSize: 'var(--text-author-hero)',
+                  lineHeight: 'var(--leading-tight)' 
+                }}>
               <span className="block text-shimmer">Anna Lea</span>
-              <span className="block text-2xl lg:text-3xl font-normal text-white/90 mt-2">
+              <span className="block font-normal text-white/90 mt-2"
+                    style={{ 
+                      fontSize: 'var(--text-author-subtitle)',
+                      fontFamily: 'var(--font-body-refined)' 
+                    }}>
                 Cannon
               </span>
             </h1>
 
             {/* Tagline */}
-            <p className="text-xl lg:text-2xl text-white/80 mb-8 stagger-fade-in">
+            <p className="text-white/80 mb-8 stagger-fade-in"
+               style={{ 
+                 fontFamily: 'var(--font-body-refined)', 
+                 fontSize: 'var(--text-author-body)',
+                 lineHeight: 'var(--leading-relaxed)' 
+               }}>
               Christian inspirational storyteller focusing on{' '}
-              <span className="text-yellow-300 font-semibold">faith</span>,{' '}
-              <span className="text-yellow-300 font-semibold">family</span>, and{' '}
-              <span className="text-yellow-300 font-semibold">history</span>
+              <span className="font-semibold" style={{ color: 'var(--color-warm-gold)' }}>faith</span>,{' '}
+              <span className="font-semibold" style={{ color: 'var(--color-warm-gold)' }}>family</span>, and{' '}
+              <span className="font-semibold" style={{ color: 'var(--color-warm-gold)' }}>history</span>
             </p>
 
             {/* Call to Action Buttons */}
