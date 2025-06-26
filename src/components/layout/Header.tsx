@@ -19,16 +19,25 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-white/95 border-b border-gray-200 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg shadow-lg"
+            style={{ 
+              backgroundColor: 'rgba(253, 252, 248, 0.95)', 
+              borderBottom: '1px solid var(--color-warm-sage)'
+            }}>
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-lg">AL</span>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md"
+                   style={{ backgroundColor: 'var(--color-warm-sage)' }}>
+                <span className="font-bold text-lg" style={{ color: 'var(--color-warm-cream)' }}>AL</span>
               </div>
-              <h1 className="text-2xl font-bold text-blue-600">
+              <h1 className="text-2xl font-bold" 
+                  style={{ 
+                    fontFamily: 'var(--font-display)',
+                    color: 'var(--color-warm-navy)' 
+                  }}>
                 Anna Lea
               </h1>
             </div>
@@ -38,24 +47,39 @@ export const Header: React.FC = () => {
           <nav className="hidden md:flex items-center gap-12">
             <button
               onClick={() => scrollToSection('books')}
-              className="relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium group"
+              className="relative px-4 py-2 transition-all duration-300 font-medium group"
+              style={{ 
+                fontFamily: 'var(--font-body-refined)',
+                color: 'var(--color-neutral-700)' 
+              }}
             >
               Books
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                    style={{ backgroundColor: 'var(--color-warm-sage)' }}></span>
             </button>
             <a
               href="/about"
-              className="relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium group"
+              className="relative px-4 py-2 transition-all duration-300 font-medium group"
+              style={{ 
+                fontFamily: 'var(--font-body-refined)',
+                color: 'var(--color-neutral-700)' 
+              }}
             >
               About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                    style={{ backgroundColor: 'var(--color-warm-sage)' }}></span>
             </a>
             <a
               href="/contact"
-              className="relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium group"
+              className="relative px-4 py-2 transition-all duration-300 font-medium group"
+              style={{ 
+                fontFamily: 'var(--font-body-refined)',
+                color: 'var(--color-neutral-700)' 
+              }}
             >
               Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                    style={{ backgroundColor: 'var(--color-warm-sage)' }}></span>
             </a>
           </nav>
 
@@ -65,7 +89,8 @@ export const Header: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsCartOpen(!isCartOpen)}
-                className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="relative p-2 transition-colors duration-200"
+                style={{ color: 'var(--color-neutral-700)' }}
                 aria-label={`Shopping cart with ${totalItems} items`}
               >
               {/* Cart Icon */}
