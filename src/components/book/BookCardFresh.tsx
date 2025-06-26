@@ -105,7 +105,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
           {/* Book Info Section */}
           <div 
             style={{
-              padding: '20px',
+              padding: '24px',
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
@@ -119,10 +119,13 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 fontSize: '18px',
                 fontWeight: 'bold',
                 color: isHovered ? '#1e40af' : '#1f2937',
-                marginBottom: '8px',
+                marginBottom: '12px',
                 lineHeight: '1.4',
                 transition: 'color 0.3s ease',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
+                minHeight: '50px',
+                display: 'flex',
+                alignItems: 'center',
               }}>
                 {book.title}
               </h3>
@@ -131,7 +134,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               <p style={{
                 fontSize: '14px',
                 color: '#6b7280',
-                marginBottom: '8px',
+                marginBottom: '12px',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
               }}>
                 by {book.author}
@@ -142,10 +145,13 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 fontSize: '14px',
                 color: '#4b5563',
                 lineHeight: '1.5',
-                marginBottom: '16px',
-                height: '40px',
+                marginBottom: '20px',
+                minHeight: '60px',
                 overflow: 'hidden',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
+                display: '-webkit-box',
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: 'vertical',
               }}>
                 {book.description.substring(0, 80)}...
               </p>
@@ -155,7 +161,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 fontSize: '20px',
                 fontWeight: 'bold',
                 color: isHovered ? '#1d4ed8' : '#2563eb',
-                marginBottom: '16px',
+                marginBottom: '20px',
                 transition: 'color 0.3s ease',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
               }}>
