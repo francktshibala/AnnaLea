@@ -522,65 +522,119 @@ export default function CheckoutPage() {
               Payment Information
             </h2>
             
-            {/* Customer Email - Enhanced */}
-            <div style={{ marginBottom: 'var(--space-8)' }}>
-              <label htmlFor="email" style={{
-                display: 'block',
-                fontFamily: 'var(--font-body-refined)',
-                fontSize: '16px',
-                fontWeight: '600',
+            {/* Contact Information Section */}
+            <div style={{ 
+              marginBottom: 'var(--space-10)',
+              padding: 'var(--space-6)',
+              backgroundColor: 'var(--color-warm-beige)',
+              borderRadius: '12px',
+              border: `1px solid var(--color-warm-beige)`
+            }}>
+              <h3 style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '18px',
+                fontWeight: 'bold',
                 color: 'var(--color-warm-navy)',
-                marginBottom: 'var(--space-2)'
+                marginBottom: 'var(--space-4)',
+                borderBottom: `2px solid var(--color-warm-sage)`,
+                paddingBottom: 'var(--space-2)',
+                display: 'inline-block'
               }}>
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={customerEmail}
-                onChange={(e) => setCustomerEmail(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  border: `2px solid var(--color-warm-beige)`,
-                  borderRadius: '12px',
-                  fontSize: '16px',
+                Contact Information
+              </h3>
+              
+              <div style={{ marginBottom: 'var(--space-6)' }}>
+                <label htmlFor="email" style={{
+                  display: 'block',
                   fontFamily: 'var(--font-body-refined)',
-                  backgroundColor: 'var(--color-warm-cream)',
+                  fontSize: '16px',
+                  fontWeight: '600',
                   color: 'var(--color-warm-navy)',
-                  transition: 'border-color 0.3s ease, box-shadow 0.3s ease'
-                }}
-                placeholder="your@email.com"
-                required
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-warm-sage)';
-                  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(156, 169, 134, 0.1)';
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-warm-beige)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              />
+                  marginBottom: 'var(--space-2)'
+                }}>
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={customerEmail}
+                  onChange={(e) => setCustomerEmail(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '12px 16px',
+                    border: `2px solid var(--color-warm-beige)`,
+                    borderRadius: '12px',
+                    fontSize: '16px',
+                    fontFamily: 'var(--font-body-refined)',
+                    backgroundColor: 'var(--color-warm-cream)',
+                    color: 'var(--color-warm-navy)',
+                    transition: 'border-color 0.3s ease, box-shadow 0.3s ease'
+                  }}
+                  placeholder="your@email.com"
+                  required
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-warm-sage)';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(156, 169, 134, 0.1)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--color-warm-beige)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                />
+                <p style={{
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  color: 'var(--color-neutral-600)',
+                  marginTop: 'var(--space-2)'
+                }}>
+                  Receipt will be sent to this email address
+                </p>
+              </div>
+            </div>
+
+            {/* Payment Details Section */}
+            <div style={{ 
+              marginBottom: 'var(--space-10)',
+              padding: 'var(--space-6)',
+              backgroundColor: 'var(--color-warm-beige)',
+              borderRadius: '12px',
+              border: `1px solid var(--color-warm-beige)`
+            }}>
+              <h3 style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                color: 'var(--color-warm-navy)',
+                marginBottom: 'var(--space-4)',
+                borderBottom: `2px solid var(--color-warm-sage)`,
+                paddingBottom: 'var(--space-2)',
+                display: 'inline-block'
+              }}>
+                Payment Details
+              </h3>
+              
               <p style={{
                 fontFamily: 'var(--font-body-refined)',
                 fontSize: '14px',
                 color: 'var(--color-neutral-600)',
-                marginTop: 'var(--space-2)'
+                marginBottom: 'var(--space-6)'
               }}>
-                Receipt will be sent to this email
+                Enter your card information below. All transactions are secure and encrypted.
               </p>
-            </div>
 
-            {/* Stripe Elements */}
-            {clientSecret && (
-              <Elements options={options} stripe={stripePromise}>
-                <CheckoutForm 
-                  clientSecret={clientSecret}
-                  customerEmail={customerEmail}
-                  totalAmount={total}
-                />
-              </Elements>
-            )}
+              {/* Stripe Elements */}
+              {clientSecret && (
+                <Elements options={options} stripe={stripePromise}>
+                  <CheckoutForm 
+                    clientSecret={clientSecret}
+                    customerEmail={customerEmail}
+                    totalAmount={total}
+                  />
+                </Elements>
+              )}
+            </div>
+            
+            {/* Debug: Payment form sections Step 1 complete */}
           </div>
         </div>
         </div>
