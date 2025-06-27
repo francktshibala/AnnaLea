@@ -30,7 +30,7 @@ export default function CartPage() {
     <main className="min-h-screen">
       {/* Debug indicator */}
       <div style={{ fontSize: '12px', color: 'purple', padding: '10px', textAlign: 'center', backgroundColor: 'var(--color-warm-beige)' }}>
-        🔍 DEBUG: Cart Component 2 - Redesigned cart items with design system
+        🔍 DEBUG: Cart Component 3 - Enhanced cart summary with visual hierarchy
       </div>
 
       {/* Cart Header Section */}
@@ -252,61 +252,230 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Order Summary */}
+            {/* Order Summary - Enhanced with design system */}
             <div className="lg:col-span-1">
-              <div className="bg-white border border-gray-200 rounded-lg p-6 sticky top-24">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Order Summary</h3>
+              <div style={{ 
+                backgroundColor: 'var(--color-warm-cream)', 
+                border: `2px solid var(--color-warm-beige)`,
+                borderRadius: '16px',
+                padding: 'var(--space-8)',
+                position: 'sticky',
+                top: '96px',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+              }}>
+                <h3 className="font-bold" 
+                    style={{ 
+                      fontFamily: 'var(--font-display)', 
+                      fontSize: 'var(--text-author-body)',
+                      color: 'var(--color-warm-navy)',
+                      marginBottom: 'var(--space-6)'
+                    }}>
+                  Order Summary
+                </h3>
                 
-                {/* Price Breakdown */}
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-700">Subtotal ({totalItems} items):</span>
-                    <span className="font-medium">${totalPrice.toFixed(2)}</span>
+                {/* Price Breakdown - Enhanced typography */}
+                <div style={{ marginBottom: 'var(--space-8)' }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    marginBottom: 'var(--space-4)',
+                    padding: 'var(--space-3) 0',
+                    borderBottom: `1px solid var(--color-warm-beige)`
+                  }}>
+                    <span style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '16px',
+                      color: 'var(--color-neutral-700)'
+                    }}>
+                      Subtotal ({totalItems} items):
+                    </span>
+                    <span style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: 'var(--color-warm-navy)'
+                    }}>
+                      ${totalPrice.toFixed(2)}
+                    </span>
                   </div>
                   
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-700">Shipping & handling:</span>
-                    <span className="font-medium">{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    marginBottom: 'var(--space-3)',
+                    padding: 'var(--space-3) 0'
+                  }}>
+                    <span style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '16px',
+                      color: 'var(--color-neutral-700)'
+                    }}>
+                      Shipping & handling:
+                    </span>
+                    <span style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: shipping === 0 ? 'var(--color-warm-sage)' : 'var(--color-warm-navy)'
+                    }}>
+                      {shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}
+                    </span>
                   </div>
                   
                   {shipping === 0 && (
-                    <p className="text-xs text-green-600">Your order qualifies for FREE Shipping</p>
+                    <p style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '14px',
+                      color: 'var(--color-warm-sage)',
+                      fontWeight: '600',
+                      marginBottom: 'var(--space-3)',
+                      textAlign: 'center',
+                      padding: 'var(--space-2)',
+                      backgroundColor: 'var(--color-warm-beige)',
+                      borderRadius: '8px'
+                    }}>
+                      ✨ Your order qualifies for FREE Shipping
+                    </p>
                   )}
                   
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-700">Estimated tax:</span>
-                    <span className="font-medium">${tax.toFixed(2)}</span>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    marginBottom: 'var(--space-6)',
+                    padding: 'var(--space-3) 0',
+                    borderBottom: `1px solid var(--color-warm-beige)`
+                  }}>
+                    <span style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '16px',
+                      color: 'var(--color-neutral-700)'
+                    }}>
+                      Estimated tax:
+                    </span>
+                    <span style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: 'var(--color-warm-navy)'
+                    }}>
+                      ${tax.toFixed(2)}
+                    </span>
                   </div>
                   
-                  <hr className="my-3" />
-                  
-                  <div className="flex justify-between text-lg font-bold text-red-700">
-                    <span>Order total:</span>
-                    <span>${finalTotal.toFixed(2)}</span>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between',
+                    padding: 'var(--space-4)',
+                    backgroundColor: 'var(--color-warm-beige)',
+                    borderRadius: '12px',
+                    marginBottom: 'var(--space-8)'
+                  }}>
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '20px',
+                      fontWeight: 'bold',
+                      color: 'var(--color-warm-navy)'
+                    }}>
+                      Order total:
+                    </span>
+                    <span style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '20px',
+                      fontWeight: 'bold',
+                      color: 'var(--color-warm-navy)'
+                    }}>
+                      ${finalTotal.toFixed(2)}
+                    </span>
                   </div>
                 </div>
 
-                {/* Checkout Button */}
+                {/* Checkout Button - Enhanced with design system */}
                 <button
                   onClick={handleProceedToCheckout}
                   disabled={false}
-                  className="w-full py-3 px-4 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+                  style={{
+                    width: '100%',
+                    padding: '16px 24px',
+                    background: 'linear-gradient(135deg, var(--color-warm-sage), var(--color-warm-navy))',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '12px',
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    fontFamily: 'var(--font-body-refined)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    marginBottom: 'var(--space-6)',
+                    boxShadow: '0 4px 16px rgba(156, 169, 134, 0.3)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(156, 169, 134, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(156, 169, 134, 0.3)';
+                  }}
                 >
-                  Proceed to checkout
+                  Proceed to Checkout
                 </button>
 
-                {/* Security Notice */}
-                <p className="text-xs text-gray-600 text-center mb-4">
-                  🔒 Secure transaction
+                {/* Security Notice - Enhanced */}
+                <p style={{
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  color: 'var(--color-warm-sage)',
+                  textAlign: 'center',
+                  marginBottom: 'var(--space-6)',
+                  fontWeight: '600'
+                }}>
+                  🔒 Secure & encrypted transaction
                 </p>
 
-                {/* Payment Methods */}
-                <div className="text-center">
-                  <p className="text-xs text-gray-600 mb-2">We accept:</p>
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-xs bg-gray-100 px-2 py-1 rounded">VISA</span>
-                    <span className="text-xs bg-gray-100 px-2 py-1 rounded">MASTERCARD</span>
-                    <span className="text-xs bg-gray-100 px-2 py-1 rounded">PAYPAL</span>
+                {/* Payment Methods - Enhanced */}
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{
+                    fontFamily: 'var(--font-body-refined)',
+                    fontSize: '14px',
+                    color: 'var(--color-neutral-600)',
+                    marginBottom: 'var(--space-3)'
+                  }}>
+                    We accept:
+                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--space-2)' }}>
+                    <span style={{
+                      fontSize: '12px',
+                      backgroundColor: 'var(--color-warm-beige)',
+                      color: 'var(--color-warm-navy)',
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      fontWeight: '600',
+                      fontFamily: 'var(--font-body-refined)'
+                    }}>
+                      VISA
+                    </span>
+                    <span style={{
+                      fontSize: '12px',
+                      backgroundColor: 'var(--color-warm-beige)',
+                      color: 'var(--color-warm-navy)',
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      fontWeight: '600',
+                      fontFamily: 'var(--font-body-refined)'
+                    }}>
+                      MASTERCARD
+                    </span>
+                    <span style={{
+                      fontSize: '12px',
+                      backgroundColor: 'var(--color-warm-beige)',
+                      color: 'var(--color-warm-navy)',
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      fontWeight: '600',
+                      fontFamily: 'var(--font-body-refined)'
+                    }}>
+                      PAYPAL
+                    </span>
                   </div>
                 </div>
               </div>
