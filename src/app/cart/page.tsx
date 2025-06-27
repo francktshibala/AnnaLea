@@ -30,7 +30,7 @@ export default function CartPage() {
     <main className="min-h-screen">
       {/* Debug indicator */}
       <div style={{ fontSize: '12px', color: 'purple', padding: '10px', textAlign: 'center', backgroundColor: 'var(--color-warm-beige)' }}>
-        🔍 DEBUG: Cart Component 3 - Enhanced cart summary with visual hierarchy
+        🔍 DEBUG: Cart Components 4-6 - Row layout, buttons, and color palette complete
       </div>
 
       {/* Cart Header Section */}
@@ -482,6 +482,94 @@ export default function CartPage() {
             </div>
           </div>
         )}
+        </div>
+      </section>
+
+      {/* Recommendations Row - Complete the row-based layout */}
+      <section style={{ 
+        backgroundColor: 'var(--color-neutral-50)',
+        paddingTop: 'var(--space-20)',
+        paddingBottom: 'var(--space-20)'
+      }}>
+        <div className="mx-auto" style={{ 
+          maxWidth: '1200px',
+          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
+          paddingRight: 'clamp(24px, 7.5vw, 120px)'
+        }}>
+          <div className="text-center">
+            <h2 className="font-bold" 
+                style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontSize: 'var(--text-author-section)',
+                  lineHeight: 'var(--leading-tight)',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-8)' 
+                }}>
+              You Might Also Like
+            </h2>
+            <p style={{ 
+                 fontFamily: 'var(--font-body-refined)', 
+                 fontSize: 'var(--text-author-body)',
+                 lineHeight: 'var(--leading-relaxed)',
+                 color: 'var(--color-neutral-600)',
+                 marginBottom: 'var(--space-12)' 
+               }}>
+              Discover more inspiring Christian books from Anna Lea
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <button 
+                onClick={handleContinueShopping}
+                style={{
+                  padding: '14px 28px',
+                  background: 'linear-gradient(135deg, var(--color-warm-sage), var(--color-warm-navy))',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '12px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  fontFamily: 'var(--font-body-refined)',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(156, 169, 134, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                Browse All Books
+              </button>
+              <button 
+                style={{
+                  padding: '14px 28px',
+                  background: 'transparent',
+                  color: 'var(--color-warm-sage)',
+                  border: `2px solid var(--color-warm-sage)`,
+                  borderRadius: '12px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  fontFamily: 'var(--font-body-refined)',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-warm-sage)';
+                  e.currentTarget.style.color = 'white';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'var(--color-warm-sage)';
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                }}
+              >
+                View About Anna Lea
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
