@@ -36,23 +36,63 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
   return (
     <div
       ref={dropdownRef}
-      className="absolute right-0 top-full mt-2 w-96 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
       style={{
-        animation: isOpen ? 'slideDown 0.2s ease-out' : 'slideUp 0.2s ease-in',
+        position: 'absolute',
+        right: '0',
+        top: '100%',
+        marginTop: '8px',
+        width: '400px',
+        backgroundColor: 'var(--color-warm-cream)',
+        borderRadius: '16px',
+        boxShadow: '0 20px 40px rgba(44, 62, 80, 0.15), 0 8px 16px rgba(44, 62, 80, 0.10)',
+        border: `2px solid var(--color-warm-beige)`,
+        zIndex: 50,
+        animation: isOpen ? 'slideDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' : 'slideUp 0.2s ease-in',
       }}
     >
-      <div className="p-4">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">
+      <div style={{ padding: 'var(--space-6)' }}>
+        {/* Header - Enhanced */}
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between', 
+          marginBottom: 'var(--space-6)',
+          paddingBottom: 'var(--space-4)',
+          borderBottom: `2px solid var(--color-warm-beige)`
+        }}>
+          <h3 style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'var(--text-author-body)',
+            fontWeight: 'bold',
+            color: 'var(--color-warm-navy)'
+          }}>
             Shopping Cart ({totalItems})
           </h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            style={{
+              color: 'var(--color-warm-sage)',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 'var(--space-2)',
+              borderRadius: '8px',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-warm-beige)';
+              e.currentTarget.style.color = 'var(--color-warm-navy)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = 'var(--color-warm-sage)';
+            }}
             aria-label="Close cart"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg style={{ width: '20px', height: '20px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -60,21 +100,39 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
 
         {/* Cart Items */}
         {cartItems.length === 0 ? (
-          <div className="text-center py-8">
-            <svg
-              className="w-16 h-16 text-gray-300 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 9H4m3 4v6a1 1 0 001 1h9a1 1 0 001-1v-6M9 21h6"
-              />
-            </svg>
-            <p className="text-gray-500 text-sm">Your cart is empty</p>
+          <div style={{ 
+            textAlign: 'center', 
+            paddingTop: 'var(--space-12)', 
+            paddingBottom: 'var(--space-12)' 
+          }}>
+            <div style={{ 
+              width: '64px', 
+              height: '64px', 
+              margin: '0 auto var(--space-6)', 
+              color: 'var(--color-warm-sage)', 
+              opacity: '0.6' 
+            }}>
+              <svg
+                style={{ width: '100%', height: '100%' }}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 9H4m3 4v6a1 1 0 001 1h9a1 1 0 001-1v-6M9 21h6"
+                />
+              </svg>
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-body-refined)',
+              fontSize: '16px',
+              color: 'var(--color-neutral-600)'
+            }}>
+              Your cart is empty
+            </p>
           </div>
         ) : (
           <>
@@ -181,30 +239,32 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
         )}
       </div>
 
-      {/* Animations */}
+      {/* Animations - Enhanced */}
       <style jsx>{`
         @keyframes slideDown {
           from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(0.95);
           }
           to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
           }
         }
         
         @keyframes slideUp {
           from {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
           }
           to {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(0.95);
           }
         }
       `}</style>
+      
+      {/* Debug: Cart dropdown header Step 1 complete */}
     </div>
   );
 };
