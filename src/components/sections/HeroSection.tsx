@@ -224,10 +224,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               {/* Professional Photo Frame */}
               <div 
-                className="relative w-64 h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden transition-all duration-500 group-hover:scale-105"
+                className="relative w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden transition-all duration-500 group-hover:scale-105"
                 style={{
                   background: 'var(--color-warm-cream)',
-                  padding: '8px',
+                  padding: isMobile ? '6px' : '8px',
                   boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--color-warm-gold)'
                 }}
               >
@@ -239,7 +239,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     priority={!lazyLoad}
-                    sizes="(max-width: 768px) 256px, 320px"
+                    sizes="(max-width: 480px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 320px"
                   />
                   
                   {/* Warm overlay */}
