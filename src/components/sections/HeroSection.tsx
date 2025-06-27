@@ -216,38 +216,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column - 3D Floating Book */}
+          {/* Right Column - Author Photo */}
           <div className="flex justify-center lg:justify-end">
             <div
-              className="book-3d floating-3d relative"
-              data-testid="floating-book"
+              className="author-photo-container relative"
+              data-testid="author-photo"
             >
-              {/* Featured Book */}
-              <div
-                className="relative w-64 h-80 lg:w-80 lg:h-96 bg-gradient-to-br from-blue-800 to-blue-900 rounded-2xl shadow-2xl"
-                data-testid="featured-book"
-              >
-                {/* Book Cover */}
-                <div className="absolute inset-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl overflow-hidden">
-                  <Image
-                    src="/images/books/isaiah-tree-cover.jpg"
-                    alt="Isaiah Tree book cover featuring an ancient olive tree"
-                    fill
-                    className="object-cover"
-                    priority={!lazyLoad}
-                    sizes="(max-width: 768px) 256px, 320px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  
-                  {/* Book Title Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-lg font-bold mb-1">Isaiah Tree</h3>
-                    <p className="text-sm opacity-90">The Olive Tree That Jesus Touched</p>
-                  </div>
-                </div>
-
-                {/* Glow Effect */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-yellow-400/20 rounded-3xl blur-xl opacity-60 animate-pulse" />
+              {/* Author Photo */}
+              <div className="relative w-64 h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/anna-lea-author.jpg"
+                  alt="Anna Lea Cannon, Christian author and storyteller"
+                  fill
+                  className="object-cover"
+                  priority={!lazyLoad}
+                  sizes="(max-width: 768px) 256px, 320px"
+                />
               </div>
             </div>
           </div>
