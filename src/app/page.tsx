@@ -15,6 +15,7 @@ const BookPreviewModal = lazy(() =>
 );
 
 export default function Home() {
+  // DEBUG: Photo filename fixed 2025-06-27 
   // Cart functionality
   const { addToCart } = useCart();
   
