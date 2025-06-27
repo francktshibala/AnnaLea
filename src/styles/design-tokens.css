@@ -91,24 +91,24 @@
   --font-display: 'Playfair Display', Georgia, serif; /* For main headings */
   --font-body-refined: 'Inter', system-ui, sans-serif; /* Clean body text */
 
-  /* Font Sizes */
-  --text-xs: 0.75rem;      /* 12px */
-  --text-sm: 0.875rem;     /* 14px */
-  --text-base: 1rem;       /* 16px */
-  --text-lg: 1.125rem;     /* 18px */
-  --text-xl: 1.25rem;      /* 20px */
-  --text-2xl: 1.5rem;      /* 24px */
-  --text-3xl: 1.875rem;    /* 30px */
-  --text-4xl: 2.25rem;     /* 36px */
-  --text-5xl: 3rem;        /* 48px */
-  --text-6xl: 3.75rem;     /* 60px */
-  --text-7xl: 4.5rem;      /* 72px */
+  /* Font Sizes - Enhanced for better readability */
+  --text-xs: 0.8125rem;    /* 13px - slightly larger */
+  --text-sm: 0.9375rem;    /* 15px - slightly larger */
+  --text-base: 1.0625rem;  /* 17px - slightly larger */
+  --text-lg: 1.1875rem;    /* 19px - slightly larger */
+  --text-xl: 1.3125rem;    /* 21px - slightly larger */
+  --text-2xl: 1.5625rem;   /* 25px - slightly larger */
+  --text-3xl: 1.9375rem;   /* 31px - slightly larger */
+  --text-4xl: 2.375rem;    /* 38px - slightly larger */
+  --text-5xl: 3.125rem;    /* 50px - slightly larger */
+  --text-6xl: 3.875rem;    /* 62px - slightly larger */
+  --text-7xl: 4.625rem;    /* 74px - slightly larger */
   
-  /* Professional Author Scale */
-  --text-author-hero: 3.5rem;      /* 56px - Main hero title */
-  --text-author-section: 2.5rem;   /* 40px - Section headings */
-  --text-author-subtitle: 1.375rem; /* 22px - Refined subtitles */
-  --text-author-body: 1.125rem;    /* 18px - Comfortable reading */
+  /* Professional Author Scale - Enhanced */
+  --text-author-hero: 3.75rem;     /* 60px - increased from 56px */
+  --text-author-section: 2.625rem; /* 42px - increased from 40px */
+  --text-author-subtitle: 1.4375rem; /* 23px - increased from 22px */
+  --text-author-body: 1.1875rem;   /* 19px - increased from 18px */
 
   /* Font Weights */
   --font-light: 300;
