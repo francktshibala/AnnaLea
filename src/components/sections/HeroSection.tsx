@@ -133,8 +133,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       />
 
       {/* Main Content Container */}
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 py-20 relative z-10" style={{ maxWidth: '1200px' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center"
+             style={{ minHeight: '60vh' }}>
           
           {/* Left Column - Main Content */}
           <div className="text-center lg:text-left">
@@ -217,10 +218,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right Column - Author Photo */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end items-center" style={{ minHeight: '500px' }}>
             <div
               className="author-photo-container relative group"
               data-testid="author-photo"
+              style={{ 
+                filter: 'drop-shadow(0 20px 25px rgba(0, 0, 0, 0.15))',
+                transformOrigin: 'center center'
+              }}
             >
               {/* Professional Photo Frame */}
               <div 
