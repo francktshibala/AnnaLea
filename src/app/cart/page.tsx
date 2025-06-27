@@ -30,7 +30,7 @@ export default function CartPage() {
     <main className="min-h-screen">
       {/* Debug indicator */}
       <div style={{ fontSize: '12px', color: 'purple', padding: '10px', textAlign: 'center', backgroundColor: 'var(--color-warm-beige)' }}>
-        🔍 DEBUG: Cart Component 1 - Design system typography and colors applied
+        🔍 DEBUG: Cart Component 2 - Redesigned cart items with design system
       </div>
 
       {/* Cart Header Section */}
@@ -162,16 +162,44 @@ export default function CartPage() {
         ) : (
           /* Cart with Items */
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Cart Items */}
+            {/* Cart Items - Enhanced with design system */}
             <div className="lg:col-span-2">
-              <div className="bg-white border border-gray-200 rounded-lg">
-                {/* Cart Header */}
-                <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
+              <div style={{ 
+                backgroundColor: 'var(--color-warm-cream)', 
+                border: `2px solid var(--color-warm-beige)`,
+                borderRadius: '16px',
+                overflow: 'hidden',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+              }}>
+                {/* Cart Items Header */}
+                <div style={{ 
+                  padding: 'var(--space-6)',
+                  borderBottom: `1px solid var(--color-warm-beige)`,
+                  backgroundColor: 'var(--color-warm-beige)'
+                }}>
                   <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-medium text-gray-900">Shopping Cart</h2>
+                    <h2 className="font-bold" 
+                        style={{ 
+                          fontFamily: 'var(--font-display)', 
+                          fontSize: 'var(--text-author-body)',
+                          color: 'var(--color-warm-navy)'
+                        }}>
+                      Your Items
+                    </h2>
                     <button
                       onClick={clearCart}
-                      className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+                      style={{
+                        fontFamily: 'var(--font-body-refined)',
+                        fontSize: '14px',
+                        color: 'var(--color-warm-sage)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        textDecoration: 'underline',
+                        transition: 'color 0.3s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-navy)'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-warm-sage)'}
                     >
                       Clear Cart
                     </button>
@@ -179,7 +207,7 @@ export default function CartPage() {
                 </div>
 
                 {/* Items List */}
-                <div className="space-y-4 p-4">
+                <div style={{ padding: 'var(--space-6)', gap: 'var(--space-6)', display: 'flex', flexDirection: 'column' }}>
                   {cartItems.map((item) => (
                     <CartItemCard
                       key={item.id}
@@ -191,13 +219,32 @@ export default function CartPage() {
                 </div>
               </div>
 
-              {/* Continue Shopping */}
-              <div className="mt-6">
+              {/* Continue Shopping - Enhanced */}
+              <div style={{ marginTop: 'var(--space-8)' }}>
                 <button
                   onClick={handleContinueShopping}
-                  className="text-blue-600 hover:text-blue-800 hover:underline text-sm flex items-center gap-1"
+                  style={{
+                    fontFamily: 'var(--font-body-refined)',
+                    fontSize: '16px',
+                    color: 'var(--color-warm-sage)',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--color-warm-navy)';
+                    e.currentTarget.style.transform = 'translateX(-4px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--color-warm-sage)';
+                    e.currentTarget.style.transform = 'translateX(0px)';
+                  }}
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                   Continue shopping
@@ -292,80 +339,189 @@ const CartItemCard: React.FC<CartItemCardProps> = ({ item, onUpdateQuantity, onR
 
   return (
     <div
-      className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 ease-out"
       style={{
-        transform: isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)',
+        backgroundColor: 'var(--color-warm-cream)',
+        border: `2px solid var(--color-warm-beige)`,
+        borderRadius: '12px',
+        overflow: 'hidden',
+        transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+        transform: isHovered ? 'translateY(-6px) scale(1.02)' : 'translateY(0px) scale(1)',
         boxShadow: isHovered 
-          ? '0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08)' 
-          : '0 2px 8px rgba(0, 0, 0, 0.06)',
+          ? '0 20px 40px rgba(44, 62, 80, 0.15), 0 8px 16px rgba(44, 62, 80, 0.10)' 
+          : '0 4px 16px rgba(44, 62, 80, 0.08)',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="p-6 flex items-start gap-4">
-        {/* Enhanced Book Image */}
+      <div style={{ padding: 'var(--space-6)', display: 'flex', alignItems: 'flex-start', gap: 'var(--space-6)' }}>
+        {/* Enhanced Book Image with margins like book cards */}
         <div
-          className="w-20 h-28 bg-gray-200 rounded flex-shrink-0 overflow-hidden"
+          style={{
+            width: '80px',
+            height: '112px',
+            flexShrink: 0,
+            overflow: 'hidden',
+            borderRadius: '8px',
+            position: 'relative'
+          }}
           onMouseEnter={() => setImageHovered(true)}
           onMouseLeave={() => setImageHovered(false)}
         >
           <div
-            className="w-full h-full bg-gray-200 transition-transform duration-300 ease-out"
             style={{
+              width: 'calc(100% - 8px)', // Add margins like book cards
+              height: 'calc(100% - 4px)',
+              marginTop: '4px',
+              marginLeft: '4px', 
+              marginRight: '4px',
               backgroundImage: `url(${item.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
+              borderRadius: '6px',
+              transition: 'transform 0.3s ease',
               transform: imageHovered ? 'scale(1.05)' : 'scale(1)',
             }}
           />
         </div>
 
         {/* Book Details */}
-        <div className="flex-1 min-w-0">
-          <h3 className="text-base font-medium text-blue-600 hover:text-blue-800 cursor-pointer mb-1 transition-colors duration-200">
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h3 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: 'var(--color-warm-navy)',
+              marginBottom: 'var(--space-2)',
+              cursor: 'pointer',
+              transition: 'color 0.3s ease',
+              lineHeight: '1.4'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-sage)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-warm-navy)'}
+          >
             {item.title}
           </h3>
-          <p className="text-sm text-gray-600 mb-2">by {item.author}</p>
-          <p className="text-sm text-green-600 mb-2">In Stock</p>
+          <p style={{
+              fontFamily: 'var(--font-body-refined)',
+              fontSize: '14px',
+              color: 'var(--color-neutral-600)',
+              marginBottom: 'var(--space-2)'
+            }}>
+            by {item.author}
+          </p>
+          <p style={{
+              fontFamily: 'var(--font-body-refined)',
+              fontSize: '14px',
+              color: 'var(--color-warm-sage)',
+              fontWeight: '600',
+              marginBottom: 'var(--space-4)'
+            }}>
+            In Stock
+          </p>
           
-          <div className="flex items-center gap-4 text-sm">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', fontSize: '14px' }}>
             <button
               onClick={() => onRemove(item.id)}
-              className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+              style={{
+                fontFamily: 'var(--font-body-refined)',
+                color: 'var(--color-warm-sage)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+                transition: 'color 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-navy)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-warm-sage)'}
             >
-              Delete
+              Remove
             </button>
-            <span className="text-gray-300">|</span>
-            <button className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">
+            <span style={{ color: 'var(--color-warm-beige)' }}>|</span>
+            <button style={{
+                fontFamily: 'var(--font-body-refined)',
+                color: 'var(--color-warm-sage)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+                transition: 'color 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-navy)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-warm-sage)'}
+            >
               Save for later
             </button>
           </div>
         </div>
 
         {/* Price and Quantity */}
-        <div className="text-right flex flex-col items-end gap-3">
+        <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 'var(--space-4)' }}>
           {/* Price */}
-          <p className="text-lg font-bold text-gray-900">
+          <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '20px',
+              fontWeight: 'bold',
+              color: 'var(--color-warm-navy)'
+            }}>
             ${item.price.toFixed(2)}
           </p>
           
-          {/* Enhanced Quantity Controls */}
-          <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white shadow-sm">
+          {/* Enhanced Quantity Controls with design system */}
+          <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              border: `2px solid var(--color-warm-beige)`,
+              borderRadius: '8px',
+              overflow: 'hidden',
+              backgroundColor: 'var(--color-warm-cream)',
+              boxShadow: '0 2px 8px rgba(44, 62, 80, 0.1)'
+            }}>
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-              className="px-3 py-2 hover:bg-gray-50 text-gray-600 transition-colors duration-200 border-r border-gray-200"
+              style={{
+                padding: '8px 12px',
+                backgroundColor: 'var(--color-warm-beige)',
+                color: 'var(--color-warm-navy)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s ease',
+                fontSize: '16px',
+                fontWeight: 'bold'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-warm-sage)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--color-warm-beige)'}
               aria-label="Decrease quantity"
             >
               −
             </button>
             
-            <span className="px-4 py-2 text-center min-w-[50px] text-sm font-medium bg-gray-50">
+            <span style={{
+                padding: '8px 16px',
+                textAlign: 'center',
+                minWidth: '50px',
+                fontSize: '14px',
+                fontWeight: '600',
+                fontFamily: 'var(--font-body-refined)',
+                backgroundColor: 'var(--color-warm-cream)',
+                color: 'var(--color-warm-navy)'
+              }}>
               {item.quantity}
             </span>
             
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-              className="px-3 py-2 hover:bg-gray-50 text-gray-600 transition-colors duration-200 border-l border-gray-200"
+              style={{
+                padding: '8px 12px',
+                backgroundColor: 'var(--color-warm-beige)',
+                color: 'var(--color-warm-navy)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s ease',
+                fontSize: '16px',
+                fontWeight: 'bold'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-warm-sage)'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--color-warm-beige)'}
               aria-label="Increase quantity"
             >
               +
@@ -374,7 +530,11 @@ const CartItemCard: React.FC<CartItemCardProps> = ({ item, onUpdateQuantity, onR
           
           {/* Item Total */}
           {item.quantity > 1 && (
-            <p className="text-sm text-gray-600">
+            <p style={{
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '14px',
+                color: 'var(--color-neutral-600)'
+              }}>
               Total: ${(item.price * item.quantity).toFixed(2)}
             </p>
           )}
