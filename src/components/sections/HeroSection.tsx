@@ -219,20 +219,42 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Right Column - Author Photo */}
           <div className="flex justify-center lg:justify-end">
             <div
-              className="author-photo-container relative"
+              className="author-photo-container relative group"
               data-testid="author-photo"
             >
-              {/* Author Photo */}
-              <div className="relative w-64 h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/anna-lea-author.jpg"
-                  alt="Anna Lea Cannon, Christian author and storyteller"
-                  fill
-                  className="object-cover"
-                  priority={!lazyLoad}
-                  sizes="(max-width: 768px) 256px, 320px"
-                />
+              {/* Professional Photo Frame */}
+              <div 
+                className="relative w-64 h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden transition-all duration-500 group-hover:scale-105"
+                style={{
+                  background: 'var(--color-warm-cream)',
+                  padding: '8px',
+                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--color-warm-gold)'
+                }}
+              >
+                {/* Author Photo */}
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/anna-lea-author.jpg"
+                    alt="Anna Lea Cannon, Christian author and storyteller"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    priority={!lazyLoad}
+                    sizes="(max-width: 768px) 256px, 320px"
+                  />
+                  
+                  {/* Warm overlay */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                    style={{ background: 'linear-gradient(135deg, var(--color-warm-gold), var(--color-warm-sage))' }}
+                  />
+                </div>
               </div>
+
+              {/* Warm glow effect */}
+              <div 
+                className="absolute -inset-4 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+                style={{ background: 'radial-gradient(circle, var(--color-warm-gold), transparent 70%)' }}
+              />
             </div>
           </div>
         </div>
