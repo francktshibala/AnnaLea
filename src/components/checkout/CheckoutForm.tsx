@@ -174,43 +174,135 @@ export default function CheckoutForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Demo Mode Notice */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <div className="flex items-center">
-          <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+    <>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+      {/* Demo Mode Notice - Enhanced */}
+      <div style={{
+        backgroundColor: 'var(--color-warm-cream)',
+        border: `2px solid var(--color-warm-sage)`,
+        borderRadius: '12px',
+        padding: 'var(--space-4)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ color: 'var(--color-warm-sage)', marginRight: 'var(--space-2)' }}>
+            ℹ️
+          </div>
           <div>
-            <h4 className="text-sm font-semibold text-blue-800">Demo Mode Active</h4>
-            <p className="text-sm text-blue-700">This is a demonstration of the checkout process. No real payment will be processed.</p>
+            <h4 style={{
+              fontFamily: 'var(--font-body-refined)',
+              fontSize: '16px',
+              fontWeight: '600',
+              color: 'var(--color-warm-navy)',
+              marginBottom: 'var(--space-1)'
+            }}>
+              Demo Mode Active
+            </h4>
+            <p style={{
+              fontFamily: 'var(--font-body-refined)',
+              fontSize: '14px',
+              color: 'var(--color-neutral-600)'
+            }}>
+              This is a demonstration of the checkout process. No real payment will be processed.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Demo Payment Form */}
+      {/* Demo Payment Method - Enhanced */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
-          Demo Payment Method
+        <label style={{
+          display: 'block',
+          fontFamily: 'var(--font-body-refined)',
+          fontSize: '16px',
+          fontWeight: '600',
+          color: 'var(--color-warm-navy)',
+          marginBottom: 'var(--space-4)'
+        }}>
+          Payment Method
         </label>
-        <div className="border border-gray-300 rounded-lg p-4 bg-gray-50">
-          <div className="space-y-3">
+        <div style={{
+          border: `2px solid var(--color-warm-beige)`,
+          borderRadius: '12px',
+          padding: 'var(--space-6)',
+          backgroundColor: 'var(--color-warm-cream)'
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">Card Number</label>
-              <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+              <label style={{
+                display: 'block',
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '14px',
+                fontWeight: '600',
+                color: 'var(--color-warm-navy)',
+                marginBottom: 'var(--space-2)'
+              }}>
+                Card Number
+              </label>
+              <div style={{
+                width: '100%',
+                padding: '12px 16px',
+                border: `2px solid var(--color-warm-beige)`,
+                borderRadius: '8px',
+                backgroundColor: 'var(--color-warm-cream)',
+                color: 'var(--color-neutral-600)',
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '16px'
+              }}>
                 4242 4242 4242 4242 (Demo)
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
               <div>
-                <label className="block text-xs font-medium text-gray-600 mb-1">Expiry</label>
-                <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+                <label style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-2)'
+                }}>
+                  Expiry Date
+                </label>
+                <div style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  border: `2px solid var(--color-warm-beige)`,
+                  borderRadius: '8px',
+                  backgroundColor: 'var(--color-warm-cream)',
+                  color: 'var(--color-neutral-600)',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '16px'
+                }}>
                   12/34
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 mb-1">CVC</label>
-                <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+                <label style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-2)'
+                }}>
+                  Security Code
+                </label>
+                <div style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  border: `2px solid var(--color-warm-beige)`,
+                  borderRadius: '8px',
+                  backgroundColor: 'var(--color-warm-cream)',
+                  color: 'var(--color-neutral-600)',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '16px'
+                }}>
                   123
                 </div>
               </div>
@@ -219,41 +311,143 @@ export default function CheckoutForm({
         </div>
       </div>
 
-      {/* Demo Billing Address */}
+      {/* Demo Billing Address - Enhanced */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
-          Demo Billing Address
+        <label style={{
+          display: 'block',
+          fontFamily: 'var(--font-body-refined)',
+          fontSize: '16px',
+          fontWeight: '600',
+          color: 'var(--color-warm-navy)',
+          marginBottom: 'var(--space-4)'
+        }}>
+          Billing Address
         </label>
-        <div className="border border-gray-300 rounded-lg p-4 bg-gray-50">
-          <div className="space-y-3">
+        <div style={{
+          border: `2px solid var(--color-warm-beige)`,
+          borderRadius: '12px',
+          padding: 'var(--space-6)',
+          backgroundColor: 'var(--color-warm-cream)'
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">Full Name</label>
-              <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+              <label style={{
+                display: 'block',
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '14px',
+                fontWeight: '600',
+                color: 'var(--color-warm-navy)',
+                marginBottom: 'var(--space-2)'
+              }}>
+                Full Name
+              </label>
+              <div style={{
+                width: '100%',
+                padding: '12px 16px',
+                border: `2px solid var(--color-warm-beige)`,
+                borderRadius: '8px',
+                backgroundColor: 'var(--color-warm-cream)',
+                color: 'var(--color-neutral-600)',
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '16px'
+              }}>
                 Demo Customer
               </div>
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1">Address</label>
-              <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+              <label style={{
+                display: 'block',
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '14px',
+                fontWeight: '600',
+                color: 'var(--color-warm-navy)',
+                marginBottom: 'var(--space-2)'
+              }}>
+                Street Address
+              </label>
+              <div style={{
+                width: '100%',
+                padding: '12px 16px',
+                border: `2px solid var(--color-warm-beige)`,
+                borderRadius: '8px',
+                backgroundColor: 'var(--color-warm-cream)',
+                color: 'var(--color-neutral-600)',
+                fontFamily: 'var(--font-body-refined)',
+                fontSize: '16px'
+              }}>
                 123 Demo Street
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-3">
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 'var(--space-4)' }}>
               <div>
-                <label className="block text-xs font-medium text-gray-600 mb-1">City</label>
-                <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+                <label style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-2)'
+                }}>
+                  City
+                </label>
+                <div style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  border: `2px solid var(--color-warm-beige)`,
+                  borderRadius: '8px',
+                  backgroundColor: 'var(--color-warm-cream)',
+                  color: 'var(--color-neutral-600)',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '16px'
+                }}>
                   Demo City
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 mb-1">State</label>
-                <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+                <label style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-2)'
+                }}>
+                  State
+                </label>
+                <div style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  border: `2px solid var(--color-warm-beige)`,
+                  borderRadius: '8px',
+                  backgroundColor: 'var(--color-warm-cream)',
+                  color: 'var(--color-neutral-600)',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '16px'
+                }}>
                   CA
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-600 mb-1">ZIP</label>
-                <div className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-500">
+                <label style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-2)'
+                }}>
+                  ZIP Code
+                </label>
+                <div style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  border: `2px solid var(--color-warm-beige)`,
+                  borderRadius: '8px',
+                  backgroundColor: 'var(--color-warm-cream)',
+                  color: 'var(--color-neutral-600)',
+                  fontFamily: 'var(--font-body-refined)',
+                  fontSize: '16px'
+                }}>
                   90210
                 </div>
               </div>
@@ -262,59 +456,133 @@ export default function CheckoutForm({
         </div>
       </div>
 
-      {/* Error Display */}
+      {/* Error Display - Enhanced */}
       {paymentError && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <div className="flex items-center">
-            <svg className="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p className="text-red-800 text-sm">{paymentError}</p>
+        <div style={{
+          backgroundColor: 'var(--color-warm-cream)',
+          border: `2px solid #dc2626`,
+          borderRadius: '12px',
+          padding: 'var(--space-4)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ color: '#dc2626', marginRight: 'var(--space-2)' }}>
+              ⚠️
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-body-refined)',
+              fontSize: '14px',
+              color: '#dc2626',
+              fontWeight: '600'
+            }}>
+              {paymentError}
+            </p>
           </div>
         </div>
       )}
 
-      {/* Submit Button */}
+      {/* Submit Button - Enhanced */}
       <button
         type="submit"
         disabled={isProcessing}
-        className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
+        style={{
+          width: '100%',
+          padding: '16px 24px',
+          background: isProcessing 
+            ? 'var(--color-neutral-400)' 
+            : 'linear-gradient(135deg, var(--color-warm-sage), var(--color-warm-navy))',
+          color: 'white',
+          border: 'none',
+          borderRadius: '12px',
+          fontSize: '18px',
+          fontWeight: '600',
+          fontFamily: 'var(--font-body-refined)',
+          cursor: isProcessing ? 'not-allowed' : 'pointer',
+          transition: 'all 0.3s ease',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 'var(--space-2)',
+          boxShadow: isProcessing ? 'none' : '0 4px 16px rgba(156, 169, 134, 0.3)'
+        }}
+        onMouseEnter={(e) => {
+          if (!isProcessing) {
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = '0 8px 25px rgba(156, 169, 134, 0.4)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isProcessing) {
+            e.currentTarget.style.transform = 'translateY(0px)';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(156, 169, 134, 0.3)';
+          }
+        }}
       >
         {isProcessing ? (
           <>
-            <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
+            <div style={{
+              width: '16px',
+              height: '16px',
+              border: '2px solid white',
+              borderTop: '2px solid transparent',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }}></div>
             Processing Payment...
           </>
         ) : (
           <>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
+            <span>🔒</span>
             Complete Order - ${totalAmount.toFixed(2)}
           </>
         )}
       </button>
 
-      {/* Security & Trust Indicators */}
-      <div className="text-center space-y-2">
-        <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
-          <div className="flex items-center gap-1">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
+      {/* Security & Trust Indicators - Enhanced */}
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          gap: 'var(--space-6)',
+          marginBottom: 'var(--space-3)'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 'var(--space-1)',
+            fontSize: '12px',
+            color: 'var(--color-warm-sage)',
+            fontFamily: 'var(--font-body-refined)',
+            fontWeight: '600'
+          }}>
+            <span>🔒</span>
             <span>SSL Encrypted</span>
           </div>
-          <div className="flex items-center gap-1">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 'var(--space-1)',
+            fontSize: '12px',
+            color: 'var(--color-warm-sage)',
+            fontFamily: 'var(--font-body-refined)',
+            fontWeight: '600'
+          }}>
+            <span>✅</span>
             <span>Stripe Secure</span>
           </div>
         </div>
-        <p className="text-xs text-gray-500">
+        <p style={{
+          fontFamily: 'var(--font-body-refined)',
+          fontSize: '12px',
+          color: 'var(--color-neutral-600)',
+          lineHeight: 'var(--leading-relaxed)'
+        }}>
           Your payment information is processed securely by Stripe. We don't store your card details.
         </p>
       </div>
-    </form>
+      
+      {/* Debug: Payment form styling Step 2 complete */}
+      </form>
+    </>
   );
 }
