@@ -27,39 +27,134 @@ export default function CartPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-6">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-normal text-gray-900 mb-2">Shopping Cart</h1>
-          <p className="text-sm text-gray-600">
-            {totalItems === 0 ? 'Your cart is empty' : `${totalItems} item${totalItems !== 1 ? 's' : ''} in your cart`}
-          </p>
-          {/* Debug: Enhanced Cart Cards v1 */}
-          <div className="text-xs text-gray-400 mt-1">🔍 Enhanced Cards Active</div>
+    <main className="min-h-screen">
+      {/* Debug indicator */}
+      <div style={{ fontSize: '12px', color: 'purple', padding: '10px', textAlign: 'center', backgroundColor: 'var(--color-warm-beige)' }}>
+        🔍 DEBUG: Cart Component 1 - Design system typography and colors applied
+      </div>
+
+      {/* Cart Header Section */}
+      <section style={{ 
+        backgroundColor: 'var(--color-warm-cream)',
+        paddingTop: 'var(--space-20)',
+        paddingBottom: 'var(--space-16)'
+      }}>
+        <div className="mx-auto" style={{ 
+          maxWidth: '1200px',
+          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
+          paddingRight: 'clamp(24px, 7.5vw, 120px)'
+        }}>
+          <div className="text-center">
+            <h1 className="font-bold" 
+                style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontSize: 'var(--text-author-hero)',
+                  lineHeight: 'var(--leading-tight)',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-6)' 
+                }}>
+              Your Shopping Cart
+            </h1>
+            <p style={{ 
+                 fontFamily: 'var(--font-body-refined)', 
+                 fontSize: 'var(--text-author-body)',
+                 lineHeight: 'var(--leading-relaxed)',
+                 color: 'var(--color-neutral-600)',
+                 marginBottom: 'var(--space-4)' 
+               }}>
+              {totalItems === 0 ? 'Your cart is empty' : `${totalItems} item${totalItems !== 1 ? 's' : ''} in your cart`}
+            </p>
+            {totalPrice > 0 && (
+              <p style={{ 
+                   fontFamily: 'var(--font-body-refined)', 
+                   fontSize: '16px',
+                   color: 'var(--color-warm-sage)',
+                   fontWeight: '600'
+                 }}>
+                Subtotal: ${totalPrice.toFixed(2)}
+              </p>
+            )}
+          </div>
         </div>
+      </section>
+
+      {/* Main Cart Content */}
+      <section style={{ 
+        backgroundColor: 'var(--color-warm-beige)',
+        paddingTop: 'var(--space-16)',
+        paddingBottom: 'var(--space-25)'
+      }}>
+        <div className="mx-auto" style={{ 
+          maxWidth: '1200px',
+          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
+          paddingRight: 'clamp(24px, 7.5vw, 120px)'
+        }}>
 
         {cartItems.length === 0 ? (
-          /* Empty Cart State */
-          <div className="text-center py-16">
-            <svg
-              className="w-24 h-24 text-gray-300 mx-auto mb-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 9H4m3 4v6a1 1 0 001 1h9a1 1 0 001-1v-6M9 21h6"
-              />
-            </svg>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Your cart is empty</h2>
-            <p className="text-gray-600 mb-8">Discover Anna Lea's inspiring Christian books</p>
+          /* Empty Cart State - Enhanced with design system */
+          <div className="text-center" style={{ paddingTop: 'var(--space-16)', paddingBottom: 'var(--space-16)' }}>
+            <div style={{ 
+              width: '96px', 
+              height: '96px', 
+              margin: '0 auto var(--space-8)', 
+              color: 'var(--color-warm-sage)', 
+              opacity: '0.6' 
+            }}>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                style={{ width: '100%', height: '100%' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 9H4m3 4v6a1 1 0 001 1h9a1 1 0 001-1v-6M9 21h6"
+                />
+              </svg>
+            </div>
+            <h2 className="font-bold" 
+                style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontSize: 'var(--text-author-section)',
+                  lineHeight: 'var(--leading-tight)',
+                  color: 'var(--color-warm-navy)',
+                  marginBottom: 'var(--space-6)' 
+                }}>
+              Your cart is empty
+            </h2>
+            <p style={{ 
+                 fontFamily: 'var(--font-body-refined)', 
+                 fontSize: 'var(--text-author-body)',
+                 lineHeight: 'var(--leading-relaxed)',
+                 color: 'var(--color-neutral-600)',
+                 marginBottom: 'var(--space-10)' 
+               }}>
+              Discover Anna Lea's inspiring Christian books
+            </p>
             <button 
               onClick={handleContinueShopping}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+              style={{
+                padding: '14px 28px',
+                background: 'linear-gradient(135deg, var(--color-warm-sage), var(--color-warm-navy))',
+                color: 'white',
+                border: 'none',
+                borderRadius: '12px',
+                fontSize: '16px',
+                fontWeight: '600',
+                fontFamily: 'var(--font-body-refined)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 25px rgba(156, 169, 134, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               Browse Books
             </button>
@@ -171,8 +266,9 @@ export default function CartPage() {
             </div>
           </div>
         )}
-      </div>
-    </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
