@@ -28,10 +28,6 @@ export default function CartPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Debug indicator */}
-      <div style={{ fontSize: '12px', color: 'purple', padding: '10px', textAlign: 'center', backgroundColor: 'var(--color-warm-beige)' }}>
-        🔍 DEBUG: Cart Components 4-6 - Row layout, buttons, and color palette complete
-      </div>
 
       {/* Cart Header Section */}
       <section style={{ 

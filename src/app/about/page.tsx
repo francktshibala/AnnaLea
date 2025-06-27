@@ -14,10 +14,6 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Debug indicator */}
-      <div style={{ fontSize: '12px', color: 'orange', padding: '10px', textAlign: 'center', backgroundColor: 'var(--color-warm-beige)' }}>
-        🔍 DEBUG: About page row-based layout redesign in progress
-      </div>
 
       {/* Hero Row - Centered Introduction */}
       <section style={{ 

@@ -145,7 +145,6 @@ export default function Home() {
             </h2>
             <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
               📖 PREVIEW READY: Click any book card to read sample chapters
-              <br />🔍 DEBUG: Wider cards (450px) + improved layout deployed
             </div>
             <p className="max-w-2xl mx-auto"
                style={{ 

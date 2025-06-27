@@ -113,10 +113,6 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 transform: isHovered ? 'scale(1.08)' : 'scale(1)',
               }}
             />
-            {/* DEBUG: Components 3-4 deployed - margins + height */}
-            <div style={{ position: 'absolute', top: '4px', right: '4px', background: 'blue', color: 'white', fontSize: '10px', padding: '2px' }}>
-              C3-4
-            </div>
           </div>
 
           {/* Book Info Section */}
