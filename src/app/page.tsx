@@ -158,12 +158,14 @@ export default function Home() {
           </div>
 
 
-          {/* 3D BookCard Gallery - Optimized for wider cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center" 
+          {/* 3D BookCard Gallery - Centered layout for wider cards */}
+          <div className="flex flex-wrap justify-center items-start" 
                style={{ 
                  perspective: '1000px',
                  gap: 'clamp(40px, 6vw, 60px)', // Increased gap for wider cards
-                 marginBottom: 'var(--space-16)' 
+                 marginBottom: 'var(--space-16)',
+                 maxWidth: '1400px', // Container max width for better centering
+                 margin: '0 auto var(--space-16) auto' // Center the container
                }}>
             {featuredBooks.map((book) => (
               <BookCard
@@ -172,7 +174,7 @@ export default function Home() {
                 size="medium"
                 onAddToCart={handleAddToCart}
                 onBookClick={handleBookClick} // All three books now have preview functionality
-                className="w-full max-w-md" // Increased from max-w-sm to max-w-md for better centering
+                className="flex-shrink-0" // Prevent cards from shrinking
               />
             ))}
           </div>
