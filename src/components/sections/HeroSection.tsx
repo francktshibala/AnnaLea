@@ -135,15 +135,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Enhanced Balanced Main Content Container */}
       <div 
-        className="container mx-auto px-6 lg:px-8 py-20 relative z-10" 
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10" 
         style={{ maxWidth: '1200px' }}
       >
         <div 
-          className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-12 items-center min-h-[75vh]"
+          className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 lg:gap-12 items-center min-h-[75vh]"
         >
           
           {/* Left Column - Enhanced Content */}
-          <div className="text-center lg:text-left space-y-6 lg:pr-8">
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8 lg:pr-8 px-4 lg:px-0">
             {/* Enhanced Main Heading with Visual Hierarchy */}
             <h1 className="font-bold mb-6"
                 style={{ 
@@ -194,17 +194,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     }}>history</span>
             </p>
 
-            {/* Enhanced Call to Action Buttons with Visual Hierarchy */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            {/* Enhanced Call to Action Buttons with Mobile Optimization */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8">
               <Button
                 variant="primary"
                 size="large"
                 onClick={onExploreBooks}
-                className="text-lg font-semibold px-10 py-5 pulse-glow transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                className="text-lg font-semibold px-8 sm:px-10 py-4 sm:py-5 pulse-glow transform hover:scale-105 transition-all duration-300 shadow-2xl w-full sm:w-auto"
                 tabIndex={0}
                 style={{
                   fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                  letterSpacing: '0.5px'
+                  letterSpacing: '0.5px',
+                  minHeight: '56px'
                 }}
               >
                 Explore Books
@@ -213,11 +214,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 variant="outline"
                 size="large"
                 onClick={onWatchTrailer}
-                className="text-lg font-medium px-8 py-4 border-2 border-white/80 text-white hover:bg-white hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
+                className="text-lg font-medium px-8 py-4 border-2 border-white/80 text-white hover:bg-white hover:text-blue-600 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
                 tabIndex={0}
                 style={{
                   fontSize: 'clamp(0.95rem, 1.8vw, 1.125rem)',
-                  letterSpacing: '0.3px'
+                  letterSpacing: '0.3px',
+                  minHeight: '56px'
                 }}
               >
                 Watch Trailer
@@ -252,13 +254,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right Column - Enhanced Author Photo */}
-          <div className="flex justify-center lg:justify-center items-center relative lg:pl-4">
+          <div className="flex justify-center lg:justify-center items-center relative lg:pl-4 mt-8 lg:mt-0">
             <BookGlow
               intensity="medium"
               color="gold"
               animated={!reducedMotion}
               size="large"
-              className="w-full max-w-lg"
+              className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
             >
               <div
                 className="author-photo-container relative group author-photo-enhanced author-photo-glow"
