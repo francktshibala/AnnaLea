@@ -136,29 +136,95 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
           </div>
         ) : (
           <>
-            {/* Items List */}
-            <div className="max-h-64 overflow-y-auto mb-4">
+            {/* Items List - Enhanced */}
+            <div style={{ 
+              maxHeight: '280px', 
+              overflowY: 'auto', 
+              marginBottom: 'var(--space-6)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--space-3)'
+            }}>
               {cartItems.map((item) => (
-                <div key={item.id} className="flex items-center gap-3 py-3 border-b border-gray-100 last:border-b-0">
-                  {/* Book Image */}
+                <div 
+                  key={item.id} 
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 'var(--space-4)',
+                    padding: 'var(--space-4)',
+                    backgroundColor: 'var(--color-warm-beige)',
+                    borderRadius: '12px',
+                    border: `1px solid var(--color-warm-beige)`,
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(44, 62, 80, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  {/* Book Image - Enhanced */}
                   <div
-                    className="w-12 h-16 bg-gray-200 rounded flex-shrink-0"
                     style={{
-                      backgroundImage: `url(${item.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
+                      width: '48px',
+                      height: '64px',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      flexShrink: 0,
+                      position: 'relative'
                     }}
-                  />
+                  >
+                    <div
+                      style={{
+                        width: 'calc(100% - 4px)',
+                        height: 'calc(100% - 2px)',
+                        marginTop: '2px',
+                        marginLeft: '2px',
+                        marginRight: '2px',
+                        backgroundImage: `url(${item.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        borderRadius: '6px'
+                      }}
+                    />
+                  </div>
 
-                  {/* Book Info */}
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-medium text-gray-900 truncate">
+                  {/* Book Info - Enhanced */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <h4 style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '15px',
+                      fontWeight: 'bold',
+                      color: 'var(--color-warm-navy)',
+                      marginBottom: 'var(--space-1)',
+                      lineHeight: '1.3',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap'
+                    }}>
                       {item.title}
                     </h4>
-                    <p className="text-xs text-gray-500 truncate">
+                    <p style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '12px',
+                      color: 'var(--color-neutral-600)',
+                      marginBottom: 'var(--space-2)',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap'
+                    }}>
                       by {item.author}
                     </p>
-                    <p className="text-sm font-semibold text-blue-600">
+                    <p style={{
+                      fontFamily: 'var(--font-body-refined)',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'var(--color-warm-sage)'
+                    }}>
                       ${item.price.toFixed(2)}
                     </p>
                   </div>
@@ -264,7 +330,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
         }
       `}</style>
       
-      {/* Debug: Cart dropdown header Step 1 complete */}
+      {/* Debug: Cart dropdown item cards Step 2 complete */}
     </div>
   );
 };
