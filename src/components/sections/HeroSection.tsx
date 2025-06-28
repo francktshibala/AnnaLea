@@ -240,26 +240,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   transformOrigin: 'center center'
                 }}
               >
-                {/* Trust Badges */}
+                {/* Trust Badge */}
                 <TrustBadge
-                  type="latest-release"
+                  type="stat"
+                  value="500+"
+                  label="Copies"
                   variant="gold"
                   size="medium"
                   animated={!reducedMotion}
                   position="top-right"
                   className="trust-badge-float"
-                />
-                
-                <TrustBadge
-                  type="stat"
-                  value="500+"
-                  label="Copies"
-                  variant="warm"
-                  size="small"
-                  animated={!reducedMotion}
-                  position="bottom-left"
-                  className="trust-badge-float"
-                  style={{ animationDelay: '1s' }}
                 />
 
                 {/* Enhanced Professional Photo Frame */}
