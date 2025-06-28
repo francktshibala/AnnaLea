@@ -44,9 +44,9 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
     };
 
     const sizeClasses = {
-      small: 'max-w-[320px]',
-      medium: 'max-w-[520px]', // Increased from 450px to 520px for better presence
-      large: 'max-w-[580px]',  // Increased from 500px to 580px
+      small: 'max-w-[280px]',
+      medium: 'max-w-[380px]', // Reduced from 520px to 380px for better grid fit
+      large: 'max-w-[450px]',  // Reduced from 580px to 450px
     };
 
     return (
