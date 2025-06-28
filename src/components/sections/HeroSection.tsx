@@ -266,7 +266,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="author-photo-container relative group author-photo-enhanced author-photo-glow"
                 data-testid="author-photo"
                 style={{ 
-                  filter: 'drop-shadow(0 25px 35px rgba(0, 0, 0, 0.25))',
+                  filter: 'drop-shadow(0 30px 50px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(212, 175, 55, 0.15))',
                   transformOrigin: 'center center'
                 }}
               >
@@ -286,11 +286,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div 
                   className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden transition-all duration-500 book-shimmer"
                   style={{
-                    background: 'var(--color-warm-cream)',
+                    background: 'linear-gradient(135deg, var(--color-warm-cream), var(--color-warm-beige))',
                     padding: isMobile ? '6px' : '8px',
-                    boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--color-warm-gold)',
+                    boxShadow: '0 40px 80px rgba(0, 0, 0, 0.35), 0 20px 40px rgba(212, 175, 55, 0.2), 0 0 0 3px var(--color-warm-gold)',
                     maxWidth: '500px',
-                    width: '100%'
+                    width: '100%',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
                   }}
                 >
                   {/* Author Photo */}
@@ -302,6 +303,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                       priority={!lazyLoad}
                       sizes="(max-width: 480px) 300px, (max-width: 768px) 400px, 500px"
+                      style={{
+                        filter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                      }}
+                    />
+                    
+                    {/* Professional vignette effect */}
+                    <div 
+                      className="absolute inset-0 opacity-10"
+                      style={{ 
+                        background: 'radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.1) 100%)',
+                        pointerEvents: 'none'
+                      }}
                     />
                     
                     {/* Warm overlay */}

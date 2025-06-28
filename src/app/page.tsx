@@ -15,7 +15,6 @@ const BookPreviewModal = lazy(() =>
 );
 
 export default function Home() {
-  // ✅ HERO ENHANCEMENT COMPLETE: 50/50 layout + BookGlow + TrustBadges 2025-06-27
   // Cart functionality
   const { addToCart } = useCart();
   
