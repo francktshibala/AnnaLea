@@ -133,17 +133,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         data-testid="hero-particles"
       />
 
-      {/* Enhanced 50/50 Main Content Container */}
+      {/* Enhanced Balanced Main Content Container */}
       <div 
-        className="container mx-auto px-6 py-20 relative z-10" 
+        className="container mx-auto px-6 lg:px-8 py-20 relative z-10" 
         style={{ maxWidth: '1200px' }}
       >
         <div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[70vh]"
+          className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-8 lg:gap-12 items-center min-h-[75vh]"
         >
           
           {/* Left Column - Enhanced Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-6 lg:pr-8">
             {/* Enhanced Main Heading */}
             <h1 className="font-bold text-white mb-6"
                 style={{ 
@@ -175,7 +175,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
 
             {/* Enhanced Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button
                 variant="primary"
                 size="large"
@@ -223,8 +223,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column - Enhanced 50/50 Author Photo */}
-          <div className="flex justify-center lg:justify-end items-center relative">
+          {/* Right Column - Enhanced Author Photo */}
+          <div className="flex justify-center lg:justify-center items-center relative lg:pl-4">
             <BookGlow
               intensity="medium"
               color="gold"
