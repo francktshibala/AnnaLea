@@ -229,40 +229,118 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
                     </p>
                   </div>
 
-                  {/* Quantity Controls */}
-                  <div className="flex items-center gap-2 flex-shrink-0">
+                  {/* Quantity Controls - Enhanced */}
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: 'var(--space-2)', 
+                    flexShrink: 0 
+                  }}>
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
+                      style={{
+                        width: '28px',
+                        height: '28px',
+                        borderRadius: '8px',
+                        backgroundColor: 'var(--color-warm-cream)',
+                        border: `2px solid var(--color-warm-beige)`,
+                        color: 'var(--color-warm-navy)',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.3s ease',
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--color-warm-sage)';
+                        e.currentTarget.style.color = 'white';
+                        e.currentTarget.style.transform = 'scale(1.1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--color-warm-cream)';
+                        e.currentTarget.style.color = 'var(--color-warm-navy)';
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }}
                       aria-label="Decrease quantity"
                     >
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                      </svg>
+                      −
                     </button>
                     
-                    <span className="w-8 text-center text-sm font-medium text-gray-900">
+                    <span style={{
+                      minWidth: '24px',
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      fontFamily: 'var(--font-body-refined)',
+                      color: 'var(--color-warm-navy)'
+                    }}>
                       {item.quantity}
                     </span>
                     
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
+                      style={{
+                        width: '28px',
+                        height: '28px',
+                        borderRadius: '8px',
+                        backgroundColor: 'var(--color-warm-cream)',
+                        border: `2px solid var(--color-warm-beige)`,
+                        color: 'var(--color-warm-navy)',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.3s ease',
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--color-warm-sage)';
+                        e.currentTarget.style.color = 'white';
+                        e.currentTarget.style.transform = 'scale(1.1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--color-warm-cream)';
+                        e.currentTarget.style.color = 'var(--color-warm-navy)';
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }}
                       aria-label="Increase quantity"
                     >
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                      </svg>
+                      +
                     </button>
                     
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="ml-2 text-red-400 hover:text-red-600 transition-colors"
+                      style={{
+                        marginLeft: 'var(--space-2)',
+                        width: '28px',
+                        height: '28px',
+                        borderRadius: '8px',
+                        backgroundColor: 'transparent',
+                        border: `2px solid #dc2626`,
+                        color: '#dc2626',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.3s ease',
+                        fontSize: '16px'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#dc2626';
+                        e.currentTarget.style.color = 'white';
+                        e.currentTarget.style.transform = 'scale(1.1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = '#dc2626';
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }}
                       aria-label="Remove item"
                     >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
+                      🗑️
                     </button>
                   </div>
                 </div>
@@ -330,7 +408,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
         }
       `}</style>
       
-      {/* Debug: Cart dropdown item cards Step 2 complete */}
+      {/* Debug: Cart dropdown quantity controls Step 3 complete */}
     </div>
   );
 };
