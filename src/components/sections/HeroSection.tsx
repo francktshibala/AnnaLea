@@ -230,7 +230,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               color="gold"
               animated={!reducedMotion}
               size="large"
-              className="w-full max-w-md"
+              className="w-full max-w-lg"
             >
               <div
                 className="author-photo-container relative group author-photo-enhanced author-photo-glow"
@@ -269,7 +269,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     background: 'var(--color-warm-cream)',
                     padding: isMobile ? '6px' : '8px',
                     boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--color-warm-gold)',
-                    maxWidth: '400px',
+                    maxWidth: '500px',
                     width: '100%'
                   }}
                 >
@@ -281,7 +281,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                       priority={!lazyLoad}
-                      sizes="(max-width: 480px) 300px, (max-width: 768px) 350px, 400px"
+                      sizes="(max-width: 480px) 300px, (max-width: 768px) 400px, 500px"
                     />
                     
                     {/* Warm overlay */}
