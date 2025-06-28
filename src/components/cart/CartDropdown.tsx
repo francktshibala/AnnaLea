@@ -381,14 +381,38 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
                 </span>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex gap-2">
+              {/* Action Buttons - Enhanced */}
+              <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
                 <button
                   onClick={() => {
                     router.push('/cart');
                     onClose();
                   }}
-                  className="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg font-medium transition-colors"
+                  style={{
+                    flex: 1,
+                    padding: '14px 20px',
+                    backgroundColor: 'transparent',
+                    color: 'var(--color-warm-sage)',
+                    border: `2px solid var(--color-warm-sage)`,
+                    borderRadius: '12px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    fontFamily: 'var(--font-body-refined)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-warm-sage)';
+                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(156, 169, 134, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = 'var(--color-warm-sage)';
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                 >
                   View Cart
                 </button>
@@ -397,7 +421,28 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
                     router.push('/checkout');
                     onClose();
                   }}
-                  className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  style={{
+                    flex: 1,
+                    padding: '14px 20px',
+                    background: 'linear-gradient(135deg, var(--color-warm-sage), var(--color-warm-navy))',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '12px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    fontFamily: 'var(--font-body-refined)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 16px rgba(156, 169, 134, 0.3)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(156, 169, 134, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(156, 169, 134, 0.3)';
+                  }}
                 >
                   Checkout
                 </button>
@@ -432,7 +477,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
         }
       `}</style>
       
-      {/* Debug: Cart dropdown total section Step 4 complete */}
+      {/* Debug: Cart dropdown complete - All 5 steps enhanced! */}
     </div>
   );
 };
