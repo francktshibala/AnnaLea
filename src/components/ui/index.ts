@@ -18,6 +18,12 @@ export type { InputProps } from './Input';
 export { NewsletterSignup } from './NewsletterSignup';
 export type { NewsletterSignupProps } from './NewsletterSignup';
 
+export { BookGlow } from './BookGlow';
+export type { BookGlowProps } from './BookGlow';
+
+export { TrustBadge } from './TrustBadge';
+export type { TrustBadgeProps } from './TrustBadge';
+
 // Future component exports will be added here:
 // export { Modal } from './Modal';
 // export { Navigation } from './Navigation';
