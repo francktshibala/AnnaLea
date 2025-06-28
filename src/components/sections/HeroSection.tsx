@@ -144,44 +144,68 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           
           {/* Left Column - Enhanced Content */}
           <div className="text-center lg:text-left space-y-6 lg:pr-8">
-            {/* Enhanced Main Heading */}
-            <h1 className="font-bold text-white mb-6"
+            {/* Enhanced Main Heading with Visual Hierarchy */}
+            <h1 className="font-bold mb-6"
                 style={{ 
                   fontFamily: 'var(--font-display)', 
-                  fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                   lineHeight: 'var(--leading-tight)' 
                 }}>
-              <span className="block text-white">Anna Lea</span>
-              <span className="block font-normal text-white/90 mt-2"
+              <span className="block text-white text-shadow-lg"
                     style={{ 
-                      fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                      fontFamily: 'var(--font-body-refined)' 
+                      fontSize: 'clamp(3rem, 6vw, 5rem)',
+                      fontWeight: '800',
+                      letterSpacing: '-0.02em'
+                    }}>
+                Anna Lea
+              </span>
+              <span className="block font-medium text-white/85 mt-1"
+                    style={{ 
+                      fontSize: 'clamp(1.75rem, 3.5vw, 3rem)',
+                      fontFamily: 'var(--font-body-refined)',
+                      letterSpacing: '0.05em'
                     }}>
                 Cannon
               </span>
             </h1>
 
-            {/* Enhanced Tagline */}
-            <p className="text-white/80 mb-8"
+            {/* Enhanced Tagline with Better Typography */}
+            <p className="text-white/90 mb-8 max-w-md lg:max-w-none"
                style={{ 
                  fontFamily: 'var(--font-body-refined)', 
-                 fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                 lineHeight: 'var(--leading-relaxed)' 
+                 fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)',
+                 lineHeight: '1.6',
+                 fontWeight: '400'
                }}>
               Christian inspirational storyteller focusing on{' '}
-              <span className="font-semibold" style={{ color: 'var(--color-warm-gold)' }}>faith</span>,{' '}
-              <span className="font-semibold" style={{ color: 'var(--color-warm-gold)' }}>family</span>, and{' '}
-              <span className="font-semibold" style={{ color: 'var(--color-warm-gold)' }}>history</span>
+              <span className="font-semibold text-shadow-sm" 
+                    style={{ 
+                      color: 'var(--color-warm-gold)',
+                      fontSize: '1.05em'
+                    }}>faith</span>,{' '}
+              <span className="font-semibold text-shadow-sm" 
+                    style={{ 
+                      color: 'var(--color-warm-gold)',
+                      fontSize: '1.05em'
+                    }}>family</span>, and{' '}
+              <span className="font-semibold text-shadow-sm" 
+                    style={{ 
+                      color: 'var(--color-warm-gold)',
+                      fontSize: '1.05em'
+                    }}>history</span>
             </p>
 
-            {/* Enhanced Call to Action Buttons */}
+            {/* Enhanced Call to Action Buttons with Visual Hierarchy */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button
                 variant="primary"
                 size="large"
                 onClick={onExploreBooks}
-                className="text-lg px-8 py-4 pulse-glow transform hover:scale-105 transition-all duration-300"
+                className="text-lg font-semibold px-10 py-5 pulse-glow transform hover:scale-105 transition-all duration-300 shadow-2xl"
                 tabIndex={0}
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                  letterSpacing: '0.5px'
+                }}
               >
                 Explore Books
               </Button>
@@ -189,8 +213,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 variant="outline"
                 size="large"
                 onClick={onWatchTrailer}
-                className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
+                className="text-lg font-medium px-8 py-4 border-2 border-white/80 text-white hover:bg-white hover:text-blue-600 transform hover:scale-105 transition-all duration-300"
                 tabIndex={0}
+                style={{
+                  fontSize: 'clamp(0.95rem, 1.8vw, 1.125rem)',
+                  letterSpacing: '0.3px'
+                }}
               >
                 Watch Trailer
               </Button>
