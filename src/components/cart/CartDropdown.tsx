@@ -347,12 +347,36 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
               ))}
             </div>
 
-            {/* Cart Footer */}
-            <div className="border-t border-gray-200 pt-4">
-              {/* Total */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-lg font-semibold text-gray-900">Total:</span>
-                <span className="text-lg font-bold text-blue-600">
+            {/* Cart Footer - Enhanced */}
+            <div style={{ 
+              borderTop: `2px solid var(--color-warm-beige)`,
+              paddingTop: 'var(--space-6)'
+            }}>
+              {/* Total - Enhanced */}
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between',
+                marginBottom: 'var(--space-6)',
+                padding: 'var(--space-4)',
+                backgroundColor: 'var(--color-warm-beige)',
+                borderRadius: '12px',
+                border: `1px solid var(--color-warm-beige)`
+              }}>
+                <span style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '18px',
+                  fontWeight: 'bold',
+                  color: 'var(--color-warm-navy)'
+                }}>
+                  Total:
+                </span>
+                <span style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: 'var(--color-warm-sage)'
+                }}>
                   ${totalPrice.toFixed(2)}
                 </span>
               </div>
@@ -408,7 +432,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
         }
       `}</style>
       
-      {/* Debug: Cart dropdown quantity controls Step 3 complete */}
+      {/* Debug: Cart dropdown total section Step 4 complete */}
     </div>
   );
 };
