@@ -162,9 +162,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center" 
                style={{ 
                  perspective: '1000px',
-                 gap: 'clamp(30px, 4vw, 50px)',
+                 gap: 'clamp(30px, 4vw, 40px)', // Reduced max gap for tighter spacing
                  marginBottom: 'var(--space-16)',
-                 maxWidth: '1600px', // Wider container for 3 cards
+                 maxWidth: '1400px', // Optimal width for centered 3-card row
                  margin: '0 auto var(--space-16) auto', // Center the container
                  padding: '0 20px' // Side padding for mobile
                }}>

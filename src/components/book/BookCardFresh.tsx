@@ -45,8 +45,8 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
 
     const sizeClasses = {
       small: 'max-w-[280px]',
-      medium: 'max-w-[380px]', // Reduced from 520px to 380px for better grid fit
-      large: 'max-w-[450px]',  // Reduced from 580px to 450px
+      medium: 'max-w-[420px]', // Slightly increased from 380px to 420px for better desktop presence
+      large: 'max-w-[480px]',  // Increased from 450px to 480px
     };
 
     return (
