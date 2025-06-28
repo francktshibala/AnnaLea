@@ -144,14 +144,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           
           {/* Left Column - Enhanced Content */}
           <div className="text-center lg:text-left space-y-8">
-            {/* Enhanced Main Heading with Shimmer */}
-            <h1 className="font-bold text-white mb-6 stagger-fade-in"
+            {/* Enhanced Main Heading */}
+            <h1 className="font-bold text-white mb-6"
                 style={{ 
                   fontFamily: 'var(--font-display)', 
                   fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                   lineHeight: 'var(--leading-tight)' 
                 }}>
-              <span className="block hero-text-shimmer">Anna Lea</span>
+              <span className="block text-white">Anna Lea</span>
               <span className="block font-normal text-white/90 mt-2"
                     style={{ 
                       fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
@@ -162,7 +162,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
 
             {/* Enhanced Tagline */}
-            <p className="text-white/80 mb-8 stagger-fade-in"
+            <p className="text-white/80 mb-8"
                style={{ 
                  fontFamily: 'var(--font-body-refined)', 
                  fontSize: 'clamp(1rem, 2vw, 1.25rem)',
@@ -175,7 +175,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
 
             {/* Enhanced Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12 stagger-fade-in">
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button
                 variant="primary"
                 size="large"
@@ -197,7 +197,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Enhanced Newsletter Signup */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 stagger-fade-in hover:bg-white/15 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <h3 className="text-lg font-semibold text-white mb-3">
                 Get Updates on New Releases
               </h3>
