@@ -440,3 +440,168 @@
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
+/* === ENHANCED HERO ANIMATIONS === */
+
+/* Hero text shimmer with warm colors */
+.hero-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-warm-cream) 25%,
+    var(--color-warm-gold) 50%,
+    var(--color-warm-cream) 75%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heroTextShimmer 4s ease-in-out infinite;
+}
+
+@keyframes heroTextShimmer {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+/* Author photo glow animation */
+.author-photo-glow {
+  position: relative;
+}
+
+.author-photo-glow::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle,
+    var(--color-warm-gold) 0%,
+    var(--color-warm-sage) 30%,
+    transparent 70%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  filter: blur(20px);
+  animation: authorPhotoGlow 3s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes authorPhotoGlow {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Enhanced hover state for author photo */
+.author-photo-enhanced {
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center center;
+}
+
+.author-photo-enhanced:hover {
+  transform: scale(1.08) translateY(-8px);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Trust badge float animation */
+.trust-badge-float {
+  animation: trustBadgeFloat 4s ease-in-out infinite;
+}
+
+@keyframes trustBadgeFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+}
+
+/* Book shimmer effect */
+.book-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: bookShimmer 3s ease-in-out infinite;
+}
+
+@keyframes bookShimmer {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Hero layout animation */
+.hero-layout-animate {
+  animation: heroLayoutFadeIn 1s ease-out;
+}
+
+@keyframes heroLayoutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive hero animations */
+@media (max-width: 768px) {
+  .hero-text-shimmer {
+    animation-duration: 3s;
+  }
+  
+  .author-photo-glow::before {
+    animation-duration: 2s;
+  }
+  
+  .trust-badge-float {
+    animation-duration: 3s;
+  }
+}
+
+/* Performance optimizations for hero animations */
+.hero-text-shimmer,
+.author-photo-glow,
+.author-photo-enhanced,
+.trust-badge-float,
+.book-shimmer {
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
