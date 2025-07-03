@@ -42,10 +42,10 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
         top: '100%',
         marginTop: '8px',
         width: '400px',
-        backgroundColor: 'var(--color-warm-cream)',
+        backgroundColor: 'var(--cream)',
         borderRadius: '16px',
-        boxShadow: '0 20px 40px rgba(44, 62, 80, 0.15), 0 8px 16px rgba(44, 62, 80, 0.10)',
-        border: `2px solid var(--color-warm-beige)`,
+        boxShadow: 'var(--shadow-dark)',
+        border: `2px solid var(--border-light)`,
         zIndex: 50,
         animation: isOpen ? 'slideDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' : 'slideUp 0.2s ease-in',
       }}
@@ -58,20 +58,20 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
           justifyContent: 'space-between', 
           marginBottom: 'var(--space-6)',
           paddingBottom: 'var(--space-4)',
-          borderBottom: `2px solid var(--color-warm-beige)`
+          borderBottom: `2px solid var(--border-light)`
         }}>
           <h3 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'var(--text-author-body)',
             fontWeight: 'bold',
-            color: 'var(--color-warm-navy)'
+            color: 'var(--text-primary)'
           }}>
             Shopping Cart ({totalItems})
           </h3>
           <button
             onClick={onClose}
             style={{
-              color: 'var(--color-warm-sage)',
+              color: 'var(--text-secondary)',
               background: 'none',
               border: 'none',
               cursor: 'pointer',
@@ -83,12 +83,12 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
               justifyContent: 'center'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-warm-beige)';
-              e.currentTarget.style.color = 'var(--color-warm-navy)';
+              e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+              e.currentTarget.style.color = 'var(--text-accent)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--color-warm-sage)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
             }}
             aria-label="Close cart"
           >
@@ -109,7 +109,7 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
               width: '64px', 
               height: '64px', 
               margin: '0 auto var(--space-6)', 
-              color: 'var(--color-warm-sage)', 
+              color: 'var(--sage-green)', 
               opacity: '0.6' 
             }}>
               <svg
@@ -127,9 +127,9 @@ export const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) =
               </svg>
             </div>
             <p style={{
-              fontFamily: 'var(--font-body-refined)',
+              fontFamily: 'var(--font-body)',
               fontSize: '16px',
-              color: 'var(--color-neutral-600)'
+              color: 'var(--text-muted)'
             }}>
               Your cart is empty
             </p>

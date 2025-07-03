@@ -12,11 +12,20 @@ export const Header: React.FC = () => {
   const totalItems = getTotalItems();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Close dropdowns first
     setIsMenuOpen(false);
+    setIsBooksDropdownOpen(false);
+    
+    // Check if we're on the homepage
+    if (window.location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to homepage with section anchor
+      window.location.href = `/#${sectionId}`;
+    }
   };
 
   return (
@@ -132,6 +141,7 @@ export const Header: React.FC = () => {
             <a
               href="/about"
               className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
+              onClick={() => setIsBooksDropdownOpen(false)}
             >
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
@@ -140,6 +150,7 @@ export const Header: React.FC = () => {
             <a
               href="/contact"
               className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
+              onClick={() => setIsBooksDropdownOpen(false)}
             >
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
