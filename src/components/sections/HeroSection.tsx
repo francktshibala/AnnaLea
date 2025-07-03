@@ -144,52 +144,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           
           {/* Left Column - Enhanced Content */}
           <div className="text-center lg:text-left space-y-6 lg:space-y-8 lg:pr-8 px-4 lg:px-0">
-            {/* Enhanced Main Heading with Visual Hierarchy */}
-            <h1 className="font-bold mb-6"
+            {/* Enhanced Main Heading with New Typography */}
+            <h1 className="text-hero mb-6 text-white text-shadow-lg"
                 style={{ 
-                  fontFamily: 'var(--font-display)', 
-                  lineHeight: 'var(--leading-tight)' 
+                  letterSpacing: '-0.02em'
                 }}>
-              <span className="block text-white text-shadow-lg"
-                    style={{ 
-                      fontSize: 'clamp(3rem, 6vw, 5rem)',
-                      fontWeight: '800',
-                      letterSpacing: '-0.02em'
-                    }}>
+              <span className="block">
                 Anna Lea
               </span>
-              <span className="block font-medium text-white/85 mt-1"
+              <span className="block text-subtitle opacity-90 mt-1"
                     style={{ 
-                      fontSize: 'clamp(1.75rem, 3.5vw, 3rem)',
-                      fontFamily: 'var(--font-body-refined)',
                       letterSpacing: '0.05em'
                     }}>
                 Cannon
               </span>
             </h1>
 
-            {/* Enhanced Tagline with Better Typography */}
-            <p className="text-white/90 mb-8 max-w-md lg:max-w-none"
-               style={{ 
-                 fontFamily: 'var(--font-body-refined)', 
-                 fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)',
-                 lineHeight: '1.6',
-                 fontWeight: '400'
-               }}>
+            {/* Enhanced Tagline with New Typography */}
+            <p className="text-body-elegant text-white/90 mb-8 max-w-md lg:max-w-none">
               Christian inspirational storyteller focusing on{' '}
               <span className="font-semibold text-shadow-sm" 
                     style={{ 
-                      color: 'var(--color-warm-gold)',
+                      color: 'var(--golden-honey)',
                       fontSize: '1.05em'
                     }}>faith</span>,{' '}
               <span className="font-semibold text-shadow-sm" 
                     style={{ 
-                      color: 'var(--color-warm-gold)',
+                      color: 'var(--golden-honey)',
                       fontSize: '1.05em'
                     }}>family</span>, and{' '}
               <span className="font-semibold text-shadow-sm" 
                     style={{ 
-                      color: 'var(--color-warm-gold)',
+                      color: 'var(--golden-honey)',
                       fontSize: '1.05em'
                     }}>history</span>
             </p>
@@ -227,8 +213,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Enhanced Newsletter Signup */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-              <h3 className="text-lg font-semibold text-white mb-3">
+            <div className="backdrop-blur-md rounded-2xl p-6 border transition-all duration-300"
+                 style={{
+                   backgroundColor: 'var(--sage-green-light)',
+                   borderColor: 'var(--border-light)',
+                   opacity: '0.95'
+                 }}>
+              <h3 className="text-ui text-lg font-semibold text-white mb-3">
                 Get Updates on New Releases
               </h3>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -286,12 +277,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div 
                   className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden transition-all duration-500 book-shimmer"
                   style={{
-                    background: 'linear-gradient(135deg, var(--color-warm-cream), var(--color-warm-beige))',
+                    background: 'var(--gradient-secondary)',
                     padding: isMobile ? '6px' : '8px',
-                    boxShadow: '0 40px 80px rgba(0, 0, 0, 0.35), 0 20px 40px rgba(212, 175, 55, 0.2), 0 0 0 3px var(--color-warm-gold)',
+                    boxShadow: 'var(--shadow-dark), 0 20px 40px rgba(212, 175, 55, 0.2), 0 0 0 3px var(--golden-honey)',
                     maxWidth: '500px',
                     width: '100%',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                    border: '1px solid var(--border-light)'
                   }}
                 >
                   {/* Author Photo */}
@@ -320,7 +311,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     {/* Warm overlay */}
                     <div 
                       className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                      style={{ background: 'linear-gradient(135deg, var(--color-warm-gold), var(--color-warm-sage))' }}
+                      style={{ background: 'var(--gradient-accent)' }}
                     />
                   </div>
                 </div>
@@ -335,12 +326,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300"
+                className="backdrop-blur-md rounded-xl p-6 border hover:scale-105 transition-all duration-300"
+                style={{
+                  backgroundColor: 'var(--burgundy)',
+                  borderColor: 'var(--border-light)',
+                  opacity: '0.9'
+                }}
               >
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-2 hero-text-shimmer">
+                <div className="text-3xl lg:text-4xl font-bold text-white mb-2 hero-text-shimmer font-display">
                   {stat.number}
                 </div>
-                <div className="text-white/80 text-sm lg:text-base">
+                <div className="text-white/80 text-sm lg:text-base font-sans">
                   {stat.label}
                 </div>
               </div>
