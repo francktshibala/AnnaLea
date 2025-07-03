@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../styles/colors.css";
 @import "../styles/design-tokens.css";
 @import "../styles/components.css";
 @import "../styles/animations.css";
@@ -16,20 +17,20 @@ html {
 }
 
 body {
-  font-family: var(--font-primary);
+  font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  color: var(--color-neutral-800);
-  background: var(--color-neutral-50);
+  color: var(--text-primary);
+  background: var(--bg-primary);
   overflow-x: hidden;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-bold);
+  font-family: var(--font-display);
+  font-weight: 600;
   line-height: var(--leading-tight);
-  color: var(--color-neutral-900);
+  color: var(--text-primary);
 }
 
 h1 { font-size: var(--text-5xl); }
@@ -44,18 +45,18 @@ p {
 }
 
 a {
-  color: var(--color-primary-600);
+  color: var(--text-accent);
   text-decoration: none;
-  transition: color var(--duration-200) var(--ease-out);
+  transition: color 0.2s ease-out;
 }
 
 a:hover {
-  color: var(--color-primary-700);
+  color: var(--hover-secondary);
 }
 
 /* Focus styles for accessibility */
 *:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid var(--sage-green);
   outline-offset: 2px;
 }
 
@@ -64,16 +65,16 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-6);
-  font-family: var(--font-primary);
-  font-size: var(--text-base);
-  font-weight: var(--font-medium);
-  line-height: var(--leading-normal);
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: all var(--duration-200) var(--ease-out);
+  transition: all 0.2s ease-out;
   user-select: none;
   white-space: nowrap;
 }
@@ -85,63 +86,63 @@ a:hover {
 
 /* Button variants */
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  background: var(--gradient-primary);
   color: white;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-medium);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-  box-shadow: var(--shadow-lg);
+  background: var(--bg-accent);
+  box-shadow: var(--shadow-dark);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--color-secondary-400), var(--color-secondary-500));
+  background: var(--burgundy);
   color: white;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-medium);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
-  box-shadow: var(--shadow-lg);
+  background: var(--hover-secondary);
+  box-shadow: var(--shadow-dark);
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-primary-600);
-  border: 2px solid var(--color-primary-500);
+  color: var(--sage-green);
+  border: 2px solid var(--sage-green);
 }
 
 .btn-outline:hover:not(:disabled) {
-  background: var(--color-primary-500);
+  background: var(--sage-green);
   color: white;
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-primary-600);
+  color: var(--text-accent);
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background: var(--color-primary-50);
+  background: var(--bg-secondary);
 }
 
 /* Button sizes */
 .btn-small {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
 }
 
 .btn-medium {
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--text-base);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
 }
 
 .btn-large {
-  padding: var(--space-4) var(--space-8);
-  font-size: var(--text-lg);
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
 }
 
 /* Button states */
