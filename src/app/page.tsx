@@ -123,7 +123,7 @@ export default function Home() {
 
       {/* Books Preview Section */}
       <section id="books" style={{ 
-        backgroundColor: 'var(--color-warm-beige)',
+        backgroundColor: 'var(--bg-secondary)',
         paddingTop: 'var(--space-25)',
         paddingBottom: 'var(--space-25)'
       }}>
@@ -133,40 +133,26 @@ export default function Home() {
           paddingRight: 'clamp(24px, 7.5vw, 120px)'
         }}>
           <div className="text-center mb-20">
-            <h2 className="font-bold"
-                style={{ 
-                  fontFamily: 'var(--font-display)', 
-                  fontSize: 'var(--text-author-section)',
-                  lineHeight: 'var(--leading-tight)',
-                  color: 'var(--color-warm-navy)',
-                  marginBottom: 'var(--space-8)' 
-                }}>
+            <h2 className="text-section-heading text-primary mb-8">
               Featured Books
             </h2>
-            <div style={{ fontSize: '12px', color: 'green', margin: '10px 0' }}>
-              📖 PREVIEW READY: Click any book card to read sample chapters
+            <div className="text-byline mb-4" style={{ color: 'var(--sage-green)' }}>
+              📖 Preview Ready: Click any book card to read sample chapters
             </div>
-            <p className="max-w-2xl mx-auto"
-               style={{ 
-                 fontFamily: 'var(--font-body-refined)', 
-                 fontSize: 'var(--text-author-body)',
-                 lineHeight: 'var(--leading-relaxed)',
-                 color: 'var(--color-neutral-600)' 
-               }}>
+            <p className="text-body-elegant max-w-2xl mx-auto text-secondary">
               Discover inspiring Christian stories that touch the heart and strengthen faith
             </p>
           </div>
 
 
-          {/* 3D BookCard Gallery - Responsive grid layout */}
+          {/* BookCard Gallery - Clean & Elegant Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center" 
                style={{ 
-                 perspective: '1000px',
-                 gap: 'clamp(30px, 4vw, 40px)', // Reduced max gap for tighter spacing
+                 gap: 'clamp(30px, 4vw, 40px)',
                  marginBottom: 'var(--space-16)',
-                 maxWidth: '1400px', // Optimal width for centered 3-card row
-                 margin: '0 auto var(--space-16) auto', // Center the container
-                 padding: '0 20px' // Side padding for mobile
+                 maxWidth: '1400px',
+                 margin: '0 auto var(--space-16) auto',
+                 padding: '0 20px'
                }}>
             {featuredBooks.map((book) => (
               <BookCard
@@ -181,7 +167,7 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <Button variant="primary" size="large">
+            <Button variant="primary" size="large" className="font-sans">
               View All Books
             </Button>
           </div>
