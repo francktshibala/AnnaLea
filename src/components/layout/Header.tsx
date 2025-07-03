@@ -8,6 +8,7 @@ export const Header: React.FC = () => {
   const { getTotalItems } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isBooksDropdownOpen, setIsBooksDropdownOpen] = useState(false);
   const totalItems = getTotalItems();
 
   const scrollToSection = (sectionId: string) => {
@@ -45,15 +46,88 @@ export const Header: React.FC = () => {
             <div className="relative group">
               <button
                 className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent flex items-center gap-1"
+                onMouseEnter={() => setIsBooksDropdownOpen(true)}
+                onMouseLeave={() => setIsBooksDropdownOpen(false)}
               >
                 Books
-                <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={`w-4 h-4 transition-transform duration-200 ${isBooksDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
                       style={{ backgroundColor: 'var(--sage-green)' }}></span>
               </button>
-              {/* Dropdown will be added in next step */}
+              
+              {/* Books Dropdown Menu */}
+              {isBooksDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-2 py-2 w-64 rounded-lg shadow-lg z-50"
+                  style={{ 
+                    backgroundColor: 'var(--cream)',
+                    border: '1px solid var(--border-light)',
+                    boxShadow: 'var(--shadow-medium)'
+                  }}
+                  onMouseEnter={() => setIsBooksDropdownOpen(true)}
+                  onMouseLeave={() => setIsBooksDropdownOpen(false)}
+                >
+                  <div className="py-1">
+                    <a
+                      href="/books"
+                      className="block px-4 py-2 font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      style={{ backgroundColor: 'transparent' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      All Books
+                    </a>
+                    <div className="border-t my-1" style={{ borderColor: 'var(--border-light)' }}></div>
+                    <a
+                      href="/books/biblical-trees"
+                      className="block px-4 py-2 font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      style={{ backgroundColor: 'transparent' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span>🌿</span>
+                        <div>
+                          <div className="font-medium">Biblical Trees</div>
+                          <div className="text-xs text-muted">Isaiah Tree, Sweet Fruit</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="/books/missionary-stories"
+                      className="block px-4 py-2 font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      style={{ backgroundColor: 'transparent' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span>✝️</span>
+                        <div>
+                          <div className="font-medium">Missionary Stories</div>
+                          <div className="text-xs text-muted">True faith journeys</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a
+                      href="/books/christian-fiction"
+                      className="block px-4 py-2 font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      style={{ backgroundColor: 'transparent' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span>📖</span>
+                        <div>
+                          <div className="font-medium">Christian Fiction</div>
+                          <div className="text-xs text-muted">Inspirational stories</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
             <a
               href="/about"
@@ -151,12 +225,49 @@ export const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t" style={{ borderColor: 'var(--border-light)' }}>
             <div className="flex flex-col space-y-4">
-              <button
-                onClick={() => scrollToSection('books')}
-                className="text-left font-sans text-secondary hover:text-accent transition-colors duration-200"
-              >
-                Books
-              </button>
+              <div>
+                <button
+                  onClick={() => setIsBooksDropdownOpen(!isBooksDropdownOpen)}
+                  className="text-left font-sans text-secondary hover:text-accent transition-colors duration-200 flex items-center gap-1 w-full"
+                >
+                  Books
+                  <svg className={`w-4 h-4 transition-transform duration-200 ${isBooksDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isBooksDropdownOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    <a
+                      href="/books"
+                      className="block font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      All Books
+                    </a>
+                    <a
+                      href="/books/biblical-trees"
+                      className="block font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      🌿 Biblical Trees
+                    </a>
+                    <a
+                      href="/books/missionary-stories"
+                      className="block font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      ✝️ Missionary Stories
+                    </a>
+                    <a
+                      href="/books/christian-fiction"
+                      className="block font-sans text-secondary hover:text-accent transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      📖 Christian Fiction
+                    </a>
+                  </div>
+                )}
+              </div>
               <a
                 href="/about"
                 className="font-sans text-secondary hover:text-accent transition-colors duration-200"
