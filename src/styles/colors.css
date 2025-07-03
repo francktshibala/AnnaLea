@@ -1,0 +1,162 @@
+/* 
+ * Anna Lea Author Website - Professional Color Palette
+ * Inspired by Christian themes and literary elegance
+ * Created: 2025-07-03
+ */
+
+:root {
+  /* Primary Colors - Core Brand Identity */
+  --sage-green: #6B7C59;           /* Growth, wisdom, peace */
+  --sage-green-light: #8B9A7A;     /* Lighter variant */
+  --sage-green-dark: #4A5A3F;      /* Darker variant */
+  
+  --burgundy: #8B4A6B;             /* Passion, depth, spiritual richness */
+  --burgundy-light: #A66B8A;       /* Lighter variant */
+  --burgundy-dark: #6B3A4F;        /* Darker variant */
+  
+  --cream: #F8F6F0;                /* Clean, elegant background */
+  --cream-light: #FDFCF7;          /* Ultra light variant */
+  --cream-dark: #F0EDE5;           /* Slightly darker variant */
+  
+  --charcoal-navy: #2C3E50;        /* Professional, readable text */
+  --charcoal-navy-light: #34495E;  /* Lighter variant */
+  --charcoal-navy-dark: #1C2833;   /* Darker variant */
+
+  /* Accent Colors - Supporting Elements */
+  --golden-honey: #D4A574;         /* Warmth, inspiration */
+  --golden-honey-light: #E0B897;   /* Lighter variant */
+  --golden-honey-dark: #B8935F;    /* Darker variant */
+  
+  --soft-lavender: #B8A9D9;        /* Serenity, spiritual connection */
+  --soft-lavender-light: #D0C4E6;  /* Lighter variant */
+  --soft-lavender-dark: #9B8CC4;   /* Darker variant */
+
+  /* Semantic Colors - Functional Usage */
+  --text-primary: var(--charcoal-navy);
+  --text-secondary: var(--charcoal-navy-light);
+  --text-muted: #6B7280;
+  --text-accent: var(--burgundy);
+  
+  --bg-primary: var(--cream);
+  --bg-secondary: var(--cream-light);
+  --bg-accent: var(--sage-green);
+  --bg-dark: var(--charcoal-navy);
+  
+  --border-light: rgba(107, 124, 89, 0.2);  /* Sage green with opacity */
+  --border-medium: rgba(107, 124, 89, 0.4);
+  --border-dark: rgba(107, 124, 89, 0.6);
+  
+  /* Interactive States */
+  --hover-primary: var(--sage-green-light);
+  --hover-secondary: var(--burgundy-light);
+  --hover-accent: var(--golden-honey-light);
+  
+  --active-primary: var(--sage-green-dark);
+  --active-secondary: var(--burgundy-dark);
+  --active-accent: var(--golden-honey-dark);
+  
+  /* Shadow Colors */
+  --shadow-light: rgba(107, 124, 89, 0.1);
+  --shadow-medium: rgba(107, 124, 89, 0.2);
+  --shadow-dark: rgba(107, 124, 89, 0.3);
+  
+  /* Gradient Combinations */
+  --gradient-primary: linear-gradient(135deg, var(--sage-green) 0%, var(--burgundy) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--cream) 0%, var(--golden-honey) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--soft-lavender) 0%, var(--sage-green-light) 100%);
+  
+  /* Legacy Support - Gradual Migration */
+  --color-warm-beige: var(--cream);
+  --color-warm-cream: var(--cream-light);
+  --color-warm-navy: var(--charcoal-navy);
+  --color-neutral-600: var(--text-muted);
+  --color-neutral-700: var(--text-secondary);
+  --color-neutral-50: var(--bg-secondary);
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: var(--cream);
+    --text-secondary: var(--cream-dark);
+    --text-muted: #9CA3AF;
+    
+    --bg-primary: var(--charcoal-navy-dark);
+    --bg-secondary: var(--charcoal-navy);
+    --bg-accent: var(--sage-green-dark);
+    
+    --border-light: rgba(248, 246, 240, 0.2);
+    --border-medium: rgba(248, 246, 240, 0.4);
+    --border-dark: rgba(248, 246, 240, 0.6);
+    
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Accessibility - High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #000000;
+    --text-secondary: #2C3E50;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F6F0;
+    --border-light: #2C3E50;
+    --border-medium: #2C3E50;
+    --border-dark: #2C3E50;
+  }
+}
+
+/* Reduced Motion - Respect User Preferences */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-duration: 0.01ms !important;
+    --animation-duration: 0.01ms !important;
+  }
+}
+
+/* Color Utility Classes for Quick Application */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--text-accent); }
+
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-accent { background-color: var(--bg-accent); }
+.bg-dark { background-color: var(--bg-dark); }
+
+.border-light { border-color: var(--border-light); }
+.border-medium { border-color: var(--border-medium); }
+.border-dark { border-color: var(--border-dark); }
+
+.shadow-light { box-shadow: 0 4px 6px var(--shadow-light); }
+.shadow-medium { box-shadow: 0 8px 25px var(--shadow-medium); }
+.shadow-dark { box-shadow: 0 20px 40px var(--shadow-dark); }
+
+.gradient-primary { background: var(--gradient-primary); }
+.gradient-secondary { background: var(--gradient-secondary); }
+.gradient-accent { background: var(--gradient-accent); }
+
+/* Debug Helper - Remove in Production */
+.debug-color-palette {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: white;
+  padding: 10px;
+  border: 2px solid var(--sage-green);
+  border-radius: 8px;
+  z-index: 9999;
+  font-size: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+.debug-color-palette::before {
+  content: "🎨 New Color Palette Active";
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--sage-green);
+}
