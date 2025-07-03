@@ -212,11 +212,72 @@ a:hover {
   }
 }
 
+/* Typography Utility Classes */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-sans { font-family: var(--font-sans); }
+
+.text-hero { 
+  font-size: var(--text-author-hero); 
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+.text-section-heading { 
+  font-size: var(--text-author-section); 
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+}
+
+.text-subtitle { 
+  font-size: var(--text-author-subtitle); 
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+}
+
+.text-body-elegant { 
+  font-size: var(--text-author-body); 
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+}
+
+.text-ui { 
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+/* Literary Style Elements */
+.text-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  color: var(--text-accent);
+}
+
+.text-byline {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
 /* Responsive utilities */
 @media (max-width: 640px) {
   h1 { font-size: var(--text-4xl); }
   h2 { font-size: var(--text-3xl); }
   h3 { font-size: var(--text-2xl); }
+  
+  .text-hero { font-size: var(--text-4xl); }
+  .text-section-heading { font-size: var(--text-3xl); }
+  .text-subtitle { font-size: var(--text-lg); }
+  .text-body-elegant { font-size: var(--text-base); }
 }
 
 /* Remove global 3D CSS that might conflict with component-level transforms */

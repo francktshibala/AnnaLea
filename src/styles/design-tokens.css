@@ -82,14 +82,19 @@
 
   /* === TYPOGRAPHY === */
   
-  /* Font Families */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-secondary: 'Playfair Display', Georgia, serif;
+  /* Anna Lea Professional Font System */
+  /* Note: Font families are defined in layout.tsx and available as CSS variables */
+  /* --font-display: Playfair Display - Elegant serif for headings */
+  /* --font-body: Lora - Readable serif for content */
+  /* --font-sans: Source Sans Pro - Clean sans-serif for UI */
+  
+  /* Legacy font references for compatibility */
+  --font-primary: 'Lora', Georgia, serif;              /* Body text default */
+  --font-secondary: 'Playfair Display', Georgia, serif; /* Heading default */
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
-  /* Professional Author Typography Scale */
-  --font-display: 'Playfair Display', Georgia, serif; /* For main headings */
-  --font-body-refined: 'Inter', system-ui, sans-serif; /* Clean body text */
+  /* Professional Author Typography Scale - Updated */
+  --font-body-refined: 'Lora', Georgia, serif;         /* For refined body text */
 
   /* Font Sizes - Enhanced for better readability */
   --text-xs: 0.8125rem;    /* 13px - slightly larger */
