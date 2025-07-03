@@ -21,8 +21,9 @@ export const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg shadow-lg"
             style={{ 
-              backgroundColor: 'rgba(253, 252, 248, 0.95)', 
-              borderBottom: '1px solid var(--color-warm-sage)'
+              backgroundColor: 'var(--cream)',
+              borderBottom: '1px solid var(--border-light)',
+              opacity: '0.98'
             }}>
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex items-center justify-between h-20">
@@ -30,56 +31,45 @@ export const Header: React.FC = () => {
           <div className="flex items-center">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md"
-                   style={{ backgroundColor: 'var(--color-warm-sage)' }}>
-                <span className="font-bold text-lg" style={{ color: 'var(--color-warm-cream)' }}>AL</span>
+                   style={{ backgroundColor: 'var(--sage-green)' }}>
+                <span className="font-bold text-lg text-white">AL</span>
               </div>
-              <h1 className="text-2xl font-bold" 
-                  style={{ 
-                    fontFamily: 'var(--font-display)',
-                    color: 'var(--color-warm-navy)' 
-                  }}>
+              <h1 className="text-2xl font-bold font-display text-primary">
                 Anna Lea
               </h1>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-12">
-            <button
-              onClick={() => scrollToSection('books')}
-              className="relative px-4 py-2 transition-all duration-300 font-medium group"
-              style={{ 
-                fontFamily: 'var(--font-body-refined)',
-                color: 'var(--color-neutral-700)' 
-              }}
-            >
-              Books
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: 'var(--color-warm-sage)' }}></span>
-            </button>
+          <nav className="hidden md:flex items-center gap-8">
+            <div className="relative group">
+              <button
+                className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent flex items-center gap-1"
+              >
+                Books
+                <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                      style={{ backgroundColor: 'var(--sage-green)' }}></span>
+              </button>
+              {/* Dropdown will be added in next step */}
+            </div>
             <a
               href="/about"
-              className="relative px-4 py-2 transition-all duration-300 font-medium group"
-              style={{ 
-                fontFamily: 'var(--font-body-refined)',
-                color: 'var(--color-neutral-700)' 
-              }}
+              className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
             >
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: 'var(--color-warm-sage)' }}></span>
+                    style={{ backgroundColor: 'var(--sage-green)' }}></span>
             </a>
             <a
               href="/contact"
-              className="relative px-4 py-2 transition-all duration-300 font-medium group"
-              style={{ 
-                fontFamily: 'var(--font-body-refined)',
-                color: 'var(--color-neutral-700)' 
-              }}
+              className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
             >
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: 'var(--color-warm-sage)' }}></span>
+                    style={{ backgroundColor: 'var(--sage-green)' }}></span>
             </a>
           </nav>
 
@@ -89,8 +79,7 @@ export const Header: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsCartOpen(!isCartOpen)}
-                className="relative p-2 transition-colors duration-200"
-                style={{ color: 'var(--color-neutral-700)' }}
+                className="relative p-2 transition-colors duration-200 text-secondary hover:text-accent"
                 aria-label={`Shopping cart with ${totalItems} items`}
               >
               {/* Cart Icon */}
@@ -111,7 +100,8 @@ export const Header: React.FC = () => {
               
               {/* Cart Counter Badge */}
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center min-w-[20px]">
+                <span className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center min-w-[20px]"
+                      style={{ backgroundColor: 'var(--burgundy)' }}>
                   {totalItems > 99 ? '99+' : totalItems}
                 </span>
               )}
@@ -127,7 +117,7 @@ export const Header: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="md:hidden p-2 text-secondary hover:text-accent transition-colors duration-200"
               aria-label="Toggle mobile menu"
             >
               <svg
@@ -159,24 +149,24 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200/50">
+          <div className="md:hidden py-4 border-t" style={{ borderColor: 'var(--border-light)' }}>
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => scrollToSection('books')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="text-left font-sans text-secondary hover:text-accent transition-colors duration-200"
               >
                 Books
               </button>
               <a
                 href="/about"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="font-sans text-secondary hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </a>
               <a
                 href="/contact"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="font-sans text-secondary hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
