@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* About Section */}
       <section style={{ 
-        backgroundColor: 'var(--color-warm-cream)',
+        backgroundColor: 'var(--cream-dark)',
         paddingTop: 'var(--space-25)',
         paddingBottom: 'var(--space-25)',
         marginTop: 'var(--space-30)'
@@ -188,49 +188,30 @@ export default function Home() {
         }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-bold" 
-                  style={{ 
-                    fontFamily: 'var(--font-display)', 
-                    fontSize: 'var(--text-author-section)',
-                    lineHeight: 'var(--leading-tight)',
-                    color: 'var(--color-warm-navy)',
-                    marginBottom: 'var(--space-8)' 
-                  }}>
+              <h2 className="text-section-heading text-primary mb-8">
                 About Anna Lea
               </h2>
-              <p style={{ 
-                   fontFamily: 'var(--font-body-refined)', 
-                   fontSize: 'var(--text-author-body)',
-                   lineHeight: 'var(--leading-relaxed)',
-                   color: 'var(--color-neutral-700)',
-                   marginBottom: 'var(--space-6)' 
-                 }}>
+              <p className="text-body-elegant text-secondary mb-6">
                 Anna Lea Cannon is a Christian inspirational storyteller who weaves together 
                 faith, family, and history in her captivating books. Her stories touch hearts 
                 and strengthen faith communities worldwide.
               </p>
-              <p style={{ 
-                   fontFamily: 'var(--font-body-refined)', 
-                   fontSize: 'var(--text-author-body)',
-                   lineHeight: 'var(--leading-relaxed)',
-                   color: 'var(--color-neutral-700)',
-                   marginBottom: 'var(--space-8)' 
-                 }}>
+              <p className="text-body-elegant text-secondary mb-8">
                 With over 500 books distributed and a growing community of readers, Anna Lea 
                 continues to inspire through her unique blend of historical context and 
                 spiritual insight.
               </p>
-              <Button variant="outline" size="large" as="a" href="/about">
+              <Button variant="outline" size="large" as="a" href="/about" className="font-sans">
                 Learn More About Anna Lea
               </Button>
             </div>
             <div className="lg:text-right">
               <div className="inline-block p-8 rounded-2xl" 
-                   style={{ backgroundColor: 'var(--color-warm-beige)' }}>
+                   style={{ backgroundColor: 'var(--sage-green-light)', opacity: '0.15' }}>
                 <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-xl overflow-hidden relative"
                      style={{ 
-                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)', 
-                       border: '3px solid var(--color-warm-cream)' 
+                       boxShadow: 'var(--shadow-medium)', 
+                       border: '3px solid var(--cream)' 
                      }}>
                   {/* Professional author photo placeholder */}
                   <img 
@@ -243,8 +224,9 @@ export default function Home() {
                     }}
                   />
                   {/* Elegant overlay for future replacement hint */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-20 text-white text-center py-2">
-                    <div className="text-xs font-medium opacity-90">Professional Photo</div>
+                  <div className="absolute bottom-0 left-0 right-0 text-center py-2"
+                       style={{ backgroundColor: 'var(--burgundy)', opacity: '0.8' }}>
+                    <div className="text-xs font-medium text-white font-sans">Professional Photo</div>
                   </div>
                 </div>
               </div>
@@ -255,7 +237,7 @@ export default function Home() {
 
       {/* Navigation Links */}
       <section style={{ 
-        backgroundColor: 'var(--color-neutral-50)',
+        backgroundColor: 'var(--bg-secondary)',
         paddingTop: 'var(--space-12)',
         paddingBottom: 'var(--space-12)'
       }}>
@@ -265,16 +247,16 @@ export default function Home() {
           paddingRight: 'clamp(24px, 7.5vw, 120px)'
         }}>
           <div className="flex flex-wrap justify-center gap-6">
-            <Button variant="ghost" as="a" href="/design-system">
+            <Button variant="ghost" as="a" href="/design-system" className="font-sans">
               View Design System
             </Button>
-            <Button variant="ghost" as="a" href="/books">
+            <Button variant="ghost" as="a" href="/books" className="font-sans">
               Browse Books
             </Button>
-            <Button variant="ghost" as="a" href="/about">
+            <Button variant="ghost" as="a" href="/about" className="font-sans">
               About Anna Lea
             </Button>
-            <Button variant="ghost" as="a" href="/contact">
+            <Button variant="ghost" as="a" href="/contact" className="font-sans">
               Contact
             </Button>
           </div>
