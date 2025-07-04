@@ -440,7 +440,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       style={{ 
         backgroundColor: 'var(--cream)',
         paddingTop: '120px',
-        paddingBottom: '80px',
+        paddingBottom: '20px',
         minHeight: '500px'
       }}
     >
@@ -450,7 +450,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       {/* Content Overlay */}
       {showTypography && (
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-8xl sm:text-9xl lg:text-[12rem] xl:text-[16rem] 2xl:text-[20rem] font-black font-display text-primary mb-16 sm:mb-20 tracking-tighter leading-none">
+          <h1 className="text-8xl sm:text-9xl lg:text-[12rem] xl:text-[16rem] 2xl:text-[20rem] font-black font-display text-primary mb-8 sm:mb-12 tracking-tighter leading-none">
             Anna Lea Cannon
           </h1>
           

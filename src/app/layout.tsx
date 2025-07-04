@@ -60,7 +60,7 @@ export default function RootLayout({
           </div>
           
           {/* Social Media Icons at Bottom of Page - Like Cathy Carr */}
-          <div className="py-8 text-center" style={{ backgroundColor: 'var(--cream)' }}>
+          <div className="py-4 text-center" style={{ backgroundColor: 'var(--cream)' }}>
             <div className="flex justify-center gap-4">
               <a href="https://facebook.com/annaleacannon" 
                  target="_blank" 
