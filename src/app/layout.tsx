@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display, Lora, Source_Sans_3 } from "next/f
 import "./globals.css";
 // import { CartProvider } from "@/contexts/CartContext";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,6 +58,7 @@ export default function RootLayout({
           <div style={{ paddingTop: '80px' }}> {/* Account for fixed header */}
             {children}
           </div>
+          <Footer />
         {/* </CartProvider> */}
       </body>
     </html>
