@@ -17,7 +17,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
   const renderBiblicalPattern = () => (
     <svg width="100%" height="100%" viewBox="0 0 1200 600" fill="none" className="absolute inset-0">
       {/* Isaiah Tree - Left side with flowing branches */}
-      <g opacity="0.12">
+      <g opacity="0.35">
         <path 
           d="M100 550 Q 140 450 160 380 Q 180 320 200 260 Q 220 200 240 140 Q 260 80 280 50"
           stroke="var(--sage-green)" 
@@ -39,7 +39,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       </g>
 
       {/* Sweet Fruit Tree - Right side (palm-like) */}
-      <g opacity="0.12">
+      <g opacity="0.35">
         <path 
           d="M1100 550 Q 1060 450 1040 380 Q 1020 320 1000 260 Q 980 200 960 140 Q 940 80 920 50"
           stroke="var(--sage-green)" 
@@ -61,7 +61,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       </g>
 
       {/* Central Spiritual Elements */}
-      <g opacity="0.08">
+      <g opacity="0.25">
         {/* Gentle Cross */}
         <g transform="translate(590, 120)">
           <rect x="-2" y="0" width="4" height="40" rx="2" fill="var(--burgundy)"/>
@@ -82,7 +82,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       </g>
 
       {/* Scattered Book Elements */}
-      <g opacity="0.06">
+      <g opacity="0.18">
         {/* Small book illustrations */}
         <g transform="translate(200, 450)">
           <rect x="0" y="0" width="60" height="45" rx="3" fill="var(--burgundy)"/>
@@ -106,15 +106,82 @@ export const HeroImage: React.FC<HeroImageProps> = ({
         </g>
       </g>
 
-      {/* Flowing Light Rays (very subtle) */}
-      <g opacity="0.04">
+      {/* LDS Temple - Mountain Background */}
+      <g opacity="0.15">
+        {/* Mountain silhouettes */}
+        <path d="M0 500 Q 150 450 300 480 Q 450 420 600 460 Q 750 400 900 450 Q 1050 420 1200 460 L1200 600 L0 600 Z" 
+              fill="var(--sage-green)"/>
+        
+        {/* Temple structure */}
+        <g transform="translate(950, 380)">
+          {/* Main temple building */}
+          <rect x="0" y="40" width="80" height="60" fill="var(--cream)" opacity="0.9"/>
+          <polygon points="0,40 40,15 80,40" fill="var(--sage-green)" opacity="0.8"/>
+          
+          {/* Temple spire */}
+          <rect x="35" y="15" width="10" height="25" fill="var(--cream)" opacity="0.9"/>
+          <polygon points="35,15 40,5 45,15" fill="var(--golden-honey)" opacity="0.9"/>
+          
+          {/* Side towers */}
+          <rect x="-10" y="50" width="15" height="30" fill="var(--cream)" opacity="0.8"/>
+          <rect x="75" y="50" width="15" height="30" fill="var(--cream)" opacity="0.8"/>
+          <polygon points="-10,50 -2.5,40 5,50" fill="var(--sage-green)" opacity="0.7"/>
+          <polygon points="75,50 82.5,40 90,50" fill="var(--sage-green)" opacity="0.7"/>
+        </g>
+      </g>
+
+      {/* Family Silhouettes */}
+      <g opacity="0.12">
+        {/* Family group - left side */}
+        <g transform="translate(150, 420)">
+          {/* Father figure */}
+          <circle cx="0" cy="0" r="8" fill="var(--burgundy)"/>
+          <rect x="-6" y="8" width="12" height="25" rx="3" fill="var(--burgundy)"/>
+          {/* Mother figure */}
+          <circle cx="25" cy="0" r="7" fill="var(--burgundy)"/>
+          <path d="M18 8 Q 25 12 32 8 L32 33 L18 33 Z" fill="var(--burgundy)"/>
+          {/* Child figures */}
+          <circle cx="45" cy="5" r="5" fill="var(--burgundy)"/>
+          <rect x="40" y="10" width="10" height="18" rx="2" fill="var(--burgundy)"/>
+          <circle cx="15" cy="8" r="4" fill="var(--burgundy)"/>
+          <rect x="11" y="12" width="8" height="15" rx="2" fill="var(--burgundy)"/>
+        </g>
+      </g>
+
+      {/* Biblical Characters Silhouettes */}
+      <g opacity="0.10">
+        {/* Prophet figure with scroll */}
+        <g transform="translate(450, 450)">
+          <circle cx="0" cy="0" r="10" fill="var(--sage-green)"/>
+          <rect x="-8" y="10" width="16" height="35" rx="4" fill="var(--sage-green)"/>
+          {/* Scroll in hand */}
+          <rect x="12" y="15" width="8" height="20" rx="4" fill="var(--cream)" opacity="0.8"/>
+        </g>
+        
+        {/* Angel figure */}
+        <g transform="translate(750, 440)">
+          <circle cx="0" cy="0" r="8" fill="var(--golden-honey)"/>
+          <rect x="-6" y="8" width="12" height="30" rx="3" fill="var(--cream)" opacity="0.9"/>
+          {/* Wings */}
+          <ellipse cx="-12" cy="15" rx="8" ry="15" fill="var(--golden-honey)" opacity="0.7" transform="rotate(-20 -12 15)"/>
+          <ellipse cx="12" cy="15" rx="8" ry="15" fill="var(--golden-honey)" opacity="0.7" transform="rotate(20 12 15)"/>
+        </g>
+      </g>
+
+      {/* Enhanced Light Rays */}
+      <g opacity="0.12">
         <path d="M600 100 Q 500 200 450 300 Q 400 400 380 500" 
-              stroke="var(--golden-honey)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+              stroke="var(--golden-honey)" strokeWidth="3" fill="none" strokeLinecap="round"/>
         <path d="M600 100 Q 700 200 750 300 Q 800 400 820 500" 
-              stroke="var(--golden-honey)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+              stroke="var(--golden-honey)" strokeWidth="3" fill="none" strokeLinecap="round"/>
         <path d="M600 100 Q 550 250 500 400 Q 450 500 430 550" 
-              stroke="var(--golden-honey)" strokeWidth="1" fill="none" strokeLinecap="round"/>
+              stroke="var(--golden-honey)" strokeWidth="2" fill="none" strokeLinecap="round"/>
         <path d="M600 100 Q 650 250 700 400 Q 750 500 770 550" 
+              stroke="var(--golden-honey)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+        {/* Additional radiating light */}
+        <path d="M600 100 Q 520 180 480 280 Q 440 380 420 480" 
+              stroke="var(--golden-honey)" strokeWidth="1" fill="none" strokeLinecap="round"/>
+        <path d="M600 100 Q 680 180 720 280 Q 760 380 780 480" 
               stroke="var(--golden-honey)" strokeWidth="1" fill="none" strokeLinecap="round"/>
       </g>
     </svg>
@@ -255,7 +322,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       {/* Content Overlay */}
       {showTypography && (
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-primary mb-4 sm:mb-6">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold font-display text-primary mb-4 sm:mb-6 tracking-tight">
             Anna Lea Cannon
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl text-secondary font-body mb-6 sm:mb-8 max-w-2xl mx-auto">
