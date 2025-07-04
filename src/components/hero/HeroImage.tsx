@@ -450,15 +450,12 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       {/* Content Overlay */}
       {showTypography && (
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-7xl sm:text-8xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] font-black font-display text-primary mb-4 sm:mb-6 tracking-tighter leading-none">
+          <h1 className="text-8xl sm:text-9xl lg:text-[12rem] xl:text-[16rem] 2xl:text-[20rem] font-black font-display text-primary mb-16 sm:mb-20 tracking-tighter leading-none">
             Anna Lea Cannon
           </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl text-secondary font-body mb-8 max-w-2xl mx-auto">
-            Inspirational Christian Storyteller
-          </p>
           
-          {/* Social Media Icons - Like Cathy Carr */}
-          <div className="flex justify-center gap-4 mb-8">
+          {/* Social Media Icons - Bottom of Hero like Cathy Carr */}
+          <div className="flex justify-center gap-4">
             <a href="https://facebook.com/annaleacannon" 
                target="_blank" 
                rel="noopener noreferrer"
