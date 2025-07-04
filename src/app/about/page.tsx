@@ -15,44 +15,43 @@ export default function AboutPage() {
       <HeroImage variant="biblical-pattern" />
       
       {/* Row 2: About Anna Lea - Photo + Text Card */}
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32" style={{ backgroundColor: 'var(--cream)' }}>
+      <section className="pt-16 pb-20 lg:pt-24 lg:pb-32" style={{ backgroundColor: 'var(--cream)' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch justify-center">
             
             {/* Photo Container - Left Side */}
-            <div className="flex justify-center lg:justify-center">
-              <div className="relative w-full max-w-md lg:max-w-lg">
-                <div className="rounded-2xl overflow-hidden relative mx-auto"
+            <div className="flex justify-center">
+              <div className="w-full max-w-lg bg-white rounded-2xl overflow-hidden shadow-xl mx-auto"
+                   style={{ 
+                     boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25), 0 8px 24px rgba(139, 74, 107, 0.15)',
+                     border: '3px solid var(--sage-green)',
+                     height: '500px',
+                     minHeight: '500px',
+                     margin: '1rem'
+                   }}>
+                <img 
+                  src="/images/anna-lea-bio.jpg" 
+                  alt="Anna Lea Cannon - Author Photo"
+                  className="w-full h-full object-cover"
+                  style={{ 
+                    filter: 'brightness(1.05) contrast(1.1)'
+                  }}
+                />
+                {/* Photo overlay label */}
+                <div className="absolute bottom-0 left-0 right-0 text-center py-3"
                      style={{ 
-                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.3)',
-                       border: '4px solid var(--sage-green)',
-                       height: '500px',
-                       minHeight: '500px'
+                       backgroundColor: 'var(--sage-green)', 
+                       backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, var(--burgundy) 100%)'
                      }}>
-                  <img 
-                    src="/images/anna-lea-bio.jpg" 
-                    alt="Anna Lea Cannon - Author Photo"
-                    className="w-full h-full object-cover"
-                    style={{ 
-                      filter: 'brightness(1.05) contrast(1.1)'
-                    }}
-                  />
-                  {/* Photo overlay label */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center py-3"
-                       style={{ 
-                         backgroundColor: 'var(--sage-green)', 
-                         backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, var(--burgundy) 100%)'
-                       }}>
-                    <div className="text-sm font-semibold text-white font-sans tracking-wide">
-                      Anna Lea Cannon
-                    </div>
+                  <div className="text-sm font-semibold text-white font-sans tracking-wide">
+                    Anna Lea Cannon
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Text Card Container - Right Side */}
-            <div className="flex items-stretch justify-center">
+            <div className="flex justify-center">
               <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl flex flex-col justify-center mx-auto" 
                    style={{ 
                      border: '3px solid var(--sage-green)',
