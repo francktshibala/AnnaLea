@@ -123,4 +123,4 @@ export default function AboutPage() {
       {/* Future rows will be added incrementally */}
     </main>
   );
-}
+}<!-- Force deploy Fri Jul  4 15:37:19 MDT 2025 -->
