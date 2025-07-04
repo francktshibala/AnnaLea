@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, lazy, Suspense } from 'react';
-import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
 // import { useCart } from '@/contexts/CartContext'; // Disabled for Phase 3
@@ -111,153 +110,267 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Cinematic Hero Section */}
-      <HeroSection
-        backgroundTheme="divine"
-        showStats={true}
-        showTestimonials={false}
-        onExploreBooks={handleExploreBooks}
-        onWatchTrailer={handleWatchTrailer}
-        onNewsletterSignup={handleNewsletterSignup}
-      />
+      {/* Clean Author-Focused Hero */}
+      <section className="relative overflow-hidden" style={{ 
+        backgroundColor: 'var(--cream)',
+        paddingTop: '120px',
+        paddingBottom: '80px'
+      }}>
+        <div className="max-w-6xl mx-auto px-8 text-center">
+          {/* Author Name & Title */}
+          <h1 className="text-5xl md:text-6xl font-bold font-display text-primary mb-6">
+            Anna Lea Cannon
+          </h1>
+          <p className="text-xl md:text-2xl text-secondary font-body mb-8 max-w-2xl mx-auto">
+            Inspirational Christian Storyteller
+          </p>
+          <p className="text-lg text-secondary font-body mb-12 max-w-3xl mx-auto">
+            Weaving together faith, family, and history in captivating stories that touch hearts 
+            and strengthen faith communities worldwide.
+          </p>
+
+          {/* Simple Call to Action */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Button 
+              variant="primary" 
+              size="large" 
+              className="font-sans"
+              onClick={handleExploreBooks}
+            >
+              Discover My Books
+            </Button>
+            <Button 
+              variant="outline" 
+              size="large" 
+              as="a" 
+              href="/about" 
+              className="font-sans"
+            >
+              About Anna Lea
+            </Button>
+          </div>
+
+          {/* Simple Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold font-display text-primary">500+</div>
+              <div className="text-sm text-secondary font-sans">Books Distributed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold font-display text-primary">4.7★</div>
+              <div className="text-sm text-secondary font-sans">Average Rating</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold font-display text-primary">3</div>
+              <div className="text-sm text-secondary font-sans">Published Books</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-      {/* Books Preview Section */}
+      {/* Biblical Stories Section */}
       <section id="books" style={{ 
         backgroundColor: 'var(--bg-secondary)',
-        paddingTop: 'var(--space-25)',
-        paddingBottom: 'var(--space-25)'
+        paddingTop: 'var(--space-20)',
+        paddingBottom: 'var(--space-12)'
       }}>
-        <div className="mx-auto" style={{ 
-          maxWidth: '1200px',
-          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
-          paddingRight: 'clamp(24px, 7.5vw, 120px)'
-        }}>
-          <div className="text-center mb-20">
-            <h2 className="text-section-heading text-primary mb-8">
-              Featured Books
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-display text-primary mb-4 flex items-center justify-center gap-3">
+              <span>🌿</span>
+              Biblical Stories
             </h2>
-            <div className="text-byline mb-4" style={{ color: 'var(--sage-green)' }}>
-              📖 Preview Ready: Click any book card to read sample chapters
-            </div>
-            <p className="text-body-elegant max-w-2xl mx-auto text-secondary">
-              Discover inspiring Christian stories that touch the heart and strengthen faith
+            <p className="text-lg text-secondary font-body max-w-2xl mx-auto">
+              Journey with trees that witnessed Christ's presence and discover timeless spiritual truths
             </p>
           </div>
 
-
-          {/* BookCard Gallery - Clean & Elegant Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center" 
-               style={{ 
-                 gap: 'clamp(30px, 4vw, 40px)',
-                 marginBottom: 'var(--space-16)',
-                 maxWidth: '1400px',
-                 margin: '0 auto var(--space-16) auto',
-                 padding: '0 20px'
-               }}>
-            {featuredBooks.map((book) => (
+          <div className="grid md:grid-cols-2 gap-8 justify-items-center max-w-4xl mx-auto">
+            {featuredBooks.filter(book => ['1', '2'].includes(book.id)).map((book) => (
               <BookCard
                 key={book.id}
                 book={book}
                 size="medium"
-                onBookClick={handleBookClick} // All three books now have preview functionality
-                className="w-full justify-self-center" // Center each card in its grid cell
+                onBookClick={handleBookClick}
+                className="w-full justify-self-center"
               />
             ))}
           </div>
 
-          <div className="text-center">
-            <Button variant="primary" size="large" className="font-sans">
-              View All Books
+          <div className="text-center mt-12">
+            <Button variant="outline" size="large" as="a" href="/biblical-stories" className="font-sans">
+              Explore Biblical Stories
             </Button>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Missionary Tales Section */}
       <section style={{ 
-        backgroundColor: 'var(--cream-dark)',
-        paddingTop: 'var(--space-25)',
-        paddingBottom: 'var(--space-25)',
-        marginTop: 'var(--space-30)'
+        backgroundColor: 'var(--cream)',
+        paddingTop: 'var(--space-12)',
+        paddingBottom: 'var(--space-20)'
       }}>
-        <div className="mx-auto" style={{ 
-          maxWidth: '1200px',
-          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
-          paddingRight: 'clamp(24px, 7.5vw, 120px)'
-        }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-section-heading text-primary mb-8">
-                About Anna Lea
-              </h2>
-              <p className="text-body-elegant text-secondary mb-6">
-                Anna Lea Cannon is a Christian inspirational storyteller who weaves together 
-                faith, family, and history in her captivating books. Her stories touch hearts 
-                and strengthen faith communities worldwide.
-              </p>
-              <p className="text-body-elegant text-secondary mb-8">
-                With over 500 books distributed and a growing community of readers, Anna Lea 
-                continues to inspire through her unique blend of historical context and 
-                spiritual insight.
-              </p>
-              <Button variant="outline" size="large" as="a" href="/about" className="font-sans">
-                Learn More About Anna Lea
-              </Button>
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-display text-primary mb-4 flex items-center justify-center gap-3">
+              <span>✝️</span>
+              Missionary Tales
+            </h2>
+            <p className="text-lg text-secondary font-body max-w-2xl mx-auto">
+              Real stories of faith, courage, and transformation from the mission field
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="max-w-md">
+              {featuredBooks.filter(book => book.id === '3').map((book) => (
+                <BookCard
+                  key={book.id}
+                  book={book}
+                  size="medium"
+                  onBookClick={handleBookClick}
+                  className="w-full"
+                />
+              ))}
             </div>
-            <div className="lg:text-right">
-              <div className="inline-block p-8 rounded-2xl" 
-                   style={{ backgroundColor: 'var(--sage-green-light)', opacity: '0.15' }}>
-                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-xl overflow-hidden relative"
-                     style={{ 
-                       boxShadow: 'var(--shadow-medium)', 
-                       border: '3px solid var(--cream)' 
-                     }}>
-                  {/* Professional author photo placeholder */}
-                  <img 
-                    src="/images/author-placeholder.svg" 
-                    alt="Anna Lea Cannon - Professional Author Photo Placeholder"
-                    className="w-full h-full object-cover"
-                    style={{ 
-                      transition: 'transform 0.3s ease',
-                      filter: 'brightness(1.05) contrast(1.1)' 
-                    }}
-                  />
-                  {/* Elegant overlay for future replacement hint */}
-                  <div className="absolute bottom-0 left-0 right-0 text-center py-2"
-                       style={{ backgroundColor: 'var(--burgundy)', opacity: '0.8' }}>
-                    <div className="text-xs font-medium text-white font-sans">Professional Photo</div>
-                  </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="large" as="a" href="/missionary-tales" className="font-sans">
+              Explore Missionary Tales
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest News Preview */}
+      <section style={{ 
+        backgroundColor: 'var(--bg-secondary)',
+        paddingTop: 'var(--space-20)',
+        paddingBottom: 'var(--space-20)'
+      }}>
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-display text-primary mb-4">
+              Latest News & Updates
+            </h2>
+            <p className="text-lg text-secondary font-body max-w-2xl mx-auto">
+              Stay connected with Anna Lea's writing journey and latest book developments
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Featured News Item */}
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-2xl">📚</span>
+                <div>
+                  <h3 className="text-xl font-bold font-display text-primary">
+                    Phase 4 Website Transformation Complete
+                  </h3>
+                  <p className="text-sm text-secondary">January 2025</p>
                 </div>
+              </div>
+              <p className="text-secondary font-body mb-4">
+                New navigation structure and dedicated pages for Biblical Stories and Missionary Tales 
+                provide readers with a cleaner, more focused browsing experience.
+              </p>
+              <div className="flex gap-2">
+                <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
+                  Website Update
+                </span>
+              </div>
+            </div>
+
+            {/* Second News Item */}
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-2xl">⭐</span>
+                <div>
+                  <h3 className="text-xl font-bold font-display text-primary">
+                    500+ Books Distributed Milestone
+                  </h3>
+                  <p className="text-sm text-secondary">December 2024</p>
+                </div>
+              </div>
+              <p className="text-secondary font-body mb-4">
+                Anna Lea's inspirational stories have reached over 500 readers globally, 
+                inspiring faith communities across different cultures and backgrounds.
+              </p>
+              <div className="flex gap-2">
+                <span className="px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: 'var(--burgundy)', color: 'white' }}>
+                  Milestone
+                </span>
               </div>
             </div>
           </div>
+
+          <div className="text-center">
+            <Button variant="primary" size="large" as="a" href="/news" className="font-sans">
+              View All News & Updates
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Navigation Links */}
+      {/* Brief About Preview */}
+      <section style={{ 
+        backgroundColor: 'var(--cream)',
+        paddingTop: 'var(--space-20)',
+        paddingBottom: 'var(--space-20)'
+      }}>
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <h2 className="text-4xl font-bold font-display text-primary mb-6">
+            Meet Anna Lea Cannon
+          </h2>
+          <p className="text-xl text-secondary font-body mb-8 max-w-3xl mx-auto">
+            A Christian inspirational storyteller who weaves together faith, family, and history 
+            in captivating stories that touch hearts and strengthen faith communities worldwide.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="primary" size="large" as="a" href="/about" className="font-sans">
+              Read Full Bio
+            </Button>
+            <Button variant="outline" size="large" as="a" href="/contact" className="font-sans">
+              Get in Touch
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
       <section style={{ 
         backgroundColor: 'var(--bg-secondary)',
-        paddingTop: 'var(--space-12)',
-        paddingBottom: 'var(--space-12)'
+        paddingTop: 'var(--space-16)',
+        paddingBottom: 'var(--space-16)'
       }}>
-        <div className="mx-auto" style={{ 
-          maxWidth: '1200px',
-          paddingLeft: 'clamp(24px, 7.5vw, 120px)',
-          paddingRight: 'clamp(24px, 7.5vw, 120px)'
-        }}>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Button variant="ghost" as="a" href="/design-system" className="font-sans">
-              View Design System
-            </Button>
-            <Button variant="ghost" as="a" href="/books" className="font-sans">
-              Browse Books
-            </Button>
-            <Button variant="ghost" as="a" href="/about" className="font-sans">
-              About Anna Lea
-            </Button>
-            <Button variant="ghost" as="a" href="/contact" className="font-sans">
-              Contact
+        <div className="max-w-2xl mx-auto px-8 text-center">
+          <h3 className="text-2xl font-bold font-display text-primary mb-4">
+            Stay Connected
+          </h3>
+          <p className="text-secondary font-body mb-8">
+            Subscribe to receive updates about new book releases and Anna Lea's writing journey.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+              style={{ 
+                borderColor: 'var(--sage-green)',
+                color: 'var(--primary)'
+              }}
+            />
+            <Button 
+              variant="primary" 
+              size="large" 
+              className="font-sans"
+              onClick={() => handleNewsletterSignup('test@example.com')}
+            >
+              Subscribe
             </Button>
           </div>
         </div>
