@@ -11,26 +11,8 @@ export const Footer: React.FC = () => {
       paddingBottom: 'var(--space-8)'
     }}>
       <div className="max-w-7xl mx-auto px-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          
-          {/* About Anna Lea Section */}
-          <div>
-            <h3 className="text-xl font-bold font-display mb-4" style={{ color: 'var(--golden-honey)' }}>
-              About Anna Lea
-            </h3>
-            <p className="text-sm font-body mb-4 opacity-90">
-              Inspirational Christian storyteller weaving together faith, family, and history 
-              in captivating stories that touch hearts worldwide.
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-md"
-                   style={{ backgroundColor: 'var(--sage-green)' }}>
-                <span className="font-bold text-sm text-white">AL</span>
-              </div>
-              <span className="font-medium font-display">Anna Lea Cannon</span>
-            </div>
-          </div>
+        {/* Main Footer Content - 2 Column Layout like Cathy Carr */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 max-w-4xl mx-auto">
 
           {/* Quick Links */}
           <div>
@@ -87,11 +69,6 @@ export const Footer: React.FC = () => {
                   Email: contact@annaleacannon.com
                 </a>
               </li>
-              <li>
-                <a href="tel:+1-555-123-4567" className="hover:opacity-75 transition-opacity duration-200">
-                  Phone: (555) 123-4567
-                </a>
-              </li>
             </ul>
             
             {/* Social Media Links */}
@@ -114,52 +91,17 @@ export const Footer: React.FC = () => {
                    style={{ backgroundColor: 'var(--burgundy)' }}>
                   <span className="text-white text-sm font-bold">ig</span>
                 </a>
-                <a href="https://twitter.com/annaleacannon" 
+                <a href="https://youtube.com/@annaleacannon" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
                    style={{ backgroundColor: 'var(--golden-honey)' }}>
-                  <span className="text-white text-sm font-bold">tw</span>
+                  <span className="text-white text-sm font-bold">yt</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Newsletter Signup */}
-          <div>
-            <h3 className="text-xl font-bold font-display mb-4" style={{ color: 'var(--golden-honey)' }}>
-              Stay Updated
-            </h3>
-            <p className="text-sm font-body mb-4 opacity-90">
-              Subscribe to receive updates about new book releases and Anna Lea's writing journey.
-            </p>
-            
-            <div className="space-y-3">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="w-full px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 transition-all duration-200"
-                style={{ 
-                  backgroundColor: 'var(--cream)',
-                  color: 'var(--charcoal-navy)',
-                  borderColor: 'var(--sage-green)'
-                }}
-              />
-              <button 
-                className="w-full px-4 py-2 rounded-lg text-sm font-medium font-sans transition-all duration-200 hover:opacity-90"
-                style={{ 
-                  backgroundColor: 'var(--sage-green)',
-                  color: 'white'
-                }}
-              >
-                Subscribe
-              </button>
-            </div>
-            
-            <p className="text-xs opacity-75 mt-3 font-body">
-              No spam, just inspiration and book updates.
-            </p>
-          </div>
         </div>
 
         {/* Footer Bottom */}

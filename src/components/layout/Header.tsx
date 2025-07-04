@@ -34,19 +34,8 @@ export const Header: React.FC = () => {
               opacity: '0.98'
             }}>
       <div className="max-w-7xl mx-auto px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md"
-                   style={{ backgroundColor: 'var(--sage-green)' }}>
-                <span className="font-bold text-lg text-white">AL</span>
-              </div>
-              <h1 className="text-2xl font-bold font-display text-primary">
-                Anna Lea
-              </h1>
-            </div>
-          </div>
+        <div className="flex items-center justify-center h-20">
+          {/* Clean navigation without branding - like Cathy Carr */}
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

@@ -450,7 +450,7 @@ export const HeroImage: React.FC<HeroImageProps> = ({
       {/* Content Overlay */}
       {showTypography && (
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold font-display text-primary mb-4 sm:mb-6 tracking-tight">
+          <h1 className="text-7xl sm:text-8xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] font-black font-display text-primary mb-4 sm:mb-6 tracking-tighter leading-none">
             Anna Lea Cannon
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl text-secondary font-body mb-6 sm:mb-8 max-w-2xl mx-auto">
