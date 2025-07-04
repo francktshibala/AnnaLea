@@ -120,7 +120,7 @@ export default function AboutPage() {
         </div>
       </section>
       
-      {/* Future rows will be added incrementally */}
+      {/* Future rows will be added incrementally - Updated for deployment */}
     </main>
   );
 }
