@@ -15,17 +15,19 @@ export default function AboutPage() {
       <HeroImage variant="biblical-pattern" />
       
       {/* Row 2: About Anna Lea - Photo + Text Card */}
-      <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--cream)' }}>
-        <div style={{ maxWidth: '56rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32" style={{ backgroundColor: 'var(--cream)' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch justify-center">
             
             {/* Photo Container - Left Side */}
             <div className="flex justify-center lg:justify-center">
-              <div className="relative w-full max-w-sm lg:max-w-md">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden relative mx-auto"
+              <div className="relative w-full max-w-md lg:max-w-lg">
+                <div className="rounded-2xl overflow-hidden relative mx-auto"
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.3)',
-                       border: '4px solid var(--sage-green)'
+                       border: '4px solid var(--sage-green)',
+                       height: '500px',
+                       minHeight: '500px'
                      }}>
                   <img 
                     src="/images/anna-lea-bio.jpg" 
@@ -55,6 +57,7 @@ export default function AboutPage() {
                    style={{ 
                      border: '3px solid var(--sage-green)',
                      boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25), 0 8px 24px rgba(139, 74, 107, 0.15)',
+                     height: '500px',
                      minHeight: '500px'
                    }}>
                 
