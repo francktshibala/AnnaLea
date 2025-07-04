@@ -454,30 +454,6 @@ export const HeroImage: React.FC<HeroImageProps> = ({
             Anna Lea Cannon
           </h1>
           
-          {/* Social Media Icons - Bottom of Hero like Cathy Carr */}
-          <div className="flex justify-center gap-4">
-            <a href="https://facebook.com/annaleacannon" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-               style={{ backgroundColor: 'var(--sage-green)' }}>
-              <span className="text-white text-lg font-bold">f</span>
-            </a>
-            <a href="https://instagram.com/annaleacannon" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-               style={{ backgroundColor: 'var(--burgundy)' }}>
-              <span className="text-white text-sm font-bold">ig</span>
-            </a>
-            <a href="https://youtube.com/@annaleacannon" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-               style={{ backgroundColor: 'var(--golden-honey)' }}>
-              <span className="text-white text-sm font-bold">yt</span>
-            </a>
-          </div>
         </div>
       )}
     </section>
