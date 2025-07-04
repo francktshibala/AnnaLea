@@ -62,30 +62,33 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          // Smooth transitions for all effects - more dramatic timing
-          transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-          // More dramatic lift effect like HTML test
-          transform: isHovered ? 'translateY(-15px) scale(1.08)' : 'translateY(0px) scale(1)',
+          // Elegant, professional transitions - subtle and sophisticated
+          transition: 'all 0.3s ease-out',
+          // Gentle lift effect that maintains dignity
+          transform: isHovered ? 'translateY(-8px) scale(1.02)' : 'translateY(0px) scale(1)',
         }}
       >
         <div
           onClick={() => onBookClick?.(book)}
           style={{
             position: 'relative',
-            height: '545px', // Increased by 20px to accommodate image margins
+            height: '545px',
             width: '100%',
-            borderRadius: '16px',
+            borderRadius: '12px', // Slightly reduced for cleaner look
             overflow: 'hidden',
-            background: isHovered 
-              ? 'linear-gradient(145deg, #ffffff, #f8fafc)' 
-              : 'linear-gradient(145deg, #f8fafc, #e2e8f0)',
+            // Clean, professional background using established color palette
+            backgroundColor: 'var(--cream)',
+            // Elegant, subtle shadows that enhance without overwhelming
             boxShadow: isHovered
-              ? '0 40px 80px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.9)'
-              : '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-            border: isHovered ? '2px solid #3b82f6' : '2px solid transparent',
+              ? '0 16px 32px rgba(107, 124, 89, 0.15), 0 4px 8px rgba(107, 124, 89, 0.1)'
+              : '0 8px 16px rgba(107, 124, 89, 0.08), 0 2px 4px rgba(107, 124, 89, 0.05)',
+            // Sophisticated border using sage green accent
+            border: isHovered 
+              ? '1px solid var(--sage-green)' 
+              : '1px solid rgba(107, 124, 89, 0.1)',
             display: 'flex',
             flexDirection: 'column',
-            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            transition: 'all 0.3s ease-out',
             cursor: 'pointer',
           }}
         >
@@ -110,11 +113,14 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 backgroundImage: `url(${book.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                borderRadius: '8px', // Add subtle rounding to image
+                transition: 'all 0.3s ease-out',
+                // Subtle, professional filter adjustments
                 filter: isHovered 
-                  ? 'brightness(1.2) contrast(1.2) saturate(1.3)' 
-                  : 'brightness(1) contrast(1) saturate(1)',
-                transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+                  ? 'brightness(1.05) contrast(1.1)' 
+                  : 'brightness(1) contrast(1)',
+                // Gentle scale that maintains professionalism
+                transform: isHovered ? 'scale(1.02)' : 'scale(1)',
               }}
             />
           </div>
@@ -131,15 +137,27 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
             }}
           >
             <div>
+              {/* Literary Accent - Subtle decorative element */}
+              <div style={{
+                width: '24px',
+                height: '2px',
+                backgroundColor: 'var(--sage-green)',
+                marginBottom: '16px',
+                borderRadius: '1px',
+                opacity: '0.6',
+              }} />
+              
               {/* Book Title */}
               <h3 style={{
                 fontSize: '18px',
                 fontWeight: 'bold',
-                color: isHovered ? '#1e40af' : '#1f2937',
+                // Use established color palette
+                color: isHovered ? 'var(--sage-green)' : 'var(--charcoal-navy)',
                 marginBottom: '12px',
                 lineHeight: '1.4',
                 transition: 'color 0.3s ease',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                // Use premium typography system
+                fontFamily: 'var(--font-display)',
                 minHeight: '50px',
                 display: 'flex',
                 alignItems: 'center',
@@ -150,9 +168,10 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               {/* Author */}
               <p style={{
                 fontSize: '14px',
-                color: '#6b7280',
+                color: 'var(--burgundy)',
                 marginBottom: '12px',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: 'var(--font-body)',
+                fontWeight: '500',
               }}>
                 by {book.author}
               </p>
@@ -160,12 +179,12 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               {/* Description */}
               <p style={{
                 fontSize: '14px',
-                color: '#4b5563',
-                lineHeight: '1.5',
+                color: 'var(--text-secondary)',
+                lineHeight: '1.6',
                 marginBottom: '20px',
                 minHeight: '60px',
                 overflow: 'hidden',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: 'var(--font-body)',
                 display: '-webkit-box',
                 WebkitLineClamp: 3,
                 WebkitBoxOrient: 'vertical',
@@ -177,10 +196,11 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               <div style={{
                 fontSize: '20px',
                 fontWeight: 'bold',
-                color: isHovered ? '#1d4ed8' : '#2563eb',
+                // Use sophisticated color palette for pricing
+                color: isHovered ? 'var(--burgundy)' : 'var(--sage-green)',
                 marginBottom: '20px',
                 transition: 'color 0.3s ease',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: 'var(--font-display)',
               }}>
                 ${book.price.toFixed(2)}
               </div>
@@ -206,12 +226,13 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
                 fontWeight: '600',
                 cursor: (loading || !book.amazonLink) ? 'not-allowed' : 'pointer',
                 opacity: (loading || !book.amazonLink) ? 0.7 : 1,
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                transform: isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)',
+                fontFamily: 'var(--font-sans)',
+                transition: 'all 0.3s ease-out',
+                // Subtle, professional button interaction
+                transform: isHovered ? 'translateY(-2px)' : 'translateY(0px)',
                 boxShadow: isHovered 
-                  ? '0 12px 35px rgba(255, 149, 0, 0.5)' 
-                  : '0 4px 15px rgba(255, 149, 0, 0.2)',
+                  ? '0 8px 16px rgba(255, 149, 0, 0.3)' 
+                  : '0 4px 8px rgba(255, 149, 0, 0.15)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -219,16 +240,17 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               }}
               onMouseEnter={(e) => {
                 if (!loading && book.amazonLink) {
-                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(255, 149, 0, 0.6)';
+                  // Gentle, professional button hover
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 24px rgba(255, 149, 0, 0.4)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!loading && book.amazonLink) {
-                  e.currentTarget.style.transform = isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)';
+                  e.currentTarget.style.transform = isHovered ? 'translateY(-2px)' : 'translateY(0px)';
                   e.currentTarget.style.boxShadow = isHovered 
-                    ? '0 12px 35px rgba(255, 149, 0, 0.5)' 
-                    : '0 4px 15px rgba(255, 149, 0, 0.2)';
+                    ? '0 8px 16px rgba(255, 149, 0, 0.3)' 
+                    : '0 4px 8px rgba(255, 149, 0, 0.15)';
                 }
               }}
             >

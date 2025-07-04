@@ -27,7 +27,7 @@ anna-lea-book-website/
 │   │   └── globals.css      # Global styles
 │   ├── components/
 │   │   ├── book/           # Book-related components
-│   │   │   ├── BookCardFresh.tsx      # Main 3D BookCard component
+│   │   │   ├── BookCardFresh.tsx      # Clean, author-focused BookCard with Amazon integration
 │   │   │   └── BookCardClient.tsx     # Client wrapper with dynamic imports
 │   │   ├── sections/       # Page sections (HeroSection, etc.)
 │   │   └── ui/            # Reusable UI components
