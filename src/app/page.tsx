@@ -3,6 +3,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
+import { HeroImage } from '@/components/hero/HeroImage';
 // import { useCart } from '@/contexts/CartContext'; // Disabled for Phase 3
 import { featuredBooks } from '@/data/books';
 
@@ -110,27 +111,18 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Clean Author-Focused Hero */}
-      <section className="relative overflow-hidden" style={{ 
-        backgroundColor: 'var(--cream)',
-        paddingTop: '120px',
-        paddingBottom: '80px'
+      {/* Hero Image with Biblical Elements */}
+      <HeroImage variant="biblical-pattern" />
+
+      {/* Call to Action & Stats Section */}
+      <section style={{ 
+        backgroundColor: 'var(--bg-secondary)',
+        paddingTop: 'var(--space-16)',
+        paddingBottom: 'var(--space-16)'
       }}>
         <div className="max-w-6xl mx-auto px-8 text-center">
-          {/* Author Name & Title */}
-          <h1 className="text-5xl md:text-6xl font-bold font-display text-primary mb-6">
-            Anna Lea Cannon
-          </h1>
-          <p className="text-xl md:text-2xl text-secondary font-body mb-8 max-w-2xl mx-auto">
-            Inspirational Christian Storyteller
-          </p>
-          <p className="text-lg text-secondary font-body mb-12 max-w-3xl mx-auto">
-            Weaving together faith, family, and history in captivating stories that touch hearts 
-            and strengthen faith communities worldwide.
-          </p>
-
-          {/* Simple Call to Action */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          {/* Call to Action */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button 
               variant="primary" 
               size="large" 
@@ -150,7 +142,7 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* Simple Stats */}
+          {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-bold font-display text-primary">500+</div>
