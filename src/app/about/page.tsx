@@ -1,9 +1,14 @@
-'use client';
-
 import React from 'react';
 import { HeroImage } from '@/components/hero/HeroImage';
+import { headers } from 'next/headers';
+
+// Force dynamic rendering to prevent static caching
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default function AboutPage() {
+  // Force dynamic rendering by using headers
+  const headersList = headers();
   return (
     <main className="min-h-screen">
       {/* Row 1: Hero Section (exactly same as homepage) */}
