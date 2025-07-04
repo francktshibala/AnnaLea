@@ -10,16 +10,16 @@ export default function AboutPage() {
       <HeroImage variant="biblical-pattern" />
       
       {/* Row 2: About Anna Lea - Photo + Text Card */}
-      <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--cream)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+      <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--cream)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch justify-center">
             
             {/* Photo Container - Left Side */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md lg:max-w-lg">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden relative"
+            <div className="flex justify-center lg:justify-center">
+              <div className="relative w-full max-w-sm lg:max-w-md">
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden relative mx-auto"
                      style={{ 
-                       boxShadow: '0 16px 48px rgba(107, 124, 89, 0.25)',
+                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.3)',
                        border: '4px solid var(--sage-green)'
                      }}>
                   <img 
@@ -45,26 +45,26 @@ export default function AboutPage() {
             </div>
 
             {/* Text Card Container - Right Side */}
-            <div className="flex items-stretch lg:justify-start">
-              <div className="w-full bg-white rounded-2xl shadow-xl p-8 lg:p-10 flex flex-col justify-center" 
+            <div className="flex items-stretch justify-center">
+              <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-6 lg:p-8 xl:p-10 flex flex-col justify-center mx-auto" 
                    style={{ 
                      border: '3px solid var(--sage-green)',
-                     boxShadow: '0 16px 48px rgba(107, 124, 89, 0.2), 0 4px 16px rgba(139, 74, 107, 0.1)',
+                     boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25), 0 8px 24px rgba(139, 74, 107, 0.15)',
                      minHeight: '500px'
                    }}>
                 
                 {/* Card Header */}
-                <div className="mb-8">
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display mb-4 tracking-tight leading-tight"
+                <div className="mb-6 text-center lg:text-left">
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black font-display mb-4 tracking-tight leading-tight"
                       style={{ color: 'var(--charcoal-navy)' }}>
                     About Anna Lea
                   </h1>
-                  <div className="w-16 h-1 rounded-full"
+                  <div className="w-16 h-1 rounded-full mx-auto lg:mx-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
                 </div>
                 
                 {/* Card Content */}
-                <div className="space-y-5 text-base lg:text-lg font-body leading-relaxed flex-grow">
+                <div className="space-y-4 text-sm lg:text-base xl:text-lg font-body leading-relaxed flex-grow text-center lg:text-left">
                   <p style={{ color: 'var(--charcoal-navy)' }}>
                     Anna Lea Cannon is an American author and educator with a gift for making spiritual truths easy for children to understand.
                   </p>
@@ -78,38 +78,38 @@ export default function AboutPage() {
                   </p>
                   
                   {/* Highlighted Books */}
-                  <div className="ml-4 space-y-3 py-2">
-                    <div className="flex items-start gap-3">
+                  <div className="lg:ml-4 space-y-3 py-2">
+                    <div className="flex items-start gap-3 justify-center lg:justify-start">
                       <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                            style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                      <p>
-                        <span className="font-bold text-lg" style={{ color: 'var(--burgundy)' }}>
+                      <div className="text-center lg:text-left">
+                        <span className="font-bold text-base lg:text-lg" style={{ color: 'var(--burgundy)' }}>
                           Sweet Fruit: The Palm Tree That Was Touched by Jesus
                         </span>
-                        <span className="block text-sm mt-1" style={{ color: 'var(--charcoal-navy)', opacity: '0.8' }}>
+                        <span className="block text-xs lg:text-sm mt-1" style={{ color: 'var(--charcoal-navy)', opacity: '0.8' }}>
                           A biblical allegory about renewal and forgiveness
                         </span>
-                      </p>
+                      </div>
                     </div>
                     
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-start gap-3 justify-center lg:justify-start">
                       <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                            style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                      <p>
-                        <span className="font-bold text-lg" style={{ color: 'var(--burgundy)' }}>
+                      <div className="text-center lg:text-left">
+                        <span className="font-bold text-base lg:text-lg" style={{ color: 'var(--burgundy)' }}>
                           A Missionary Widow: The Enduring Power of Faith and Love
                         </span>
-                        <span className="block text-sm mt-1" style={{ color: 'var(--charcoal-navy)', opacity: '0.8' }}>
+                        <span className="block text-xs lg:text-sm mt-1" style={{ color: 'var(--charcoal-navy)', opacity: '0.8' }}>
                           A heartfelt adult memoir about faith, grief, and resilience
                         </span>
-                      </p>
+                      </div>
                     </div>
                   </div>
                   
                   {/* Mission Statement */}
-                  <div className="mt-8 p-4 rounded-lg"
+                  <div className="mt-6 p-4 rounded-lg"
                        style={{ backgroundColor: 'var(--sage-green)', opacity: '0.1' }}>
-                    <p className="font-semibold text-lg text-center" style={{ color: 'var(--sage-green)' }}>
+                    <p className="font-semibold text-base lg:text-lg text-center" style={{ color: 'var(--sage-green)' }}>
                       Her mission is simple: to help families share faith-based stories that make sense to kids.
                     </p>
                   </div>
