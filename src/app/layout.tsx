@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Lora, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/contexts/CartContext";
+// import { CartProvider } from "@/contexts/CartContext";
 import { Header } from "@/components/layout/Header";
 
 const geistSans = Geist({
@@ -51,12 +51,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${lora.variable} ${sourceSans.variable} antialiased`}
       >
-        <CartProvider>
+        {/* CartProvider disabled for Phase 3 - Amazon integration coming */}
+        {/* <CartProvider> */}
           <Header />
           <div style={{ paddingTop: '80px' }}> {/* Account for fixed header */}
             {children}
           </div>
-        </CartProvider>
+        {/* </CartProvider> */}
       </body>
     </html>
   );

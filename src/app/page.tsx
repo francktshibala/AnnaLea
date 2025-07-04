@@ -4,7 +4,7 @@ import React, { useState, lazy, Suspense } from 'react';
 import { HeroSection } from '@/components/sections';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
-import { useCart } from '@/contexts/CartContext';
+// import { useCart } from '@/contexts/CartContext'; // Disabled for Phase 3
 import { featuredBooks } from '@/data/books';
 
 // Dynamic import for BookPreviewModal - loads only when needed
@@ -15,8 +15,8 @@ const BookPreviewModal = lazy(() =>
 );
 
 export default function Home() {
-  // Cart functionality
-  const { addToCart } = useCart();
+  // Cart functionality disabled for Phase 3 - Amazon integration
+  // const { addToCart } = useCart();
   
   // Modal state for book preview
   const [selectedBook, setSelectedBook] = useState<any>(null);
@@ -92,10 +92,11 @@ export default function Home() {
     }
   };
 
-  const handleAddToCart = (book: any) => {
-    addToCart(book);
-    console.log('Added to cart:', book);
-  };
+  // Cart functionality replaced with Amazon links
+  // const handleAddToCart = (book: any) => {
+  //   addToCart(book);
+  //   console.log('Added to cart:', book);
+  // };
 
   const handleBookClick = (book: any) => {
     setSelectedBook(book);
@@ -159,7 +160,6 @@ export default function Home() {
                 key={book.id}
                 book={book}
                 size="medium"
-                onAddToCart={handleAddToCart}
                 onBookClick={handleBookClick} // All three books now have preview functionality
                 className="w-full justify-self-center" // Center each card in its grid cell
               />
@@ -302,7 +302,7 @@ export default function Home() {
             book={selectedBook}
             isOpen={isModalOpen}
             onClose={handleCloseModal}
-            onAddToCart={handleAddToCart}
+            // onAddToCart={handleAddToCart} // Disabled for Phase 3 - Amazon integration
           />
         </Suspense>
       )}

@@ -9,6 +9,10 @@ export interface Book {
   image: string;
   description: string;
   sample?: string;
+  amazonLink?: string;
+  // Alternative retail links for future expansion
+  barnesNobleLink?: string;
+  appleBooksLink?: string;
 }
 
 export const featuredBooks: Book[] = [
@@ -19,6 +23,7 @@ export const featuredBooks: Book[] = [
     price: 12.99,
     image: '/images/books/isaiah-tree-cover.jpg', // Real book cover - optimized JPEG (41KB)
     description: 'A heartwarming tale of hope and faith centered around an ancient olive tree that witnessed Christ\'s presence.',
+    amazonLink: 'https://www.amazon.com/dp/B0CJXAMPLE1', // Placeholder - replace with actual Amazon link
     sample: `Chapter 1: The Ancient Witness
 
 The ancient olive tree stood silent in the garden, its gnarled branches reaching toward heaven like weathered hands in prayer. For over two thousand years, it had witnessed the passage of time, the changing of seasons, and the footsteps of countless pilgrims who came seeking peace in this sacred place.
@@ -40,6 +45,7 @@ As a gentle breeze rustled through his silver-green leaves, Isaiah began to reme
     price: 11.99,
     image: '/images/books/sweet-fruit-cover.jpg', // Real book cover
     description: 'Journey with Sweet Fruit through loss and renewal, experiencing Christ\'s triumphal entry and the power of community.',
+    amazonLink: 'https://www.amazon.com/dp/B0CJXAMPLE2', // Placeholder - replace with actual Amazon link
     sample: `Prologue: The Day Everything Changed
 
 Sweet Fruit had always been the most beautiful palm tree in the village. Her fronds swayed gracefully in the gentle breeze, and her dates were the sweetest anyone had ever tasted. Children would gather beneath her shade, families would rest in her cool shadow, and travelers from far and wide would seek refuge under her protective canopy.
@@ -63,6 +69,7 @@ Walking among the people was a man unlike any other she had ever seen. His prese
     price: 14.99,
     image: '/images/books/missionary-widow-cover.png', // Real book cover - corrected PNG extension
     description: 'The inspiring true story of Pete and Suzanne Black\'s love story through missionary service and faith commitment.',
+    amazonLink: 'https://www.amazon.com/dp/B0CJXAMPLE3', // Placeholder - replace with actual Amazon link
     sample: `Chapter 1: Two Hearts, One Mission
 
 Suzanne first met Pete Black on a humid Tuesday morning in July 1987, though she had no idea that this chance encounter would change the course of her entire life. She was twenty-four, fresh out of nursing school, and had just committed to a two-year mission assignment in Guatemala. He was twenty-eight, a seasoned missionary doctor who had already spent three years serving the rural communities in the mountains outside Antigua.

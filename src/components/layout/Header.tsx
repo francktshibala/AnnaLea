@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useCart } from '@/contexts/CartContext';
-import { CartDropdown } from '@/components/cart/CartDropdown';
+// import { useCart } from '@/contexts/CartContext';
+// import { CartDropdown } from '@/components/cart/CartDropdown';
 
 export const Header: React.FC = () => {
-  const { getTotalItems } = useCart();
+  // const { getTotalItems } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  // const [isCartOpen, setIsCartOpen] = useState(false);
   const [isBooksDropdownOpen, setIsBooksDropdownOpen] = useState(false);
-  const totalItems = getTotalItems();
+  // const totalItems = getTotalItems();
 
   const scrollToSection = (sectionId: string) => {
     // Close dropdowns first
@@ -158,16 +158,15 @@ export const Header: React.FC = () => {
             </a>
           </nav>
 
-          {/* Cart and Mobile Menu */}
+          {/* Mobile Menu Only */}
           <div className="flex items-center space-x-4">
-            {/* Cart Button with Badge */}
+            {/* Cart functionality disabled for Phase 3 - Amazon integration coming
             <div className="relative">
               <button
                 onClick={() => setIsCartOpen(!isCartOpen)}
                 className="relative p-2 transition-colors duration-200 text-secondary hover:text-accent"
                 aria-label={`Shopping cart with ${totalItems} items`}
               >
-              {/* Cart Icon */}
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -183,7 +182,6 @@ export const Header: React.FC = () => {
                 />
               </svg>
               
-              {/* Cart Counter Badge */}
               {totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center min-w-[20px]"
                       style={{ backgroundColor: 'var(--burgundy)' }}>
@@ -192,12 +190,12 @@ export const Header: React.FC = () => {
               )}
               </button>
 
-              {/* Cart Dropdown */}
               <CartDropdown
                 isOpen={isCartOpen}
                 onClose={() => setIsCartOpen(false)}
               />
             </div>
+            */}
 
             {/* Mobile Menu Button */}
             <button

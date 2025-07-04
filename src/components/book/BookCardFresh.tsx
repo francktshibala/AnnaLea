@@ -11,13 +11,18 @@ export interface Book {
   price: number;
   image: string;
   description: string;
+  amazonLink?: string;
+  // Alternative retail links for future expansion
+  barnesNobleLink?: string;
+  appleBooksLink?: string;
 }
 
 export interface BookCardProps extends React.HTMLAttributes<HTMLDivElement> {
   book: Book;
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
-  onAddToCart?: (book: Book) => void;
+  // Cart functionality replaced with Amazon integration
+  // onAddToCart?: (book: Book) => void; 
   onBookClick?: (book: Book) => void;
 }
 
@@ -28,7 +33,6 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       book,
       size = 'medium',
       loading = false,
-      onAddToCart,
       onBookClick,
       className,
       ...props
@@ -37,9 +41,9 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
   ) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    const handleAddToCart = () => {
-      if (onAddToCart && !loading) {
-        onAddToCart(book);
+    const handleBuyOnAmazon = () => {
+      if (book.amazonLink && !loading) {
+        window.open(book.amazonLink, '_blank', 'noopener,noreferrer');
       }
     };
 
@@ -182,49 +186,57 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
               </div>
             </div>
 
-            {/* Add to Cart Button */}
+            {/* Buy on Amazon Button */}
             <button
               onClick={(e) => {
                 e.stopPropagation(); // Prevent card click when button is clicked
-                handleAddToCart();
+                handleBuyOnAmazon();
               }}
-              disabled={loading}
+              disabled={loading || !book.amazonLink}
               style={{
                 width: '100%',
                 padding: '14px 20px',
                 background: isHovered 
-                  ? 'linear-gradient(135deg, #1d4ed8, #1e40af)' 
-                  : 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                  ? 'linear-gradient(135deg, #FF8F00, #FF6D00)' 
+                  : 'linear-gradient(135deg, #FF9500, #FF8F00)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '12px',
                 fontSize: '16px',
                 fontWeight: '600',
-                cursor: loading ? 'not-allowed' : 'pointer',
-                opacity: loading ? 0.7 : 1,
+                cursor: (loading || !book.amazonLink) ? 'not-allowed' : 'pointer',
+                opacity: (loading || !book.amazonLink) ? 0.7 : 1,
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                 transform: isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)',
                 boxShadow: isHovered 
-                  ? '0 12px 35px rgba(59, 130, 246, 0.5)' 
-                  : '0 4px 15px rgba(59, 130, 246, 0.2)',
+                  ? '0 12px 35px rgba(255, 149, 0, 0.5)' 
+                  : '0 4px 15px rgba(255, 149, 0, 0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
               }}
               onMouseEnter={(e) => {
-                if (!loading) {
+                if (!loading && book.amazonLink) {
                   e.currentTarget.style.transform = 'translateY(-6px) scale(1.05)';
-                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(59, 130, 246, 0.6)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(255, 149, 0, 0.6)';
                 }
               }}
               onMouseLeave={(e) => {
-                if (!loading) {
+                if (!loading && book.amazonLink) {
                   e.currentTarget.style.transform = isHovered ? 'translateY(-4px) scale(1.02)' : 'translateY(0px) scale(1)';
                   e.currentTarget.style.boxShadow = isHovered 
-                    ? '0 12px 35px rgba(59, 130, 246, 0.5)' 
-                    : '0 4px 15px rgba(59, 130, 246, 0.2)';
+                    ? '0 12px 35px rgba(255, 149, 0, 0.5)' 
+                    : '0 4px 15px rgba(255, 149, 0, 0.2)';
                 }
               }}
             >
-              {loading ? 'Adding to Cart...' : 'Add to Cart'}
+              {/* Amazon icon */}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.045 18.02c9.23 6.806 20.265 6.084 23.358-1.156.404-.948-.615-1.785-1.563-.99-8.28 6.943-19.65 6.35-23.383-1.254-.427-.872-1.67-.3-1.412.768l3-.632zm20.615-9.927c-.51-3.935-4.916-6.495-8.94-5.334.63-2.875 3.19-5.02 6.255-5.02 3.06 0 5.46 2.14 6.15 5.02.13.56.71.88 1.27.71s.88-.71.71-1.27c-.91-3.81-4.24-6.46-8.13-6.46s-7.22 2.65-8.13 6.46c-.17.56.15 1.14.71 1.27s1.14-.15 1.27-.71c.69-2.88 3.09-5.02 6.15-5.02 3.065 0 5.625 2.145 6.255 5.02-4.024-1.161-8.43 1.399-8.94 5.334-.51 3.935 2.77 7.46 6.705 7.97s7.46-2.77 7.97-6.705c.17-.56-.15-1.14-.71-1.27s-1.14.15-1.27.71c-.38 2.935-3.035 5.08-5.97 5.08s-5.59-2.145-5.97-5.08c-.38-2.935 2.77-5.46 5.705-5.84z"/>
+              </svg>
+              {loading ? 'Opening...' : book.amazonLink ? 'Buy on Amazon' : 'Coming Soon'}
             </button>
           </div>
 

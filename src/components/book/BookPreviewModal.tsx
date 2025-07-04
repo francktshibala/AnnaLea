@@ -9,7 +9,8 @@ interface BookPreviewModalProps {
   book: Book & { sample?: string };
   isOpen: boolean;
   onClose: () => void;
-  onAddToCart: (book: Book) => void;
+  // Cart functionality replaced with Amazon integration
+  onAddToCart?: (book: Book) => void;
 }
 
 export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
@@ -33,9 +34,11 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
     }
   };
 
-  const handleAddToCart = () => {
-    onAddToCart(book);
-    onClose(); // Close modal after adding to cart
+  const handleBuyOnAmazon = () => {
+    if (book.amazonLink) {
+      window.open(book.amazonLink, '_blank', 'noopener,noreferrer');
+      onClose(); // Close modal after redirecting to Amazon
+    }
   };
 
   const toggleFullscreen = () => {
@@ -329,29 +332,41 @@ export const BookPreviewModal: React.FC<BookPreviewModalProps> = ({
               {/* Action Buttons */}
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <button
-                  onClick={handleAddToCart}
+                  onClick={handleBuyOnAmazon}
+                  disabled={!book.amazonLink}
                   style={{
                     padding: '14px 24px',
-                    backgroundColor: '#3b82f6',
+                    backgroundColor: book.amazonLink ? '#FF9500' : '#d1d5db',
                     color: 'white',
                     border: 'none',
                     borderRadius: '8px',
                     fontSize: '16px',
                     fontWeight: '600',
-                    cursor: 'pointer',
+                    cursor: book.amazonLink ? 'pointer' : 'not-allowed',
                     transition: 'all 0.2s ease',
                     fontFamily: 'system-ui, -apple-system, sans-serif',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#2563eb';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    if (book.amazonLink) {
+                      e.currentTarget.style.backgroundColor = '#FF8F00';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3b82f6';
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    if (book.amazonLink) {
+                      e.currentTarget.style.backgroundColor = '#FF9500';
+                      e.currentTarget.style.transform = 'translateY(0px)';
+                    }
                   }}
                 >
-                  🛒 Add to Cart
+                  {/* Amazon icon */}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.045 18.02c9.23 6.806 20.265 6.084 23.358-1.156.404-.948-.615-1.785-1.563-.99-8.28 6.943-19.65 6.35-23.383-1.254-.427-.872-1.67-.3-1.412.768l3-.632zm20.615-9.927c-.51-3.935-4.916-6.495-8.94-5.334.63-2.875 3.19-5.02 6.255-5.02 3.06 0 5.46 2.14 6.15 5.02.13.56.71.88 1.27.71s.88-.71.71-1.27c-.91-3.81-4.24-6.46-8.13-6.46s-7.22 2.65-8.13 6.46c-.17.56.15 1.14.71 1.27s1.14-.15 1.27-.71c.69-2.88 3.09-5.02 6.15-5.02 3.065 0 5.625 2.145 6.255 5.02-4.024-1.161-8.43 1.399-8.94 5.334-.51 3.935 2.77 7.46 6.705 7.97s7.46-2.77 7.97-6.705c.17-.56-.15-1.14-.71-1.27s-1.14.15-1.27.71c-.38 2.935-3.035 5.08-5.97 5.08s-5.59-2.145-5.97-5.08c-.38-2.935 2.77-5.46 5.705-5.84z"/>
+                  </svg>
+                  {book.amazonLink ? 'Buy on Amazon' : 'Coming Soon'}
                 </button>
 
                 <button
