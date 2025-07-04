@@ -87,6 +87,32 @@ export interface FormValidation {
   errors: Record<string, string>;
 }
 
+// Review types
+export interface Review {
+  id: string;
+  bookId: string;
+  rating: number; // 1-5 stars
+  title: string;
+  content: string;
+  reviewerName: string;
+  reviewerLocation?: string;
+  isVerifiedPurchase?: boolean;
+  isHighlighted?: boolean; // For featured reviews
+  date: string;
+}
+
+export interface ReviewStats {
+  averageRating: number;
+  totalReviews: number;
+  ratingDistribution: {
+    5: number;
+    4: number;
+    3: number;
+    2: number;
+    1: number;
+  };
+}
+
 // API response types
 export interface ApiResponse<T> {
   data: T;
