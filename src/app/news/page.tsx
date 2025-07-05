@@ -46,7 +46,7 @@ export default function NewsPage() {
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
                   <div className="text-4xl">📚</div>
-                  <div>
+                  <div style={{ marginLeft: '1rem' }}>
                     <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       Phase 4 Website Transformation Complete
@@ -57,16 +57,16 @@ export default function NewsPage() {
                   </div>
                 </div>
                 <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
-                   style={{ color: 'var(--charcoal-navy)' }}>
+                   style={{ color: 'var(--charcoal-navy)', marginLeft: '1rem' }}>
                   We're excited to announce the completion of our website transformation, featuring a cleaner navigation structure and dedicated pages for Biblical Stories and Missionary Tales. The new design better reflects Anna Lea's author brand while maintaining the elegant sage green and burgundy color palette readers love.
                 </p>
                 <div className="flex gap-6 flex-wrap">
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--sage-green)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     Website Update
                   </span>
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--burgundy)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--burgundy)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     New Features
                   </span>
                 </div>
@@ -83,7 +83,7 @@ export default function NewsPage() {
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
                   <div className="text-4xl">⭐</div>
-                  <div>
+                  <div style={{ marginLeft: '1rem' }}>
                     <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       Reader Reviews System Launched
@@ -94,16 +94,16 @@ export default function NewsPage() {
                   </div>
                 </div>
                 <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
-                   style={{ color: 'var(--charcoal-navy)' }}>
+                   style={{ color: 'var(--charcoal-navy)', marginLeft: '1rem' }}>
                   Our new review system showcases testimonials from readers across the globe. With an average rating of 4.7 stars, Anna Lea's books continue to touch hearts and strengthen faith communities worldwide. Visit our Reviews page to see what readers are saying!
                 </p>
                 <div className="flex gap-6 flex-wrap">
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--golden-honey)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--golden-honey)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     Reader Feedback
                   </span>
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--soft-lavender)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--soft-lavender)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     4.7 Stars
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export default function NewsPage() {
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
                   <div className="text-4xl">🌍</div>
-                  <div>
+                  <div style={{ marginLeft: '1rem' }}>
                     <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       500+ Books Distributed Worldwide
@@ -131,16 +131,16 @@ export default function NewsPage() {
                   </div>
                 </div>
                 <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
-                   style={{ color: 'var(--charcoal-navy)' }}>
+                   style={{ color: 'var(--charcoal-navy)', marginLeft: '1rem' }}>
                   Anna Lea's inspirational Christian stories have now reached over 500 readers globally. From "The Isaiah Tree" to "A Missionary Widow," her books continue to inspire faith communities across different cultures and backgrounds. Thank you to all our readers for your continued support!
                 </p>
                 <div className="flex gap-6 flex-wrap">
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--sage-green)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     Milestone
                   </span>
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--burgundy)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--burgundy)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     Global Reach
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export default function NewsPage() {
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
                   <div className="text-4xl">📖</div>
-                  <div>
+                  <div style={{ marginLeft: '1rem' }}>
                     <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       Amazon Integration Complete
@@ -168,16 +168,16 @@ export default function NewsPage() {
                   </div>
                 </div>
                 <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
-                   style={{ color: 'var(--charcoal-navy)' }}>
+                   style={{ color: 'var(--charcoal-navy)', marginLeft: '1rem' }}>
                   All Anna Lea's books are now available for direct purchase through Amazon integration. Readers can easily access both digital and physical copies of "The Isaiah Tree," "Sweet Fruit," and "A Missionary Widow" with just one click.
                 </p>
                 <div className="flex gap-6 flex-wrap">
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: '#FF9500', color: 'white' }}>
+                        style={{ backgroundColor: '#FF9500', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     Amazon
                   </span>
                   <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
-                        style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
+                        style={{ backgroundColor: 'var(--sage-green)', color: 'white', marginLeft: '1rem', marginBottom: '1rem' }}>
                     Easy Purchase
                   </span>
                 </div>
