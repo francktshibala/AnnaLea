@@ -148,7 +148,7 @@ export default function BooksPage() {
                     boxShadow: '0 8px 24px rgba(107, 124, 89, 0.4)',
                     border: '2px solid #5A6B47'
                   }}
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                  onClick={() => window.open('https://www.amazon.com/Isaiah-Tree-Olive-Jesus-Touched-ebook/dp/B0D1DR2NKX/ref=sr_1_1?crid=33C2FP7QZ5UET&dib=eyJ2IjoiMSJ9.W-6gNmJcJidf5UcC6U3Ut5Hz8MLCfIBlh8FVEbeNN-mO8rJ9vR-JSSSuohbIwrTZoia0Sg_JWp6qst2iPsHxn7w7r26-kr8ZsZxv76lkbyQ.mzYy596U4KWa8YxL1TZvTr4QDOrauEcwS_Mhf32QPTM&dib_tag=se&keywords=anna+lea+cannon&qid=1751686114&sprefix=anna+lea+ca%2Caps%2C163&sr=8-1', '_blank', 'noopener,noreferrer')}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
@@ -237,7 +237,7 @@ export default function BooksPage() {
                     boxShadow: '0 8px 24px rgba(107, 124, 89, 0.4)',
                     border: '2px solid #5A6B47'
                   }}
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                  onClick={() => window.open('https://www.amazon.com/Sweet-Fruit-Palm-Touched-Jesus-ebook/dp/B0CW1JH1C7/ref=sr_1_3?crid=33C2FP7QZ5UET&dib=eyJ2IjoiMSJ9.W-6gNmJcJidf5UcC6U3Ut5Hz8MLCfIBlh8FVEbeNN-mO8rJ9vR-JSSSuohbIwrTZoia0Sg_JWp6qst2iPsHxn7w7r26-kr8ZsZxv76lkbyQ.mzYy596U4KWa8YxL1TZvTr4QDOrauEcwS_Mhf32QPTM&dib_tag=se&keywords=anna+lea+cannon&qid=1751686114&sprefix=anna+lea+ca%2Caps%2C163&sr=8-3', '_blank', 'noopener,noreferrer')}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
@@ -366,7 +366,7 @@ export default function BooksPage() {
                     boxShadow: '0 8px 24px rgba(107, 124, 89, 0.4)',
                     border: '2px solid #5A6B47'
                   }}
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                  onClick={() => window.open('https://www.amazon.com/Missionary-Widow-Enduring-Power-Faith-ebook/dp/B0D86JZ8KL/ref=sr_1_2?crid=33C2FP7QZ5UET&dib=eyJ2IjoiMSJ9.W-6gNmJcJidf5UcC6U3Ut5Hz8MLCfIBlh8FVEbeNN-mO8rJ9vR-JSSSuohbIwrTZoia0Sg_JWp6qst2iPsHxn7w7r26-kr8ZsZxv76lkbyQ.mzYy596U4KWa8YxL1TZvTr4QDOrauEcwS_Mhf32QPTM&dib_tag=se&keywords=anna+lea+cannon&qid=1751686114&sprefix=anna+lea+ca%2Caps%2C163&sr=8-2', '_blank', 'noopener,noreferrer')}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
