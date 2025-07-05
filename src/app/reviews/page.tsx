@@ -161,7 +161,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-16 lg:py-20 mt-24 lg:mt-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 lg:py-20 mt-32 lg:mt-40" style={{ backgroundColor: 'white' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="text-center">
             <div className="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto border-2"
@@ -175,14 +175,22 @@ export default function ReviewsPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="mailto:contact@anna-lea.com?subject=Book Review Submission&body=Hi Anna Lea,%0D%0A%0D%0AI'd like to share my review of your book:%0D%0A%0D%0ABook Title: %0D%0ARating (1-5 stars): %0D%0AReview: %0D%0A%0D%0AThank you for your inspiring stories!%0D%0A%0D%0ABest regards,"
-                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 text-white hover:opacity-90"
+                  className="px-8 py-4 rounded-lg font-medium font-sans transition-all duration-300 text-white transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-sage-green/30 focus:scale-105"
                   style={{ backgroundColor: 'var(--sage-green)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--charcoal-navy)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(107, 124, 89, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--sage-green)';
+                    e.currentTarget.style.boxShadow = '';
+                  }}
                 >
-                  Write a Review
+                  ✍️ Write a Review
                 </a>
                 <a
                   href="/books"
-                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 border-2 hover:text-white hover:bg-sage-green"
+                  className="px-8 py-4 rounded-lg font-medium font-sans transition-all duration-300 border-2 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-sage-green/30 focus:scale-105"
                   style={{ 
                     borderColor: 'var(--sage-green)',
                     color: 'var(--sage-green)',
@@ -191,13 +199,17 @@ export default function ReviewsPage() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'var(--sage-green)';
                     e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.borderColor = 'var(--sage-green)';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(107, 124, 89, 0.2)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'transparent';
                     e.currentTarget.style.color = 'var(--sage-green)';
+                    e.currentTarget.style.borderColor = 'var(--sage-green)';
+                    e.currentTarget.style.boxShadow = '';
                   }}
                 >
-                  View All Books
+                  📚 View All Books
                 </a>
               </div>
             </div>
