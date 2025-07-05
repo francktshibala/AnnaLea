@@ -64,8 +64,8 @@ export default function BooksPage() {
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25)',
                        border: '3px solid var(--sage-green)',
-                       width: '320px',
-                       height: '480px'
+                       width: '380px',
+                       height: '560px'
                      }}>
                   <img 
                     src="/images/books-detailed/isaiah-tree-detailed.jpg" 
@@ -78,7 +78,7 @@ export default function BooksPage() {
             </div>
 
             {/* Book Details - Right Side */}
-            <div className="flex flex-col justify-between" style={{ minHeight: '480px' }}>
+            <div className="flex flex-col justify-between" style={{ minHeight: '560px' }}>
               {/* Title and Subtitle */}
               <div>
                 <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
@@ -97,13 +97,13 @@ export default function BooksPage() {
 
               {/* Synopsis */}
               <div>
-                <p className="text-sm lg:text-base font-body leading-relaxed mb-4"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-4"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Follow an olive tree near Jerusalem that longs to see the Prince of Peace. Through generations, 
                   it becomes part of a community where "old roots, neighboring branches, and new trees were all 
                   interconnected as they supported each other and grew."
                 </p>
-                <p className="text-sm lg:text-base font-body leading-relaxed"
+                <p className="text-base lg:text-lg font-body leading-relaxed"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   The tree finally witnesses Jesus in the Garden of Gethsemane and asks: "Could Isaiah Tree 
                   somehow pass on that light from the Prince of Peace to the world?"
@@ -115,7 +115,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Perfect for:</strong> Children 6-12, teens, and adult faith groups
                   </p>
@@ -123,7 +123,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Key Themes:</strong> Faith, hope, interconnectedness, Christ's love, legacy
                   </p>
@@ -131,7 +131,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Great for:</strong> Families, Sunday school, homeschool, bedtime reading
                   </p>
@@ -167,7 +167,7 @@ export default function BooksPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
             {/* Book Details - Left Side (Reversed) */}
-            <div className="flex flex-col justify-between order-2 lg:order-1" style={{ minHeight: '480px' }}>
+            <div className="flex flex-col justify-between order-2 lg:order-1" style={{ minHeight: '560px' }}>
               {/* Title and Subtitle */}
               <div>
                 <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
@@ -186,13 +186,13 @@ export default function BooksPage() {
 
               {/* Synopsis */}
               <div>
-                <p className="text-sm lg:text-base font-body leading-relaxed mb-4"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-4"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Discover the gentle story of a palm tree that experiences Jesus's transformative touch. 
                   This heartwarming tale explores themes of redemption, second chances, and the healing 
                   power of Christ's love.
                 </p>
-                <p className="text-sm lg:text-base font-body leading-relaxed"
+                <p className="text-base lg:text-lg font-body leading-relaxed"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Perfect for families seeking meaningful conversations about forgiveness and God's 
                   restorative grace in our lives.
@@ -204,7 +204,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Perfect for:</strong> Children, families, and faith communities
                   </p>
@@ -212,7 +212,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Key Themes:</strong> Renewal, forgiveness, transformation, hope
                   </p>
@@ -220,7 +220,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Great for:</strong> Teaching forgiveness, family devotions, gift-giving
                   </p>
@@ -254,8 +254,8 @@ export default function BooksPage() {
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25)',
                        border: '3px solid var(--sage-green)',
-                       width: '320px',
-                       height: '480px'
+                       width: '380px',
+                       height: '560px'
                      }}>
                   <img 
                     src="/images/books-detailed/sweet-fruit-detailed.jpg" 
@@ -282,8 +282,8 @@ export default function BooksPage() {
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25)',
                        border: '3px solid var(--sage-green)',
-                       width: '320px',
-                       height: '480px'
+                       width: '380px',
+                       height: '560px'
                      }}>
                   <img 
                     src="/images/books-detailed/missionary-widow-detailed.png" 
@@ -296,7 +296,7 @@ export default function BooksPage() {
             </div>
 
             {/* Book Details - Right Side */}
-            <div className="flex flex-col justify-between" style={{ minHeight: '480px' }}>
+            <div className="flex flex-col justify-between" style={{ minHeight: '560px' }}>
               {/* Title and Subtitle */}
               <div>
                 <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
@@ -315,13 +315,13 @@ export default function BooksPage() {
 
               {/* Synopsis */}
               <div>
-                <p className="text-sm lg:text-base font-body leading-relaxed mb-4"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-4"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   A deeply personal account of faith tested by loss and strengthened by community. 
                   This memoir chronicles the journey of a missionary widow finding hope and purpose 
                   through life's most challenging seasons.
                 </p>
-                <p className="text-sm lg:text-base font-body leading-relaxed"
+                <p className="text-base lg:text-lg font-body leading-relaxed"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Real stories of courage and transformation from the mission field, offering 
                   encouragement to anyone facing grief or life transitions.
@@ -333,7 +333,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Perfect for:</strong> Adults, ministry leaders, and those facing loss
                   </p>
@@ -341,7 +341,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Key Themes:</strong> Faith, grief, resilience, missionary life, hope
                   </p>
@@ -349,7 +349,7 @@ export default function BooksPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                        style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                  <p className="text-sm lg:text-base font-body"
+                  <p className="text-base lg:text-lg font-body"
                      style={{ color: 'var(--charcoal-navy)' }}>
                     <strong>Great for:</strong> Book clubs, adult faith groups, personal reflection
                   </p>
