@@ -139,7 +139,7 @@ export default function BooksPage() {
               </div>
 
               {/* Purchase Button */}
-              <div className="pt-6">
+              <div className="pt-6 pb-4">
                 <button 
                   className="px-8 py-4 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
@@ -228,7 +228,7 @@ export default function BooksPage() {
               </div>
 
               {/* Purchase Button */}
-              <div className="pt-6">
+              <div className="pt-6 pb-4">
                 <button 
                   className="px-8 py-4 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
@@ -357,7 +357,7 @@ export default function BooksPage() {
               </div>
 
               {/* Purchase Button */}
-              <div className="pt-6">
+              <div className="pt-6 pb-4">
                 <button 
                   className="px-8 py-4 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
