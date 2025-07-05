@@ -55,6 +55,22 @@ export default function BooksPage() {
       {/* Book 1: Isaiah Tree */}
       <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          {/* Title and Subtitle - Above Cover */}
+          <div className="text-center mb-12">
+            <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              Isaiah Tree
+            </h2>
+            <h3 className="text-lg lg:text-xl font-semibold font-display mb-4"
+                style={{ color: 'var(--burgundy)' }}>
+              The Olive Tree That Jesus Touched
+            </h3>
+            <p className="text-base lg:text-lg font-body italic leading-relaxed"
+               style={{ color: 'var(--sage-green)' }}>
+              "A Faith-Based Story That Inspires Readers of All Ages"
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
             {/* Book Cover - Left Side */}
@@ -79,21 +95,6 @@ export default function BooksPage() {
 
             {/* Book Details - Right Side */}
             <div className="flex flex-col justify-between" style={{ minHeight: '480px' }}>
-              {/* Title and Subtitle */}
-              <div>
-                <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
-                    style={{ color: 'var(--charcoal-navy)' }}>
-                  Isaiah Tree
-                </h2>
-                <h3 className="text-lg lg:text-xl font-semibold font-display mb-4"
-                    style={{ color: 'var(--burgundy)' }}>
-                  The Olive Tree That Jesus Touched
-                </h3>
-                <p className="text-base lg:text-lg font-body italic leading-relaxed"
-                   style={{ color: 'var(--sage-green)' }}>
-                  "A Faith-Based Story That Inspires Readers of All Ages"
-                </p>
-              </div>
 
               {/* Synopsis */}
               <div>
@@ -164,25 +165,26 @@ export default function BooksPage() {
       {/* Book 2: Sweet Fruit */}
       <section className="py-16 lg:py-20 mt-8 lg:mt-12" style={{ backgroundColor: 'var(--cream)' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          {/* Title and Subtitle - Above Cover */}
+          <div className="text-center mb-12">
+            <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              Sweet Fruit
+            </h2>
+            <h3 className="text-lg lg:text-xl font-semibold font-display mb-4"
+                style={{ color: 'var(--burgundy)' }}>
+              The Palm Tree That Was Touched by Jesus
+            </h3>
+            <p className="text-base lg:text-lg font-body italic leading-relaxed"
+               style={{ color: 'var(--sage-green)' }}>
+              "A Biblical Allegory About Renewal and Forgiveness"
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
             {/* Book Details - Left Side (Reversed) */}
             <div className="flex flex-col justify-between order-2 lg:order-1" style={{ minHeight: '480px' }}>
-              {/* Title and Subtitle */}
-              <div>
-                <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
-                    style={{ color: 'var(--charcoal-navy)' }}>
-                  Sweet Fruit
-                </h2>
-                <h3 className="text-lg lg:text-xl font-semibold font-display mb-4"
-                    style={{ color: 'var(--burgundy)' }}>
-                  The Palm Tree That Was Touched by Jesus
-                </h3>
-                <p className="text-base lg:text-lg font-body italic leading-relaxed"
-                   style={{ color: 'var(--sage-green)' }}>
-                  "A Biblical Allegory About Renewal and Forgiveness"
-                </p>
-              </div>
 
               {/* Synopsis */}
               <div>

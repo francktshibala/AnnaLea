@@ -40,7 +40,8 @@ export default function NewsPage() {
             <article className="bg-white rounded-2xl shadow-xl overflow-hidden"
                      style={{ 
                        border: '3px solid var(--sage-green)',
-                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
+                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)',
+                       margin: '0 1rem 2rem 1rem'
                      }}>
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
@@ -76,7 +77,8 @@ export default function NewsPage() {
             <article className="bg-white rounded-2xl shadow-xl overflow-hidden"
                      style={{ 
                        border: '3px solid var(--sage-green)',
-                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
+                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)',
+                       margin: '0 1rem 2rem 1rem'
                      }}>
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
@@ -112,7 +114,8 @@ export default function NewsPage() {
             <article className="bg-white rounded-2xl shadow-xl overflow-hidden"
                      style={{ 
                        border: '3px solid var(--sage-green)',
-                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
+                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)',
+                       margin: '0 1rem 2rem 1rem'
                      }}>
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
@@ -148,7 +151,8 @@ export default function NewsPage() {
             <article className="bg-white rounded-2xl shadow-xl overflow-hidden"
                      style={{ 
                        border: '3px solid var(--sage-green)',
-                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
+                       boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)',
+                       margin: '0 1rem 2rem 1rem'
                      }}>
               <div className="p-12 lg:p-16">
                 <div className="flex items-center gap-6 mb-8">
@@ -210,7 +214,9 @@ export default function NewsPage() {
                     className="flex-1 px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 font-body"
                     style={{ 
                       borderColor: 'var(--sage-green)',
-                      focusRingColor: 'var(--sage-green)'
+                      focusRingColor: 'var(--sage-green)',
+                      marginLeft: '1rem',
+                      marginBottom: '1rem'
                     }}
                   />
                   <button 
@@ -218,7 +224,9 @@ export default function NewsPage() {
                     style={{ 
                       backgroundColor: 'var(--sage-green)', 
                       color: 'white',
-                      backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)'
+                      backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
+                      marginLeft: '1rem',
+                      marginBottom: '1rem'
                     }}
                   >
                     Subscribe
