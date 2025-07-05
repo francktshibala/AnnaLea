@@ -214,6 +214,56 @@ export const sampleReviews: Review[] = [
     isVerifiedPurchase: true,
     isHighlighted: false,
     date: '2024-08-01'
+  },
+
+  // Amazon Reviews - Real customer feedback
+  {
+    id: 'amazon-review-1',
+    bookId: '3',
+    rating: 5,
+    title: 'An insightful glimpse into a 1950s LDS romance and missionary service',
+    content: 'This biographical account of the courting and marriage of Pete and Suzanne Black takes an interesting turn when he is called on an LDS mission to Minnesota a few weeks after their wedding in the 1950s. Transcriptions from their letters and journals reveals the joys and challenges of growing faith and love in marriage while physically separated by time and distance. The author provides a window into the remarkable lives of these faithful Latter-day Saints.',
+    reviewerName: 'Jay H. Buckley',
+    reviewerLocation: 'United States',
+    isVerifiedPurchase: true,
+    isHighlighted: true,
+    date: '2025-01-13'
+  },
+  {
+    id: 'amazon-review-2',
+    bookId: '1',
+    rating: 4,
+    title: 'Beautiful illustrations and memorable story',
+    content: 'My family really enjoyed this book. Had beautiful illustrations and a message that we enjoyed.',
+    reviewerName: 'SC',
+    reviewerLocation: 'United States',
+    isVerifiedPurchase: true,
+    isHighlighted: false,
+    date: '2024-12-18'
+  },
+  {
+    id: 'amazon-review-3',
+    bookId: '2',
+    rating: 5,
+    title: 'Sweet Fruit',
+    content: 'An excellent read to share with the entire family. This sweet story demonstrates the importance of hope and continued growth for all.',
+    reviewerName: 'triciajbiggs',
+    reviewerLocation: 'United States',
+    isVerifiedPurchase: true,
+    isHighlighted: true,
+    date: '2024-07-04'
+  },
+  {
+    id: 'amazon-review-4',
+    bookId: '2',
+    rating: 5,
+    title: 'A wonderful book told from the perspective of nature',
+    content: 'I love the narration of this book. It has such a tender and loving feel to it. The illustrations are so beautiful and colorful. The story is beautifully told from the perspective of a fruit tree who witnesses the marvelous events that took place during the ministry of Jesus Christ. I recommend this book for every child to read!',
+    reviewerName: 'Ben',
+    reviewerLocation: 'United States',
+    isVerifiedPurchase: true,
+    isHighlighted: true,
+    date: '2024-08-15'
   }
 ];
 
