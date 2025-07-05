@@ -15,8 +15,8 @@ export default function NewsPage() {
       <HeroImage variant="biblical-pattern" />
       
       {/* Row 2: Page Header */}
-      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
-        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+      <section className="py-24 lg:py-32" style={{ backgroundColor: 'var(--cream)', marginTop: '80px' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '3rem', paddingRight: '3rem' }}>
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display mb-6 tracking-tight leading-tight"
                 style={{ color: 'var(--charcoal-navy)' }}>
@@ -33,20 +33,20 @@ export default function NewsPage() {
       </section>
 
       {/* Row 3: Latest News Section */}
-      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
-        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
-          <div className="space-y-12">
+      <section className="py-24 lg:py-32" style={{ backgroundColor: 'white', marginTop: '80px' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '3rem', paddingRight: '3rem' }}>
+          <div className="space-y-20">
             {/* News Item 1 */}
             <article className="bg-white rounded-2xl shadow-xl overflow-hidden"
                      style={{ 
                        border: '3px solid var(--sage-green)',
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
                      }}>
-              <div className="p-8 lg:p-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="text-3xl">📚</div>
+              <div className="p-12 lg:p-16">
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="text-4xl">📚</div>
                   <div>
-                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       Phase 4 Website Transformation Complete
                     </h2>
@@ -55,16 +55,16 @@ export default function NewsPage() {
                     </p>
                   </div>
                 </div>
-                <p className="text-base lg:text-lg font-body leading-relaxed mb-6"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   We're excited to announce the completion of our website transformation, featuring a cleaner navigation structure and dedicated pages for Biblical Stories and Missionary Tales. The new design better reflects Anna Lea's author brand while maintaining the elegant sage green and burgundy color palette readers love.
                 </p>
-                <div className="flex gap-4 flex-wrap">
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                <div className="flex gap-6 flex-wrap">
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
                     Website Update
                   </span>
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--burgundy)', color: 'white' }}>
                     New Features
                   </span>
@@ -78,11 +78,11 @@ export default function NewsPage() {
                        border: '3px solid var(--sage-green)',
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
                      }}>
-              <div className="p-8 lg:p-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="text-3xl">⭐</div>
+              <div className="p-12 lg:p-16">
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="text-4xl">⭐</div>
                   <div>
-                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       Reader Reviews System Launched
                     </h2>
@@ -91,16 +91,16 @@ export default function NewsPage() {
                     </p>
                   </div>
                 </div>
-                <p className="text-base lg:text-lg font-body leading-relaxed mb-6"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Our new review system showcases testimonials from readers across the globe. With an average rating of 4.7 stars, Anna Lea's books continue to touch hearts and strengthen faith communities worldwide. Visit our Reviews page to see what readers are saying!
                 </p>
-                <div className="flex gap-4 flex-wrap">
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                <div className="flex gap-6 flex-wrap">
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--golden-honey)', color: 'white' }}>
                     Reader Feedback
                   </span>
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--soft-lavender)', color: 'white' }}>
                     4.7 Stars
                   </span>
@@ -114,11 +114,11 @@ export default function NewsPage() {
                        border: '3px solid var(--sage-green)',
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
                      }}>
-              <div className="p-8 lg:p-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="text-3xl">🌍</div>
+              <div className="p-12 lg:p-16">
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="text-4xl">🌍</div>
                   <div>
-                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       500+ Books Distributed Worldwide
                     </h2>
@@ -127,16 +127,16 @@ export default function NewsPage() {
                     </p>
                   </div>
                 </div>
-                <p className="text-base lg:text-lg font-body leading-relaxed mb-6"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Anna Lea's inspirational Christian stories have now reached over 500 readers globally. From "The Isaiah Tree" to "A Missionary Widow," her books continue to inspire faith communities across different cultures and backgrounds. Thank you to all our readers for your continued support!
                 </p>
-                <div className="flex gap-4 flex-wrap">
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                <div className="flex gap-6 flex-wrap">
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
                     Milestone
                   </span>
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--burgundy)', color: 'white' }}>
                     Global Reach
                   </span>
@@ -150,11 +150,11 @@ export default function NewsPage() {
                        border: '3px solid var(--sage-green)',
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
                      }}>
-              <div className="p-8 lg:p-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="text-3xl">📖</div>
+              <div className="p-12 lg:p-16">
+                <div className="flex items-center gap-6 mb-8">
+                  <div className="text-4xl">📖</div>
                   <div>
-                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                    <h2 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
                         style={{ color: 'var(--charcoal-navy)' }}>
                       Amazon Integration Complete
                     </h2>
@@ -163,16 +163,16 @@ export default function NewsPage() {
                     </p>
                   </div>
                 </div>
-                <p className="text-base lg:text-lg font-body leading-relaxed mb-6"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-8"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   All Anna Lea's books are now available for direct purchase through Amazon integration. Readers can easily access both digital and physical copies of "The Isaiah Tree," "Sweet Fruit," and "A Missionary Widow" with just one click.
                 </p>
-                <div className="flex gap-4 flex-wrap">
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                <div className="flex gap-6 flex-wrap">
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: '#FF9500', color: 'white' }}>
                     Amazon
                   </span>
-                  <span className="px-4 py-2 rounded-full text-sm font-medium font-sans" 
+                  <span className="px-6 py-3 rounded-full text-sm font-medium font-sans" 
                         style={{ backgroundColor: 'var(--sage-green)', color: 'white' }}>
                     Easy Purchase
                   </span>
@@ -184,26 +184,26 @@ export default function NewsPage() {
       </section>
 
       {/* Row 4: Newsletter Signup Section */}
-      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
-        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+      <section className="py-24 lg:py-32" style={{ backgroundColor: 'var(--cream)', marginTop: '80px' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '3rem', paddingRight: '3rem' }}>
           <div className="text-center">
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden mx-auto max-w-4xl"
                  style={{ 
                    border: '3px solid var(--sage-green)',
                    boxShadow: '0 20px 40px rgba(107, 124, 89, 0.15)'
                  }}>
-              <div className="p-8 lg:p-12">
-                <h3 className="text-2xl lg:text-3xl font-black font-display mb-4 tracking-tight leading-tight"
+              <div className="p-12 lg:p-16">
+                <h3 className="text-2xl lg:text-3xl font-black font-display mb-6 tracking-tight leading-tight"
                     style={{ color: 'var(--charcoal-navy)' }}>
                   Stay Updated
                 </h3>
-                <div className="w-16 h-1 rounded-full mx-auto mb-6"
+                <div className="w-16 h-1 rounded-full mx-auto mb-8"
                      style={{ backgroundColor: 'var(--burgundy)' }}></div>
-                <p className="text-base lg:text-lg font-body leading-relaxed mb-8 max-w-2xl mx-auto"
+                <p className="text-base lg:text-lg font-body leading-relaxed mb-10 max-w-2xl mx-auto"
                    style={{ color: 'var(--charcoal-navy)' }}>
                   Subscribe to receive the latest news about new book releases, events, and writing updates directly from Anna Lea.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-6 max-w-md mx-auto">
                   <input 
                     type="email" 
                     placeholder="Enter your email" 
@@ -214,7 +214,7 @@ export default function NewsPage() {
                     }}
                   />
                   <button 
-                    className="px-6 py-3 rounded-lg font-medium font-sans transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
+                    className="px-8 py-4 rounded-lg font-medium font-sans transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg"
                     style={{ 
                       backgroundColor: 'var(--sage-green)', 
                       color: 'white',
