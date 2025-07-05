@@ -74,23 +74,24 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
 
       {/* Review content */}
       <blockquote className={`${contentClasses[variant]} font-body`}>
-        <p className="italic">"{review.content}"</p>
+        <p className="italic text-base leading-relaxed" style={{ color: 'var(--charcoal-navy)' }}>
+          "{review.content}"
+        </p>
       </blockquote>
 
       {/* Footer with reviewer info */}
-      <div className="flex items-center justify-between text-sm text-text-muted">
-        <div className="flex items-center gap-2">
-          <span className="font-medium text-text-secondary">
+      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+        <div className="flex flex-col gap-1">
+          <span className="font-semibold text-base font-display" style={{ color: 'var(--charcoal-navy)' }}>
             {review.reviewerName}
           </span>
           {review.reviewerLocation && (
-            <>
-              <span className="text-text-muted">•</span>
-              <span>{review.reviewerLocation}</span>
-            </>
+            <span className="text-sm" style={{ color: 'var(--sage-green)' }}>
+              {review.reviewerLocation}
+            </span>
           )}
         </div>
-        <time className="text-text-muted">
+        <time className="text-sm font-medium" style={{ color: 'var(--burgundy)' }}>
           {formatDate(review.date)}
         </time>
       </div>
