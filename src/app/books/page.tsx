@@ -31,7 +31,7 @@ export default function BooksPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section - Consistent with Home and About pages */}
-      <HeroImage variant="nature-inspired" />
+      <HeroImage variant="biblical-pattern" />
       
       {/* Page Header */}
       <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
