@@ -130,7 +130,217 @@ export default function AboutPage() {
         </div>
       </section>
       
-      {/* Future rows will be added incrementally - Updated for deployment */}
+      {/* Row 3: Things Anna Lea Likes to Do */}
+      <section className="pt-20 pb-20 lg:pt-24 lg:pb-32 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          
+          {/* Section Title */}
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-display mb-4 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              Things Anna Lea Likes to Do
+            </h2>
+            <div className="w-16 h-1 rounded-full mx-auto"
+                 style={{ backgroundColor: 'var(--burgundy)' }}></div>
+          </div>
+
+          {/* Activities Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            
+            {/* Activity 1: Reading & Book Collecting */}
+            <div className="flex flex-col lg:flex-row gap-6 items-center">
+              <div className="w-full lg:w-1/2">
+                <div className="rounded-2xl overflow-hidden relative"
+                     style={{ 
+                       boxShadow: '0 16px 32px rgba(107, 124, 89, 0.2)',
+                       border: '3px solid var(--sage-green)',
+                       height: '300px',
+                       minHeight: '300px'
+                     }}>
+                  <img 
+                    src="/images/anna-hobbies/reading.jpg" 
+                    alt="Anna Lea reading books"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'brightness(1.05)' }}
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-1/2 bg-white rounded-2xl shadow-lg flex flex-col justify-center"
+                   style={{ 
+                     border: '2px solid var(--sage-green)',
+                     height: '300px',
+                     minHeight: '300px',
+                     padding: '1.5rem'
+                   }}>
+                <h3 className="text-lg lg:text-xl font-bold font-display mb-3"
+                    style={{ color: 'var(--burgundy)' }}>
+                  Reading & Book Collecting
+                </h3>
+                <p className="text-sm lg:text-base font-body leading-relaxed"
+                   style={{ color: 'var(--charcoal-navy)' }}>
+                  Anna Lea has always been passionate about books. She loves discovering new authors, 
+                  collecting vintage children's books, and spending quiet afternoons immersed in stories 
+                  that inspire her own writing. Her personal library is filled with treasures from 
+                  around the world.
+                </p>
+              </div>
+            </div>
+
+            {/* Activity 2: Gardening & Nature */}
+            <div className="flex flex-col lg:flex-row-reverse gap-6 items-center">
+              <div className="w-full lg:w-1/2">
+                <div className="rounded-2xl overflow-hidden relative"
+                     style={{ 
+                       boxShadow: '0 16px 32px rgba(107, 124, 89, 0.2)',
+                       border: '3px solid var(--sage-green)',
+                       height: '300px',
+                       minHeight: '300px'
+                     }}>
+                  <img 
+                    src="/images/anna-hobbies/gardening.jpg" 
+                    alt="Anna Lea in her garden"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'brightness(1.05)' }}
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-1/2 bg-white rounded-2xl shadow-lg flex flex-col justify-center"
+                   style={{ 
+                     border: '2px solid var(--sage-green)',
+                     height: '300px',
+                     minHeight: '300px',
+                     padding: '1.5rem'
+                   }}>
+                <h3 className="text-lg lg:text-xl font-bold font-display mb-3"
+                    style={{ color: 'var(--burgundy)' }}>
+                  Gardening & Nature
+                </h3>
+                <p className="text-sm lg:text-base font-body leading-relaxed"
+                   style={{ color: 'var(--charcoal-navy)' }}>
+                  Finding peace in God's creation, Anna Lea tends to her garden with the same care 
+                  she brings to her writing. She grows herbs, flowers, and vegetables, often drawing 
+                  spiritual parallels between gardening and faith that inspire her biblical stories.
+                </p>
+              </div>
+            </div>
+
+            {/* Activity 3: Writing & Storytelling */}
+            <div className="flex flex-col lg:flex-row gap-6 items-center">
+              <div className="w-full lg:w-1/2">
+                <div className="rounded-2xl overflow-hidden relative"
+                     style={{ 
+                       boxShadow: '0 16px 32px rgba(107, 124, 89, 0.2)',
+                       border: '3px solid var(--sage-green)',
+                       height: '300px',
+                       minHeight: '300px'
+                     }}>
+                  <img 
+                    src="/images/anna-hobbies/writing.jpg" 
+                    alt="Anna Lea writing at her desk"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'brightness(1.05)' }}
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-1/2 bg-white rounded-2xl shadow-lg flex flex-col justify-center"
+                   style={{ 
+                     border: '2px solid var(--sage-green)',
+                     height: '300px',
+                     minHeight: '300px',
+                     padding: '1.5rem'
+                   }}>
+                <h3 className="text-lg lg:text-xl font-bold font-display mb-3"
+                    style={{ color: 'var(--burgundy)' }}>
+                  Writing & Storytelling
+                </h3>
+                <p className="text-sm lg:text-base font-body leading-relaxed"
+                   style={{ color: 'var(--charcoal-navy)' }}>
+                  Beyond her published works, Anna Lea enjoys crafting new stories and sharing them 
+                  with children at local events. She believes every story has the power to teach, 
+                  heal, and inspire, making storytelling both her passion and her ministry.
+                </p>
+              </div>
+            </div>
+
+            {/* Activity 4: Cooking & Family Meals */}
+            <div className="flex flex-col lg:flex-row-reverse gap-6 items-center">
+              <div className="w-full lg:w-1/2">
+                <div className="rounded-2xl overflow-hidden relative"
+                     style={{ 
+                       boxShadow: '0 16px 32px rgba(107, 124, 89, 0.2)',
+                       border: '3px solid var(--sage-green)',
+                       height: '300px',
+                       minHeight: '300px'
+                     }}>
+                  <img 
+                    src="/images/anna-hobbies/cooking.jpg" 
+                    alt="Anna Lea cooking with family"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'brightness(1.05)' }}
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-1/2 bg-white rounded-2xl shadow-lg flex flex-col justify-center"
+                   style={{ 
+                     border: '2px solid var(--sage-green)',
+                     height: '300px',
+                     minHeight: '300px',
+                     padding: '1.5rem'
+                   }}>
+                <h3 className="text-lg lg:text-xl font-bold font-display mb-3"
+                    style={{ color: 'var(--burgundy)' }}>
+                  Cooking & Family Meals
+                </h3>
+                <p className="text-sm lg:text-base font-body leading-relaxed"
+                   style={{ color: 'var(--charcoal-navy)' }}>
+                  Anna Lea treasures time in the kitchen, preparing meals that bring family together. 
+                  She loves trying new recipes from different cultures and believes that sharing food 
+                  is one of the most beautiful ways to show love and build community.
+                </p>
+              </div>
+            </div>
+
+            {/* Activity 5: Faith & Community Service */}
+            <div className="flex flex-col lg:flex-row gap-6 items-center lg:col-span-2 justify-center">
+              <div className="w-full lg:w-1/4">
+                <div className="rounded-2xl overflow-hidden relative"
+                     style={{ 
+                       boxShadow: '0 16px 32px rgba(107, 124, 89, 0.2)',
+                       border: '3px solid var(--sage-green)',
+                       height: '300px',
+                       minHeight: '300px'
+                     }}>
+                  <img 
+                    src="/images/anna-hobbies/community.jpg" 
+                    alt="Anna Lea serving in community"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'brightness(1.05)' }}
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-1/4 bg-white rounded-2xl shadow-lg flex flex-col justify-center"
+                   style={{ 
+                     border: '2px solid var(--sage-green)',
+                     height: '300px',
+                     minHeight: '300px',
+                     padding: '1.5rem'
+                   }}>
+                <h3 className="text-lg lg:text-xl font-bold font-display mb-3"
+                    style={{ color: 'var(--burgundy)' }}>
+                  Faith & Community Service
+                </h3>
+                <p className="text-sm lg:text-base font-body leading-relaxed"
+                   style={{ color: 'var(--charcoal-navy)' }}>
+                  Active in her local church and community, Anna Lea volunteers with children's 
+                  programs and literacy initiatives. Her faith guides everything she does, 
+                  from her writing to her service, always seeking ways to share God's love.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
