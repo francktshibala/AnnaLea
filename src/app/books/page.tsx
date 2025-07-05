@@ -106,7 +106,7 @@ export default function BooksPage() {
               </div>
 
               {/* Enhanced Book Details */}
-              <div className="flex flex-col justify-between space-y-8 pl-4 lg:pl-6" style={{ minHeight: '480px' }}>
+              <div className="flex flex-col justify-between space-y-8 pl-6 lg:pl-8" style={{ minHeight: '480px' }}>
                 
                 {/* Synopsis with Better Typography */}
                 <div>
@@ -187,7 +187,7 @@ export default function BooksPage() {
       </section>
 
       {/* Book 2: Sweet Fruit */}
-      <section className="py-16 lg:py-20 mt-16 lg:mt-24" style={{ backgroundColor: 'var(--cream)' }}>
+      <section className="py-16 lg:py-20 mt-20 lg:mt-28" style={{ backgroundColor: 'var(--cream)' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           {/* Professional Book Card Container */}
           <div className="bg-white rounded-2xl border-2 p-8 lg:p-12 transition-all duration-300 hover:shadow-2xl hover:border-opacity-60" 
@@ -217,7 +217,7 @@ export default function BooksPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Enhanced Book Details - Left Side (Reversed) */}
-              <div className="flex flex-col justify-between space-y-8 order-2 lg:order-1 pl-4 lg:pl-6" style={{ minHeight: '480px' }}>
+              <div className="flex flex-col justify-between space-y-8 order-2 lg:order-1 pl-6 lg:pl-8" style={{ minHeight: '480px' }}>
                 
                 {/* Synopsis with Better Typography */}
                 <div>
@@ -321,7 +321,7 @@ export default function BooksPage() {
       </section>
 
       {/* Book 3: A Missionary Widow */}
-      <section className="py-16 lg:py-20 mt-16 lg:mt-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 lg:py-20 mt-20 lg:mt-28" style={{ backgroundColor: 'white' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           {/* Professional Book Card Container */}
           <div className="bg-white rounded-2xl border-2 p-8 lg:p-12 transition-all duration-300 hover:shadow-2xl hover:border-opacity-60" 
@@ -374,7 +374,7 @@ export default function BooksPage() {
               </div>
 
               {/* Enhanced Book Details */}
-              <div className="flex flex-col justify-between space-y-8 pl-4 lg:pl-6" style={{ minHeight: '480px' }}>
+              <div className="flex flex-col justify-between space-y-8 pl-6 lg:pl-8" style={{ minHeight: '480px' }}>
                 
                 {/* Synopsis with Better Typography */}
                 <div>
