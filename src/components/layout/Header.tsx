@@ -40,6 +40,14 @@ export const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <a
+              href="/"
+              className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
+            >
+              Home
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                    style={{ backgroundColor: 'var(--sage-green)' }}></span>
+            </a>
+            <a
               href="/about"
               className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
             >
@@ -52,22 +60,6 @@ export const Header: React.FC = () => {
               className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
             >
               Books
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: 'var(--sage-green)' }}></span>
-            </a>
-            <a
-              href="/biblical-stories"
-              className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
-            >
-              Biblical Stories
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                    style={{ backgroundColor: 'var(--sage-green)' }}></span>
-            </a>
-            <a
-              href="/missionary-tales"
-              className="relative px-4 py-2 transition-all duration-300 font-medium group font-sans text-secondary hover:text-accent"
-            >
-              Missionary Tales
               <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
                     style={{ backgroundColor: 'var(--sage-green)' }}></span>
             </a>
@@ -174,6 +166,13 @@ export const Header: React.FC = () => {
           <div className="md:hidden py-4 border-t" style={{ borderColor: 'var(--border-light)' }}>
             <div className="flex flex-col space-y-4">
               <a
+                href="/"
+                className="font-sans text-secondary hover:text-accent transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
                 href="/about"
                 className="font-sans text-secondary hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
@@ -186,20 +185,6 @@ export const Header: React.FC = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Books
-              </a>
-              <a
-                href="/biblical-stories"
-                className="font-sans text-secondary hover:text-accent transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Biblical Stories
-              </a>
-              <a
-                href="/missionary-tales"
-                className="font-sans text-secondary hover:text-accent transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Missionary Tales
               </a>
               <a
                 href="/news"
