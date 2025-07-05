@@ -5,6 +5,7 @@ import { ReviewStats } from '@/components/reviews/ReviewStats';
 import { BookStats } from '@/components/reviews/BookStats';
 import { ReviewFilter, FilterOptions } from '@/components/reviews/ReviewFilter';
 import ReviewCard from '@/components/reviews/ReviewCard';
+import { HeroImage } from '@/components/hero/HeroImage';
 import { sampleReviews, overallStats, getHighlightedReviews, getRecentReviews } from '@/data/reviews';
 import { Review } from '@/types';
 
@@ -62,8 +63,13 @@ export default function ReviewsPage() {
   };
   
   return (
-    <main className="min-h-screen pt-20" style={{ backgroundColor: 'var(--cream)' }}>
-      <div className="max-w-7xl mx-auto px-8 py-16">
+    <main className="min-h-screen">
+      {/* Hero Section - Consistent with other pages */}
+      <HeroImage variant="biblical-pattern" />
+      
+      {/* Reviews Content Section */}
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
+        <div className="max-w-7xl mx-auto px-8">
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold font-display text-primary mb-4">
@@ -160,7 +166,8 @@ export default function ReviewsPage() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }
