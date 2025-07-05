@@ -27,35 +27,35 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   const baseClasses = "bg-bg-primary rounded-lg border border-border-light transition-all duration-300 hover:border-border-medium hover:shadow-light";
   
   const variantClasses = {
-    default: "p-6",
-    highlighted: "p-8 bg-gradient-to-br from-bg-primary to-bg-secondary border-sage-green shadow-medium",
-    compact: "p-4"
+    default: "p-8",
+    highlighted: "p-10 bg-gradient-to-br from-bg-primary to-bg-secondary border-sage-green shadow-medium",
+    compact: "p-6"
   };
 
   const titleClasses = {
-    default: "text-lg font-semibold text-text-primary mb-2",
-    highlighted: "text-xl font-bold text-text-primary mb-3",
-    compact: "text-base font-semibold text-text-primary mb-2"
+    default: "text-xl font-semibold text-text-primary mb-3",
+    highlighted: "text-2xl font-bold text-text-primary mb-4",
+    compact: "text-lg font-semibold text-text-primary mb-2"
   };
 
   const contentClasses = {
-    default: "text-text-secondary leading-relaxed mb-4",
-    highlighted: "text-text-secondary leading-relaxed mb-6 text-lg",
-    compact: "text-text-secondary leading-relaxed mb-3 text-sm"
+    default: "text-text-secondary leading-loose mb-6",
+    highlighted: "text-text-secondary leading-loose mb-8 text-lg",
+    compact: "text-text-secondary leading-relaxed mb-4 text-sm"
   };
 
   return (
     <div className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
       {/* Header with rating and title */}
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between mb-5">
         <div className="flex-1">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-4">
             <StarRating 
               rating={review.rating} 
               size={variant === 'highlighted' ? 'lg' : variant === 'compact' ? 'sm' : 'md'}
             />
             {review.isVerifiedPurchase && (
-              <span className="text-xs text-sage-green font-medium bg-sage-green/10 px-2 py-1 rounded-full">
+              <span className="text-xs text-sage-green font-medium bg-sage-green/10 px-3 py-1.5 rounded-full">
                 Verified Purchase
               </span>
             )}
