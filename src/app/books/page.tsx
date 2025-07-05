@@ -141,7 +141,7 @@ export default function BooksPage() {
               {/* Purchase Button */}
               <div className="pt-6">
                 <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                  className="px-8 py-4 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
                     backgroundColor: 'var(--sage-green)',
                     backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
@@ -230,7 +230,7 @@ export default function BooksPage() {
               {/* Purchase Button */}
               <div className="pt-6">
                 <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                  className="px-8 py-4 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
                     backgroundColor: 'var(--sage-green)',
                     backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
@@ -359,7 +359,7 @@ export default function BooksPage() {
               {/* Purchase Button */}
               <div className="pt-6">
                 <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                  className="px-8 py-4 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
                     backgroundColor: 'var(--sage-green)',
                     backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
