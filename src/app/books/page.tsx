@@ -275,6 +275,22 @@ export default function BooksPage() {
       {/* Book 3: A Missionary Widow */}
       <section className="py-16 lg:py-20 mt-8 lg:mt-12" style={{ backgroundColor: 'white' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          {/* Title and Subtitle - Above Cover */}
+          <div className="text-center mb-12">
+            <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              A Missionary Widow
+            </h2>
+            <h3 className="text-lg lg:text-xl font-semibold font-display mb-4"
+                style={{ color: 'var(--burgundy)' }}>
+              The Enduring Power of Faith and Love
+            </h3>
+            <p className="text-base lg:text-lg font-body italic leading-relaxed"
+               style={{ color: 'var(--sage-green)' }}>
+              "A Heartfelt Adult Memoir About Faith, Grief, and Resilience"
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
             {/* Book Cover - Left Side */}
@@ -299,21 +315,6 @@ export default function BooksPage() {
 
             {/* Book Details - Right Side */}
             <div className="flex flex-col justify-between" style={{ minHeight: '480px' }}>
-              {/* Title and Subtitle */}
-              <div>
-                <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
-                    style={{ color: 'var(--charcoal-navy)' }}>
-                  A Missionary Widow
-                </h2>
-                <h3 className="text-lg lg:text-xl font-semibold font-display mb-4"
-                    style={{ color: 'var(--burgundy)' }}>
-                  The Enduring Power of Faith and Love
-                </h3>
-                <p className="text-base lg:text-lg font-body italic leading-relaxed"
-                   style={{ color: 'var(--sage-green)' }}>
-                  "A Heartfelt Adult Memoir About Faith, Grief, and Resilience"
-                </p>
-              </div>
 
               {/* Synopsis */}
               <div>
