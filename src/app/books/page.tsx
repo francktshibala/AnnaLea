@@ -141,17 +141,17 @@ export default function BooksPage() {
               {/* Purchase Button */}
               <div className="pt-6">
                 <button 
-                  className="w-full px-8 py-4 rounded-xl font-sans font-bold text-white text-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
+                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
-                    backgroundColor: '#FF9500',
-                    backgroundImage: 'linear-gradient(135deg, #FF9500 0%, #FF8F00 100%)',
-                    boxShadow: '0 8px 24px rgba(255, 149, 0, 0.4)',
-                    border: '2px solid #FF8F00'
+                    backgroundColor: 'var(--sage-green)',
+                    backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
+                    boxShadow: '0 8px 24px rgba(107, 124, 89, 0.4)',
+                    border: '2px solid #5A6B47'
                   }}
                   onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.5 5.2c-0.1-0.3-0.4-0.5-0.7-0.4L5.8 6.4c-0.3 0.1-0.5 0.4-0.4 0.7L6.6 9.6c0.1 0.3 0.4 0.5 0.7 0.4l3.2-0.8v3.6c0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1v-3.6l3.2 0.8c0.3 0.1 0.6-0.1 0.7-0.4l1.2-2.5c0.1-0.3-0.1-0.6-0.4-0.7zm-7 7.6c0 0.6-0.5 1.1-1.1 1.1s-1.1-0.5-1.1-1.1v-2.7l2.2-0.6v3.3z"/>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                   </svg>
                   Buy on Amazon
                 </button>
@@ -230,17 +230,17 @@ export default function BooksPage() {
               {/* Purchase Button */}
               <div className="pt-6">
                 <button 
-                  className="w-full px-8 py-4 rounded-xl font-sans font-bold text-white text-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
+                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
-                    backgroundColor: '#FF9500',
-                    backgroundImage: 'linear-gradient(135deg, #FF9500 0%, #FF8F00 100%)',
-                    boxShadow: '0 8px 24px rgba(255, 149, 0, 0.4)',
-                    border: '2px solid #FF8F00'
+                    backgroundColor: 'var(--sage-green)',
+                    backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
+                    boxShadow: '0 8px 24px rgba(107, 124, 89, 0.4)',
+                    border: '2px solid #5A6B47'
                   }}
                   onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.5 5.2c-0.1-0.3-0.4-0.5-0.7-0.4L5.8 6.4c-0.3 0.1-0.5 0.4-0.4 0.7L6.6 9.6c0.1 0.3 0.4 0.5 0.7 0.4l3.2-0.8v3.6c0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1v-3.6l3.2 0.8c0.3 0.1 0.6-0.1 0.7-0.4l1.2-2.5c0.1-0.3-0.1-0.6-0.4-0.7zm-7 7.6c0 0.6-0.5 1.1-1.1 1.1s-1.1-0.5-1.1-1.1v-2.7l2.2-0.6v3.3z"/>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                   </svg>
                   Buy on Amazon
                 </button>
@@ -359,17 +359,17 @@ export default function BooksPage() {
               {/* Purchase Button */}
               <div className="pt-6">
                 <button 
-                  className="w-full px-8 py-4 rounded-xl font-sans font-bold text-white text-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
+                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white text-base transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                   style={{ 
-                    backgroundColor: '#FF9500',
-                    backgroundImage: 'linear-gradient(135deg, #FF9500 0%, #FF8F00 100%)',
-                    boxShadow: '0 8px 24px rgba(255, 149, 0, 0.4)',
-                    border: '2px solid #FF8F00'
+                    backgroundColor: 'var(--sage-green)',
+                    backgroundImage: 'linear-gradient(135deg, var(--sage-green) 0%, #5A6B47 100%)',
+                    boxShadow: '0 8px 24px rgba(107, 124, 89, 0.4)',
+                    border: '2px solid #5A6B47'
                   }}
                   onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.5 5.2c-0.1-0.3-0.4-0.5-0.7-0.4L5.8 6.4c-0.3 0.1-0.5 0.4-0.4 0.7L6.6 9.6c0.1 0.3 0.4 0.5 0.7 0.4l3.2-0.8v3.6c0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1v-3.6l3.2 0.8c0.3 0.1 0.6-0.1 0.7-0.4l1.2-2.5c0.1-0.3-0.1-0.6-0.4-0.7zm-7 7.6c0 0.6-0.5 1.1-1.1 1.1s-1.1-0.5-1.1-1.1v-2.7l2.2-0.6v3.3z"/>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                   </svg>
                   Buy on Amazon
                 </button>
