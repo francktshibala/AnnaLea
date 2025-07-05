@@ -24,12 +24,12 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
     });
   };
 
-  const baseClasses = "bg-bg-primary rounded-lg border border-border-light transition-all duration-300 hover:border-border-medium hover:shadow-light";
+  const baseClasses = "bg-white rounded-xl transition-all duration-300";
   
   const variantClasses = {
-    default: "p-8",
-    highlighted: "p-10 bg-gradient-to-br from-bg-primary to-bg-secondary border-sage-green shadow-medium",
-    compact: "p-6"
+    default: "p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:border-sage-green/20",
+    highlighted: "p-10 bg-gradient-to-br from-white to-cream shadow-xl border-2 hover:shadow-2xl border-sage-green/30",
+    compact: "p-6 shadow-md border border-gray-100 hover:shadow-lg"
   };
 
   const titleClasses = {
