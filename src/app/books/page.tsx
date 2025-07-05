@@ -59,12 +59,13 @@ export default function BooksPage() {
             
             {/* Book Cover - Left Side */}
             <div className="flex justify-center lg:justify-start">
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full">
                 <div className="rounded-2xl overflow-hidden relative"
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25)',
                        border: '3px solid var(--sage-green)',
-                       aspectRatio: '3/4'
+                       width: '320px',
+                       height: '480px'
                      }}>
                   <img 
                     src="/images/books-detailed/isaiah-tree-detailed.jpg" 
@@ -77,7 +78,7 @@ export default function BooksPage() {
             </div>
 
             {/* Book Details - Right Side */}
-            <div className="space-y-6">
+            <div className="flex flex-col justify-between" style={{ minHeight: '480px' }}>
               {/* Title and Subtitle */}
               <div>
                 <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
@@ -137,28 +138,22 @@ export default function BooksPage() {
                 </div>
               </div>
 
-              {/* Purchase Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              {/* Purchase Button */}
+              <div className="pt-6">
                 <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white transition-all duration-200 hover:transform hover:scale-105"
+                  className="w-full px-8 py-4 rounded-xl font-sans font-bold text-white text-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
                   style={{ 
                     backgroundColor: '#FF9500',
-                    boxShadow: '0 4px 12px rgba(255, 149, 0, 0.3)'
+                    backgroundImage: 'linear-gradient(135deg, #FF9500 0%, #FF8F00 100%)',
+                    boxShadow: '0 8px 24px rgba(255, 149, 0, 0.4)',
+                    border: '2px solid #FF8F00'
                   }}
                   onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 5.2c-0.1-0.3-0.4-0.5-0.7-0.4L5.8 6.4c-0.3 0.1-0.5 0.4-0.4 0.7L6.6 9.6c0.1 0.3 0.4 0.5 0.7 0.4l3.2-0.8v3.6c0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1v-3.6l3.2 0.8c0.3 0.1 0.6-0.1 0.7-0.4l1.2-2.5c0.1-0.3-0.1-0.6-0.4-0.7zm-7 7.6c0 0.6-0.5 1.1-1.1 1.1s-1.1-0.5-1.1-1.1v-2.7l2.2-0.6v3.3z"/>
+                  </svg>
                   Buy on Amazon
-                </button>
-                <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold border-2 transition-all duration-200 hover:transform hover:scale-105"
-                  style={{ 
-                    color: 'var(--sage-green)',
-                    borderColor: 'var(--sage-green)',
-                    backgroundColor: 'transparent'
-                  }}
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
-                >
-                  Order Local
                 </button>
               </div>
             </div>
@@ -172,7 +167,7 @@ export default function BooksPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
             {/* Book Details - Left Side (Reversed) */}
-            <div className="space-y-6 order-2 lg:order-1">
+            <div className="flex flex-col justify-between order-2 lg:order-1" style={{ minHeight: '480px' }}>
               {/* Title and Subtitle */}
               <div>
                 <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
@@ -232,40 +227,35 @@ export default function BooksPage() {
                 </div>
               </div>
 
-              {/* Purchase Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              {/* Purchase Button */}
+              <div className="pt-6">
                 <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white transition-all duration-200 hover:transform hover:scale-105"
+                  className="w-full px-8 py-4 rounded-xl font-sans font-bold text-white text-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
                   style={{ 
                     backgroundColor: '#FF9500',
-                    boxShadow: '0 4px 12px rgba(255, 149, 0, 0.3)'
+                    backgroundImage: 'linear-gradient(135deg, #FF9500 0%, #FF8F00 100%)',
+                    boxShadow: '0 8px 24px rgba(255, 149, 0, 0.4)',
+                    border: '2px solid #FF8F00'
                   }}
                   onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 5.2c-0.1-0.3-0.4-0.5-0.7-0.4L5.8 6.4c-0.3 0.1-0.5 0.4-0.4 0.7L6.6 9.6c0.1 0.3 0.4 0.5 0.7 0.4l3.2-0.8v3.6c0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1v-3.6l3.2 0.8c0.3 0.1 0.6-0.1 0.7-0.4l1.2-2.5c0.1-0.3-0.1-0.6-0.4-0.7zm-7 7.6c0 0.6-0.5 1.1-1.1 1.1s-1.1-0.5-1.1-1.1v-2.7l2.2-0.6v3.3z"/>
+                  </svg>
                   Buy on Amazon
-                </button>
-                <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold border-2 transition-all duration-200 hover:transform hover:scale-105"
-                  style={{ 
-                    color: 'var(--sage-green)',
-                    borderColor: 'var(--sage-green)',
-                    backgroundColor: 'transparent'
-                  }}
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
-                >
-                  Order Local
                 </button>
               </div>
             </div>
 
             {/* Book Cover - Right Side */}
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full">
                 <div className="rounded-2xl overflow-hidden relative"
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25)',
                        border: '3px solid var(--sage-green)',
-                       aspectRatio: '3/4'
+                       width: '320px',
+                       height: '480px'
                      }}>
                   <img 
                     src="/images/books-detailed/sweet-fruit-detailed.jpg" 
@@ -287,12 +277,13 @@ export default function BooksPage() {
             
             {/* Book Cover - Left Side */}
             <div className="flex justify-center lg:justify-start">
-              <div className="relative w-full max-w-sm">
+              <div className="relative w-full">
                 <div className="rounded-2xl overflow-hidden relative"
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.25)',
                        border: '3px solid var(--sage-green)',
-                       aspectRatio: '3/4'
+                       width: '320px',
+                       height: '480px'
                      }}>
                   <img 
                     src="/images/books-detailed/missionary-widow-detailed.png" 
@@ -305,7 +296,7 @@ export default function BooksPage() {
             </div>
 
             {/* Book Details - Right Side */}
-            <div className="space-y-6">
+            <div className="flex flex-col justify-between" style={{ minHeight: '480px' }}>
               {/* Title and Subtitle */}
               <div>
                 <h2 className="text-2xl lg:text-3xl font-black font-display mb-2 tracking-tight leading-tight"
@@ -365,28 +356,22 @@ export default function BooksPage() {
                 </div>
               </div>
 
-              {/* Purchase Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              {/* Purchase Button */}
+              <div className="pt-6">
                 <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold text-white transition-all duration-200 hover:transform hover:scale-105"
+                  className="w-full px-8 py-4 rounded-xl font-sans font-bold text-white text-lg transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3"
                   style={{ 
                     backgroundColor: '#FF9500',
-                    boxShadow: '0 4px 12px rgba(255, 149, 0, 0.3)'
+                    backgroundImage: 'linear-gradient(135deg, #FF9500 0%, #FF8F00 100%)',
+                    boxShadow: '0 8px 24px rgba(255, 149, 0, 0.4)',
+                    border: '2px solid #FF8F00'
                   }}
                   onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.5 5.2c-0.1-0.3-0.4-0.5-0.7-0.4L5.8 6.4c-0.3 0.1-0.5 0.4-0.4 0.7L6.6 9.6c0.1 0.3 0.4 0.5 0.7 0.4l3.2-0.8v3.6c0 1.7 1.4 3.1 3.1 3.1s3.1-1.4 3.1-3.1v-3.6l3.2 0.8c0.3 0.1 0.6-0.1 0.7-0.4l1.2-2.5c0.1-0.3-0.1-0.6-0.4-0.7zm-7 7.6c0 0.6-0.5 1.1-1.1 1.1s-1.1-0.5-1.1-1.1v-2.7l2.2-0.6v3.3z"/>
+                  </svg>
                   Buy on Amazon
-                </button>
-                <button 
-                  className="px-6 py-3 rounded-lg font-sans font-semibold border-2 transition-all duration-200 hover:transform hover:scale-105"
-                  style={{ 
-                    color: 'var(--sage-green)',
-                    borderColor: 'var(--sage-green)',
-                    backgroundColor: 'transparent'
-                  }}
-                  onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
-                >
-                  Order Local
                 </button>
               </div>
             </div>
