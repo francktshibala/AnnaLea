@@ -1,4 +1,4 @@
-# Anna Lea's Author Website Project
+\\# Anna Lea's Author Website Project
 
 ## Project Overview
 This project is a professional author website for Anna Lea, featuring elegant design, custom illustrations, and a sophisticated author-focused experience. The site emphasizes Anna Lea's personal story, books, and connection with readers through clean, literary aesthetics.

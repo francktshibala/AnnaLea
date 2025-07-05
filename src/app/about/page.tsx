@@ -15,7 +15,7 @@ export default function AboutPage() {
       <HeroImage variant="biblical-pattern" />
       
       {/* Row 2: About Anna Lea - Photo + Text Card */}
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32" style={{ backgroundColor: 'var(--cream)' }}>
+      <section className="pt-20 pb-20 lg:pt-24 lg:pb-32 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch justify-center">
             
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 </div>
                 
                 {/* Card Content */}
-                <div className="space-y-3 text-sm lg:text-sm xl:text-base font-body leading-relaxed flex-grow text-center lg:text-left">
+                <div className="space-y-3 text-sm lg:text-sm xl:text-base font-body leading-relaxed flex-grow text-center lg:text-left overflow-y-auto">
                   <p style={{ color: 'var(--charcoal-navy)' }}>
                     Anna Lea Cannon is an American author and educator with a gift for making spiritual truths easy for children to understand.
                   </p>
@@ -117,10 +117,10 @@ export default function AboutPage() {
                   </div>
                   
                   {/* Mission Statement */}
-                  <div className="mt-4 p-3 rounded-lg"
+                  <div className="mt-3 p-2 rounded-lg"
                        style={{ backgroundColor: 'var(--sage-green)', opacity: '0.1' }}>
-                    <p className="font-semibold text-sm lg:text-base text-center" style={{ color: 'var(--sage-green)' }}>
-                      Her mission is simple: to help families share faith-based stories that make sense to kids.
+                    <p className="font-semibold text-xs lg:text-sm text-center" style={{ color: 'var(--sage-green)' }}>
+                      Her mission: help families share faith-based stories that make sense to kids.
                     </p>
                   </div>
                 </div>
