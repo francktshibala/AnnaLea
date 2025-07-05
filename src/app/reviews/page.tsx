@@ -67,56 +67,80 @@ export default function ReviewsPage() {
       {/* Hero Section - Consistent with other pages */}
       <HeroImage variant="biblical-pattern" />
       
-      {/* Reviews Content Section */}
+      {/* Page Header Section */}
       <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
-        <div className="max-w-7xl mx-auto px-8">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold font-display text-primary mb-4">
-            Reader Reviews
-          </h1>
-          <p className="text-xl text-secondary font-body max-w-2xl mx-auto mb-8">
-            See what readers are saying about Anna Lea's inspiring Christian stories
-          </p>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display mb-6 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              Reader Reviews
+            </h1>
+            <div className="w-20 h-1 rounded-full mx-auto mb-8"
+                 style={{ backgroundColor: 'var(--burgundy)' }}></div>
+            <p className="text-lg lg:text-xl font-body leading-relaxed max-w-4xl mx-auto"
+               style={{ color: 'var(--charcoal-navy)' }}>
+              See what readers are saying about Anna Lea's inspiring Christian stories
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Overall Stats Dashboard */}
-        <div className="mb-16">
+      {/* Overall Stats Dashboard Section */}
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <ReviewStats stats={overallStats} />
         </div>
+      </section>
 
-        {/* Book-by-Book Stats */}
-        <div className="mb-16">
+      {/* Book-by-Book Stats Section */}
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <BookStats />
         </div>
+      </section>
 
-        {/* Highlighted Reviews Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold font-display text-primary text-center mb-8">
-            Featured Reviews
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Featured Reviews Section */}
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-display mb-6 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              Featured Reviews
+            </h2>
+            <div className="w-16 h-1 rounded-full mx-auto mb-8"
+                 style={{ backgroundColor: 'var(--sage-green)' }}></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {highlightedReviews.map((review) => (
               <ReviewCard key={review.id} review={review} variant="highlighted" />
             ))}
           </div>
         </div>
+      </section>
 
-        {/* All Reviews with Filtering */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold font-display text-primary text-center mb-8">
-            All Reviews
-          </h2>
+      {/* All Reviews with Filtering Section */}
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-display mb-6 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              All Reviews
+            </h2>
+            <div className="w-16 h-1 rounded-full mx-auto mb-8"
+                 style={{ backgroundColor: 'var(--burgundy)' }}></div>
+          </div>
           
           {/* Filter Component */}
-          <ReviewFilter
-            onFilterChange={handleFilterChange}
-            totalReviews={sampleReviews.length}
-            filteredCount={filteredReviews.length}
-          />
+          <div className="mb-12">
+            <ReviewFilter
+              onFilterChange={handleFilterChange}
+              totalReviews={sampleReviews.length}
+              filteredCount={filteredReviews.length}
+            />
+          </div>
 
           {/* Filtered Reviews Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {filteredReviews.length > 0 ? (
               filteredReviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />
@@ -134,38 +158,42 @@ export default function ReviewsPage() {
             )}
           </div>
         </div>
+      </section>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold font-display text-primary mb-4">
-              Share Your Review
-            </h3>
-            <p className="text-secondary font-body mb-6">
-              Have you read one of Anna Lea's books? We'd love to hear your thoughts and how the story impacted your faith journey.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 text-white"
-                style={{ backgroundColor: 'var(--sage-green)' }}
-              >
-                Write a Review
-              </a>
-              <a
-                href="/books"
-                className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 border-2"
-                style={{ 
-                  borderColor: 'var(--sage-green)',
-                  color: 'var(--sage-green)',
-                  backgroundColor: 'transparent'
-                }}
-              >
-                View All Books
-              </a>
+      {/* Call to Action Section */}
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="text-center">
+            <div className="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto border-2"
+                 style={{ borderColor: 'var(--sage-green)' }}>
+              <h3 className="text-2xl font-bold font-display text-primary mb-4">
+                Share Your Review
+              </h3>
+              <p className="text-secondary font-body mb-6">
+                Have you read one of Anna Lea's books? We'd love to hear your thoughts and how the story impacted your faith journey.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/contact"
+                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 text-white"
+                  style={{ backgroundColor: 'var(--sage-green)' }}
+                >
+                  Write a Review
+                </a>
+                <a
+                  href="/books"
+                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 border-2"
+                  style={{ 
+                    borderColor: 'var(--sage-green)',
+                    color: 'var(--sage-green)',
+                    backgroundColor: 'transparent'
+                  }}
+                >
+                  View All Books
+                </a>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
     </main>
