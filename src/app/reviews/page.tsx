@@ -161,7 +161,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 lg:py-20 mt-24 lg:mt-32" style={{ backgroundColor: 'white' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="text-center">
             <div className="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto border-2"
@@ -174,19 +174,27 @@ export default function ReviewsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="/contact"
-                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 text-white"
+                  href="mailto:contact@anna-lea.com?subject=Book Review Submission&body=Hi Anna Lea,%0D%0A%0D%0AI'd like to share my review of your book:%0D%0A%0D%0ABook Title: %0D%0ARating (1-5 stars): %0D%0AReview: %0D%0A%0D%0AThank you for your inspiring stories!%0D%0A%0D%0ABest regards,"
+                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 text-white hover:opacity-90"
                   style={{ backgroundColor: 'var(--sage-green)' }}
                 >
                   Write a Review
                 </a>
                 <a
                   href="/books"
-                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 border-2"
+                  className="px-6 py-3 rounded-lg font-medium transition-colors duration-200 border-2 hover:text-white hover:bg-sage-green"
                   style={{ 
                     borderColor: 'var(--sage-green)',
                     color: 'var(--sage-green)',
                     backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--sage-green)';
+                    e.currentTarget.style.color = 'white';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = 'var(--sage-green)';
                   }}
                 >
                   View All Books
