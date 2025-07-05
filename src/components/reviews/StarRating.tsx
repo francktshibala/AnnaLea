@@ -22,9 +22,9 @@ const StarRating: React.FC<StarRatingProps> = ({
   const emptyStars = maxRating - fullStars - (hasHalfStar ? 1 : 0);
 
   const sizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-5 h-5',
-    lg: 'w-6 h-6',
+    sm: 'w-5 h-5',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8',
   };
 
   const textSizeClasses = {
@@ -35,12 +35,13 @@ const StarRating: React.FC<StarRatingProps> = ({
 
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-0.5">
         {/* Full stars */}
         {[...Array(fullStars)].map((_, index) => (
           <svg
             key={`full-${index}`}
-            className={`${sizeClasses[size]} text-golden-honey fill-current`}
+            className={`${sizeClasses[size]} fill-current drop-shadow-sm`}
+            style={{ color: 'var(--golden-honey)' }}
             viewBox="0 0 24 24"
           >
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -51,14 +52,15 @@ const StarRating: React.FC<StarRatingProps> = ({
         {hasHalfStar && (
           <div className="relative">
             <svg
-              className={`${sizeClasses[size]} text-gray-300 fill-current`}
+              className={`${sizeClasses[size]} text-gray-200 fill-current drop-shadow-sm`}
               viewBox="0 0 24 24"
             >
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
             <div className="absolute inset-0 overflow-hidden" style={{ width: '50%' }}>
               <svg
-                className={`${sizeClasses[size]} text-golden-honey fill-current`}
+                className={`${sizeClasses[size]} fill-current drop-shadow-sm`}
+                style={{ color: 'var(--golden-honey)' }}
                 viewBox="0 0 24 24"
               >
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -71,7 +73,7 @@ const StarRating: React.FC<StarRatingProps> = ({
         {[...Array(emptyStars)].map((_, index) => (
           <svg
             key={`empty-${index}`}
-            className={`${sizeClasses[size]} text-gray-300 fill-current`}
+            className={`${sizeClasses[size]} text-gray-200 fill-current drop-shadow-sm`}
             viewBox="0 0 24 24"
           >
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
