@@ -4,6 +4,7 @@ import React, { useState, lazy, Suspense } from 'react';
 import { Button } from '@/components/ui';
 import { BookCard } from '@/components/book/BookCardClient';
 import { featuredBooks } from '@/data/books';
+import { HeroImage } from '@/components/hero/HeroImage';
 
 // Dynamic import for BookPreviewModal - loads only when needed
 const BookPreviewModal = lazy(() => 
@@ -28,21 +29,26 @@ export default function BooksPage() {
   };
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen">
+      {/* Hero Section - Consistent with Home and About pages */}
+      <HeroImage variant="nature-inspired" />
+      
       {/* Page Header */}
-      <section style={{ 
-        backgroundColor: 'var(--cream)',
-        paddingTop: 'var(--space-16)',
-        paddingBottom: 'var(--space-16)'
-      }}>
-        <div className="max-w-6xl mx-auto px-8 text-center">
-          <h1 className="text-5xl font-bold font-display text-primary mb-6">
-            Anna Lea's Books
-          </h1>
-          <p className="text-xl text-secondary font-body max-w-3xl mx-auto">
-            Discover inspirational Christian stories that weave together faith, family, and history 
-            in captivating narratives that touch hearts and strengthen faith communities worldwide.
-          </p>
+      <section className="py-16 lg:py-20 mt-16 lg:mt-20" style={{ backgroundColor: 'var(--cream)' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display mb-6 tracking-tight leading-tight"
+                style={{ color: 'var(--charcoal-navy)' }}>
+              Anna Lea's Books
+            </h1>
+            <div className="w-20 h-1 rounded-full mx-auto mb-8"
+                 style={{ backgroundColor: 'var(--burgundy)' }}></div>
+            <p className="text-lg lg:text-xl font-body leading-relaxed max-w-4xl mx-auto"
+               style={{ color: 'var(--charcoal-navy)' }}>
+              Discover inspirational Christian stories that weave together faith, family, and history 
+              in captivating narratives that touch hearts and strengthen faith communities worldwide.
+            </p>
+          </div>
         </div>
       </section>
 
