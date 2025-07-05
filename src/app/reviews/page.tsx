@@ -1,14 +1,65 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { ReviewStats } from '@/components/reviews/ReviewStats';
 import { BookStats } from '@/components/reviews/BookStats';
+import { ReviewFilter, FilterOptions } from '@/components/reviews/ReviewFilter';
 import ReviewCard from '@/components/reviews/ReviewCard';
 import { sampleReviews, overallStats, getHighlightedReviews, getRecentReviews } from '@/data/reviews';
+import { Review } from '@/types';
 
 export default function ReviewsPage() {
+  const [filters, setFilters] = useState<FilterOptions>({
+    bookId: 'all',
+    rating: 0,
+    sortBy: 'date',
+    sortOrder: 'desc'
+  });
+
   const highlightedReviews = getHighlightedReviews();
-  const recentReviews = getRecentReviews(6);
+
+  // Filter and sort reviews based on current filters
+  const filteredReviews = useMemo(() => {
+    let filtered = [...sampleReviews];
+
+    // Filter by book
+    if (filters.bookId !== 'all') {
+      filtered = filtered.filter(review => review.bookId === filters.bookId);
+    }
+
+    // Filter by rating
+    if (filters.rating > 0) {
+      filtered = filtered.filter(review => review.rating >= filters.rating);
+    }
+
+    // Sort reviews
+    filtered.sort((a, b) => {
+      let comparison = 0;
+      
+      switch (filters.sortBy) {
+        case 'date':
+          comparison = new Date(a.date).getTime() - new Date(b.date).getTime();
+          break;
+        case 'rating':
+          comparison = a.rating - b.rating;
+          break;
+        case 'helpful':
+          // For now, prioritize highlighted reviews as "most helpful"
+          const aHelpful = a.isHighlighted ? 1 : 0;
+          const bHelpful = b.isHighlighted ? 1 : 0;
+          comparison = aHelpful - bHelpful;
+          break;
+      }
+
+      return filters.sortOrder === 'asc' ? comparison : -comparison;
+    });
+
+    return filtered;
+  }, [filters]);
+
+  const handleFilterChange = (newFilters: FilterOptions) => {
+    setFilters(newFilters);
+  };
   
   return (
     <main className="min-h-screen pt-20" style={{ backgroundColor: 'var(--cream)' }}>
@@ -40,20 +91,41 @@ export default function ReviewsPage() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {highlightedReviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
+              <ReviewCard key={review.id} review={review} variant="highlighted" />
             ))}
           </div>
         </div>
 
-        {/* Recent Reviews Section */}
+        {/* All Reviews with Filtering */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold font-display text-primary text-center mb-8">
-            Recent Reviews
+            All Reviews
           </h2>
+          
+          {/* Filter Component */}
+          <ReviewFilter
+            onFilterChange={handleFilterChange}
+            totalReviews={sampleReviews.length}
+            filteredCount={filteredReviews.length}
+          />
+
+          {/* Filtered Reviews Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentReviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
+            {filteredReviews.length > 0 ? (
+              filteredReviews.map((review) => (
+                <ReviewCard key={review.id} review={review} />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <div className="text-6xl text-gray-300 mb-4">📝</div>
+                <h3 className="text-xl font-semibold text-secondary mb-2">
+                  No reviews found
+                </h3>
+                <p className="text-secondary">
+                  Try adjusting your filters to see more reviews.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
