@@ -21,7 +21,7 @@ export default function AboutPage() {
             
             {/* Photo Container - Left Side */}
             <div className="flex justify-center lg:justify-center">
-              <div className="relative w-full max-w-md lg:max-w-lg">
+              <div className="relative w-full max-w-md lg:max-w-lg" style={{ margin: '1rem' }}>
                 <div className="rounded-2xl overflow-hidden relative mx-auto"
                      style={{ 
                        boxShadow: '0 20px 40px rgba(107, 124, 89, 0.3)',
