@@ -24,7 +24,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
     });
   };
 
-  const baseClasses = "bg-white rounded-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group";
+  const baseClasses = "bg-white rounded-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group m-4";
   
   const variantClasses = {
     default: "p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:border-sage-green/30 hover:scale-[1.02]",
