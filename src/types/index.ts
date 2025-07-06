@@ -92,12 +92,16 @@ export interface Review {
   id: string;
   bookId: string;
   rating: number; // 1-5 stars
-  title: string;
-  content: string;
-  reviewerName: string;
+  title?: string;
+  content?: string;
+  comment?: string; // For database reviews
+  name?: string; // For database reviews  
+  email?: string; // For database reviews
+  reviewerName?: string;
   reviewerLocation?: string;
   isVerifiedPurchase?: boolean;
   isHighlighted?: boolean; // For featured reviews
+  isUserSubmitted?: boolean; // For visual distinction
   date: string;
 }
 

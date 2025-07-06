@@ -59,10 +59,17 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
                 Verified Purchase
               </span>
             )}
+            {review.isUserSubmitted && (
+              <span className="text-xs text-blue-600 font-medium bg-blue-50 px-3 py-1.5 rounded-full transition-all duration-200 group-hover:bg-blue-100 group-hover:scale-105">
+                Reader Review
+              </span>
+            )}
           </div>
-          <h3 className={`${titleClasses[variant]} font-display`}>
-            {review.title}
-          </h3>
+          {review.title && (
+            <h3 className={`${titleClasses[variant]} font-display`}>
+              {review.title}
+            </h3>
+          )}
         </div>
         
         {variant === 'highlighted' && (
@@ -75,7 +82,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       {/* Review content */}
       <blockquote className={`${contentClasses[variant]} font-body`}>
         <p className="italic text-base leading-relaxed" style={{ color: 'var(--charcoal-navy)' }}>
-          "{review.content}"
+          "{review.content || review.comment}"
         </p>
       </blockquote>
 
@@ -83,7 +90,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
         <div className="flex flex-col gap-1">
           <span className="font-semibold text-base font-display" style={{ color: 'var(--charcoal-navy)' }}>
-            {review.reviewerName}
+            {review.reviewerName || review.name}
           </span>
           {review.reviewerLocation && (
             <span className="text-sm" style={{ color: 'var(--sage-green)' }}>
