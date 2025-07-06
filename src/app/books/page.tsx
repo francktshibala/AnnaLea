@@ -210,7 +210,7 @@ export default function BooksPage() {
       </section>
 
       {/* Book 2: Sweet Fruit */}
-      <section className="py-16 lg:py-20" style={{ backgroundColor: 'var(--cream)', marginTop: '160px' }}>
+      <section className="py-16 lg:py-20" style={{ backgroundColor: 'var(--cream)', marginTop: '89px' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           {/* Professional Book Card Container */}
           <div className="bg-white rounded-2xl border-2 p-8 lg:p-12 transition-all duration-300 hover:shadow-2xl hover:border-opacity-60" 
@@ -344,7 +344,7 @@ export default function BooksPage() {
       </section>
 
       {/* Book 3: A Missionary Widow */}
-      <section className="py-16 lg:py-20" style={{ backgroundColor: 'white', marginTop: '160px' }}>
+      <section className="py-16 lg:py-20" style={{ backgroundColor: 'white', marginTop: '89px' }}>
         <div style={{ maxWidth: '64rem', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
           {/* Professional Book Card Container */}
           <div className="bg-white rounded-2xl border-2 p-8 lg:p-12 transition-all duration-300 hover:shadow-2xl hover:border-opacity-60" 
