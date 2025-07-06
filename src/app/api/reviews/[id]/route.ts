@@ -1,11 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseTyped } from '@/lib/supabase';
+
+// Conditional import to handle missing environment variables during build
+let supabaseTyped: any = null;
+try {
+  const { supabaseTyped: supabase } = require('@/lib/supabase');
+  supabaseTyped = supabase;
+} catch (error) {
+  console.warn('Supabase not configured for delete route - will not work until environment variables are set');
+}
 
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
+    if (!supabaseTyped) {
+      return NextResponse.json(
+        { error: 'Database not configured' },
+        { status: 503 }
+      );
+    }
+
     const reviewId = params.id;
     
     if (!reviewId) {
