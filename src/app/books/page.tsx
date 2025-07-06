@@ -106,7 +106,7 @@ export default function BooksPage() {
               </div>
 
               {/* Enhanced Book Details */}
-              <div className="flex flex-col justify-between space-y-8 pl-6 lg:pl-8 pr-6 lg:pr-8" style={{ minHeight: '480px' }}>
+              <div className="flex flex-col justify-between space-y-8" style={{ minHeight: '480px', paddingLeft: '32px', paddingRight: '32px' }}>
                 
                 {/* Synopsis with Better Typography */}
                 <div>
@@ -240,7 +240,7 @@ export default function BooksPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Enhanced Book Details - Left Side (Reversed) */}
-              <div className="flex flex-col justify-between space-y-8 order-2 lg:order-1 pl-6 lg:pl-8 pr-6 lg:pr-8" style={{ minHeight: '480px' }}>
+              <div className="flex flex-col justify-between space-y-8 order-2 lg:order-1" style={{ minHeight: '480px', paddingLeft: '32px', paddingRight: '32px' }}>
                 
                 {/* Synopsis with Better Typography */}
                 <div>
@@ -397,7 +397,7 @@ export default function BooksPage() {
               </div>
 
               {/* Enhanced Book Details */}
-              <div className="flex flex-col justify-between space-y-8 pl-6 lg:pl-8 pr-6 lg:pr-8" style={{ minHeight: '480px' }}>
+              <div className="flex flex-col justify-between space-y-8" style={{ minHeight: '480px', paddingLeft: '32px', paddingRight: '32px' }}>
                 
                 {/* Synopsis with Better Typography */}
                 <div>
