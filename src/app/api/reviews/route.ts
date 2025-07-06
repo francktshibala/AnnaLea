@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-// Import Supabase client
-import { supabaseTyped } from '@/lib/supabase';
+// Conditional import to handle missing environment variables during build
+let supabaseTyped: any = null;
+try {
+  const { supabaseTyped: supabase } = require('@/lib/supabase');
+  supabaseTyped = supabase;
+} catch (error) {
+  console.warn('Supabase not configured - reviews will not work until environment variables are set');
+}
 
 // Validation schema for review submission
 const reviewSchema = z.object({
@@ -15,6 +21,13 @@ const reviewSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    if (!supabaseTyped) {
+      return NextResponse.json(
+        { error: 'Database not configured' },
+        { status: 503 }
+      );
+    }
+
     console.log('API route called');
     const body = await request.json();
     console.log('Request body:', body);
@@ -81,6 +94,13 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    if (!supabaseTyped) {
+      return NextResponse.json(
+        { error: 'Database not configured', reviews: [] },
+        { status: 503 }
+      );
+    }
+
     console.log('GET API route called');
     const { searchParams } = new URL(request.url);
     const approved = searchParams.get('approved');
