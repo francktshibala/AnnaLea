@@ -127,6 +127,29 @@ export default function BooksPage() {
                   </p>
                 </div>
 
+                {/* Book Trailer Video */}
+                <div className="my-8">
+                  <h4 className="text-xl font-bold font-display mb-4"
+                      style={{ color: 'var(--burgundy)' }}>
+                    Watch the Trailer
+                  </h4>
+                  <div className="relative rounded-xl overflow-hidden border-4"
+                       style={{ 
+                         borderColor: 'var(--sage-green)',
+                         aspectRatio: '16/9',
+                         boxShadow: '0 12px 24px rgba(107, 124, 89, 0.2)'
+                       }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/9aNP65skUAc"
+                      title="Isaiah Tree - Book Trailer"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ border: 'none' }}
+                    />
+                  </div>
+                </div>
+
                 {/* Enhanced Target Audience */}
                 <div className="bg-cream rounded-xl p-6"
                      style={{ backgroundColor: 'var(--cream)' }}>
