@@ -3,11 +3,19 @@ import { z } from 'zod';
 
 // Conditional import to handle missing environment variables during build
 let supabaseTyped: any = null;
+let supabaseError: string | null = null;
 try {
+  console.log('Environment check:', {
+    hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+    hasKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    urlValue: process.env.NEXT_PUBLIC_SUPABASE_URL?.substring(0, 20) + '...'
+  });
   const { supabaseTyped: supabase } = require('@/lib/supabase');
   supabaseTyped = supabase;
+  console.log('Supabase client created successfully');
 } catch (error) {
-  console.warn('Supabase not configured - reviews will not work until environment variables are set');
+  supabaseError = error instanceof Error ? error.message : 'Unknown error';
+  console.error('Supabase initialization error:', supabaseError);
 }
 
 // Validation schema for review submission
@@ -23,7 +31,7 @@ export async function POST(request: NextRequest) {
   try {
     if (!supabaseTyped) {
       return NextResponse.json(
-        { error: 'Database not configured' },
+        { error: 'Database not configured', details: supabaseError },
         { status: 503 }
       );
     }
@@ -96,7 +104,7 @@ export async function GET(request: NextRequest) {
   try {
     if (!supabaseTyped) {
       return NextResponse.json(
-        { error: 'Database not configured', reviews: [] },
+        { error: 'Database not configured', reviews: [], details: supabaseError },
         { status: 503 }
       );
     }
@@ -157,7 +165,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('API error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
