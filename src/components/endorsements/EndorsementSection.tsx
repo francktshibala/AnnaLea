@@ -22,56 +22,60 @@ export const EndorsementSection: React.FC = () => {
                style={{ backgroundColor: 'var(--burgundy)' }}></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
           {/* Portrait Section */}
-          <div className="flex justify-center">
-            <div className="relative group">
+          <div className="flex flex-col items-center">
+            <div className="relative group w-full max-w-sm">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#6B7C59] to-[#8B4A6B] rounded-2xl blur opacity-25 group-hover:opacity-35 transition duration-500"></div>
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-[#6B7C59]/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-[#6B7C59]/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <Image
                   src="/images/endorsements/church-leader-portrait.jpg"
                   alt="Keenan and Madeline Anderson"
-                  width={300}
-                  height={225}
+                  width={280}
+                  height={210}
                   className="rounded-xl shadow-lg object-cover w-full aspect-[4/3]"
                   priority
                 />
               </div>
             </div>
+            <div className="mt-4 text-center">
+              <p className="text-lg font-semibold text-[#2C3E50] font-serif">
+                Keenan & Madeline Anderson
+              </p>
+              <p className="text-sm text-[#6B7C59] font-medium mt-1">
+                Church Leaders & Book Reviewers
+              </p>
+            </div>
           </div>
 
           {/* Endorsement Letter Section */}
-          <div className="flex justify-center">
-            <div className="relative group">
+          <div className="flex flex-col items-center">
+            <div className="relative group w-full max-w-sm">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#D4A574] to-[#8B4A6B] rounded-2xl blur opacity-25 group-hover:opacity-35 transition duration-500"></div>
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-[#D4A574]/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-[#D4A574]/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <Image
                   src="/images/endorsements/endorsement-letter.png"
                   alt="Handwritten Endorsement Letter from Keenan and Madeline Anderson"
-                  width={300}
-                  height={400}
+                  width={280}
+                  height={360}
                   className="rounded-xl shadow-lg object-cover w-full aspect-[3/4]"
                 />
               </div>
             </div>
-          </div>
-
-          {/* Attribution Section */}
-          <div className="space-y-6 text-center lg:text-left">
-            <div className="space-y-4">
-              <p className="text-xl lg:text-2xl font-semibold text-[#2C3E50] font-serif">
-                Keenan and Madeline Anderson
+            <div className="mt-4 text-center">
+              <p className="text-lg font-semibold text-[#2C3E50] font-serif">
+                Handwritten Letter
               </p>
-              <p className="text-base text-[#6B7C59] font-medium">
-                Church Members & Book Reviewers
-              </p>
-              <p className="text-sm text-[#2C3E50]/70">
-                The Church of Jesus Christ of Latter-day Saints
+              <p className="text-sm text-[#6B7C59] font-medium mt-1">
+                Personal Endorsement
               </p>
             </div>
+          </div>
 
+          {/* Quote Section */}
+          <div className="flex flex-col items-center justify-center space-y-6">
             {/* Trust Badge */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center">
               <div className="inline-flex items-center px-4 py-2 bg-[#D4A574]/10 border border-[#D4A574]/30 rounded-full">
                 <div className="w-2 h-2 bg-[#D4A574] rounded-full mr-3"></div>
                 <span className="text-sm font-medium text-[#2C3E50]">
@@ -81,10 +85,19 @@ export const EndorsementSection: React.FC = () => {
             </div>
 
             {/* Summary Quote */}
-            <div className="mt-8 p-6 bg-white/50 rounded-xl border border-[#6B7C59]/20">
+            <div className="w-full p-6 bg-white/50 rounded-xl border border-[#6B7C59]/20">
               <blockquote className="text-base lg:text-lg leading-relaxed text-[#2C3E50] font-serif italic text-center">
                 "We read it in detail and were so encouraged by the strengths and study and knowledge found in your first book. We found it enjoyable and interesting, enlightening..."
               </blockquote>
+            </div>
+
+            <div className="text-center">
+              <p className="text-lg font-semibold text-[#2C3E50] font-serif">
+                Reader Review
+              </p>
+              <p className="text-sm text-[#6B7C59] font-medium mt-1">
+                Detailed Feedback
+              </p>
             </div>
           </div>
         </div>
