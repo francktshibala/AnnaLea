@@ -15,7 +15,7 @@ export const EndorsementSection: React.FC = () => {
               <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-[#6B7C59]/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                 <Image
                   src="/images/endorsements/church-leader-portrait.jpg"
-                  alt="Church Leader Portrait"
+                  alt="Keenan and Madeline Anderson"
                   width={400}
                   height={300}
                   className="rounded-xl shadow-lg object-cover w-full aspect-[4/3]"
@@ -32,7 +32,7 @@ export const EndorsementSection: React.FC = () => {
                 "
               </div>
               <blockquote className="text-lg lg:text-xl leading-relaxed text-[#2C3E50] font-serif italic pl-8">
-                Anna Lea's profound spiritual insights and dedication to sharing the gospel through her writing make her work a valuable contribution to our faith community. Her books inspire and uplift readers on their spiritual journey.
+                We read it in detail and were so encouraged by the strengths and study and knowledge found in your first book. We found it enjoyable and interesting, enlightening our Father in Heaven blessing you and your husband as you continue and we are blessed to favor you and your husband as you continue care and teaching of our Eternal Perspective.
               </blockquote>
               <div className="absolute -right-4 -bottom-2 text-6xl text-[#8B4A6B]/20 font-serif leading-none">
                 "
@@ -42,10 +42,10 @@ export const EndorsementSection: React.FC = () => {
             <div className="pl-8 border-l-4 border-[#6B7C59]">
               <div className="space-y-2">
                 <p className="text-xl font-semibold text-[#2C3E50] font-serif">
-                  Elder Michael Thompson
+                  Keenan and Madeline Anderson
                 </p>
                 <p className="text-base text-[#6B7C59] font-medium">
-                  Area Authority Seventy
+                  Church Members & Book Reviewers
                 </p>
                 <p className="text-sm text-[#2C3E50]/70">
                   The Church of Jesus Christ of Latter-day Saints
@@ -58,7 +58,7 @@ export const EndorsementSection: React.FC = () => {
               <div className="inline-flex items-center px-4 py-2 bg-[#D4A574]/10 border border-[#D4A574]/30 rounded-full">
                 <div className="w-2 h-2 bg-[#D4A574] rounded-full mr-3"></div>
                 <span className="text-sm font-medium text-[#2C3E50]">
-                  Official Church Endorsement
+                  Reader Testimonial
                 </span>
               </div>
             </div>
