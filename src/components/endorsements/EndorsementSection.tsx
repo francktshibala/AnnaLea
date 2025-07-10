@@ -73,31 +73,35 @@ export const EndorsementSection: React.FC = () => {
           </div>
 
           {/* Quote Section */}
-          <div className="flex flex-col items-center justify-center space-y-6">
-            {/* Trust Badge */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center px-4 py-2 bg-[#D4A574]/10 border border-[#D4A574]/30 rounded-full">
-                <div className="w-2 h-2 bg-[#D4A574] rounded-full mr-3"></div>
-                <span className="text-sm font-medium text-[#2C3E50]">
-                  Authentic Reader Testimonial
-                </span>
+          <div className="flex flex-col items-center space-y-4">
+            {/* Summary Quote - Aligned at top */}
+            <div className="relative group w-full max-w-sm">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#8B4A6B] to-[#6B7C59] rounded-2xl blur opacity-25 group-hover:opacity-35 transition duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-[#8B4A6B]/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                <blockquote className="text-base lg:text-lg leading-relaxed text-[#2C3E50] font-serif italic text-center">
+                  "We read it in detail and were so encouraged by the strengths and study and knowledge found in your first book. We found it enjoyable and interesting, enlightening..."
+                </blockquote>
               </div>
             </div>
 
-            {/* Summary Quote */}
-            <div className="w-full p-6 bg-white/50 rounded-xl border border-[#6B7C59]/20">
-              <blockquote className="text-base lg:text-lg leading-relaxed text-[#2C3E50] font-serif italic text-center">
-                "We read it in detail and were so encouraged by the strengths and study and knowledge found in your first book. We found it enjoyable and interesting, enlightening..."
-              </blockquote>
-            </div>
-
-            <div className="text-center">
+            {/* Labels and badge below */}
+            <div className="mt-4 text-center space-y-2">
               <p className="text-lg font-semibold text-[#2C3E50] font-serif">
                 Reader Review
               </p>
-              <p className="text-sm text-[#6B7C59] font-medium mt-1">
+              <p className="text-sm text-[#6B7C59] font-medium">
                 Detailed Feedback
               </p>
+              
+              {/* Trust Badge */}
+              <div className="flex justify-center mt-3">
+                <div className="inline-flex items-center px-3 py-1 bg-[#D4A574]/10 border border-[#D4A574]/30 rounded-full">
+                  <div className="w-2 h-2 bg-[#D4A574] rounded-full mr-2"></div>
+                  <span className="text-xs font-medium text-[#2C3E50]">
+                    Authentic Testimonial
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
